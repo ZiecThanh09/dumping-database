@@ -1,0 +1,289 @@
+2,'Can view historical learner credit enterprise course enrollment',402,'view_historicallearnercreditenterprisecourseenrollment'),(1613,'Can add ChatGPT Response',403,'add_chatgptresponse'),(1614,'Can change ChatGPT Response',403,'change_chatgptresponse'),(1615,'Can delete ChatGPT Response',403,'delete_chatgptresponse'),(1616,'Can view ChatGPT Response',403,'view_chatgptresponse'),(1617,'Can add historical Enterprise Customer SSO Configuration',404,'add_historicalenterprisecustomerssoconfiguration'),(1618,'Can change historical Enterprise Customer SSO Configuration',404,'change_historicalenterprisecustomerssoconfiguration'),(1619,'Can delete historical Enterprise Customer SSO Configuration',404,'delete_historicalenterprisecustomerssoconfiguration'),(1620,'Can view historical Enterprise Customer SSO Configuration',404,'view_historicalenterprisecustomerssoconfiguration'),(1621,'Can add Enterprise Customer SSO Configuration',405,'add_enterprisecustomerssoconfiguration'),(1622,'Can change Enterprise Customer SSO Configuration',405,'change_enterprisecustomerssoconfiguration'),(1623,'Can delete Enterprise Customer SSO Configuration',405,'delete_enterprisecustomerssoconfiguration'),(1624,'Can view Enterprise Customer SSO Configuration',405,'view_enterprisecustomerssoconfiguration'),(1625,'Can add Enterprise Group',406,'add_enterprisegroup'),(1626,'Can change Enterprise Group',406,'change_enterprisegroup'),(1627,'Can delete Enterprise Group',406,'delete_enterprisegroup'),(1628,'Can view Enterprise Group',406,'view_enterprisegroup'),(1629,'Can add historical Enterprise Group Membership',407,'add_historicalenterprisegroupmembership'),(1630,'Can change historical Enterprise Group Membership',407,'change_historicalenterprisegroupmembership'),(1631,'Can delete historical Enterprise Group Membership',407,'delete_historicalenterprisegroupmembership'),(1632,'Can view historical Enterprise Group Membership',407,'view_historicalenterprisegroupmembership'),(1633,'Can add historical Enterprise Group',408,'add_historicalenterprisegroup'),(1634,'Can change historical Enterprise Group',408,'change_historicalenterprisegroup'),(1635,'Can delete historical Enterprise Group',408,'delete_historicalenterprisegroup'),(1636,'Can view historical Enterprise Group',408,'view_historicalenterprisegroup'),(1637,'Can add Enterprise Group Membership',409,'add_enterprisegroupmembership'),(1638,'Can change Enterprise Group Membership',409,'change_enterprisegroupmembership'),(1639,'Can delete Enterprise Group Membership',409,'delete_enterprisegroupmembership'),(1640,'Can view Enterprise Group Membership',409,'view_enterprisegroupmembership'),(1641,'Can add Data Sharing Consent Record',410,'add_datasharingconsent'),(1642,'Can change Data Sharing Consent Record',410,'change_datasharingconsent'),(1643,'Can delete Data Sharing Consent Record',410,'delete_datasharingconsent'),(1644,'Can view Data Sharing Consent Record',410,'view_datasharingconsent'),(1645,'Can add historical Data Sharing Consent Record',411,'add_historicaldatasharingconsent'),(1646,'Can change historical Data Sharing Consent Record',411,'change_historicaldatasharingconsent'),(1647,'Can delete historical Data Sharing Consent Record',411,'delete_historicaldatasharingconsent'),(1648,'Can view historical Data Sharing Consent Record',411,'view_historicaldatasharingconsent'),(1649,'Can add data sharing consent text overrides',412,'add_datasharingconsenttextoverrides'),(1650,'Can change data sharing consent text overrides',412,'change_datasharingconsenttextoverrides'),(1651,'Can delete data sharing consent text overrides',412,'delete_datasharingconsenttextoverrides'),(1652,'Can view data sharing consent text overrides',412,'view_datasharingconsenttextoverrides'),(1653,'Can add content metadata item transmission',413,'add_contentmetadataitemtransmission'),(1654,'Can change content metadata item transmission',413,'change_contentmetadataitemtransmission'),(1655,'Can delete content metadata item transmission',413,'delete_contentmetadataitemtransmission'),(1656,'Can view content metadata item transmission',413,'view_contentmetadataitemtransmission'),(1657,'Can add generic learner data transmission audit',414,'add_genericlearnerdatatransmissionaudit'),(1658,'Can change generic learner data transmission audit',414,'change_genericlearnerdatatransmissionaudit'),(1659,'Can delete generic learner data transmission audit',414,'delete_genericlearnerdatatransmissionaudit'),(1660,'Can view generic learner data transmission audit',414,'view_genericlearnerdatatransmissionaudit'),(1661,'Can add generic enterprise customer plugin configuration',415,'add_genericenterprisecustomerpluginconfiguration'),(1662,'Can change generic enterprise customer plugin configuration',415,'change_genericenterprisecustomerpluginconfiguration'),(1663,'Can delete generic enterprise customer plugin configuration',415,'delete_genericenterprisecustomerpluginconfiguration'),(1664,'Can view generic enterprise customer plugin configuration',415,'view_genericenterprisecustomerpluginconfiguration'),(1665,'Can add api response record',416,'add_apiresponserecord'),(1666,'Can change api response record',416,'change_apiresponserecord'),(1667,'Can delete api response record',416,'delete_apiresponserecord'),(1668,'Can view api response record',416,'view_apiresponserecord'),(1669,'Can add orphaned content transmissions',417,'add_orphanedcontenttransmissions'),(1670,'Can change orphaned content transmissions',417,'change_orphanedcontenttransmissions'),(1671,'Can delete orphaned content transmissions',417,'delete_orphanedcontenttransmissions'),(1672,'Can view orphaned content transmissions',417,'view_orphanedcontenttransmissions'),(1673,'Can add integrated channel api request logs',418,'add_integratedchannelapirequestlogs'),(1674,'Can change integrated channel api request logs',418,'change_integratedchannelapirequestlogs'),(1675,'Can delete integrated channel api request logs',418,'delete_integratedchannelapirequestlogs'),(1676,'Can view integrated channel api request logs',418,'view_integratedchannelapirequestlogs'),(1677,'Can add degreed enterprise customer configuration',419,'add_degreedenterprisecustomerconfiguration'),(1678,'Can change degreed enterprise customer configuration',419,'change_degreedenterprisecustomerconfiguration'),(1679,'Can delete degreed enterprise customer configuration',419,'delete_degreedenterprisecustomerconfiguration'),(1680,'Can view degreed enterprise customer configuration',419,'view_degreedenterprisecustomerconfiguration'),(1681,'Can add degreed global configuration',420,'add_degreedglobalconfiguration'),(1682,'Can change degreed global configuration',420,'change_degreedglobalconfiguration'),(1683,'Can delete degreed global configuration',420,'delete_degreedglobalconfiguration'),(1684,'Can view degreed global configuration',420,'view_degreedglobalconfiguration'),(1685,'Can add degreed learner data transmission audit',421,'add_degreedlearnerdatatransmissionaudit'),(1686,'Can change degreed learner data transmission audit',421,'change_degreedlearnerdatatransmissionaudit'),(1687,'Can delete degreed learner data transmission audit',421,'delete_degreedlearnerdatatransmissionaudit'),(1688,'Can view degreed learner data transmission audit',421,'view_degreedlearnerdatatransmissionaudit'),(1689,'Can add degreed2 learner data transmission audit',422,'add_degreed2learnerdatatransmissionaudit'),(1690,'Can change degreed2 learner data transmission audit',422,'change_degreed2learnerdatatransmissionaudit'),(1691,'Can delete degreed2 learner data transmission audit',422,'delete_degreed2learnerdatatransmissionaudit'),(1692,'Can view degreed2 learner data transmission audit',422,'view_degreed2learnerdatatransmissionaudit'),(1693,'Can add degreed2 enterprise customer configuration',423,'add_degreed2enterprisecustomerconfiguration'),(1694,'Can change degreed2 enterprise customer configuration',423,'change_degreed2enterprisecustomerconfiguration'),(1695,'Can delete degreed2 enterprise customer configuration',423,'delete_degreed2enterprisecustomerconfiguration'),(1696,'Can view degreed2 enterprise customer configuration',423,'view_degreed2enterprisecustomerconfiguration'),(1697,'Can add sap success factors global configuration',424,'add_sapsuccessfactorsglobalconfiguration'),(1698,'Can change sap success factors global configuration',424,'change_sapsuccessfactorsglobalconfiguration'),(1699,'Can delete sap success factors global configuration',424,'delete_sapsuccessfactorsglobalconfiguration'),(1700,'Can view sap success factors global configuration',424,'view_sapsuccessfactorsglobalconfiguration'),(1701,'Can add sap success factors enterprise customer configuration',425,'add_sapsuccessfactorsenterprisecustomerconfiguration'),(1702,'Can change sap success factors enterprise customer configuration',425,'change_sapsuccessfactorsenterprisecustomerconfiguration'),(1703,'Can delete sap success factors enterprise customer configuration',425,'delete_sapsuccessfactorsenterprisecustomerconfiguration'),(1704,'Can view sap success factors enterprise customer configuration',425,'view_sapsuccessfactorsenterprisecustomerconfiguration'),(1705,'Can add sap success factors learner data transmission audit',426,'add_sapsuccessfactorslearnerdatatransmissionaudit'),(1706,'Can change sap success factors learner data transmission audit',426,'change_sapsuccessfactorslearnerdatatransmissionaudit'),(1707,'Can delete sap success factors learner data transmission audit',426,'delete_sapsuccessfactorslearnerdatatransmissionaudit'),(1708,'Can view sap success factors learner data transmission audit',426,'view_sapsuccessfactorslearnerdatatransmissionaudit'),(1709,'Can add cornerstone enterprise customer configuration',427,'add_cornerstoneenterprisecustomerconfiguration'),(1710,'Can change cornerstone enterprise customer configuration',427,'change_cornerstoneenterprisecustomerconfiguration'),(1711,'Can delete cornerstone enterprise customer configuration',427,'delete_cornerstoneenterprisecustomerconfiguration'),(1712,'Can view cornerstone enterprise customer configuration',427,'view_cornerstoneenterprisecustomerconfiguration'),(1713,'Can add cornerstone global configuration',428,'add_cornerstoneglobalconfiguration'),(1714,'Can change cornerstone global configuration',428,'change_cornerstoneglobalconfiguration'),(1715,'Can delete cornerstone global configuration',428,'delete_cornerstoneglobalconfiguration'),(1716,'Can view cornerstone global configuration',428,'view_cornerstoneglobalconfiguration'),(1717,'Can add cornerstone learner data transmission audit',429,'add_cornerstonelearnerdatatransmissionaudit'),(1718,'Can change cornerstone learner data transmission audit',429,'change_cornerstonelearnerdatatransmissionaudit'),(1719,'Can delete cornerstone learner data transmission audit',429,'delete_cornerstonelearnerdatatransmissionaudit'),(1720,'Can view cornerstone learner data transmission audit',429,'view_cornerstonelearnerdatatransmissionaudit'),(1721,'Can add cornerstone course key',430,'add_cornerstonecoursekey'),(1722,'Can change cornerstone course key',430,'change_cornerstonecoursekey'),(1723,'Can delete cornerstone course key',430,'delete_cornerstonecoursekey'),(1724,'Can view cornerstone course key',430,'view_cornerstonecoursekey'),(1725,'Can add xapilrs configuration',431,'add_xapilrsconfiguration'),(1726,'Can change xapilrs configuration',431,'change_xapilrsconfiguration'),(1727,'Can delete xapilrs configuration',431,'delete_xapilrsconfiguration'),(1728,'Can view xapilrs configuration',431,'view_xapilrsconfiguration'),(1729,'Can add xapi learner data transmission audit',432,'add_xapilearnerdatatransmissionaudit'),(1730,'Can change xapi learner data transmission audit',432,'change_xapilearnerdatatransmissionaudit'),(1731,'Can delete xapi learner data transmission audit',432,'delete_xapilearnerdatatransmissionaudit'),(1732,'Can view xapi learner data transmission audit',432,'view_xapilearnerdatatransmissionaudit'),(1733,'Can add blackboard learner data transmission audit',433,'add_blackboardlearnerdatatransmissionaudit'),(1734,'Can change blackboard learner data transmission audit',433,'change_blackboardlearnerdatatransmissionaudit'),(1735,'Can delete blackboard learner data transmission audit',433,'delete_blackboardlearnerdatatransmissionaudit'),(1736,'Can view blackboard learner data transmission audit',433,'view_blackboardlearnerdatatransmissionaudit'),(1737,'Can add blackboard learner assessment data transmission audit',434,'add_blackboardlearnerassessmentdatatransmissionaudit'),(1738,'Can change blackboard learner assessment data transmission audit',434,'change_blackboardlearnerassessmentdatatransmissionaudit'),(1739,'Can delete blackboard learner assessment data transmission audit',434,'delete_blackboardlearnerassessmentdatatransmissionaudit'),(1740,'Can view blackboard learner assessment data transmission audit',434,'view_blackboardlearnerassessmentdatatransmissionaudit'),(1741,'Can add blackboard enterprise customer configuration',435,'add_blackboardenterprisecustomerconfiguration'),(1742,'Can change blackboard enterprise customer configuration',435,'change_blackboardenterprisecustomerconfiguration'),(1743,'Can delete blackboard enterprise customer configuration',435,'delete_blackboardenterprisecustomerconfiguration'),(1744,'Can view blackboard enterprise customer configuration',435,'view_blackboardenterprisecustomerconfiguration'),(1745,'Can add blackboard global configuration',436,'add_blackboardglobalconfiguration'),(1746,'Can change blackboard global configuration',436,'change_blackboardglobalconfiguration'),(1747,'Can delete blackboard global configuration',436,'delete_blackboardglobalconfiguration'),(1748,'Can view blackboard global configuration',436,'view_blackboardglobalconfiguration'),(1749,'Can add canvas enterprise customer configuration',437,'add_canvasenterprisecustomerconfiguration'),(1750,'Can change canvas enterprise customer configuration',437,'change_canvasenterprisecustomerconfiguration'),(1751,'Can delete canvas enterprise customer configuration',437,'delete_canvasenterprisecustomerconfiguration'),(1752,'Can view canvas enterprise customer configuration',437,'view_canvasenterprisecustomerconfiguration'),(1753,'Can add canvas learner data transmission audit',438,'add_canvaslearnerdatatransmissionaudit'),(1754,'Can change canvas learner data transmission audit',438,'change_canvaslearnerdatatransmissionaudit'),(1755,'Can delete canvas learner data transmission audit',438,'delete_canvaslearnerdatatransmissionaudit'),(1756,'Can view canvas learner data transmission audit',438,'view_canvaslearnerdatatransmissionaudit'),(1757,'Can add canvas learner assessment data transmission audit',439,'add_canvaslearnerassessmentdatatransmissionaudit'),(1758,'Can change canvas learner assessment data transmission audit',439,'change_canvaslearnerassessmentdatatransmissionaudit'),(1759,'Can delete canvas learner assessment data transmission audit',439,'delete_canvaslearnerassessmentdatatransmissionaudit'),(1760,'Can view canvas learner assessment data transmission audit',439,'view_canvaslearnerassessmentdatatransmissionaudit'),(1761,'Can add moodle enterprise customer configuration',440,'add_moodleenterprisecustomerconfiguration'),(1762,'Can change moodle enterprise customer configuration',440,'change_moodleenterprisecustomerconfiguration'),(1763,'Can delete moodle enterprise customer configuration',440,'delete_moodleenterprisecustomerconfiguration'),(1764,'Can view moodle enterprise customer configuration',440,'view_moodleenterprisecustomerconfiguration'),(1765,'Can add moodle learner data transmission audit',441,'add_moodlelearnerdatatransmissionaudit'),(1766,'Can change moodle learner data transmission audit',441,'change_moodlelearnerdatatransmissionaudit'),(1767,'Can delete moodle learner data transmission audit',441,'delete_moodlelearnerdatatransmissionaudit'),(1768,'Can view moodle learner data transmission audit',441,'view_moodlelearnerdatatransmissionaudit'),(1769,'Can add announcement',442,'add_announcement'),(1770,'Can change announcement',442,'change_announcement'),(1771,'Can delete announcement',442,'delete_announcement'),(1772,'Can view announcement',442,'view_announcement'),(1773,'Can add bookmark',443,'add_bookmark'),(1774,'Can change bookmark',443,'change_bookmark'),(1775,'Can delete bookmark',443,'delete_bookmark'),(1776,'Can view bookmark',443,'view_bookmark'),(1777,'Can add x block cache',444,'add_xblockcache'),(1778,'Can change x block cache',444,'change_xblockcache'),(1779,'Can delete x block cache',444,'delete_xblockcache'),(1780,'Can view x block cache',444,'view_xblockcache'),(1781,'Can add content library',445,'add_contentlibrary'),(1782,'Can change content library',445,'change_contentlibrary'),(1783,'Can delete content library',445,'delete_contentlibrary'),(1784,'Can view content library',445,'view_contentlibrary'),(1785,'Can add content library permission',446,'add_contentlibrarypermission'),(1786,'Can change content library permission',446,'change_contentlibrarypermission'),(1787,'Can delete content library permission',446,'delete_contentlibrarypermission'),(1788,'Can view content library permission',446,'view_contentlibrarypermission'),(1789,'Can add lti profile',447,'add_ltiprofile'),(1790,'Can change lti profile',447,'change_ltiprofile'),(1791,'Can delete lti profile',447,'delete_ltiprofile'),(1792,'Can view lti profile',447,'view_ltiprofile'),(1793,'Can add lti graded resource',448,'add_ltigradedresource'),(1794,'Can change lti graded resource',448,'change_ltigradedresource'),(1795,'Can delete lti graded resource',448,'delete_ltigradedresource'),(1796,'Can view lti graded resource',448,'view_ltigradedresource'),(1797,'Can add content library block import task',449,'add_contentlibraryblockimporttask'),(1798,'Can change content library block import task',449,'change_contentlibraryblockimporttask'),(1799,'Can delete content library block import task',449,'delete_contentlibraryblockimporttask'),(1800,'Can view content library block import task',449,'view_contentlibraryblockimporttask'),(1801,'Can add course app status',450,'add_courseappstatus'),(1802,'Can change course app status',450,'change_courseappstatus'),(1803,'Can delete course app status',450,'delete_courseappstatus'),(1804,'Can view course app status',450,'view_courseappstatus'),(1805,'Can add historical course app status',451,'add_historicalcourseappstatus'),(1806,'Can change historical course app status',451,'change_historicalcourseappstatus'),(1807,'Can delete historical course app status',451,'delete_historicalcourseappstatus'),(1808,'Can view historical course app status',451,'view_historicalcourseappstatus'),(1809,'Can add historical course live configuration',452,'add_historicalcourseliveconfiguration'),(1810,'Can change historical course live configuration',452,'change_historicalcourseliveconfiguration'),(1811,'Can delete historical course live configuration',452,'delete_historicalcourseliveconfiguration'),(1812,'Can view historical course live configuration',452,'view_historicalcourseliveconfiguration'),(1813,'Can add course live configuration',453,'add_courseliveconfiguration'),(1814,'Can change course live configuration',453,'change_courseliveconfiguration'),(1815,'Can delete course live configuration',453,'delete_courseliveconfiguration'),(1816,'Can view course live configuration',453,'view_courseliveconfiguration'),(1817,'Can add credentials api config',454,'add_credentialsapiconfig'),(1818,'Can change credentials api config',454,'change_credentialsapiconfig'),(1819,'Can delete credentials api config',454,'delete_credentialsapiconfig'),(1820,'Can view credentials api config',454,'view_credentialsapiconfig'),(1821,'Can add notify_credentials argument',455,'add_notifycredentialsconfig'),(1822,'Can change notify_credentials argument',455,'change_notifycredentialsconfig'),(1823,'Can delete notify_credentials argument',455,'delete_notifycredentialsconfig'),(1824,'Can view notify_credentials argument',455,'view_notifycredentialsconfig'),(1825,'Can add historical discussions configuration',456,'add_historicaldiscussionsconfiguration'),(1826,'Can change historical discussions configuration',456,'change_historicaldiscussionsconfiguration'),(1827,'Can delete historical discussions configuration',456,'delete_historicaldiscussionsconfiguration'),(1828,'Can view historical discussions configuration',456,'view_historicaldiscussionsconfiguration'),(1829,'Can add discussions configuration',457,'add_discussionsconfiguration'),(1830,'Can change discussions configuration',457,'change_discussionsconfiguration'),(1831,'Can delete discussions configuration',457,'delete_discussionsconfiguration'),(1832,'Can view discussions configuration',457,'view_discussionsconfiguration'),(1833,'Can add provider filter',458,'add_providerfilter'),(1834,'Can change provider filter',458,'change_providerfilter'),(1835,'Can delete provider filter',458,'delete_providerfilter'),(1836,'Can view provider filter',458,'view_providerfilter'),(1837,'Can add discussion topic link',459,'add_discussiontopiclink'),(1838,'Can change discussion topic link',459,'change_discussiontopiclink'),(1839,'Can delete discussion topic link',459,'delete_discussiontopiclink'),(1840,'Can view discussion topic link',459,'view_discussiontopiclink'),(1841,'Can add persistent subsection grade',460,'add_persistentsubsectiongrade'),(1842,'Can change persistent subsection grade',460,'change_persistentsubsectiongrade'),(1843,'Can delete persistent subsection grade',460,'delete_persistentsubsectiongrade'),(1844,'Can view persistent subsection grade',460,'view_persistentsubsectiongrade'),(1845,'Can add visible blocks',461,'add_visibleblocks'),(1846,'Can change visible blocks',461,'change_visibleblocks'),(1847,'Can delete visible blocks',461,'delete_visibleblocks'),(1848,'Can view visible blocks',461,'view_visibleblocks'),(1849,'Can add persistent course grade',462,'add_persistentcoursegrade'),(1850,'Can change persistent course grade',462,'change_persistentcoursegrade'),(1851,'Can delete persistent course grade',462,'delete_persistentcoursegrade'),(1852,'Can view persistent course grade',462,'view_persistentcoursegrade'),(1853,'Can add compute grades setting',463,'add_computegradessetting'),(1854,'Can change compute grades setting',463,'change_computegradessetting'),(1855,'Can delete compute grades setting',463,'delete_computegradessetting'),(1856,'Can view compute grades setting',463,'view_computegradessetting'),(1857,'Can add persistent subsection grade override',464,'add_persistentsubsectiongradeoverride'),(1858,'Can change persistent subsection grade override',464,'change_persistentsubsectiongradeoverride'),(1859,'Can delete persistent subsection grade override',464,'delete_persistentsubsectiongradeoverride'),(1860,'Can view persistent subsection grade override',464,'view_persistentsubsectiongradeoverride'),(1861,'Can add historical persistent subsection grade override',465,'add_historicalpersistentsubsectiongradeoverride'),(1862,'Can change historical persistent subsection grade override',465,'change_historicalpersistentsubsectiongradeoverride'),(1863,'Can delete historical persistent subsection grade override',465,'delete_historicalpersistentsubsectiongradeoverride'),(1864,'Can view historical persistent subsection grade override',465,'view_historicalpersistentsubsectiongradeoverride'),(1865,'Can add historical program enrollment',466,'add_historicalprogramenrollment'),(1866,'Can change historical program enrollment',466,'change_historicalprogramenrollment'),(1867,'Can delete historical program enrollment',466,'delete_historicalprogramenrollment'),(1868,'Can view historical program enrollment',466,'view_historicalprogramenrollment'),(1869,'Can add program enrollment',467,'add_programenrollment'),(1870,'Can change program enrollment',467,'change_programenrollment'),(1871,'Can delete program enrollment',467,'delete_programenrollment'),(1872,'Can view program enrollment',467,'view_programenrollment'),(1873,'Can add historical program course enrollment',468,'add_historicalprogramcourseenrollment'),(1874,'Can change historical program course enrollment',468,'change_historicalprogramcourseenrollment'),(1875,'Can delete historical program course enrollment',468,'delete_historicalprogramcourseenrollment'),(1876,'Can view historical program course enrollment',468,'view_historicalprogramcourseenrollment'),(1877,'Can add program course enrollment',469,'add_programcourseenrollment'),(1878,'Can change program course enrollment',469,'change_programcourseenrollment'),(1879,'Can delete program course enrollment',469,'delete_programcourseenrollment'),(1880,'Can view program course enrollment',469,'view_programcourseenrollment'),(1881,'Can add course access role assignment',470,'add_courseaccessroleassignment'),(1882,'Can change course access role assignment',470,'change_courseaccessroleassignment'),(1883,'Can delete course access role assignment',470,'delete_courseaccessroleassignment'),(1884,'Can view course access role assignment',470,'view_courseaccessroleassignment'),(1885,'Can add site theme',471,'add_sitetheme'),(1886,'Can change site theme',471,'change_sitetheme'),(1887,'Can delete site theme',471,'delete_sitetheme'),(1888,'Can view site theme',471,'view_sitetheme'),(1889,'Can add lti configuration',472,'add_lticonfiguration'),(1890,'Can change lti configuration',472,'change_lticonfiguration'),(1891,'Can delete lti configuration',472,'delete_lticonfiguration'),(1892,'Can view lti configuration',472,'view_lticonfiguration'),(1893,'Can add lti ags line item',473,'add_ltiagslineitem'),(1894,'Can change lti ags line item',473,'change_ltiagslineitem'),(1895,'Can delete lti ags line item',473,'delete_ltiagslineitem'),(1896,'Can view lti ags line item',473,'view_ltiagslineitem'),(1897,'Can add lti ags score',474,'add_ltiagsscore'),(1898,'Can change lti ags score',474,'change_ltiagsscore'),(1899,'Can delete lti ags score',474,'delete_ltiagsscore'),(1900,'Can view lti ags score',474,'view_ltiagsscore'),(1901,'Can add lti dl content item',475,'add_ltidlcontentitem'),(1902,'Can change lti dl content item',475,'change_ltidlcontentitem'),(1903,'Can delete lti dl content item',475,'delete_ltidlcontentitem'),(1904,'Can view lti dl content item',475,'view_ltidlcontentitem'),(1905,'Can add course allow pii sharing in lti flag',476,'add_courseallowpiisharinginltiflag'),(1906,'Can change course allow pii sharing in lti flag',476,'change_courseallowpiisharinginltiflag'),(1907,'Can delete course allow pii sharing in lti flag',476,'delete_courseallowpiisharinginltiflag'),(1908,'Can view course allow pii sharing in lti flag',476,'view_courseallowpiisharinginltiflag'),(1909,'Can add content date',477,'add_contentdate'),(1910,'Can change content date',477,'change_contentdate'),(1911,'Can delete content date',477,'delete_contentdate'),(1912,'Can view content date',477,'view_contentdate'),(1913,'Can add date policy',478,'add_datepolicy'),(1914,'Can change date policy',478,'change_datepolicy'),(1915,'Can delete date policy',478,'delete_datepolicy'),(1916,'Can view date policy',478,'view_datepolicy'),(1917,'Can add user date',479,'add_userdate'),(1918,'Can change user date',479,'change_userdate'),(1919,'Can delete user date',479,'delete_userdate'),(1920,'Can view user date',479,'view_userdate'),(1921,'Can add verified name',480,'add_verifiedname'),(1922,'Can change verified name',480,'change_verifiedname'),(1923,'Can delete verified name',480,'delete_verifiedname'),(1924,'Can view verified name',480,'view_verifiedname'),(1925,'Can add verified name config',481,'add_verifiednameconfig'),(1926,'Can change verified name config',481,'change_verifiednameconfig'),(1927,'Can delete verified name config',481,'delete_verifiednameconfig'),(1928,'Can view verified name config',481,'view_verifiednameconfig'),(1929,'Can add historical verified name',482,'add_historicalverifiedname'),(1930,'Can change historical verified name',482,'change_historicalverifiedname'),(1931,'Can delete historical verified name',482,'delete_historicalverifiedname'),(1932,'Can view historical verified name',482,'view_historicalverifiedname'),(1933,'Can add csv operation',483,'add_csvoperation'),(1934,'Can change csv operation',483,'change_csvoperation'),(1935,'Can delete csv operation',483,'delete_csvoperation'),(1936,'Can view csv operation',483,'view_csvoperation'),(1937,'Can add score overrider',484,'add_scoreoverrider'),(1938,'Can change score overrider',484,'change_scoreoverrider'),(1939,'Can delete score overrider',484,'delete_scoreoverrider'),(1940,'Can view score overrider',484,'view_scoreoverrider'),(1941,'Can add block completion',485,'add_blockcompletion'),(1942,'Can change block completion',485,'change_blockcompletion'),(1943,'Can delete block completion',485,'delete_blockcompletion'),(1944,'Can view block completion',485,'view_blockcompletion'),(1945,'Can add proctored exam',486,'add_proctoredexam'),(1946,'Can change proctored exam',486,'change_proctoredexam'),(1947,'Can delete proctored exam',486,'delete_proctoredexam'),(1948,'Can view proctored exam',486,'view_proctoredexam'),(1949,'Can add Proctored exam review policy',487,'add_proctoredexamreviewpolicy'),(1950,'Can change Proctored exam review policy',487,'change_proctoredexamreviewpolicy'),(1951,'Can delete Proctored exam review policy',487,'delete_proctoredexamreviewpolicy'),(1952,'Can view Proctored exam review policy',487,'view_proctoredexamreviewpolicy'),(1953,'Can add proctored exam review policy history',488,'add_proctoredexamreviewpolicyhistory'),(1954,'Can change proctored exam review policy history',488,'change_proctoredexamreviewpolicyhistory'),(1955,'Can delete proctored exam review policy history',488,'delete_proctoredexamreviewpolicyhistory'),(1956,'Can view proctored exam review policy history',488,'view_proctoredexamreviewpolicyhistory'),(1957,'Can add proctored exam software secure comment',489,'add_proctoredexamsoftwaresecurecomment'),(1958,'Can change proctored exam software secure comment',489,'change_proctoredexamsoftwaresecurecomment'),(1959,'Can delete proctored exam software secure comment',489,'delete_proctoredexamsoftwaresecurecomment'),(1960,'Can view proctored exam software secure comment',489,'view_proctoredexamsoftwaresecurecomment'),(1961,'Can add Proctored exam software secure review',490,'add_proctoredexamsoftwaresecurereview'),(1962,'Can change Proctored exam software secure review',490,'change_proctoredexamsoftwaresecurereview'),(1963,'Can delete Proctored exam software secure review',490,'delete_proctoredexamsoftwaresecurereview'),(1964,'Can view Proctored exam software secure review',490,'view_proctoredexamsoftwaresecurereview'),(1965,'Can add Proctored exam review archive',491,'add_proctoredexamsoftwaresecurereviewhistory'),(1966,'Can change Proctored exam review archive',491,'change_proctoredexamsoftwaresecurereviewhistory'),(1967,'Can delete Proctored exam review archive',491,'delete_proctoredexamsoftwaresecurereviewhistory'),(1968,'Can view Proctored exam review archive',491,'view_proctoredexamsoftwaresecurereviewhistory'),(1969,'Can add proctored allowance',492,'add_proctoredexamstudentallowance'),(1970,'Can change proctored allowance',492,'change_proctoredexamstudentallowance'),(1971,'Can delete proctored allowance',492,'delete_proctoredexamstudentallowance'),(1972,'Can view proctored allowance',492,'view_proctoredexamstudentallowance'),(1973,'Can add proctored allowance history',493,'add_proctoredexamstudentallowancehistory'),(1974,'Can change proctored allowance history',493,'change_proctoredexamstudentallowancehistory'),(1975,'Can delete proctored allowance history',493,'delete_proctoredexamstudentallowancehistory'),(1976,'Can view proctored allowance history',493,'view_proctoredexamstudentallowancehistory'),(1977,'Can add proctored exam attempt',494,'add_proctoredexamstudentattempt'),(1978,'Can change proctored exam attempt',494,'change_proctoredexamstudentattempt'),(1979,'Can delete proctored exam attempt',494,'delete_proctoredexamstudentattempt'),(1980,'Can view proctored exam attempt',494,'view_proctoredexamstudentattempt'),(1981,'Can add historical proctored exam attempt',495,'add_historicalproctoredexamstudentattempt'),(1982,'Can change historical proctored exam attempt',495,'change_historicalproctoredexamstudentattempt'),(1983,'Can delete historical proctored exam attempt',495,'delete_historicalproctoredexamstudentattempt'),(1984,'Can view historical proctored exam attempt',495,'view_historicalproctoredexamstudentattempt'),(1985,'Can add historical proctored exam',496,'add_historicalproctoredexam'),(1986,'Can change historical proctored exam',496,'change_historicalproctoredexam'),(1987,'Can delete historical proctored exam',496,'delete_historicalproctoredexam'),(1988,'Can view historical proctored exam',496,'view_historicalproctoredexam'),(1989,'Can add Router Configuration',497,'add_routerconfiguration'),(1990,'Can change Router Configuration',497,'change_routerconfiguration'),(1991,'Can delete Router Configuration',497,'delete_routerconfiguration'),(1992,'Can view Router Configuration',497,'view_routerconfiguration'),(1993,'Can add video upload config',498,'add_videouploadconfig'),(1994,'Can change video upload config',498,'change_videouploadconfig'),(1995,'Can delete video upload config',498,'delete_videouploadconfig'),(1996,'Can view video upload config',498,'view_videouploadconfig'),(1997,'Can add course outline regenerate',499,'add_courseoutlineregenerate'),(1998,'Can change course outline regenerate',499,'change_courseoutlineregenerate'),(1999,'Can delete course outline regenerate',499,'delete_courseoutlineregenerate'),(2000,'Can view course outline regenerate',499,'view_courseoutlineregenerate'),(2001,'Can add Arguments for backfill_course_tabs',500,'add_backfillcoursetabsconfig'),(2002,'Can change Arguments for backfill_course_tabs',500,'change_backfillcoursetabsconfig'),(2003,'Can delete Arguments for backfill_course_tabs',500,'delete_backfillcoursetabsconfig'),(2004,'Can view Arguments for backfill_course_tabs',500,'view_backfillcoursetabsconfig'),(2005,'Can add Arguments for \'clean_stale_certificate_availability_dates\'',501,'add_cleanstalecertificateavailabilitydatesconfig'),(2006,'Can change Arguments for \'clean_stale_certificate_availability_dates\'',501,'change_cleanstalecertificateavailabilitydatesconfig'),(2007,'Can delete Arguments for \'clean_stale_certificate_availability_dates\'',501,'delete_cleanstalecertificateavailabilitydatesconfig'),(2008,'Can view Arguments for \'clean_stale_certificate_availability_dates\'',501,'view_cleanstalecertificateavailabilitydatesconfig'),(2009,'Can add course creator',502,'add_coursecreator'),(2010,'Can change course creator',502,'change_coursecreator'),(2011,'Can delete course creator',502,'delete_coursecreator'),(2012,'Can view course creator',502,'view_coursecreator'),(2013,'Can add studio config',503,'add_studioconfig'),(2014,'Can change studio config',503,'change_studioconfig'),(2015,'Can delete studio config',503,'delete_studioconfig'),(2016,'Can view studio config',503,'view_studioconfig'),(2017,'Can add course graph course dump',504,'add_coursegraphcoursedump'),(2018,'Can change course graph course dump',504,'change_coursegraphcoursedump'),(2019,'Can delete course graph course dump',504,'delete_coursegraphcoursedump'),(2020,'Can view course graph course dump',504,'view_coursegraphcoursedump'),(2021,'Can add available tag value',505,'add_tagavailablevalues'),(2022,'Can change available tag value',505,'change_tagavailablevalues'),(2023,'Can delete available tag value',505,'delete_tagavailablevalues'),(2024,'Can view available tag value',505,'view_tagavailablevalues'),(2025,'Can add tag category',506,'add_tagcategories'),(2026,'Can change tag category',506,'change_tagcategories'),(2027,'Can delete tag category',506,'delete_tagcategories'),(2028,'Can view tag category',506,'view_tagcategories'),(2029,'Can add search access',507,'add_searchaccess'),(2030,'Can change search access',507,'change_searchaccess'),(2031,'Can delete search access',507,'delete_searchaccess'),(2032,'Can view search access',507,'view_searchaccess'),(2033,'Can add staged content',508,'add_stagedcontent'),(2034,'Can change staged content',508,'change_stagedcontent'),(2035,'Can delete staged content',508,'delete_stagedcontent'),(2036,'Can view staged content',508,'view_stagedcontent'),(2037,'Can add user clipboard',509,'add_userclipboard'),(2038,'Can change user clipboard',509,'change_userclipboard'),(2039,'Can delete user clipboard',509,'delete_userclipboard'),(2040,'Can view user clipboard',509,'view_userclipboard'),(2041,'Can add staged content file',510,'add_stagedcontentfile'),(2042,'Can change staged content file',510,'change_stagedcontentfile'),(2043,'Can delete staged content file',510,'delete_stagedcontentfile'),(2044,'Can view staged content file',510,'view_stagedcontentfile');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_registration`
+--
+
+DROP TABLE IF EXISTS `auth_registration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_registration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `activation_key` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `activation_timestamp` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `activation_key` (`activation_key`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `auth_registration_user_id_f99bc297_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_registration`
+--
+
+LOCK TABLES `auth_registration` WRITE;
+/*!40000 ALTER TABLE `auth_registration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_registration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user`
+--
+
+DROP TABLE IF EXISTS `auth_user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_login` datetime(6) DEFAULT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `username` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `first_name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `date_joined` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user`
+--
+
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` VALUES (2,'!RkbBvHU0bkM8UlxjnuGYNKivdxlbJkPCEccJje1f',NULL,0,'login_service_user','','','login_service_user@fake.email',0,1,'2025-01-10 06:29:00.361481'),(3,'!KvnokfG4BMiAQqbhNHx7krYk0w9Yr3i0VIKKldNu',NULL,0,'cms','','','cms@openedx',0,1,'2025-01-10 06:30:26.130932'),(4,'pbkdf2_sha256$600000$qwlJfnNDdcrUyNWJNbG3nl$EyR+USxwEKmqtkZrnk9BNma+O1Tc6Ebyv/EnEm7fraM=',NULL,0,'superset','','','superset@apache',0,1,'2025-01-10 06:46:31.913914'),(5,'!RK6xsHYvVNyKR4NvgMJGyszTgAtdZ9f4i9wuhju4',NULL,0,'tutor-contrib-aspects','','','aspects@axim',0,1,'2025-01-10 06:46:52.145635'),(6,'pbkdf2_sha256$600000$Kais33i14HjDbQ4dxQZExK$4x64v1d1CSF/eG38277z0tkRBR9ttZHS9ZepUr5vFRE=','2025-01-14 09:57:42.391695',1,'admin','','','admin@aip.com',1,1,'2025-01-10 07:42:22.881065');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_groups`
+--
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_groups` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_groups_user_id_group_id_94350c0c_uniq` (`user_id`,`group_id`),
+  KEY `auth_user_groups_group_id_97559544_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `auth_user_groups_group_id_97559544_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_user_groups_user_id_6a12ed8b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_groups`
+--
+
+LOCK TABLES `auth_user_groups` WRITE;
+/*!40000 ALTER TABLE `auth_user_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_user_user_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_user_user_permissions_user_id_permission_id_14a6b632_uniq` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_user_user_permi_permission_id_1fbb5f2c_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_user_user_permissions`
+--
+
+LOCK TABLES `auth_user_user_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_user_user_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_user_user_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_userprofile`
+--
+
+DROP TABLE IF EXISTS `auth_userprofile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_userprofile` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `meta` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `courseware` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `language` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `year_of_birth` int DEFAULT NULL,
+  `gender` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `level_of_education` varchar(6) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mailing_address` longtext COLLATE utf8mb4_unicode_ci,
+  `city` longtext COLLATE utf8mb4_unicode_ci,
+  `country` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `goals` longtext COLLATE utf8mb4_unicode_ci,
+  `bio` varchar(3000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `profile_image_uploaded_at` datetime(6) DEFAULT NULL,
+  `user_id` int NOT NULL,
+  `phone_number` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `auth_userprofile_name_50909f10` (`name`),
+  KEY `auth_userprofile_language_8948d814` (`language`),
+  KEY `auth_userprofile_location_ca92e4f6` (`location`),
+  KEY `auth_userprofile_year_of_birth_6559b9a5` (`year_of_birth`),
+  KEY `auth_userprofile_gender_44a122fb` (`gender`),
+  KEY `auth_userprofile_level_of_education_93927e04` (`level_of_education`),
+  CONSTRAINT `auth_userprofile_user_id_62634b27_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_userprofile`
+--
+
+LOCK TABLES `auth_userprofile` WRITE;
+/*!40000 ALTER TABLE `auth_userprofile` DISABLE KEYS */;
+INSERT INTO `auth_userprofile` VALUES (1,'','','course.xml','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,3,NULL,NULL),(2,'','','course.xml','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,4,NULL,NULL),(3,'','','course.xml','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,5,NULL,NULL),(4,'','','course.xml','','',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,6,NULL,NULL);
+/*!40000 ALTER TABLE `auth_userprofile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blackboard_blackboardenterprisecustomerconfiguration`
+--
+
+DROP TABLE IF EXISTS `blackboard_blackboardenterprisecustomerconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blackboard_blackboardenterprisecustomerconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `transmission_chunk_size` int NOT NULL,
+  `channel_worker_username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catalogs_to_transmit` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `blackboard_base_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `refresh_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `idp_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_learner_data_transmissions` tinyint(1) NOT NULL,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dry_run_mode_enabled` tinyint(1) NOT NULL,
+  `deleted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_modified_at` datetime(6) DEFAULT NULL,
+  `show_course_price` tinyint(1) NOT NULL,
+  `decrypted_client_id` longblob NOT NULL DEFAULT (_utf8mb4'gAAAAABngLyv2mbxkNwCi4QGQXCIUz24MQuOVWeu0AHZIifXcYmNdlzhZ77tzU0EK_uzFQUUedHcdXnLWMtjkiOL47gGFY42lA=='),
+  `decrypted_client_secret` longblob NOT NULL DEFAULT (_utf8mb4'gAAAAABngLyvnQUsQQ2_F5Xc3oHOtVqa4Uo2k_69pt6A5X8_A7JKUhyqDFWC66bF1vvmkuxiFwWWu5iR97LVRcBLhvMEAgsZsw=='),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `blackboard_blackboardent_uuid_ff12f26c_uniq` (`uuid`),
+  KEY `blackboard_blackboar_enterprise_customer__39f883b0_fk_enterpris` (`enterprise_customer_id`),
+  CONSTRAINT `blackboard_blackboar_enterprise_customer__39f883b0_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blackboard_blackboardenterprisecustomerconfiguration`
+--
+
+LOCK TABLES `blackboard_blackboardenterprisecustomerconfiguration` WRITE;
+/*!40000 ALTER TABLE `blackboard_blackboardenterprisecustomerconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `blackboard_blackboardenterprisecustomerconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blackboard_blackboardglobalconfiguration`
+--
+
+DROP TABLE IF EXISTS `blackboard_blackboardglobalconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blackboard_blackboardglobalconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `app_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `blackboard_blackboar_changed_by_id_20c18fd5_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `blackboard_blackboar_changed_by_id_20c18fd5_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blackboard_blackboardglobalconfiguration`
+--
+
+LOCK TABLES `blackboard_blackboardglobalconfiguration` WRITE;
+/*!40000 ALTER TABLE `blackboard_blackboardglobalconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `blackboard_blackboardglobalconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blackboard_blackboardlearnerassessmentdatatransmissionaudit`
+--
+
+DROP TABLE IF EXISTS `blackboard_blackboardlearnerassessmentdatatransmissionaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blackboard_blackboardlearnerassessmentdatatransmissionaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `blackboard_user_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade_point_score` double NOT NULL,
+  `grade_points_possible` double NOT NULL,
+  `grade` double DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `created` datetime(6) NOT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `total_hours` double DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  KEY `blackboard_blackboardlearne_enterprise_course_enrollmen_4d99c86b` (`enterprise_course_enrollment_id`),
+  KEY `blackboard_blackboardlearne_subsection_id_6ddb999b` (`subsection_id`),
+  CONSTRAINT `blackboard_blackboar_api_record_id_3a698fd1_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (
