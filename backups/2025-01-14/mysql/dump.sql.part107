@@ -1,0 +1,691 @@
+(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dry_run_mode_enabled` tinyint(1) NOT NULL,
+  `deleted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_modified_at` datetime(6) DEFAULT NULL,
+  `show_course_price` tinyint(1) NOT NULL,
+  `decrypted_client_id` longblob,
+  `decrypted_client_secret` longblob,
+  PRIMARY KEY (`id`),
+  KEY `degreed2_degreed2enterprise_enterprise_customer_id_93516183` (`enterprise_customer_id`),
+  CONSTRAINT `degreed2_degreed2ent_enterprise_customer__93516183_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `degreed2_degreed2enterprisecustomerconfiguration`
+--
+
+LOCK TABLES `degreed2_degreed2enterprisecustomerconfiguration` WRITE;
+/*!40000 ALTER TABLE `degreed2_degreed2enterprisecustomerconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `degreed2_degreed2enterprisecustomerconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `degreed2_degreed2learnerdatatransmissionaudit`
+--
+
+DROP TABLE IF EXISTS `degreed2_degreed2learnerdatatransmissionaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `degreed2_degreed2learnerdatatransmissionaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `degreed_user_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `degreed_completed_timestamp` varchar(19) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `created` datetime(6) NOT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade` double DEFAULT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `total_hours` double DEFAULT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  UNIQUE KEY `degreed2_unique_enrollment_course_id` (`enterprise_course_enrollment_id`,`course_id`),
+  KEY `degreed2_degreed2learnerdat_enterprise_course_enrollmen_c093fa2b` (`enterprise_course_enrollment_id`),
+  KEY `degreed2_degreed2learnerdat_subsection_id_b8501613` (`subsection_id`),
+  KEY `degreed2_dldta_85936b55_idx` (`enterprise_customer_uuid`,`plugin_configuration_id`),
+  CONSTRAINT `degreed2_degreed2lea_api_record_id_0d632eab_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `degreed2_degreed2learnerdatatransmissionaudit`
+--
+
+LOCK TABLES `degreed2_degreed2learnerdatatransmissionaudit` WRITE;
+/*!40000 ALTER TABLE `degreed2_degreed2learnerdatatransmissionaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `degreed2_degreed2learnerdatatransmissionaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `degreed_degreedenterprisecustomerconfiguration`
+--
+
+DROP TABLE IF EXISTS `degreed_degreedenterprisecustomerconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `degreed_degreedenterprisecustomerconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `degreed_company_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `transmission_chunk_size` int NOT NULL,
+  `degreed_base_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `degreed_user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `degreed_user_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `channel_worker_username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catalogs_to_transmit` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `idp_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_learner_data_transmissions` tinyint(1) NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dry_run_mode_enabled` tinyint(1) NOT NULL,
+  `deleted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_modified_at` datetime(6) DEFAULT NULL,
+  `show_course_price` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `degreed_degreedenterprisecu_enterprise_customer_id_86f16a0d` (`enterprise_customer_id`),
+  CONSTRAINT `degreed_degreedenter_enterprise_customer__86f16a0d_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `degreed_degreedenterprisecustomerconfiguration`
+--
+
+LOCK TABLES `degreed_degreedenterprisecustomerconfiguration` WRITE;
+/*!40000 ALTER TABLE `degreed_degreedenterprisecustomerconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `degreed_degreedenterprisecustomerconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `degreed_degreedglobalconfiguration`
+--
+
+DROP TABLE IF EXISTS `degreed_degreedglobalconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `degreed_degreedglobalconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `completion_status_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `oauth_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `degreed_degreedgloba_changed_by_id_00a8a7be_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `degreed_degreedgloba_changed_by_id_00a8a7be_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `degreed_degreedglobalconfiguration`
+--
+
+LOCK TABLES `degreed_degreedglobalconfiguration` WRITE;
+/*!40000 ALTER TABLE `degreed_degreedglobalconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `degreed_degreedglobalconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `degreed_degreedlearnerdatatransmissionaudit`
+--
+
+DROP TABLE IF EXISTS `degreed_degreedlearnerdatatransmissionaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `degreed_degreedlearnerdatatransmissionaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `degreed_user_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `degreed_completed_timestamp` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `created` datetime(6) NOT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `grade` double DEFAULT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `total_hours` double DEFAULT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  KEY `degreed_degreedlearnerdatat_enterprise_course_enrollmen_2b4fe278` (`enterprise_course_enrollment_id`),
+  KEY `degreed_degreedlearnerdatat_subsection_id_17780106` (`subsection_id`),
+  KEY `degreed_dldta_85936b55_idx` (`enterprise_customer_uuid`,`plugin_configuration_id`),
+  CONSTRAINT `degreed_degreedlearn_api_record_id_670a6fb9_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `degreed_degreedlearnerdatatransmissionaudit`
+--
+
+LOCK TABLES `degreed_degreedlearnerdatatransmissionaudit` WRITE;
+/*!40000 ALTER TABLE `degreed_degreedlearnerdatatransmissionaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `degreed_degreedlearnerdatatransmissionaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `demographics_historicaluserdemographics`
+--
+
+DROP TABLE IF EXISTS `demographics_historicaluserdemographics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `demographics_historicaluserdemographics` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `show_call_to_action` tinyint(1) NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `demographics_histori_history_user_id_a05d5af3_fk_auth_user` (`history_user_id`),
+  KEY `demographics_historicaluserdemographics_id_7a2d6c8f` (`id`),
+  KEY `demographics_historicaluserdemographics_user_id_4fb8f26b` (`user_id`),
+  CONSTRAINT `demographics_histori_history_user_id_a05d5af3_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `demographics_historicaluserdemographics`
+--
+
+LOCK TABLES `demographics_historicaluserdemographics` WRITE;
+/*!40000 ALTER TABLE `demographics_historicaluserdemographics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `demographics_historicaluserdemographics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `demographics_userdemographics`
+--
+
+DROP TABLE IF EXISTS `demographics_userdemographics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `demographics_userdemographics` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `show_call_to_action` tinyint(1) NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `demographics_userdemographics_user_id_e435d5d5_uniq` (`user_id`),
+  CONSTRAINT `demographics_userdemographics_user_id_e435d5d5_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `demographics_userdemographics`
+--
+
+LOCK TABLES `demographics_userdemographics` WRITE;
+/*!40000 ALTER TABLE `demographics_userdemographics` DISABLE KEYS */;
+/*!40000 ALTER TABLE `demographics_userdemographics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discounts_discountpercentageconfig`
+--
+
+DROP TABLE IF EXISTS `discounts_discountpercentageconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discounts_discountpercentageconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `percentage` int unsigned NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `discounts_d_site_id_f87020_idx` (`site_id`,`org`,`course_id`),
+  KEY `discounts_d_site_id_9fe8d6_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `discounts_discountpe_changed_by_id_b00d7aa3_fk_auth_user` (`changed_by_id`),
+  KEY `discounts_discountpe_course_id_19913d92_fk_course_ov` (`course_id`),
+  KEY `discounts_discountpercentageconfig_org_294e22dd` (`org`),
+  KEY `discounts_discountpercentageconfig_org_course_31d0939e` (`org_course`),
+  CONSTRAINT `discounts_discountpe_changed_by_id_b00d7aa3_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `discounts_discountpe_course_id_19913d92_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `discounts_discountpe_site_id_b103a2af_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
+  CONSTRAINT `discounts_discountpercentageconfig_chk_1` CHECK ((`percentage` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discounts_discountpercentageconfig`
+--
+
+LOCK TABLES `discounts_discountpercentageconfig` WRITE;
+/*!40000 ALTER TABLE `discounts_discountpercentageconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discounts_discountpercentageconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discounts_discountrestrictionconfig`
+--
+
+DROP TABLE IF EXISTS `discounts_discountrestrictionconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discounts_discountrestrictionconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `disabled` tinyint(1) DEFAULT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `discounts_d_site_id_d67da3_idx` (`site_id`,`org`,`course_id`),
+  KEY `discounts_d_site_id_f83727_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `discounts_discountre_changed_by_id_f18a5c1b_fk_auth_user` (`changed_by_id`),
+  KEY `discounts_discountre_course_id_d7f6674b_fk_course_ov` (`course_id`),
+  KEY `discounts_discountrestrictionconfig_org_010f786f` (`org`),
+  KEY `discounts_discountrestrictionconfig_org_course_bb36b3cd` (`org_course`),
+  CONSTRAINT `discounts_discountre_changed_by_id_f18a5c1b_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `discounts_discountre_course_id_d7f6674b_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `discounts_discountre_site_id_3f4c1be6_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discounts_discountrestrictionconfig`
+--
+
+LOCK TABLES `discounts_discountrestrictionconfig` WRITE;
+/*!40000 ALTER TABLE `discounts_discountrestrictionconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discounts_discountrestrictionconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discussions_discussionsconfiguration`
+--
+
+DROP TABLE IF EXISTS `discussions_discussionsconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discussions_discussionsconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `context_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `plugin_configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  `enable_graded_units` tinyint(1) NOT NULL,
+  `enable_in_context` tinyint(1) NOT NULL,
+  `unit_level_visibility` tinyint(1) NOT NULL,
+  `posting_restrictions` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`context_key`),
+  KEY `discussions_discussi_lti_configuration_id_7088d266_fk_lti_consu` (`lti_configuration_id`),
+  CONSTRAINT `discussions_discussi_lti_configuration_id_7088d266_fk_lti_consu` FOREIGN KEY (`lti_configuration_id`) REFERENCES `lti_consumer_lticonfiguration` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discussions_discussionsconfiguration`
+--
+
+LOCK TABLES `discussions_discussionsconfiguration` WRITE;
+/*!40000 ALTER TABLE `discussions_discussionsconfiguration` DISABLE KEYS */;
+INSERT INTO `discussions_discussionsconfiguration` VALUES ('2025-01-14 09:53:41.605839','2025-01-14 09:54:55.246624','course-v1:Trainficient+TF_ABAC_004+2025_T2',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-14 09:56:25.218517','2025-01-14 09:56:25.218734','course-v1:Trainficient+TF_CF_001+2025_T1',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-14 09:57:20.457291','2025-01-14 09:57:20.457456','course-v1:Trainficient+TF_COI_005+2025_T2',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-14 09:58:04.827009','2025-01-14 09:58:04.827163','course-v1:Trainficient+TF_COMP_003+2025_T2',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-14 09:59:18.554370','2025-01-14 09:59:18.554530','course-v1:Trainficient+TF_ESG_006+2025_T2',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-14 09:59:55.524694','2025-01-14 09:59:55.524845','course-v1:Trainficient+TF_PDPD_002+2025_T1',1,'{}','openedx',NULL,0,1,1,'disabled'),('2025-01-10 07:54:11.200200','2025-01-10 07:57:58.078355','course-v1:Trainficient+TF_RM_001+2025_T1',1,'{}','openedx',NULL,0,1,1,'disabled');
+/*!40000 ALTER TABLE `discussions_discussionsconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discussions_discussiontopiclink`
+--
+
+DROP TABLE IF EXISTS `discussions_discussiontopiclink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discussions_discussiontopiclink` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `context_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `usage_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled_in_context` tinyint(1) NOT NULL,
+  `group_id` int DEFAULT NULL,
+  `ordering` int unsigned DEFAULT NULL,
+  `context` json NOT NULL DEFAULT (_utf8mb4'{}'),
+  PRIMARY KEY (`id`),
+  KEY `discussions_discussi_group_id_2f8afa34_fk_course_gr` (`group_id`),
+  KEY `discussions_discussiontopiclink_context_key_07c00652` (`context_key`),
+  KEY `discussions_discussiontopiclink_usage_key_ea381cf9` (`usage_key`),
+  KEY `discussions_discussiontopiclink_external_id_719d30fc` (`external_id`),
+  CONSTRAINT `discussions_discussi_group_id_2f8afa34_fk_course_gr` FOREIGN KEY (`group_id`) REFERENCES `course_groups_courseusergroup` (`id`),
+  CONSTRAINT `discussions_discussiontopiclink_chk_1` CHECK ((`ordering` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discussions_discussiontopiclink`
+--
+
+LOCK TABLES `discussions_discussiontopiclink` WRITE;
+/*!40000 ALTER TABLE `discussions_discussiontopiclink` DISABLE KEYS */;
+INSERT INTO `discussions_discussiontopiclink` VALUES (1,'course-v1:Trainficient+TF_RM_001+2025_T1','','Tổng quan','openedx','course',1,NULL,0,'{}'),(2,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@4f4e356a968e4378add6871b8ee2f937','Video','openedx','2404eb50-b290-412e-8288-59690b113ba3',1,NULL,100,'{\"unit\": \"Video\", \"section\": \"Module 1 - Truyền thông\", \"subsection\": \"Module 1: Truyền thông\"}'),(3,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@bbcef203a0894df4a49619946ec65e77','Bài kiểm tra','openedx','ea0f7752-e529-4d52-8cc3-5cfa33ad6e3e',1,NULL,101,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 1 - Truyền thông\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(4,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@40c352965f784bb0804b2687dc4cb406','Video','openedx','e45228b0-bfb0-4769-b522-2015dd56641f',1,NULL,102,'{\"unit\": \"Video\", \"section\": \"Module 2 - Văn hóa rủi ro\", \"subsection\": \"Module 2: Văn hóa rủi ro\"}'),(5,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@c518c716b4554389894f0eaf46e391c7','Bài kiểm tra','openedx','c6ff44ea-fd68-4bd3-94f6-06cb44d786dc',1,NULL,103,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 2 - Văn hóa rủi ro\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(6,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@def8b198f5fd42e4bf666f2c97e2af43','Video','openedx','71ae13df-fd30-490e-a69e-f072b6cb35fb',1,NULL,104,'{\"unit\": \"Video\", \"section\": \"Module 3 - QTRR Doanh nghiệp\", \"subsection\": \"Module 3: QTRR Doanh nghiệp\"}'),(7,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@7c3bd0033fe845f2af33dd5461328174','Bài kiểm tra','openedx','6a3c35bb-0fc9-4018-b6ff-c2e44dc0b61b',1,NULL,105,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 3 - QTRR Doanh nghiệp\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(8,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@625cb84dfacc46098e702a7d593868db','Video','openedx','e964ed6b-b508-41ce-ac9f-d426e2436c52',1,NULL,106,'{\"unit\": \"Video\", \"section\": \"Module 4 - Nhận diện rủi ro\", \"subsection\": \"Module 4: Nhận diện rủi ro\"}'),(9,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@3d016e731bdd42cfbc0281ee83fe17e3','Bài kiểm tra','openedx','4f669abf-a0b0-4921-9416-661718c69a37',1,NULL,107,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 4 - Nhận diện rủi ro\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(10,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@74fe2d3b01d34d5f978201f9d73ca24c','Video','openedx','f1264779-cefc-421a-bd38-282f7675ec13',1,NULL,108,'{\"unit\": \"Video\", \"section\": \"Module 5 - Đánh giá rủi ro\", \"subsection\": \"Module 5: Đánh giá rủi ro\"}'),(11,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@0697408a045743a29fd17c53814e93a1','Video','openedx','0bfc03d8-eecb-471a-8c52-b3a00b6ff20e',1,NULL,110,'{\"unit\": \"Video\", \"section\": \"Module 6 - Xử lý rủi ro\", \"subsection\": \"Module 6: Xử lý rủi ro\"}'),(12,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@4c0799e1e1ce4988b085e09d9b202a7a','Bài kiểm tra','openedx','4a9317d1-ecef-4e73-a49f-d5a1607c80a9',1,NULL,111,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 6 - Xử lý rủi ro\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(13,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@617cfab5184b4c2f852a5e687df636da','Video','openedx','850898b2-b965-416e-8c3b-e811859c6c25',1,NULL,112,'{\"unit\": \"Video\", \"section\": \"Module 7 - Giám sát rủi ro\", \"subsection\": \"Module 7: Giám sát rủi ro\"}'),(14,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@vertical+block@65ac879ae5b544dcaf8bee5d5a875b2a','Bài kiểm tra','openedx','7726d77f-7b15-4b71-a67b-c09cecd1fa8e',1,NULL,113,'{\"unit\": \"Bài kiểm tra\", \"section\": \"Module 7 - Giám sát rủi ro\", \"subsection\": \"Câu hỏi trắc nghiệm\"}'),(15,'course-v1:Trainficient+TF_ABAC_004+2025_T2','','General','openedx','course',1,NULL,0,'{}'),(16,'course-v1:Trainficient+TF_CF_001+2025_T1','','Tổng quan','openedx','course',1,NULL,0,'{}'),(17,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@vertical+block@505ffa0a2a314998ad08652d96493420','Guide Video','openedx','e979ecfd-43e5-4641-8f5c-be63404a9f2a',1,NULL,100,'{\"unit\": \"Guide Video\", \"section\": \"Guide\", \"subsection\": \"Video\"}'),(18,'course-v1:Trainficient+TF_COI_005+2025_T2','','General','openedx','course',1,NULL,0,'{}'),(19,'course-v1:Trainficient+TF_COMP_003+2025_T2','','General','openedx','course',1,NULL,0,'{}'),(20,'course-v1:Trainficient+TF_ESG_006+2025_T2','','General','openedx','course',1,NULL,0,'{}'),(21,'course-v1:Trainficient+TF_PDPD_002+2025_T1','','General','openedx','course',1,NULL,0,'{}');
+/*!40000 ALTER TABLE `discussions_discussiontopiclink` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discussions_historicaldiscussionsconfiguration`
+--
+
+DROP TABLE IF EXISTS `discussions_historicaldiscussionsconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discussions_historicaldiscussionsconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `context_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `plugin_configuration` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  `enable_graded_units` tinyint(1) NOT NULL,
+  `enable_in_context` tinyint(1) NOT NULL,
+  `unit_level_visibility` tinyint(1) NOT NULL,
+  `posting_restrictions` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `discussions_historic_history_user_id_df7ddb62_fk_auth_user` (`history_user_id`),
+  KEY `discussions_historicaldiscu_context_key_7c3bca39` (`context_key`),
+  KEY `discussions_historicaldiscu_lti_configuration_id_a6693472` (`lti_configuration_id`),
+  CONSTRAINT `discussions_historic_history_user_id_df7ddb62_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discussions_historicaldiscussionsconfiguration`
+--
+
+LOCK TABLES `discussions_historicaldiscussionsconfiguration` WRITE;
+/*!40000 ALTER TABLE `discussions_historicaldiscussionsconfiguration` DISABLE KEYS */;
+INSERT INTO `discussions_historicaldiscussionsconfiguration` VALUES ('2025-01-10 07:54:11.200200','2025-01-10 07:54:11.200386','course-v1:Trainficient+TF_RM_001+2025_T1',1,'{}','openedx',1,'2025-01-10 07:54:11.207682',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-10 07:54:11.200200','2025-01-10 07:55:22.734661','course-v1:Trainficient+TF_RM_001+2025_T1',1,'{}','openedx',2,'2025-01-10 07:55:22.737593',NULL,'~',NULL,NULL,0,1,1,'disabled'),('2025-01-10 07:54:11.200200','2025-01-10 07:57:58.078355','course-v1:Trainficient+TF_RM_001+2025_T1',1,'{}','openedx',3,'2025-01-10 07:57:58.202422',NULL,'~',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:53:41.605839','2025-01-14 09:53:41.606078','course-v1:Trainficient+TF_ABAC_004+2025_T2',1,'{}','openedx',4,'2025-01-14 09:53:41.631878',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:53:41.605839','2025-01-14 09:54:55.246624','course-v1:Trainficient+TF_ABAC_004+2025_T2',1,'{}','openedx',5,'2025-01-14 09:54:55.249813',NULL,'~',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:56:25.218517','2025-01-14 09:56:25.218734','course-v1:Trainficient+TF_CF_001+2025_T1',1,'{}','openedx',6,'2025-01-14 09:56:25.219954',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:57:20.457291','2025-01-14 09:57:20.457456','course-v1:Trainficient+TF_COI_005+2025_T2',1,'{}','openedx',7,'2025-01-14 09:57:20.459708',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:58:04.827009','2025-01-14 09:58:04.827163','course-v1:Trainficient+TF_COMP_003+2025_T2',1,'{}','openedx',8,'2025-01-14 09:58:04.828177',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:59:18.554370','2025-01-14 09:59:18.554530','course-v1:Trainficient+TF_ESG_006+2025_T2',1,'{}','openedx',9,'2025-01-14 09:59:18.555611',NULL,'+',NULL,NULL,0,1,1,'disabled'),('2025-01-14 09:59:55.524694','2025-01-14 09:59:55.524845','course-v1:Trainficient+TF_PDPD_002+2025_T1',1,'{}','openedx',10,'2025-01-14 09:59:55.526307',NULL,'+',NULL,NULL,0,1,1,'disabled');
+/*!40000 ALTER TABLE `discussions_historicaldiscussionsconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `discussions_providerfilter`
+--
+
+DROP TABLE IF EXISTS `discussions_providerfilter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `discussions_providerfilter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allow` varchar(63) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deny` varchar(63) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `discussions_site_id_48e4b2_idx` (`site_id`,`org`,`course_id`),
+  KEY `discussions_site_id_0f23d5_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `discussions_provider_changed_by_id_771ce4d3_fk_auth_user` (`changed_by_id`),
+  KEY `discussions_provider_course_id_7b7d915c_fk_course_ov` (`course_id`),
+  KEY `discussions_providerfilter_org_c5365456` (`org`),
+  KEY `discussions_providerfilter_org_course_7b77bd87` (`org_course`),
+  CONSTRAINT `discussions_provider_changed_by_id_771ce4d3_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `discussions_provider_course_id_7b7d915c_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `discussions_providerfilter_site_id_9c77a203_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `discussions_providerfilter`
+--
+
+LOCK TABLES `discussions_providerfilter` WRITE;
+/*!40000 ALTER TABLE `discussions_providerfilter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `discussions_providerfilter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_admin_log`
+--
+
+DROP TABLE IF EXISTS `django_admin_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_admin_log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `action_time` datetime(6) NOT NULL,
+  `object_id` longtext COLLATE utf8mb4_unicode_ci,
+  `object_repr` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `action_flag` smallint unsigned NOT NULL,
+  `change_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_type_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_content_type_id_c4bce8eb_fk_django_co` (`content_type_id`),
+  KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `django_admin_log_chk_1` CHECK ((`action_flag` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_admin_log`
+--
+
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` VALUES (1,'2025-01-10 07:42:54.349105','1','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(2,'2025-01-10 07:43:00.601479','2','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(3,'2025-01-10 07:43:06.721978','3','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(4,'2025-01-10 07:43:16.478050','4','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(5,'2025-01-10 07:43:31.578117','5','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(6,'2025-01-10 07:43:39.253624','6','branded',2,'[{\"changed\": {\"fields\": [\"Theme dir name\"]}}]',471,6),(7,'2025-01-10 07:44:00.783272','9','apps.trainficient.aipower.vn',1,'[{\"added\": {}}]',8,6),(8,'2025-01-10 07:44:05.580620','7','branded',1,'[{\"added\": {}}]',471,6),(9,'2025-01-10 07:44:19.115509','10','apps.trainficient.aipower.vn:2000',1,'[{\"added\": {}}]',8,6),(10,'2025-01-10 07:44:24.044451','8','branded',1,'[{\"added\": {}}]',471,6),(11,'2025-01-10 07:49:36.756176','1','<SiteConfiguration: trainficient.aipower.vn >',2,'[{\"changed\": {\"fields\": [\"Site values\"]}}]',21,6),(12,'2025-01-10 07:49:41.820838','2','<SiteConfiguration: trainficient.aipower.vn:8000 >',2,'[{\"changed\": {\"fields\": [\"Site values\"]}}]',21,6),(13,'2025-01-10 07:50:33.459065','2','DarkLangConfig()',1,'[{\"added\": {}}]',187,6);
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_celery_results_chordcounter`
+--
+
+DROP TABLE IF EXISTS `django_celery_results_chordcounter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_celery_results_chordcounter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `group_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_tasks` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `count` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id` (`group_id`),
+  CONSTRAINT `django_celery_results_chordcounter_chk_1` CHECK ((`count` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_celery_results_chordcounter`
+--
+
+LOCK TABLES `django_celery_results_chordcounter` WRITE;
+/*!40000 ALTER TABLE `django_celery_results_chordcounter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_celery_results_chordcounter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_celery_results_groupresult`
+--
+
+DROP TABLE IF EXISTS `django_celery_results_groupresult`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_celery_results_groupresult` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `group_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date_created` datetime(6) NOT NULL,
+  `date_done` datetime(6) NOT NULL,
+  `content_type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_encoding` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` longtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id` (`group_id`),
+  KEY `django_cele_date_cr_bd6c1d_idx` (`date_created`),
+  KEY `django_cele_date_do_caae0e_idx` (`date_done`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_celery_results_groupresult`
+--
+
+LOCK TABLES `django_celery_results_groupresult` WRITE;
+/*!40000 ALTER TABLE `django_celery_results_groupresult` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_celery_results_groupresult` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_celery_results_taskresult`
+--
+
+DROP TABLE IF EXISTS `django_celery_results_taskresult`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_celery_results_taskresult` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `task_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_type` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_encoding` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `result` longtext COLLATE utf8mb4_unicode_ci,
+  `date_done` datetime(6) NOT NULL,
+  `traceback` longtext COLLATE utf8mb4_unicode_ci,
+  `meta` longtext COLLATE utf8mb4_unicode_ci,
+  `task_args` longtext COLLATE utf8mb4_unicode_ci,
+  `task_kwargs` longtext COLLATE utf8mb4_unicode_ci,
+  `task_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `worker` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `date_created` datetime(6) NOT NULL,
+  `periodic_task_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `task_id` (`task_id`),
+  KEY `django_cele_task_na_08aec9_idx` (`task_name`),
+  KEY `django_cele_status_9b6201_idx` (`status`),
+  KEY `django_cele_worker_d54dd8_idx` (`worker`),
+  KEY `django_cele_date_cr_f04a50_idx` (`date_created`),
+  KEY `django_cele_date_do_f59aad_idx` (`date_done`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_celery_results_taskresult`
+--
+
+LOCK TABLES `django_celery_results_taskresult` WRITE;
+/*!40000 ALTER TABLE `django_celery_results_taskresult` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_celery_results_taskresult` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_comment_client_permission`
+--
+
+DROP TABLE IF EXISTS `django_comment_client_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_comment_client_permission` (
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_comment_client_permission`
+--
+
+LOCK TABLES `django_comment_client_permission` WRITE;
+/*!40000 ALTER TABLE `django_comment_client_permission` DISABLE KEYS */;
+INSERT INTO `django_comment_client_permission` VALUES ('create_comment'),('create_sub_comment'),('create_thread'),('delete_comment'),('delete_thread'),('edit_content'),('endorse_comment'),('follow_commentable'),('follow_thread'),('group_delete_comment'),('group_delete_thread'),('group_edit_content'),('group_endorse_comment'),('group_openclose_thread'),('manage_moderator'),('openclose_thread'),('see_all_cohorts'),('unfollow_commentable'),('unfollow_thread'),('unvote'),('update_comment'),('update_thread'),('vote');
+/*!40000 ALTER TABLE `django_comment_client_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_comment_client_permission_roles`
+--
+
+DROP TABLE IF EXISTS `django_comment_client_permission_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_comment_client_permission_roles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `permission_id` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_comment_client_pe_permission_id_role_id_d3680ec3_uniq` (`permission_id`,`role_id`),
+  KEY `django_comment_clien_role_id_d2cb08a2_fk_django_co` (`role_id`),
+  CONSTRAINT `django_comment_clien_permission_id_f9f47fd2_fk_django_co` FOREIGN KEY (`permission_id`) REFERENCES `django_comment_client_permission` (`name`),
+  CONSTRAINT `django_comment_clien_role_id_d2cb08a2_fk_django_co` FOREIGN KEY (`role_id`) REFERENCES `django_comment_client_role` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_comment_client_permission_roles`
+--
+
+LOCK TABLES `django_comment_client_permission_roles` WRITE;
+/*!40000 ALTER TABLE `django_comment_client_permission_roles` DISABLE KEYS */;
+INSERT INTO `django_comment_client_permission_roles` VALUES (79,'create_comment',1),(34,'create_comment',2),(45,'create_comment',3),(62,'create_comment',4),(11,'create_comment',5),(158,'create_comment',6),(113,'create_comment',7),(124,'create_comment',8),(141,'create_comment',9),(90,'create_comment',10),(237,'create_comment',11),(192,'create_comment',12),(203,'create_comment',13),(220,'create_comment',14),(169,'create_comment',15),(316,'create_comment',16),(271,'create_comment',17),(282,'create_comment',18),(299,'create_comment',19),(248,'create_comment',20),(395,'create_comment',21),(350,'create_comment',22),(361,'create_comment',23),(378,'create_comment',24),(327,'create_comment',25),(474,'create_comment',26),(429,'create_comment',27),(440,'create_comment',28),(457,'create_comment',29),(406,'create_comment',30),(553,'create_comment',31),(508,'create_comment',32),(519,'create_comment',33),(536,'create_comment',34),(485,'create_comment',35),(74,'create_sub_comment',1),(29,'create_sub_comment',2),(40,'create_sub_comment',3),(57,'create_sub_comment',4),(6,'create_sub_comment',5),(153,'create_sub_comment',6),(108,'create_sub_comment',7),(119,'create_sub_comment',8),(136,'create_sub_comment',9),(85,'create_sub_comment',10),(232,'create_sub_comment',11),(187,'create_sub_comment',12),(198,'create_sub_comment',13),(215,'create_sub_comment',14),(164,'create_sub_comment',15),(311,'create_sub_comment',16),(266,'create_sub_comment',17),(277,'create_sub_comment',18),(294,'create_sub_comment',19),(243,'create_sub_comment',20),(390,'create_sub_comment',21),(345,'create_sub_comment',22),(356,'create_sub_comment',23),(373,'create_sub_comment',24),(322,'create_sub_comment',25),(469,'create_sub_comment',26),(424,'create_sub_comment',27),(435,'create_sub_comment',28),(452,'create_sub_comment',29),(401,'create_sub_comment',30),(548,'create_sub_comment',31),(503,'create_sub_comment',32),(514,'create_sub_comment',33),(531,'create_sub_comment',34),(480,'create_sub_comment',35),(76,'create_thread',1),(31,'create_thread',2),(42,'create_thread',3),(59,'create_thread',4),(8,'create_thread',5),(155,'create_thread',6),(110,'create_thread',7),(121,'create_thread',8),(138,'create_thread',9),(87,'create_thread',10),(234,'create_thread',11),(189,'create_thread',12),(200,'create_thread',13),(217,'create_thread',14),(166,'create_thread',15),(313,'create_thread',16),(268,'create_thread',17),(279,'create_thread',18),(296,'create_thread',19),(245,'create_thread',20),(392,'create_thread',21),(347,'create_thread',22),(358,'create_thread',23),(375,'create_thread',24),(324,'create_thread',25),(471,'create_thread',26),(426,'create_thread',27),(437,'create_thread',28),(454,'create_thread',29),(403,'create_thread',30),(550,'create_thread',31),(505,'create_thread',32),(516,'create_thread',33),(533,'create_thread',34),(482,'create_thread',35),(67,'delete_comment',1),(16,'delete_comment',2),(50,'delete_comment',4),(146,'delete_comment',6),(95,'delete_comment',7),(129,'delete_comment',9),(225,'delete_comment',11),(174,'delete_comment',12),(208,'delete_comment',14),(304,'delete_comment',16),(253,'delete_comment',17),(287,'delete_comment',19),(383,'delete_comment',21),(332,'delete_comment',22),(366,'delete_comment',24),(462,'delete_comment',26),(411,'delete_comment',27),(445,'delete_comment',29),(541,'delete_comment',31),(490,'delete_comment',32),(524,'delete_comment',34),(64,'delete_thread',1),(13,'delete_thread',2),(47,'delete_thread',4),(143,'delete_thread',6),(92,'delete_thread',7),(126,'delete_thread',9),(222,'delete_thread',11),(171,'delete_thread',12),(205,'delete_thread',14),(301,'delete_thread',16),(250,'delete_thread',17),(284,'delete_thread',19),(380,'delete_thread',21),(329,'delete_thread',22),(363,'delete_thread',24),(459,'delete_thread',26),(408,'delete_thread',27),(442,'delete_thread',29),(538,'delete_thread',31),(487,'delete_thread',32),(521,'delete_thread',34),(63,'edit_content',1),(12,'edit_content',2),(46,'edit_content',4),(142,'edit_content',6),(91,'edit_content',7),(125,'edit_content',9),(221,'edit_content',11),(170,'edit_content',12),(204,'edit_content',14),(300,'edit_content',16),(249,'edit_content',17),(283,'edit_content',19),(379,'edit_content',21),(328,'edit_content',22),(362,'edit_content',24),(458,'edit_content',26),(407,'edit_content',27),(441,'edit_content',29),(537,'edit_content',31),(486,'edit_content',32),(520,'edit_content',34),(66,'endorse_comment',1),(15,'endorse_comment',2),(49,'endorse_comment',4),(145,'endorse_comment',6),(94,'endorse_comment',7),(128,'endorse_comment',9),(224,'endorse_comment',11),(173,'endorse_comment',12),(207,'endorse_comment',14),(303,'endorse_comment',16),(252,'endorse_comment',17),(286,'endorse_comment',19),(382,'endorse_comment',21),(331,'endorse_comment',22),(365,'endorse_comment',24),(461,'endorse_comment',26),(410,'endorse_comment',27),(444,'endorse_comment',29),(540,'endorse_comment',31),(489,'endorse_comment',32),(523,'endorse_comment',34),(77,'follow_commentable',1),(32,'follow_commentable',2),(43,'follow_commentable',3),(60,'follow_commentable',4),(9,'follow_commentable',5),(156,'follow_commentable',6),(111,'follow_commentable',7),(122,'follow_commentable',8),(139,'follow_commentable',9),(88,'follow_commentable',10),(235,'follow_commentable',11),(190,'follow_commentable',12),(201,'follow_commentable',13),(218,'follow_commentable',14),(167,'follow_commentable',15),(314,'follow_commentable',16),(269,'follow_commentable',17),(280,'follow_commentable',18),(297,'follow_commentable',19),(246,'follow_commentable',20),(393,'follow_commentable',21),(348,'follow_commentable',22),(359,'follow_commentable',23),(376,'follow_commentable',24),(325,'follow_commentable',25),(472,'follow_commentable',26),(427,'follow_commentable',27),(438,'follow_commentable',28),(455,'follow_commentable',29),(404,'follow_commentable',30),(551,'follow_commentable',31),(506,'follow_commentable',32),(517,'follow_commentable',33),(534,'follow_commentable',34),(483,'follow_commentable',35),(71,'follow_thread',1),(26,'follow_thread',2),(37,'follow_thread',3),(54,'follow_thread',4),(3,'follow_thread',5),(150,'follow_thread',6),(105,'follow_thread',7),(116,'follow_thread',8),(133,'follow_thread',9),(82,'follow_thread',10),(229,'follow_thread',11),(184,'follow_thread',12),(195,'follow_thread',13),(212,'follow_thread',14),(161,'follow_thread',15),(308,'follow_thread',16),(263,'follow_thread',17),(274,'follow_thread',18),(291,'follow_thread',19),(240,'follow_thread',20),(387,'follow_thread',21),(342,'follow_thread',22),(353,'follow_thread',23),(370,'follow_thread',24),(319,'follow_thread',25),(466,'follow_thread',26),(421,'follow_thread',27),(432,'follow_thread',28),(449,'follow_thread',29),(398,'follow_thread',30),(545,'follow_thread',31),(500,'follow_thread',32),(511,'follow_thread',33),(528,'follow_thread',34),(477,'follow_thread',35),(22,'group_delete_comment',3),(101,'group_delete_comment',8),(180,'group_delete_comment',13),(259,'group_delete_comment',18),(338,'group_delete_comment',23),(417,'group_delete_comment',28),(496,'group_delete_comment',33),(19,'group_delete_thread',3),(98,'group_delete_thread',8),(177,'group_delete_thread',13),(256,'group_delete_thread',18),(335,'group_delete_thread',23),(414,'group_delete_thread',28),(493,'group_delete_thread',33),(18,'group_edit_content',3),(97,'group_edit_content',8),(176,'group_edit_content',13),(255,'group_edit_content',18),(334,'group_edit_content',23),(413,'group_edit_content',28),(492,'group_edit_content',33),(21,'group_endorse_comment',3),(100,'group_endorse_comment',8),(179,'group_endorse_comment',13),(258,'group_endorse_comment',18),(337,'group_endorse_comment',23),(416,'group_endorse_comment',28),(495,'group_endorse_comment',33),(20,'group_openclose_thread',3),(99,'group_openclose_thread',8),(178,'group_openclose_thread',13),(257,'group_openclose_thread',18),(336,'group_openclose_thread',23),(415,'group_openclose_thread',28),(494,'group_openclose_thread',33),(23,'manage_moderator',1),(102,'manage_moderator',6),(181,'manage_moderator',11),(260,'manage_
