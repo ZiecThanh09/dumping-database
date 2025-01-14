@@ -1,0 +1,809 @@
+-14 09:55:55.212764','2025-01-14 09:55:55.478945',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Trainficient','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',13,'2025-01-14 09:55:55.480609',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:55:55.212764','2025-01-14 09:55:55.573325',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Trainficient','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',14,'2025-01-14 09:55:55.574602',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:55:55.212764','2025-01-14 09:55:56.395163',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Trainficient','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',15,'2025-01-14 09:55:56.396645',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:55:55.212764','2025-01-14 09:56:16.033066',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Trainficient','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2025-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@consent-form-avatar.png',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'en',16,'2025-01-14 09:56:16.034397',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:56:50.455815',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Trainficient','Conflict of Interest Awareness','TF_COI_005','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',17,'2025-01-14 09:56:50.459222',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:56:50.739238',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Trainficient','Conflict of Interest Awareness','TF_COI_005','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',18,'2025-01-14 09:56:50.740882',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:56:50.827333',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Trainficient','Conflict of Interest Awareness','TF_COI_005','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',19,'2025-01-14 09:56:50.828810',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:56:51.648872',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Trainficient','Conflict of Interest Awareness','TF_COI_005','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',20,'2025-01-14 09:56:51.650711',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:57:00.685397',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Trainficient','Conflict of Interest','TF_COI_005','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@iStock-1305519727-Converted.png',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'en',21,'2025-01-14 09:57:00.687304',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:34.827249',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Trainficient','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',22,'2025-01-14 09:57:34.830948',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:35.117237',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Trainficient','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',23,'2025-01-14 09:57:35.119020',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:35.209027',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Trainficient','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',24,'2025-01-14 09:57:35.210469',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:36.072221',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Trainficient','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',25,'2025-01-14 09:57:36.073501',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:50.773234',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Trainficient','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@image_dao-tao-tuan-thu-8.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'vi',26,'2025-01-14 09:57:50.774799',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:48.556015',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','Trainficient','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',27,'2025-01-14 09:58:48.559349',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:48.825502',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','Trainficient','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',28,'2025-01-14 09:58:48.827087',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:48.907953',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','Trainficient','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',29,'2025-01-14 09:58:48.909523',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:49.706665',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','Trainficient','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',30,'2025-01-14 09:58:49.707980',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:57.207554',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','Trainficient','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@ESG1.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'vi',31,'2025-01-14 09:58:57.208951',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:25.519818',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','Trainficient','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',32,'2025-01-14 09:59:25.523646',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:25.797630',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','Trainficient','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',33,'2025-01-14 09:59:25.799393',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:25.898333',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','Trainficient','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',34,'2025-01-14 09:59:25.899751',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:26.726881',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','Trainficient','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',35,'2025-01-14 09:59:26.728419',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:35.116030',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','Trainficient','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@image.png',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]',NULL,NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'en',36,'2025-01-14 09:59:35.117832',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0);
+/*!40000 ALTER TABLE `course_overviews_historicalcourseoverview` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_simulatecoursepublishconfig`
+--
+
+DROP TABLE IF EXISTS `course_overviews_simulatecoursepublishconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_simulatecoursepublishconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `arguments` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_overviews_sim_changed_by_id_3413c118_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `course_overviews_sim_changed_by_id_3413c118_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_simulatecoursepublishconfig`
+--
+
+LOCK TABLES `course_overviews_simulatecoursepublishconfig` WRITE;
+/*!40000 ALTER TABLE `course_overviews_simulatecoursepublishconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_overviews_simulatecoursepublishconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_coursedynamicupgradedeadlineconfiguration`
+--
+
+DROP TABLE IF EXISTS `courseware_coursedynamicupgradedeadlineconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_coursedynamicupgradedeadlineconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deadline_days` smallint unsigned NOT NULL,
+  `opt_out` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_coursedyn_changed_by_id_2c4efc3a_fk_auth_user` (`changed_by_id`),
+  KEY `courseware_coursedynamicupg_course_id_60b88041` (`course_id`),
+  CONSTRAINT `courseware_coursedyn_changed_by_id_2c4efc3a_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `courseware_coursedynamicupgradedeadlineconfiguration_chk_1` CHECK ((`deadline_days` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_coursedynamicupgradedeadlineconfiguration`
+--
+
+LOCK TABLES `courseware_coursedynamicupgradedeadlineconfiguration` WRITE;
+/*!40000 ALTER TABLE `courseware_coursedynamicupgradedeadlineconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_coursedynamicupgradedeadlineconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_dynamicupgradedeadlineconfiguration`
+--
+
+DROP TABLE IF EXISTS `courseware_dynamicupgradedeadlineconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_dynamicupgradedeadlineconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `deadline_days` smallint unsigned NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_dynamicup_changed_by_id_6a450e2c_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `courseware_dynamicup_changed_by_id_6a450e2c_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `courseware_dynamicupgradedeadlineconfiguration_chk_1` CHECK ((`deadline_days` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_dynamicupgradedeadlineconfiguration`
+--
+
+LOCK TABLES `courseware_dynamicupgradedeadlineconfiguration` WRITE;
+/*!40000 ALTER TABLE `courseware_dynamicupgradedeadlineconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_dynamicupgradedeadlineconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_financialassistanceconfiguration`
+--
+
+DROP TABLE IF EXISTS `courseware_financialassistanceconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_financialassistanceconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `api_base_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fa_backend_enabled_courses_percentage` int NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_financial_changed_by_id_acb152e5_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `courseware_financial_changed_by_id_acb152e5_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_financialassistanceconfiguration`
+--
+
+LOCK TABLES `courseware_financialassistanceconfiguration` WRITE;
+/*!40000 ALTER TABLE `courseware_financialassistanceconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_financialassistanceconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_lastseencoursewaretimezone`
+--
+
+DROP TABLE IF EXISTS `courseware_lastseencoursewaretimezone`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_lastseencoursewaretimezone` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `last_seen_courseware_timezone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `courseware_lastseencoursewa_last_seen_courseware_timezo_39c8f549` (`last_seen_courseware_timezone`),
+  CONSTRAINT `courseware_lastseenc_user_id_b3deb845_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_lastseencoursewaretimezone`
+--
+
+LOCK TABLES `courseware_lastseencoursewaretimezone` WRITE;
+/*!40000 ALTER TABLE `courseware_lastseencoursewaretimezone` DISABLE KEYS */;
+INSERT INTO `courseware_lastseencoursewaretimezone` VALUES (1,'Asia/Bangkok',6);
+/*!40000 ALTER TABLE `courseware_lastseencoursewaretimezone` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_offlinecomputedgrade`
+--
+
+DROP TABLE IF EXISTS `courseware_offlinecomputedgrade`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_offlinecomputedgrade` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) DEFAULT NULL,
+  `updated` datetime(6) NOT NULL,
+  `gradeset` longtext COLLATE utf8mb4_unicode_ci,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_offlinecomputedgrade_user_id_course_id_18dfd343_uniq` (`user_id`,`course_id`),
+  KEY `courseware_offlinecomputedgrade_course_id_03e21ba7` (`course_id`),
+  KEY `courseware_offlinecomputedgrade_created_b5bca47f` (`created`),
+  KEY `courseware_offlinecomputedgrade_updated_6f3faff6` (`updated`),
+  CONSTRAINT `courseware_offlinecomputedgrade_user_id_14864cea_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_offlinecomputedgrade`
+--
+
+LOCK TABLES `courseware_offlinecomputedgrade` WRITE;
+/*!40000 ALTER TABLE `courseware_offlinecomputedgrade` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_offlinecomputedgrade` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_offlinecomputedgradelog`
+--
+
+DROP TABLE IF EXISTS `courseware_offlinecomputedgradelog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_offlinecomputedgradelog` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) DEFAULT NULL,
+  `seconds` int NOT NULL,
+  `nstudents` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_offlinecomputedgradelog_course_id_1014e127` (`course_id`),
+  KEY `courseware_offlinecomputedgradelog_created_33076a1a` (`created`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_offlinecomputedgradelog`
+--
+
+LOCK TABLES `courseware_offlinecomputedgradelog` WRITE;
+/*!40000 ALTER TABLE `courseware_offlinecomputedgradelog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_offlinecomputedgradelog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_orgdynamicupgradedeadlineconfiguration`
+--
+
+DROP TABLE IF EXISTS `courseware_orgdynamicupgradedeadlineconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_orgdynamicupgradedeadlineconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `org_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deadline_days` smallint unsigned NOT NULL,
+  `opt_out` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_orgdynami_changed_by_id_b557a1ea_fk_auth_user` (`changed_by_id`),
+  KEY `courseware_orgdynamicupgrad_org_id_85d3cbe4` (`org_id`),
+  CONSTRAINT `courseware_orgdynami_changed_by_id_b557a1ea_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `courseware_orgdynamicupgradedeadlineconfiguration_chk_1` CHECK ((`deadline_days` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_orgdynamicupgradedeadlineconfiguration`
+--
+
+LOCK TABLES `courseware_orgdynamicupgradedeadlineconfiguration` WRITE;
+/*!40000 ALTER TABLE `courseware_orgdynamicupgradedeadlineconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_orgdynamicupgradedeadlineconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_studentfieldoverride`
+--
+
+DROP TABLE IF EXISTS `courseware_studentfieldoverride`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_studentfieldoverride` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `field` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_studentfieldo_course_id_field_location_a1f7da25_uniq` (`course_id`,`field`,`location`,`student_id`),
+  KEY `courseware_studentfi_student_id_7a972765_fk_auth_user` (`student_id`),
+  KEY `courseware_studentfieldoverride_course_id_7ca0051c` (`course_id`),
+  KEY `courseware_studentfieldoverride_location_95ad5047` (`location`),
+  CONSTRAINT `courseware_studentfi_student_id_7a972765_fk_auth_user` FOREIGN KEY (`student_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_studentfieldoverride`
+--
+
+LOCK TABLES `courseware_studentfieldoverride` WRITE;
+/*!40000 ALTER TABLE `courseware_studentfieldoverride` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_studentfieldoverride` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_studentmodule`
+--
+
+DROP TABLE IF EXISTS `courseware_studentmodule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_studentmodule` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `module_type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `module_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` longtext COLLATE utf8mb4_unicode_ci,
+  `grade` double DEFAULT NULL,
+  `max_grade` double DEFAULT NULL,
+  `done` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `student_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_studentmodule_student_id_module_id_cou_48e8deef_uniq` (`student_id`,`module_id`,`course_id`),
+  KEY `courseware_studentmodule_module_type_f4f8863f` (`module_type`),
+  KEY `courseware_studentmodule_course_id_0637cb49` (`course_id`),
+  KEY `courseware_studentmodule_grade_adac1ba7` (`grade`),
+  KEY `courseware_studentmodule_created_9976b4ad` (`created`),
+  KEY `courseware_studentmodule_modified_f6a0b0cc` (`modified`),
+  KEY `courseware_stats` (`module_id`,`grade`,`student_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_studentmodule`
+--
+
+LOCK TABLES `courseware_studentmodule` WRITE;
+/*!40000 ALTER TABLE `courseware_studentmodule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_studentmodule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_studentmodulehistory`
+--
+
+DROP TABLE IF EXISTS `courseware_studentmodulehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_studentmodulehistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `version` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created` datetime(6) NOT NULL,
+  `state` longtext COLLATE utf8mb4_unicode_ci,
+  `grade` double DEFAULT NULL,
+  `max_grade` double DEFAULT NULL,
+  `student_module_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `courseware_studentmo_student_module_id_6efc64cf_fk_coursewar` (`student_module_id`),
+  KEY `courseware_studentmodulehistory_version_d3823ad1` (`version`),
+  KEY `courseware_studentmodulehistory_created_19cb94d2` (`created`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_studentmodulehistory`
+--
+
+LOCK TABLES `courseware_studentmodulehistory` WRITE;
+/*!40000 ALTER TABLE `courseware_studentmodulehistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_studentmodulehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_xmodulestudentinfofield`
+--
+
+DROP TABLE IF EXISTS `courseware_xmodulestudentinfofield`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_xmodulestudentinfofield` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `field_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `student_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_xmodulestuden_student_id_field_name_2f3a4ee8_uniq` (`student_id`,`field_name`),
+  KEY `courseware_xmodulestudentinfofield_field_name_191b762e` (`field_name`),
+  KEY `courseware_xmodulestudentinfofield_created_beada63d` (`created`),
+  KEY `courseware_xmodulestudentinfofield_modified_b53f9c88` (`modified`),
+  CONSTRAINT `courseware_xmodulest_student_id_b78d39b4_fk_auth_user` FOREIGN KEY (`student_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_xmodulestudentinfofield`
+--
+
+LOCK TABLES `courseware_xmodulestudentinfofield` WRITE;
+/*!40000 ALTER TABLE `courseware_xmodulestudentinfofield` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_xmodulestudentinfofield` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_xmodulestudentprefsfield`
+--
+
+DROP TABLE IF EXISTS `courseware_xmodulestudentprefsfield`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_xmodulestudentprefsfield` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `field_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `module_type` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_xmodulestuden_student_id_module_type_f_1c218850_uniq` (`student_id`,`module_type`,`field_name`),
+  KEY `courseware_xmodulestudentprefsfield_field_name_68d5e66e` (`field_name`),
+  KEY `courseware_xmodulestudentprefsfield_created_16090241` (`created`),
+  KEY `courseware_xmodulestudentprefsfield_modified_5b4e5525` (`modified`),
+  KEY `courseware_xmodulestudentprefsfield_module_type_45b994b9` (`module_type`),
+  CONSTRAINT `courseware_xmodulest_student_id_3c60ec8a_fk_auth_user` FOREIGN KEY (`student_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_xmodulestudentprefsfield`
+--
+
+LOCK TABLES `courseware_xmodulestudentprefsfield` WRITE;
+/*!40000 ALTER TABLE `courseware_xmodulestudentprefsfield` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_xmodulestudentprefsfield` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `courseware_xmoduleuserstatesummaryfield`
+--
+
+DROP TABLE IF EXISTS `courseware_xmoduleuserstatesummaryfield`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `courseware_xmoduleuserstatesummaryfield` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `field_name` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `usage_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `courseware_xmoduleuserst_usage_id_field_name_e4e34c44_uniq` (`usage_id`,`field_name`),
+  KEY `courseware_xmoduleuserstatesummaryfield_field_name_395cd2a6` (`field_name`),
+  KEY `courseware_xmoduleuserstatesummaryfield_created_57d773a1` (`created`),
+  KEY `courseware_xmoduleuserstatesummaryfield_modified_b4277a5d` (`modified`),
+  KEY `courseware_xmoduleuserstatesummaryfield_usage_id_9f239d1f` (`usage_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `courseware_xmoduleuserstatesummaryfield`
+--
+
+LOCK TABLES `courseware_xmoduleuserstatesummaryfield` WRITE;
+/*!40000 ALTER TABLE `courseware_xmoduleuserstatesummaryfield` DISABLE KEYS */;
+/*!40000 ALTER TABLE `courseware_xmoduleuserstatesummaryfield` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `crawlers_crawlersconfig`
+--
+
+DROP TABLE IF EXISTS `crawlers_crawlersconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `crawlers_crawlersconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `known_user_agents` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `crawlers_crawlersconfig_changed_by_id_544af924_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `crawlers_crawlersconfig_changed_by_id_544af924_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `crawlers_crawlersconfig`
+--
+
+LOCK TABLES `crawlers_crawlersconfig` WRITE;
+/*!40000 ALTER TABLE `crawlers_crawlersconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `crawlers_crawlersconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credentials_credentialsapiconfig`
+--
+
+DROP TABLE IF EXISTS `credentials_credentialsapiconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credentials_credentialsapiconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `internal_service_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `public_service_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enable_learner_issuance` tinyint(1) NOT NULL,
+  `enable_studio_authoring` tinyint(1) NOT NULL,
+  `cache_ttl` int unsigned NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `credentials_credenti_changed_by_id_9e145a81_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `credentials_credenti_changed_by_id_9e145a81_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `credentials_credentialsapiconfig_chk_1` CHECK ((`cache_ttl` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credentials_credentialsapiconfig`
+--
+
+LOCK TABLES `credentials_credentialsapiconfig` WRITE;
+/*!40000 ALTER TABLE `credentials_credentialsapiconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credentials_credentialsapiconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credentials_notifycredentialsconfig`
+--
+
+DROP TABLE IF EXISTS `credentials_notifycredentialsconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credentials_notifycredentialsconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `arguments` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `credentials_notifycr_changed_by_id_e31cde0e_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `credentials_notifycr_changed_by_id_e31cde0e_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credentials_notifycredentialsconfig`
+--
+
+LOCK TABLES `credentials_notifycredentialsconfig` WRITE;
+/*!40000 ALTER TABLE `credentials_notifycredentialsconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credentials_notifycredentialsconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditconfig`
+--
+
+DROP TABLE IF EXISTS `credit_creditconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `cache_ttl` int unsigned NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `credit_creditconfig_changed_by_id_72e1eca9_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `credit_creditconfig_changed_by_id_72e1eca9_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `credit_creditconfig_chk_1` CHECK ((`cache_ttl` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditconfig`
+--
+
+LOCK TABLES `credit_creditconfig` WRITE;
+/*!40000 ALTER TABLE `credit_creditconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditcourse`
+--
+
+DROP TABLE IF EXISTS `credit_creditcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditcourse` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_key` (`course_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditcourse`
+--
+
+LOCK TABLES `credit_creditcourse` WRITE;
+/*!40000 ALTER TABLE `credit_creditcourse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_crediteligibility`
+--
+
+DROP TABLE IF EXISTS `credit_crediteligibility`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_crediteligibility` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deadline` datetime(6) NOT NULL,
+  `course_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `credit_crediteligibility_username_course_id_7906b4c1_uniq` (`username`,`course_id`),
+  KEY `credit_crediteligibi_course_id_d86f481f_fk_credit_cr` (`course_id`),
+  KEY `credit_crediteligibility_username_4c275fb5` (`username`),
+  CONSTRAINT `credit_crediteligibi_course_id_d86f481f_fk_credit_cr` FOREIGN KEY (`course_id`) REFERENCES `credit_creditcourse` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_crediteligibility`
+--
+
+LOCK TABLES `credit_crediteligibility` WRITE;
+/*!40000 ALTER TABLE `credit_crediteligibility` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_crediteligibility` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditprovider`
+--
+
+DROP TABLE IF EXISTS `credit_creditprovider`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditprovider` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `provider_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enable_integration` tinyint(1) NOT NULL,
+  `provider_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_status_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `fulfillment_instructions` longtext COLLATE utf8mb4_unicode_ci,
+  `eligibility_email_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `receipt_email_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumbnail_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `provider_id` (`provider_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditprovider`
+--
+
+LOCK TABLES `credit_creditprovider` WRITE;
+/*!40000 ALTER TABLE `credit_creditprovider` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditprovider` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditrequest`
+--
+
+DROP TABLE IF EXISTS `credit_creditrequest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditrequest` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `uuid` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parameters` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` int NOT NULL,
+  `provider_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `credit_creditrequest_username_course_id_provi_3b019afe_uniq` (`username`,`course_id`,`provider_id`),
+  KEY `credit_creditrequest_course_id_5478ceaf_fk_credit_cr` (`course_id`),
+  KEY `credit_creditrequest_provider_id_5465ab8b_fk_credit_cr` (`provider_id`),
+  KEY `credit_creditrequest_username_bd5623e4` (`username`),
+  CONSTRAINT `credit_creditrequest_course_id_5478ceaf_fk_credit_cr` FOREIGN KEY (`course_id`) REFERENCES `credit_creditcourse` (`id`),
+  CONSTRAINT `credit_creditrequest_provider_id_5465ab8b_fk_credit_cr` FOREIGN KEY (`provider_id`) REFERENCES `credit_creditprovider` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditrequest`
+--
+
+LOCK TABLES `credit_creditrequest` WRITE;
+/*!40000 ALTER TABLE `credit_creditrequest` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditrequest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditrequirement`
+--
+
+DROP TABLE IF EXISTS `credit_creditrequirement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditrequirement` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `namespace` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `criteria` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `course_id` int NOT NULL,
+  `sort_value` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `credit_creditrequirement_namespace_name_course_id_87c301e6_uniq` (`namespace`,`name`,`course_id`),
+  KEY `credit_creditrequire_course_id_b6aa812a_fk_credit_cr` (`course_id`),
+  CONSTRAINT `credit_creditrequire_course_id_b6aa812a_fk_credit_cr` FOREIGN KEY (`course_id`) REFERENCES `credit_creditcourse` (`id`),
+  CONSTRAINT `credit_creditrequirement_chk_2` CHECK ((`sort_value` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditrequirement`
+--
+
+LOCK TABLES `credit_creditrequirement` WRITE;
+/*!40000 ALTER TABLE `credit_creditrequirement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditrequirement` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `credit_creditrequirementstatus`
+--
+
+DROP TABLE IF EXISTS `credit_creditrequirementstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `credit_creditrequirementstatus` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `requirement_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `credit_creditrequirement_username_requirement_id_f761eba5_uniq` (`username`,`requirement_id`),
+  KEY `credit_creditrequire_requirement_id_cde25c76_fk_credit_cr` (`requirement_id`),
+  KEY `credit_creditrequirementstatus_username_4c2511ed` (`username`),
+  CONSTRAINT `credit_creditrequire_requirement_id_cde25c76_fk_credit_cr` FOREIGN KEY (`requirement_id`) REFERENCES `credit_creditrequirement` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `credit_creditrequirementstatus`
+--
+
+LOCK TABLES `credit_creditrequirementstatus` WRITE;
+/*!40000 ALTER TABLE `credit_creditrequirementstatus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `credit_creditrequirementstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dark_lang_darklangconfig`
+--
+
+DROP TABLE IF EXISTS `dark_lang_darklangconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `dark_lang_darklangconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `released_languages` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `beta_languages` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4''),
+  `enable_beta_languages` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `dark_lang_darklangconfig_changed_by_id_9a7df899_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `dark_lang_darklangconfig_changed_by_id_9a7df899_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dark_lang_darklangconfig`
+--
+
+LOCK TABLES `dark_lang_darklangconfig` WRITE;
+/*!40000 ALTER TABLE `dark_lang_darklangconfig` DISABLE KEYS */;
+INSERT INTO `dark_lang_darklangconfig` VALUES (1,'2025-01-10 06:24:39.297242',1,'',NULL,'',0),(2,'2025-01-10 07:50:33.456669',1,'vi,en,ja-jp',6,'',0);
+/*!40000 ALTER TABLE `dark_lang_darklangconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `degreed2_degreed2enterprisecustomerconfiguration`
+--
+
+DROP TABLE IF EXISTS `degreed2_degreed2enterprisecustomerconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `degreed2_degreed2enterprisecustomerconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `idp_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `transmission_chunk_size` int NOT NULL,
+  `channel_worker_username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catalogs_to_transmit` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_learner_data_transmissions` tinyint(1) NOT NULL,
+  `degreed_base_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `degreed_token_fetch_base_url` varchar
