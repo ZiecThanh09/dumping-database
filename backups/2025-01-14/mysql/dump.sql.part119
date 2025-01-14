@@ -1,0 +1,1222 @@
+ble `student_courseenrollmentcelebration`
+--
+
+DROP TABLE IF EXISTS `student_courseenrollmentcelebration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_courseenrollmentcelebration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `celebrate_first_section` tinyint(1) NOT NULL,
+  `enrollment_id` int NOT NULL,
+  `celebrate_weekly_goal` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enrollment_id` (`enrollment_id`),
+  CONSTRAINT `student_courseenroll_enrollment_id_c697e4ce_fk_student_c` FOREIGN KEY (`enrollment_id`) REFERENCES `student_courseenrollment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_courseenrollmentcelebration`
+--
+
+LOCK TABLES `student_courseenrollmentcelebration` WRITE;
+/*!40000 ALTER TABLE `student_courseenrollmentcelebration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_courseenrollmentcelebration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_dashboardconfiguration`
+--
+
+DROP TABLE IF EXISTS `student_dashboardconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_dashboardconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `recent_enrollment_time_delta` int unsigned NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_dashboardcon_changed_by_id_1960484b_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `student_dashboardcon_changed_by_id_1960484b_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `student_dashboardconfiguration_chk_1` CHECK ((`recent_enrollment_time_delta` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_dashboardconfiguration`
+--
+
+LOCK TABLES `student_dashboardconfiguration` WRITE;
+/*!40000 ALTER TABLE `student_dashboardconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_dashboardconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_enrollmentrefundconfiguration`
+--
+
+DROP TABLE IF EXISTS `student_enrollmentrefundconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_enrollmentrefundconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `refund_window_microseconds` bigint NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_enrollmentre_changed_by_id_082b4f6f_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `student_enrollmentre_changed_by_id_082b4f6f_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_enrollmentrefundconfiguration`
+--
+
+LOCK TABLES `student_enrollmentrefundconfiguration` WRITE;
+/*!40000 ALTER TABLE `student_enrollmentrefundconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_enrollmentrefundconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_entranceexamconfiguration`
+--
+
+DROP TABLE IF EXISTS `student_entranceexamconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_entranceexamconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) DEFAULT NULL,
+  `updated` datetime(6) NOT NULL,
+  `skip_entrance_exam` tinyint(1) NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_entranceexamconf_user_id_course_id_23bbcf9b_uniq` (`user_id`,`course_id`),
+  KEY `student_entranceexamconfiguration_course_id_eca5c3d4` (`course_id`),
+  KEY `student_entranceexamconfiguration_created_27e80637` (`created`),
+  KEY `student_entranceexamconfiguration_updated_d560d552` (`updated`),
+  CONSTRAINT `student_entranceexam_user_id_387a35d6_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_entranceexamconfiguration`
+--
+
+LOCK TABLES `student_entranceexamconfiguration` WRITE;
+/*!40000 ALTER TABLE `student_entranceexamconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_entranceexamconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_fbeenrollmentexclusion`
+--
+
+DROP TABLE IF EXISTS `student_fbeenrollmentexclusion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_fbeenrollmentexclusion` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `enrollment_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enrollment_id` (`enrollment_id`),
+  CONSTRAINT `student_fbeenrollmen_enrollment_id_28537ff8_fk_student_c` FOREIGN KEY (`enrollment_id`) REFERENCES `student_courseenrollment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_fbeenrollmentexclusion`
+--
+
+LOCK TABLES `student_fbeenrollmentexclusion` WRITE;
+/*!40000 ALTER TABLE `student_fbeenrollmentexclusion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_fbeenrollmentexclusion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_historicalmanualenrollmentaudit`
+--
+
+DROP TABLE IF EXISTS `student_historicalmanualenrollmentaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_historicalmanualenrollmentaudit` (
+  `id` int NOT NULL,
+  `enrolled_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_stamp` datetime(6) DEFAULT NULL,
+  `state_transition` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci,
+  `role` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enrolled_by_id` int DEFAULT NULL,
+  `enrollment_id` int DEFAULT NULL,
+  `history_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `student_historicalma_history_user_id_b5f488c2_fk_auth_user` (`history_user_id`),
+  KEY `student_historicalmanualenrollmentaudit_id_18eb7e98` (`id`),
+  KEY `student_historicalmanualenrollmentaudit_enrolled_email_bfaa34b3` (`enrolled_email`),
+  KEY `student_historicalmanualenrollmentaudit_enrolled_by_id_0838a44b` (`enrolled_by_id`),
+  KEY `student_historicalmanualenrollmentaudit_enrollment_id_b74f8923` (`enrollment_id`),
+  CONSTRAINT `student_historicalma_history_user_id_b5f488c2_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_historicalmanualenrollmentaudit`
+--
+
+LOCK TABLES `student_historicalmanualenrollmentaudit` WRITE;
+/*!40000 ALTER TABLE `student_historicalmanualenrollmentaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_historicalmanualenrollmentaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_languageproficiency`
+--
+
+DROP TABLE IF EXISTS `student_languageproficiency`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_languageproficiency` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_profile_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_languageproficiency_code_user_profile_id_9aa4e2f5_uniq` (`code`,`user_profile_id`),
+  KEY `student_languageprof_user_profile_id_768cd3eb_fk_auth_user` (`user_profile_id`),
+  CONSTRAINT `student_languageprof_user_profile_id_768cd3eb_fk_auth_user` FOREIGN KEY (`user_profile_id`) REFERENCES `auth_userprofile` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_languageproficiency`
+--
+
+LOCK TABLES `student_languageproficiency` WRITE;
+/*!40000 ALTER TABLE `student_languageproficiency` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_languageproficiency` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_linkedinaddtoprofileconfiguration`
+--
+
+DROP TABLE IF EXISTS `student_linkedinaddtoprofileconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_linkedinaddtoprofileconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `company_identifier` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_linkedinaddt_changed_by_id_dc1c453f_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `student_linkedinaddt_changed_by_id_dc1c453f_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_linkedinaddtoprofileconfiguration`
+--
+
+LOCK TABLES `student_linkedinaddtoprofileconfiguration` WRITE;
+/*!40000 ALTER TABLE `student_linkedinaddtoprofileconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_linkedinaddtoprofileconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_loginfailures`
+--
+
+DROP TABLE IF EXISTS `student_loginfailures`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_loginfailures` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `failure_count` int NOT NULL,
+  `lockout_until` datetime(6) DEFAULT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_loginfailures_user_id_50d85202_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `student_loginfailures_user_id_50d85202_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_loginfailures`
+--
+
+LOCK TABLES `student_loginfailures` WRITE;
+/*!40000 ALTER TABLE `student_loginfailures` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_loginfailures` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_manualenrollmentaudit`
+--
+
+DROP TABLE IF EXISTS `student_manualenrollmentaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_manualenrollmentaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `enrolled_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_stamp` datetime(6) DEFAULT NULL,
+  `state_transition` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci,
+  `enrolled_by_id` int DEFAULT NULL,
+  `enrollment_id` int DEFAULT NULL,
+  `role` varchar(64) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_manualenroll_enrolled_by_id_1217a0dc_fk_auth_user` (`enrolled_by_id`),
+  KEY `student_manualenroll_enrollment_id_decc94fe_fk_student_c` (`enrollment_id`),
+  KEY `student_manualenrollmentaudit_enrolled_email_47ce6524` (`enrolled_email`),
+  CONSTRAINT `student_manualenroll_enrolled_by_id_1217a0dc_fk_auth_user` FOREIGN KEY (`enrolled_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `student_manualenroll_enrollment_id_decc94fe_fk_student_c` FOREIGN KEY (`enrollment_id`) REFERENCES `student_courseenrollment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_manualenrollmentaudit`
+--
+
+LOCK TABLES `student_manualenrollmentaudit` WRITE;
+/*!40000 ALTER TABLE `student_manualenrollmentaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_manualenrollmentaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_pendingemailchange`
+--
+
+DROP TABLE IF EXISTS `student_pendingemailchange`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_pendingemailchange` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `new_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activation_key` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `activation_key` (`activation_key`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `student_pendingemailchange_new_email_6887bdea` (`new_email`),
+  CONSTRAINT `student_pendingemailchange_user_id_8f2778c5_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_pendingemailchange`
+--
+
+LOCK TABLES `student_pendingemailchange` WRITE;
+/*!40000 ALTER TABLE `student_pendingemailchange` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_pendingemailchange` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_pendingnamechange`
+--
+
+DROP TABLE IF EXISTS `student_pendingnamechange`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_pendingnamechange` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `new_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rationale` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `student_pendingnamechange_user_id_e2cd8b70_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_pendingnamechange`
+--
+
+LOCK TABLES `student_pendingnamechange` WRITE;
+/*!40000 ALTER TABLE `student_pendingnamechange` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_pendingnamechange` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_pendingsecondaryemailchange`
+--
+
+DROP TABLE IF EXISTS `student_pendingsecondaryemailchange`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_pendingsecondaryemailchange` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `new_secondary_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activation_key` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `activation_key` (`activation_key`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `student_pendingsecondaryemailchange_new_secondary_email_5e79db59` (`new_secondary_email`),
+  CONSTRAINT `student_pendingsecon_user_id_deacc54f_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_pendingsecondaryemailchange`
+--
+
+LOCK TABLES `student_pendingsecondaryemailchange` WRITE;
+/*!40000 ALTER TABLE `student_pendingsecondaryemailchange` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_pendingsecondaryemailchange` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_registrationcookieconfiguration`
+--
+
+DROP TABLE IF EXISTS `student_registrationcookieconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_registrationcookieconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `utm_cookie_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `affiliate_cookie_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_registration_changed_by_id_52ac88b0_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `student_registration_changed_by_id_52ac88b0_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_registrationcookieconfiguration`
+--
+
+LOCK TABLES `student_registrationcookieconfiguration` WRITE;
+/*!40000 ALTER TABLE `student_registrationcookieconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_registrationcookieconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_sociallink`
+--
+
+DROP TABLE IF EXISTS `student_sociallink`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_sociallink` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `platform` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `social_link` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_profile_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_sociallink_user_profile_id_19f54475_fk_auth_user` (`user_profile_id`),
+  CONSTRAINT `student_sociallink_user_profile_id_19f54475_fk_auth_user` FOREIGN KEY (`user_profile_id`) REFERENCES `auth_userprofile` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_sociallink`
+--
+
+LOCK TABLES `student_sociallink` WRITE;
+/*!40000 ALTER TABLE `student_sociallink` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_sociallink` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_userattribute`
+--
+
+DROP TABLE IF EXISTS `student_userattribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_userattribute` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_userattribute_user_id_name_70e18f46_uniq` (`user_id`,`name`),
+  KEY `student_userattribute_name_a55155e3` (`name`),
+  CONSTRAINT `student_userattribute_user_id_19c01f5e_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_userattribute`
+--
+
+LOCK TABLES `student_userattribute` WRITE;
+/*!40000 ALTER TABLE `student_userattribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_userattribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_usercelebration`
+--
+
+DROP TABLE IF EXISTS `student_usercelebration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_usercelebration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `last_day_of_streak` date DEFAULT NULL,
+  `streak_length` int NOT NULL,
+  `longest_ever_streak` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `student_usercelebration_user_id_8682222f_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_usercelebration`
+--
+
+LOCK TABLES `student_usercelebration` WRITE;
+/*!40000 ALTER TABLE `student_usercelebration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_usercelebration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_userpasswordtogglehistory`
+--
+
+DROP TABLE IF EXISTS `student_userpasswordtogglehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_userpasswordtogglehistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `disabled` tinyint(1) NOT NULL,
+  `created_by_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_userpassword_created_by_id_f7092add_fk_auth_user` (`created_by_id`),
+  KEY `student_userpassword_user_id_1e2a09c9_fk_auth_user` (`user_id`),
+  CONSTRAINT `student_userpassword_created_by_id_f7092add_fk_auth_user` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `student_userpassword_user_id_1e2a09c9_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_userpasswordtogglehistory`
+--
+
+LOCK TABLES `student_userpasswordtogglehistory` WRITE;
+/*!40000 ALTER TABLE `student_userpasswordtogglehistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_userpasswordtogglehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_usersignupsource`
+--
+
+DROP TABLE IF EXISTS `student_usersignupsource`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_usersignupsource` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `site` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_usersignupsource_user_id_4979dd6e_fk_auth_user_id` (`user_id`),
+  KEY `student_usersignupsource_site_beb4d383` (`site`),
+  CONSTRAINT `student_usersignupsource_user_id_4979dd6e_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_usersignupsource`
+--
+
+LOCK TABLES `student_usersignupsource` WRITE;
+/*!40000 ALTER TABLE `student_usersignupsource` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_usersignupsource` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_userstanding`
+--
+
+DROP TABLE IF EXISTS `student_userstanding`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_userstanding` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `account_status` varchar(31) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `standing_last_changed_at` datetime(6) NOT NULL,
+  `changed_by_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  KEY `student_userstanding_changed_by_id_469252b4_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `student_userstanding_changed_by_id_469252b4_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `student_userstanding_user_id_00b147e5_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_userstanding`
+--
+
+LOCK TABLES `student_userstanding` WRITE;
+/*!40000 ALTER TABLE `student_userstanding` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_userstanding` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_usertestgroup`
+--
+
+DROP TABLE IF EXISTS `student_usertestgroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_usertestgroup` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `student_usertestgroup_name_94f48ddb` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_usertestgroup`
+--
+
+LOCK TABLES `student_usertestgroup` WRITE;
+/*!40000 ALTER TABLE `student_usertestgroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_usertestgroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `student_usertestgroup_users`
+--
+
+DROP TABLE IF EXISTS `student_usertestgroup_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `student_usertestgroup_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `usertestgroup_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_usertestgroup_us_usertestgroup_id_user_id_2bbf095a_uniq` (`usertestgroup_id`,`user_id`),
+  KEY `student_usertestgroup_users_user_id_81b93062_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `student_usertestgrou_usertestgroup_id_a9097958_fk_student_u` FOREIGN KEY (`usertestgroup_id`) REFERENCES `student_usertestgroup` (`id`),
+  CONSTRAINT `student_usertestgroup_users_user_id_81b93062_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `student_usertestgroup_users`
+--
+
+LOCK TABLES `student_usertestgroup_users` WRITE;
+/*!40000 ALTER TABLE `student_usertestgroup_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `student_usertestgroup_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_score`
+--
+
+DROP TABLE IF EXISTS `submissions_score`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_score` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `points_earned` int unsigned NOT NULL,
+  `points_possible` int unsigned NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `reset` tinyint(1) NOT NULL,
+  `student_item_id` int NOT NULL,
+  `submission_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `submissions_score_student_item_id_de4f5954_fk_submissio` (`student_item_id`),
+  KEY `submissions_score_submission_id_ba095829_fk_submissio` (`submission_id`),
+  KEY `submissions_score_created_at_b65f0390` (`created_at`),
+  CONSTRAINT `submissions_score_student_item_id_de4f5954_fk_submissio` FOREIGN KEY (`student_item_id`) REFERENCES `submissions_studentitem` (`id`),
+  CONSTRAINT `submissions_score_submission_id_ba095829_fk_submissio` FOREIGN KEY (`submission_id`) REFERENCES `submissions_submission` (`id`),
+  CONSTRAINT `submissions_score_chk_1` CHECK ((`points_earned` >= 0)),
+  CONSTRAINT `submissions_score_chk_2` CHECK ((`points_possible` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_score`
+--
+
+LOCK TABLES `submissions_score` WRITE;
+/*!40000 ALTER TABLE `submissions_score` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_score` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_scoreannotation`
+--
+
+DROP TABLE IF EXISTS `submissions_scoreannotation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_scoreannotation` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `annotation_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `creator` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `score_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `submissions_scoreann_score_id_2dda6e02_fk_submissio` (`score_id`),
+  KEY `submissions_scoreannotation_annotation_type_117a2607` (`annotation_type`),
+  KEY `submissions_scoreannotation_creator_5cc126cc` (`creator`),
+  CONSTRAINT `submissions_scoreann_score_id_2dda6e02_fk_submissio` FOREIGN KEY (`score_id`) REFERENCES `submissions_score` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_scoreannotation`
+--
+
+LOCK TABLES `submissions_scoreannotation` WRITE;
+/*!40000 ALTER TABLE `submissions_scoreannotation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_scoreannotation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_scoresummary`
+--
+
+DROP TABLE IF EXISTS `submissions_scoresummary`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_scoresummary` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `highest_id` int NOT NULL,
+  `latest_id` int NOT NULL,
+  `student_item_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `student_item_id` (`student_item_id`),
+  KEY `submissions_scoresum_highest_id_3efe897d_fk_submissio` (`highest_id`),
+  KEY `submissions_scoresum_latest_id_dd8a17bb_fk_submissio` (`latest_id`),
+  CONSTRAINT `submissions_scoresum_highest_id_3efe897d_fk_submissio` FOREIGN KEY (`highest_id`) REFERENCES `submissions_score` (`id`),
+  CONSTRAINT `submissions_scoresum_latest_id_dd8a17bb_fk_submissio` FOREIGN KEY (`latest_id`) REFERENCES `submissions_score` (`id`),
+  CONSTRAINT `submissions_scoresum_student_item_id_35f8ef06_fk_submissio` FOREIGN KEY (`student_item_id`) REFERENCES `submissions_studentitem` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_scoresummary`
+--
+
+LOCK TABLES `submissions_scoresummary` WRITE;
+/*!40000 ALTER TABLE `submissions_scoresummary` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_scoresummary` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_studentitem`
+--
+
+DROP TABLE IF EXISTS `submissions_studentitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_studentitem` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `student_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submissions_studentitem_course_id_student_id_ite_5b02ecf8_uniq` (`course_id`,`student_id`,`item_id`),
+  KEY `submissions_studentitem_student_id_8e72bcd9` (`student_id`),
+  KEY `submissions_studentitem_course_id_05ee1efe` (`course_id`),
+  KEY `submissions_studentitem_item_id_6c409784` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_studentitem`
+--
+
+LOCK TABLES `submissions_studentitem` WRITE;
+/*!40000 ALTER TABLE `submissions_studentitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_studentitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_submission`
+--
+
+DROP TABLE IF EXISTS `submissions_submission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_submission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempt_number` int unsigned NOT NULL,
+  `submitted_at` datetime(6) NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `raw_answer` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_item_id` int NOT NULL,
+  `status` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `team_submission_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `submissions_submissi_team_submission_id_40e6bc97_fk_submissio` (`team_submission_id`),
+  KEY `submissions_submissi_student_item_id_9d087470_fk_submissio` (`student_item_id`),
+  KEY `submissions_submission_uuid_210428ab` (`uuid`),
+  KEY `submissions_submission_submitted_at_9653124d` (`submitted_at`),
+  KEY `submissions_submission_created_at_01c4bf22` (`created_at`),
+  CONSTRAINT `submissions_submissi_student_item_id_9d087470_fk_submissio` FOREIGN KEY (`student_item_id`) REFERENCES `submissions_studentitem` (`id`),
+  CONSTRAINT `submissions_submissi_team_submission_id_40e6bc97_fk_submissio` FOREIGN KEY (`team_submission_id`) REFERENCES `submissions_teamsubmission` (`id`),
+  CONSTRAINT `submissions_submission_chk_1` CHECK ((`attempt_number` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_submission`
+--
+
+LOCK TABLES `submissions_submission` WRITE;
+/*!40000 ALTER TABLE `submissions_submission` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_submission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `submissions_teamsubmission`
+--
+
+DROP TABLE IF EXISTS `submissions_teamsubmission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `submissions_teamsubmission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `attempt_number` int unsigned NOT NULL,
+  `submitted_at` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `team_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `submitted_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `submissions_teamsubm_submitted_by_id_5a27162a_fk_auth_user` (`submitted_by_id`),
+  KEY `submissions_teamsubmission_uuid_4d1aef87` (`uuid`),
+  KEY `submissions_teamsubmission_submitted_at_74e28ed6` (`submitted_at`),
+  KEY `submissions_teamsubmission_course_id_68c6908d` (`course_id`),
+  KEY `submissions_teamsubmission_item_id_2bdcb26c` (`item_id`),
+  KEY `submissions_teamsubmission_team_id_5fda0e54` (`team_id`),
+  CONSTRAINT `submissions_teamsubm_submitted_by_id_5a27162a_fk_auth_user` FOREIGN KEY (`submitted_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `submissions_teamsubmission_chk_1` CHECK ((`attempt_number` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `submissions_teamsubmission`
+--
+
+LOCK TABLES `submissions_teamsubmission` WRITE;
+/*!40000 ALTER TABLE `submissions_teamsubmission` DISABLE KEYS */;
+/*!40000 ALTER TABLE `submissions_teamsubmission` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `super_csv_csvoperation`
+--
+
+DROP TABLE IF EXISTS `super_csv_csvoperation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `super_csv_csvoperation` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `class_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `unique_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `operation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `data` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int DEFAULT NULL,
+  `original_filename` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `super_csv_csvoperation_class_name_c8b5b4e2` (`class_name`),
+  KEY `super_csv_csvoperation_unique_id_08aa974e` (`unique_id`),
+  KEY `super_csv_csvoperation_user_id_f87de59a_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `super_csv_csvoperation_user_id_f87de59a_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `super_csv_csvoperation`
+--
+
+LOCK TABLES `super_csv_csvoperation` WRITE;
+/*!40000 ALTER TABLE `super_csv_csvoperation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `super_csv_csvoperation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `support_courseresetaudit`
+--
+
+DROP TABLE IF EXISTS `support_courseresetaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `support_courseresetaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `status` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `completed_at` datetime(6) DEFAULT NULL,
+  `course_id` int NOT NULL,
+  `course_enrollment_id` int NOT NULL,
+  `reset_by_id` int NOT NULL,
+  `comment` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `support_coursereseta_course_id_ffa23622_fk_support_c` (`course_id`),
+  KEY `support_coursereseta_course_enrollment_id_41df79ed_fk_student_c` (`course_enrollment_id`),
+  KEY `support_courseresetaudit_reset_by_id_db8ba7f6_fk_auth_user_id` (`reset_by_id`),
+  CONSTRAINT `support_coursereseta_course_enrollment_id_41df79ed_fk_student_c` FOREIGN KEY (`course_enrollment_id`) REFERENCES `student_courseenrollment` (`id`),
+  CONSTRAINT `support_coursereseta_course_id_ffa23622_fk_support_c` FOREIGN KEY (`course_id`) REFERENCES `support_courseresetcourseoptin` (`id`),
+  CONSTRAINT `support_courseresetaudit_reset_by_id_db8ba7f6_fk_auth_user_id` FOREIGN KEY (`reset_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `support_courseresetaudit`
+--
+
+LOCK TABLES `support_courseresetaudit` WRITE;
+/*!40000 ALTER TABLE `support_courseresetaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `support_courseresetaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `support_courseresetcourseoptin`
+--
+
+DROP TABLE IF EXISTS `support_courseresetcourseoptin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `support_courseresetcourseoptin` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `support_courseresetcourseoptin_course_id_e6fd556d_uniq` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `support_courseresetcourseoptin`
+--
+
+LOCK TABLES `support_courseresetcourseoptin` WRITE;
+/*!40000 ALTER TABLE `support_courseresetcourseoptin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `support_courseresetcourseoptin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `support_historicalusersocialauth`
+--
+
+DROP TABLE IF EXISTS `support_historicalusersocialauth`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `support_historicalusersocialauth` (
+  `id` bigint NOT NULL,
+  `provider` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extra_data` json NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `support_historicalus_history_user_id_a54cd5b3_fk_auth_user` (`history_user_id`),
+  KEY `support_historicalusersocialauth_id_979b8a3c` (`id`),
+  KEY `support_historicalusersocialauth_uid_9f2e466e` (`uid`),
+  KEY `support_historicalusersocialauth_user_id_95d74953` (`user_id`),
+  CONSTRAINT `support_historicalus_history_user_id_a54cd5b3_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `support_historicalusersocialauth`
+--
+
+LOCK TABLES `support_historicalusersocialauth` WRITE;
+/*!40000 ALTER TABLE `support_historicalusersocialauth` DISABLE KEYS */;
+/*!40000 ALTER TABLE `support_historicalusersocialauth` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `survey_report_surveyreport`
+--
+
+DROP TABLE IF EXISTS `survey_report_surveyreport`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `survey_report_surveyreport` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `courses_offered` bigint NOT NULL,
+  `learners` bigint NOT NULL,
+  `registered_learners` bigint NOT NULL,
+  `enrollments` bigint NOT NULL,
+  `generated_certificates` bigint NOT NULL,
+  `extra_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `state` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `survey_report_surveyreport`
+--
+
+LOCK TABLES `survey_report_surveyreport` WRITE;
+/*!40000 ALTER TABLE `survey_report_surveyreport` DISABLE KEYS */;
+/*!40000 ALTER TABLE `survey_report_surveyreport` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `survey_report_surveyreportanonymoussiteid`
+--
+
+DROP TABLE IF EXISTS `survey_report_surveyreportanonymoussiteid`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `survey_report_surveyreportanonymoussiteid` (
+  `id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `survey_report_surveyreportanonymoussiteid`
+--
+
+LOCK TABLES `survey_report_surveyreportanonymoussiteid` WRITE;
+/*!40000 ALTER TABLE `survey_report_surveyreportanonymoussiteid` DISABLE KEYS */;
+/*!40000 ALTER TABLE `survey_report_surveyreportanonymoussiteid` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `survey_report_surveyreportupload`
+--
+
+DROP TABLE IF EXISTS `survey_report_surveyreportupload`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `survey_report_surveyreportupload` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `sent_at` datetime(6) NOT NULL,
+  `status_code` int NOT NULL,
+  `request_details` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `report_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `survey_report_survey_report_id_1f7aba60_fk_survey_re` (`report_id`),
+  CONSTRAINT `survey_report_survey_report_id_1f7aba60_fk_survey_re` FOREIGN KEY (`report_id`) REFERENCES `survey_report_surveyreport` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `survey_report_surveyreportupload`
+--
+
+LOCK TABLES `survey_report_surveyreportupload` WRITE;
+/*!40000 ALTER TABLE `survey_report_surveyreportupload` DISABLE KEYS */;
+/*!40000 ALTER TABLE `survey_report_surveyreportupload` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `survey_surveyanswer`
+--
+
+DROP TABLE IF EXISTS `survey_surveyanswer`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `survey_surveyanswer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `field_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `field_value` varchar(1024) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `form_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `survey_surveyanswer_form_id_7f0df59f_fk_survey_surveyform_id` (`form_id`),
+  KEY `survey_surveyanswer_user_id_4c028d25_fk_auth_user_id` (`user_id`),
+  KEY `survey_surveyanswer_field_name_7123dc3d` (`field_name`),
+  KEY `survey_surveyanswer_course_key_497ade68` (`course_key`),
+  CONSTRAINT `survey_surveyanswer_form_id_7f0df59f_fk_survey_surveyform_id` FOREIGN KEY (`form_id`) REFERENCES `survey_surveyform` (`id`),
+  CONSTRAINT `survey_surveyanswer_user_id_4c028d25_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `survey_surveyanswer`
+--
+
+LOCK TABLES `survey_surveyanswer` WRITE;
+/*!40000 ALTER TABLE `survey_surveyanswer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `survey_surveyanswer` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `survey_surveyform`
+--
+
+DROP TABLE IF EXISTS `survey_surveyform`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `survey_surveyform` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `form` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `survey_surveyform`
+--
+
+LOCK TABLES `survey_surveyform` WRITE;
+/*!40000 ALTER TABLE `survey_surveyform` DISABLE KEYS */;
+/*!40000 ALTER TABLE `survey_surveyform` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `system_wide_roles_systemwiderole`
+--
+
+DROP TABLE IF EXISTS `system_wide_roles_systemwiderole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `system_wide_roles_systemwiderole` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `system_wide_roles_systemwiderole`
+--
+
+LOCK TABLES `system_wide_roles_systemwiderole` WRITE;
+/*!40000 ALTER TABLE `system_wide_roles_systemwiderole` DISABLE KEYS */;
+INSERT INTO `system_wide_roles_systemwiderole` VALUES (1,'2025-01-10 06:28:36.163562','2025-01-10 06:28:36.163562','student_support_admin',NULL);
+/*!40000 ALTER TABLE `system_wide_roles_systemwiderole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `system_wide_roles_systemwideroleassignment`
+--
+
+DROP TABLE IF EXISTS `system_wide_roles_systemwideroleassignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `system_wide_roles_systemwideroleassignment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `role_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `applies_to_all_contexts` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `system_wide_roles_sy_role_id_b553068b_fk_system_wi` (`role_id`),
+  KEY `system_wide_roles_sy_user_id_8ec7ad0d_fk_auth_user` (`user_id`),
+  CONSTRAINT `system_wide_roles_sy_role_id_b553068b_fk_system_wi` FOREIGN KEY (`role_id`) REFERENCES `system_wide_roles_systemwiderole` (`id`),
+  CONSTRAINT `system_wide_roles_sy_user_id_8ec7ad0d_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `system_wide_roles_systemwideroleassignment`
+--
+
+LOCK TABLES `system_wide_roles_systemwideroleassignment` WRITE;
+/*!40000 ALTER TABLE `system_wide_roles_systemwideroleassignment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `system_wide_roles_systemwideroleassignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tagging_tagavailablevalues`
+--
+
+DROP TABLE IF EXISTS `tagging_tagavailablevalues`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tagging_tagavailablevalues` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tagging_tagavailable_category_id_9cc60a44_fk_tagging_t` (`category_id`),
+  CONSTRAINT `tagging_tagavailable_category_id_9cc60a44_fk_tagging_t` FOREIGN KEY (`category_id`) REFERENCES `tagging_tagcategories` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tagging_tagavailablevalues`
+--
+
+LOCK TABLES `tagging_tagavailablevalues` WRITE;
+/*!40000 ALTER TABLE `tagging_tagavailablevalues` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tagging_tagavailablevalues` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tagging_tagcategories`
+--
+
+DROP TABLE IF EXISTS `tagging_tagcategories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tagging_tagcategories` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_cl
