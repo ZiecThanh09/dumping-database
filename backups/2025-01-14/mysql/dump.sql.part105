@@ -1,0 +1,740 @@
+6b31785` (`unsubscribe_token`),
+  CONSTRAINT `course_goals_histori_history_user_id_b20abbc7_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_goals_historicalcoursegoal_chk_1` CHECK ((`days_per_week` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_goals_historicalcoursegoal`
+--
+
+LOCK TABLES `course_goals_historicalcoursegoal` WRITE;
+/*!40000 ALTER TABLE `course_goals_historicalcoursegoal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_goals_historicalcoursegoal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_goals_useractivity`
+--
+
+DROP TABLE IF EXISTS `course_goals_useractivity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_goals_useractivity` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` date NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_user_course_date` (`user_id`,`course_key`,`date`),
+  KEY `user_course_index` (`user_id`,`course_key`),
+  CONSTRAINT `course_goals_useractivity_user_id_aed932d9_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_goals_useractivity`
+--
+
+LOCK TABLES `course_goals_useractivity` WRITE;
+/*!40000 ALTER TABLE `course_goals_useractivity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_goals_useractivity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_cohortmembership`
+--
+
+DROP TABLE IF EXISTS `course_groups_cohortmembership`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_cohortmembership` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_user_group_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_groups_cohortmembership_user_id_course_id_c247eb7f_uniq` (`user_id`,`course_id`),
+  KEY `course_groups_cohort_course_user_group_id_6ea50b45_fk_course_gr` (`course_user_group_id`),
+  CONSTRAINT `course_groups_cohort_course_user_group_id_6ea50b45_fk_course_gr` FOREIGN KEY (`course_user_group_id`) REFERENCES `course_groups_courseusergroup` (`id`),
+  CONSTRAINT `course_groups_cohortmembership_user_id_aae5b8e7_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_cohortmembership`
+--
+
+LOCK TABLES `course_groups_cohortmembership` WRITE;
+/*!40000 ALTER TABLE `course_groups_cohortmembership` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_cohortmembership` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_coursecohort`
+--
+
+DROP TABLE IF EXISTS `course_groups_coursecohort`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_coursecohort` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `assignment_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_user_group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_user_group_id` (`course_user_group_id`),
+  CONSTRAINT `course_groups_course_course_user_group_id_ec5703ee_fk_course_gr` FOREIGN KEY (`course_user_group_id`) REFERENCES `course_groups_courseusergroup` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_coursecohort`
+--
+
+LOCK TABLES `course_groups_coursecohort` WRITE;
+/*!40000 ALTER TABLE `course_groups_coursecohort` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_coursecohort` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_coursecohortssettings`
+--
+
+DROP TABLE IF EXISTS `course_groups_coursecohortssettings`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_coursecohortssettings` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `is_cohorted` tinyint(1) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cohorted_discussions` longtext COLLATE utf8mb4_unicode_ci,
+  `always_cohort_inline_discussions` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_id` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_coursecohortssettings`
+--
+
+LOCK TABLES `course_groups_coursecohortssettings` WRITE;
+/*!40000 ALTER TABLE `course_groups_coursecohortssettings` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_coursecohortssettings` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_courseusergroup`
+--
+
+DROP TABLE IF EXISTS `course_groups_courseusergroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_courseusergroup` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `group_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_groups_courseusergroup_name_course_id_b767231d_uniq` (`name`,`course_id`),
+  KEY `course_groups_courseusergroup_course_id_902aea4c` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_courseusergroup`
+--
+
+LOCK TABLES `course_groups_courseusergroup` WRITE;
+/*!40000 ALTER TABLE `course_groups_courseusergroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_courseusergroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_courseusergroup_users`
+--
+
+DROP TABLE IF EXISTS `course_groups_courseusergroup_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_courseusergroup_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `courseusergroup_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_groups_courseuser_courseusergroup_id_user__694e8c30_uniq` (`courseusergroup_id`,`user_id`),
+  KEY `course_groups_course_user_id_28aff981_fk_auth_user` (`user_id`),
+  CONSTRAINT `course_groups_course_courseusergroup_id_26a7966f_fk_course_gr` FOREIGN KEY (`courseusergroup_id`) REFERENCES `course_groups_courseusergroup` (`id`),
+  CONSTRAINT `course_groups_course_user_id_28aff981_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_courseusergroup_users`
+--
+
+LOCK TABLES `course_groups_courseusergroup_users` WRITE;
+/*!40000 ALTER TABLE `course_groups_courseusergroup_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_courseusergroup_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_courseusergrouppartitiongroup`
+--
+
+DROP TABLE IF EXISTS `course_groups_courseusergrouppartitiongroup`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_courseusergrouppartitiongroup` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `partition_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `updated_at` datetime(6) NOT NULL,
+  `course_user_group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_user_group_id` (`course_user_group_id`),
+  CONSTRAINT `course_groups_course_course_user_group_id_6032d512_fk_course_gr` FOREIGN KEY (`course_user_group_id`) REFERENCES `course_groups_courseusergroup` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_courseusergrouppartitiongroup`
+--
+
+LOCK TABLES `course_groups_courseusergrouppartitiongroup` WRITE;
+/*!40000 ALTER TABLE `course_groups_courseusergrouppartitiongroup` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_courseusergrouppartitiongroup` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_groups_unregisteredlearnercohortassignments`
+--
+
+DROP TABLE IF EXISTS `course_groups_unregisteredlearnercohortassignments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_groups_unregisteredlearnercohortassignments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_user_group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_groups_unregister_course_id_email_81a9d1db_uniq` (`course_id`,`email`),
+  KEY `course_groups_unregi_course_user_group_id_c1c8a247_fk_course_gr` (`course_user_group_id`),
+  KEY `course_groups_unregisteredl_email_05d0e40e` (`email`),
+  CONSTRAINT `course_groups_unregi_course_user_group_id_c1c8a247_fk_course_gr` FOREIGN KEY (`course_user_group_id`) REFERENCES `course_groups_courseusergroup` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_groups_unregisteredlearnercohortassignments`
+--
+
+LOCK TABLES `course_groups_unregisteredlearnercohortassignments` WRITE;
+/*!40000 ALTER TABLE `course_groups_unregisteredlearnercohortassignments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_groups_unregisteredlearnercohortassignments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_home_api_disableprogresspagestackedconfig`
+--
+
+DROP TABLE IF EXISTS `course_home_api_disableprogresspagestackedconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_home_api_disableprogresspagestackedconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `disabled` tinyint(1) DEFAULT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_home_site_id_6988e4_idx` (`site_id`,`org`,`course_id`),
+  KEY `course_home_site_id_23dec6_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `course_home_api_disa_changed_by_id_2a8c1176_fk_auth_user` (`changed_by_id`),
+  KEY `course_home_api_disa_course_id_815633f2_fk_course_ov` (`course_id`),
+  KEY `course_home_api_disableprogresspagestackedconfig_org_d6dd0056` (`org`),
+  KEY `course_home_api_disableprog_org_course_b4b94c97` (`org_course`),
+  CONSTRAINT `course_home_api_disa_changed_by_id_2a8c1176_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_home_api_disa_course_id_815633f2_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `course_home_api_disa_site_id_81e5e9d3_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_home_api_disableprogresspagestackedconfig`
+--
+
+LOCK TABLES `course_home_api_disableprogresspagestackedconfig` WRITE;
+/*!40000 ALTER TABLE `course_home_api_disableprogresspagestackedconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_home_api_disableprogresspagestackedconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_live_courseliveconfiguration`
+--
+
+DROP TABLE IF EXISTS `course_live_courseliveconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_live_courseliveconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  `free_tier` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_live_courseli_lti_configuration_id_ec442587_fk_lti_consu` (`lti_configuration_id`),
+  KEY `course_live_courseliveconfiguration_course_key_ff15afd8` (`course_key`),
+  CONSTRAINT `course_live_courseli_lti_configuration_id_ec442587_fk_lti_consu` FOREIGN KEY (`lti_configuration_id`) REFERENCES `lti_consumer_lticonfiguration` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_live_courseliveconfiguration`
+--
+
+LOCK TABLES `course_live_courseliveconfiguration` WRITE;
+/*!40000 ALTER TABLE `course_live_courseliveconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_live_courseliveconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_live_historicalcourseliveconfiguration`
+--
+
+DROP TABLE IF EXISTS `course_live_historicalcourseliveconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_live_historicalcourseliveconfiguration` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  `free_tier` tinyint(1) NOT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `course_live_historic_history_user_id_eb9f8dda_fk_auth_user` (`history_user_id`),
+  KEY `course_live_historicalcourseliveconfiguration_id_45a9db2e` (`id`),
+  KEY `course_live_historicalcours_course_key_1453fa63` (`course_key`),
+  KEY `course_live_historicalcours_lti_configuration_id_62cf6306` (`lti_configuration_id`),
+  CONSTRAINT `course_live_historic_history_user_id_eb9f8dda_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_live_historicalcourseliveconfiguration`
+--
+
+LOCK TABLES `course_live_historicalcourseliveconfiguration` WRITE;
+/*!40000 ALTER TABLE `course_live_historicalcourseliveconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_live_historicalcourseliveconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_modes_coursemode`
+--
+
+DROP TABLE IF EXISTS `course_modes_coursemode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_modes_coursemode` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode_slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode_display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_price` int NOT NULL,
+  `currency` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration_datetime` datetime(6) DEFAULT NULL,
+  `expiration_date` date DEFAULT NULL,
+  `suggested_prices` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `expiration_datetime_is_explicit` tinyint(1) NOT NULL,
+  `bulk_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `android_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ios_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_modes_coursemode_course_id_mode_slug_curr_56f8e675_uniq` (`course_id`,`mode_slug`,`currency`),
+  KEY `course_modes_coursemode_course_id_3daf3b9d` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_modes_coursemode`
+--
+
+LOCK TABLES `course_modes_coursemode` WRITE;
+/*!40000 ALTER TABLE `course_modes_coursemode` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_modes_coursemode` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_modes_coursemodeexpirationconfig`
+--
+
+DROP TABLE IF EXISTS `course_modes_coursemodeexpirationconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_modes_coursemodeexpirationconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `verification_window` bigint NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_modes_coursem_changed_by_id_208463ee_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `course_modes_coursem_changed_by_id_208463ee_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_modes_coursemodeexpirationconfig`
+--
+
+LOCK TABLES `course_modes_coursemodeexpirationconfig` WRITE;
+/*!40000 ALTER TABLE `course_modes_coursemodeexpirationconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_modes_coursemodeexpirationconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_modes_coursemodesarchive`
+--
+
+DROP TABLE IF EXISTS `course_modes_coursemodesarchive`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_modes_coursemodesarchive` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode_slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode_display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_price` int NOT NULL,
+  `suggested_prices` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration_date` date DEFAULT NULL,
+  `expiration_datetime` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_modes_coursemodesarchive_course_id_f67bbd35` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_modes_coursemodesarchive`
+--
+
+LOCK TABLES `course_modes_coursemodesarchive` WRITE;
+/*!40000 ALTER TABLE `course_modes_coursemodesarchive` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_modes_coursemodesarchive` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_modes_historicalcoursemode`
+--
+
+DROP TABLE IF EXISTS `course_modes_historicalcoursemode`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_modes_historicalcoursemode` (
+  `id` int NOT NULL,
+  `mode_slug` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode_display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_price` int NOT NULL,
+  `currency` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expiration_datetime` datetime(6) DEFAULT NULL,
+  `expiration_datetime_is_explicit` tinyint(1) NOT NULL,
+  `expiration_date` date DEFAULT NULL,
+  `suggested_prices` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `bulk_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `android_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ios_sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `course_modes_histori_history_user_id_d92d6b6e_fk_auth_user` (`history_user_id`),
+  KEY `course_modes_historicalcoursemode_id_14918a77` (`id`),
+  KEY `course_modes_historicalcoursemode_course_id_e8de13cd` (`course_id`),
+  CONSTRAINT `course_modes_histori_history_user_id_d92d6b6e_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_modes_historicalcoursemode`
+--
+
+LOCK TABLES `course_modes_historicalcoursemode` WRITE;
+/*!40000 ALTER TABLE `course_modes_historicalcoursemode` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_modes_historicalcoursemode` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_courseoverview`
+--
+
+DROP TABLE IF EXISTS `course_overviews_courseoverview`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_courseoverview` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `version` int NOT NULL,
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` longtext COLLATE utf8mb4_unicode_ci,
+  `display_number_with_default` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_org_with_default` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` datetime(6) DEFAULT NULL,
+  `end` datetime(6) DEFAULT NULL,
+  `advertised_start` longtext COLLATE utf8mb4_unicode_ci,
+  `course_image_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `social_sharing_url` longtext COLLATE utf8mb4_unicode_ci,
+  `end_of_course_survey_url` longtext COLLATE utf8mb4_unicode_ci,
+  `certificates_display_behavior` longtext COLLATE utf8mb4_unicode_ci,
+  `certificates_show_before_end` tinyint(1) NOT NULL,
+  `cert_html_view_enabled` tinyint(1) NOT NULL,
+  `has_any_active_web_certificate` tinyint(1) NOT NULL,
+  `cert_name_short` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cert_name_long` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lowest_passing_grade` decimal(5,2) DEFAULT NULL,
+  `days_early_for_beta` double DEFAULT NULL,
+  `mobile_available` tinyint(1) NOT NULL,
+  `visible_to_staff_only` tinyint(1) NOT NULL,
+  `_pre_requisite_courses_json` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enrollment_start` datetime(6) DEFAULT NULL,
+  `enrollment_end` datetime(6) DEFAULT NULL,
+  `enrollment_domain` longtext COLLATE utf8mb4_unicode_ci,
+  `invitation_only` tinyint(1) NOT NULL,
+  `max_student_enrollments_allowed` int DEFAULT NULL,
+  `announcement` datetime(6) DEFAULT NULL,
+  `catalog_visibility` longtext COLLATE utf8mb4_unicode_ci,
+  `course_video_url` longtext COLLATE utf8mb4_unicode_ci,
+  `effort` longtext COLLATE utf8mb4_unicode_ci,
+  `short_description` longtext COLLATE utf8mb4_unicode_ci,
+  `org` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4'outdated_entry'),
+  `self_paced` tinyint(1) NOT NULL,
+  `marketing_url` longtext COLLATE utf8mb4_unicode_ci,
+  `eligible_for_financial_aid` tinyint(1) NOT NULL,
+  `language` longtext COLLATE utf8mb4_unicode_ci,
+  `certificate_available_date` datetime(6) DEFAULT NULL,
+  `end_date` datetime(6) DEFAULT NULL,
+  `start_date` datetime(6) DEFAULT NULL,
+  `banner_image_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `has_highlights` tinyint(1) DEFAULT NULL,
+  `allow_proctoring_opt_out` tinyint(1) NOT NULL,
+  `enable_proctored_exams` tinyint(1) NOT NULL,
+  `proctoring_escalation_email` longtext COLLATE utf8mb4_unicode_ci,
+  `proctoring_provider` longtext COLLATE utf8mb4_unicode_ci,
+  `entrance_exam_enabled` tinyint(1) NOT NULL,
+  `entrance_exam_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entrance_exam_minimum_score_pct` double NOT NULL,
+  `external_id` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `force_on_flexible_peer_openassessments` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_courseoverview`
+--
+
+LOCK TABLES `course_overviews_courseoverview` WRITE;
+/*!40000 ALTER TABLE `course_overviews_courseoverview` DISABLE KEYS */;
+INSERT INTO `course_overviews_courseoverview` VALUES ('2025-01-14 09:53:11.563510','2025-01-14 09:54:55.139897',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@maxresdefault.jpg',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'en',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:55:55.212764','2025-01-14 09:56:16.033066',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2025-01-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@consent-form-avatar.png',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'en',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:56:50.452477','2025-01-14 09:57:00.685397',19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course','Conflict of Interest','TF_COI_005','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@iStock-1305519727-Converted.png',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'en',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COI_005+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:57:34.824092','2025-01-14 09:57:50.773234',19,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course','Nhận Thức Về Tuân Thủ','TF_COMP_003','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@image_dao-tao-tuan-thu-8.jpg',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'vi',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_COMP_003+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:58:48.552674','2025-01-14 09:58:57.207554',19,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course','ESG - Environmental, Social, and Governance','TF_ESG_006','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@ESG1.jpg',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'vi',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ESG_006+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:59:25.516201','2025-01-14 09:59:35.116030',19,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course','PDPD - Personal Data Protection','TF_PDPD_002','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@image.png',NULL,NULL,'end',0,1,0,'','',0.50,NULL,1,0,'[]',NULL,NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'','Trainficient',0,NULL,1,'en',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_PDPD_002+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:57:57.459911',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2024-12-20 00:00:00.000000',NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@R.jpg',NULL,NULL,'early_no_info',0,1,1,'','',0.80,NULL,1,0,'[]',NULL,NULL,NULL,0,NULL,NULL,'both',NULL,NULL,'Quản trị rủi ro là quá trình nhận diện, đánh giá và quản lý các yếu tố ảnh hưởng tiêu cực đến tổ chức, nhằm giảm thiểu thiệt hại và tối đa hóa cơ hội.','Trainficient',0,NULL,1,'vi',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0);
+/*!40000 ALTER TABLE `course_overviews_courseoverview` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_courseoverviewimageconfig`
+--
+
+DROP TABLE IF EXISTS `course_overviews_courseoverviewimageconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_courseoverviewimageconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `small_width` int NOT NULL,
+  `small_height` int NOT NULL,
+  `large_width` int NOT NULL,
+  `large_height` int NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_overviews_cou_changed_by_id_b60ae39a_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `course_overviews_cou_changed_by_id_b60ae39a_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_courseoverviewimageconfig`
+--
+
+LOCK TABLES `course_overviews_courseoverviewimageconfig` WRITE;
+/*!40000 ALTER TABLE `course_overviews_courseoverviewimageconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_overviews_courseoverviewimageconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_courseoverviewimageset`
+--
+
+DROP TABLE IF EXISTS `course_overviews_courseoverviewimageset`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_courseoverviewimageset` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `small_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `large_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_overview_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_overview_id` (`course_overview_id`),
+  CONSTRAINT `course_overviews_cou_course_overview_id_ef7aa548_fk_course_ov` FOREIGN KEY (`course_overview_id`) REFERENCES `course_overviews_courseoverview` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_courseoverviewimageset`
+--
+
+LOCK TABLES `course_overviews_courseoverviewimageset` WRITE;
+/*!40000 ALTER TABLE `course_overviews_courseoverviewimageset` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_overviews_courseoverviewimageset` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_courseoverviewtab`
+--
+
+DROP TABLE IF EXISTS `course_overviews_courseoverviewtab`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_courseoverviewtab` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tab_id` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_overview_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_staff_only` tinyint(1) NOT NULL,
+  `name` longtext COLLATE utf8mb4_unicode_ci,
+  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `url_slug` longtext COLLATE utf8mb4_unicode_ci,
+  `link` longtext COLLATE utf8mb4_unicode_ci,
+  `is_hidden` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_overviews_cou_course_overview_id_71fa6321_fk_course_ov` (`course_overview_id`),
+  CONSTRAINT `course_overviews_cou_course_overview_id_71fa6321_fk_course_ov` FOREIGN KEY (`course_overview_id`) REFERENCES `course_overviews_courseoverview` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_courseoverviewtab`
+--
+
+LOCK TABLES `course_overviews_courseoverviewtab` WRITE;
+/*!40000 ALTER TABLE `course_overviews_courseoverviewtab` DISABLE KEYS */;
+INSERT INTO `course_overviews_courseoverviewtab` VALUES (31,'courseware','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Course','courseware',NULL,NULL,0),(32,'progress','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Progress','progress',NULL,NULL,0),(33,'dates','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Dates','dates',NULL,NULL,0),(34,'discussion','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Discussion','discussion','tab/discussion',NULL,0),(35,'wiki','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Wiki','wiki',NULL,NULL,1),(36,'textbooks','course-v1:Trainficient+TF_RM_001+2025_T1',0,'Textbooks','textbooks',NULL,NULL,0),(61,'courseware','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Course','courseware',NULL,NULL,0),(62,'progress','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Progress','progress',NULL,NULL,0),(63,'dates','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Dates','dates',NULL,NULL,0),(64,'discussion','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Discussion','discussion','tab/discussion',NULL,0),(65,'wiki','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Wiki','wiki',NULL,NULL,1),(66,'textbooks','course-v1:Trainficient+TF_ABAC_004+2025_T2',0,'Textbooks','textbooks',NULL,NULL,0),(91,'courseware','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Course','courseware',NULL,NULL,0),(92,'progress','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Progress','progress',NULL,NULL,0),(93,'dates','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Dates','dates',NULL,NULL,0),(94,'discussion','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Discussion','discussion','tab/discussion',NULL,0),(95,'wiki','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Wiki','wiki',NULL,NULL,1),(96,'textbooks','course-v1:Trainficient+TF_CF_001+2025_T1',0,'Textbooks','textbooks',NULL,NULL,0),(121,'courseware','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Course','courseware',NULL,NULL,0),(122,'progress','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Progress','progress',NULL,NULL,0),(123,'dates','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Dates','dates',NULL,NULL,0),(124,'discussion','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Discussion','discussion','tab/discussion',NULL,0),(125,'wiki','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Wiki','wiki',NULL,NULL,1),(126,'textbooks','course-v1:Trainficient+TF_COI_005+2025_T2',0,'Textbooks','textbooks',NULL,NULL,0),(151,'courseware','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Course','courseware',NULL,NULL,0),(152,'progress','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Progress','progress',NULL,NULL,0),(153,'dates','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Dates','dates',NULL,NULL,0),(154,'discussion','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Discussion','discussion','tab/discussion',NULL,0),(155,'wiki','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Wiki','wiki',NULL,NULL,1),(156,'textbooks','course-v1:Trainficient+TF_COMP_003+2025_T2',0,'Textbooks','textbooks',NULL,NULL,0),(181,'courseware','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Course','courseware',NULL,NULL,0),(182,'progress','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Progress','progress',NULL,NULL,0),(183,'dates','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Dates','dates',NULL,NULL,0),(184,'discussion','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Discussion','discussion','tab/discussion',NULL,0),(185,'wiki','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Wiki','wiki',NULL,NULL,1),(186,'textbooks','course-v1:Trainficient+TF_ESG_006+2025_T2',0,'Textbooks','textbooks',NULL,NULL,0),(211,'courseware','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Course','courseware',NULL,NULL,0),(212,'progress','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Progress','progress',NULL,NULL,0),(213,'dates','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Dates','dates',NULL,NULL,0),(214,'discussion','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Discussion','discussion','tab/discussion',NULL,0),(215,'wiki','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Wiki','wiki',NULL,NULL,1),(216,'textbooks','course-v1:Trainficient+TF_PDPD_002+2025_T1',0,'Textbooks','textbooks',NULL,NULL,0);
+/*!40000 ALTER TABLE `course_overviews_courseoverviewtab` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_overviews_historicalcourseoverview`
+--
+
+DROP TABLE IF EXISTS `course_overviews_historicalcourseoverview`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_overviews_historicalcourseoverview` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `version` int NOT NULL,
+  `id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_location` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `org` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` longtext COLLATE utf8mb4_unicode_ci,
+  `display_number_with_default` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_org_with_default` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start` datetime(6) DEFAULT NULL,
+  `end` datetime(6) DEFAULT NULL,
+  `advertised_start` longtext COLLATE utf8mb4_unicode_ci,
+  `announcement` datetime(6) DEFAULT NULL,
+  `course_image_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `social_sharing_url` longtext COLLATE utf8mb4_unicode_ci,
+  `end_of_course_survey_url` longtext COLLATE utf8mb4_unicode_ci,
+  `certificates_display_behavior` longtext COLLATE utf8mb4_unicode_ci,
+  `certificates_show_before_end` tinyint(1) NOT NULL,
+  `cert_html_view_enabled` tinyint(1) NOT NULL,
+  `has_any_active_web_certificate` tinyint(1) NOT NULL,
+  `cert_name_short` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cert_name_long` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `certificate_available_date` datetime(6) DEFAULT NULL,
+  `lowest_passing_grade` decimal(5,2) DEFAULT NULL,
+  `days_early_for_beta` double DEFAULT NULL,
+  `mobile_available` tinyint(1) NOT NULL,
+  `visible_to_staff_only` tinyint(1) NOT NULL,
+  `_pre_requisite_courses_json` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enrollment_start` datetime(6) DEFAULT NULL,
+  `enrollment_end` datetime(6) DEFAULT NULL,
+  `enrollment_domain` longtext COLLATE utf8mb4_unicode_ci,
+  `invitation_only` tinyint(1) NOT NULL,
+  `max_student_enrollments_allowed` int DEFAULT NULL,
+  `catalog_visibility` longtext COLLATE utf8mb4_unicode_ci,
+  `short_description` longtext COLLATE utf8mb4_unicode_ci,
+  `course_video_url` longtext COLLATE utf8mb4_unicode_ci,
+  `effort` longtext COLLATE utf8mb4_unicode_ci,
+  `self_paced` tinyint(1) NOT NULL,
+  `marketing_url` longtext COLLATE utf8mb4_unicode_ci,
+  `eligible_for_financial_aid` tinyint(1) NOT NULL,
+  `language` longtext COLLATE utf8mb4_unicode_ci,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `end_date` datetime(6) DEFAULT NULL,
+  `start_date` datetime(6) DEFAULT NULL,
+  `banner_image_url` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `has_highlights` tinyint(1) DEFAULT NULL,
+  `allow_proctoring_opt_out` tinyint(1) NOT NULL,
+  `enable_proctored_exams` tinyint(1) NOT NULL,
+  `proctoring_escalation_email` longtext COLLATE utf8mb4_unicode_ci,
+  `proctoring_provider` longtext COLLATE utf8mb4_unicode_ci,
+  `entrance_exam_enabled` tinyint(1) NOT NULL,
+  `entrance_exam_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entrance_exam_minimum_score_pct` double NOT NULL,
+  `external_id` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `force_on_flexible_peer_openassessments` tinyint(1) NOT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `course_overviews_his_history_user_id_e21063d9_fk_auth_user` (`history_user_id`),
+  KEY `course_overviews_historicalcourseoverview_id_647043f0` (`id`),
+  CONSTRAINT `course_overviews_his_history_user_id_e21063d9_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_overviews_historicalcourseoverview`
+--
+
+LOCK TABLES `course_overviews_historicalcourseoverview` WRITE;
+/*!40000 ALTER TABLE `course_overviews_historicalcourseoverview` DISABLE KEYS */;
+INSERT INTO `course_overviews_historicalcourseoverview` VALUES ('2025-01-10 07:53:41.195685','2025-01-10 07:53:41.226990',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',1,'2025-01-10 07:53:41.231203',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:53:42.073183',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',2,'2025-01-10 07:53:42.079370',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:53:42.179069',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',3,'2025-01-10 07:53:42.180452',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:53:43.699082',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',4,'2025-01-10 07:53:43.700506',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:55:21.252214',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2024-12-20 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@R.jpg',NULL,NULL,'early_no_info',0,1,1,'','',NULL,0.80,NULL,1,0,'[]',NULL,NULL,NULL,0,NULL,'both','Quản trị rủi ro là quá trình nhận diện, đánh giá và quản lý các yếu tố ảnh hưởng tiêu cực đến tổ chức, nhằm giảm thiểu thiệt hại và tối đa hóa cơ hội.',NULL,NULL,0,NULL,1,'vi',5,'2025-01-10 07:55:21.254526',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-10 07:53:41.195685','2025-01-10 07:57:57.459911',19,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course','Trainficient','Quản Trị Rủi Ro','TF_RM_001','Trainficient','2024-12-20 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@R.jpg',NULL,NULL,'early_no_info',0,1,1,'','',NULL,0.80,NULL,1,0,'[]',NULL,NULL,NULL,0,NULL,'both','Quản trị rủi ro là quá trình nhận diện, đánh giá và quản lý các yếu tố ảnh hưởng tiêu cực đến tổ chức, nhằm giảm thiểu thiệt hại và tối đa hóa cơ hội.',NULL,NULL,0,NULL,1,'vi',6,'2025-01-10 07:57:57.473680',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_RM_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:53:11.563510','2025-01-14 09:53:12.340062',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Trainficient','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',7,'2025-01-14 09:53:12.343707',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:53:11.563510','2025-01-14 09:53:19.360702',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Trainficient','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',8,'2025-01-14 09:53:19.362593',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:53:11.563510','2025-01-14 09:53:19.510321',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Trainficient','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',9,'2025-01-14 09:53:19.511923',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:53:11.563510','2025-01-14 09:53:21.129639',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Trainficient','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',10,'2025-01-14 09:53:21.131335',NULL,'~',6,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:53:11.563510','2025-01-14 09:54:55.139897',19,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course','Trainficient','Anti-Bribery and Anti-Corruption Awareness','TF_ABAC_004','Trainficient','2025-02-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@maxresdefault.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,1,0,'[]','2025-01-01 00:00:00.000000',NULL,NULL,0,NULL,'both','',NULL,NULL,0,NULL,1,'en',11,'2025-01-14 09:54:55.141956',NULL,'~',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_ABAC_004+2025_T2+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01-14 09:55:55.212764','2025-01-14 09:55:55.216077',19,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course','Trainficient','Endovascular Therapy Consent Guide','TF_CF_001','Trainficient','2030-01-01 00:00:00.000000',NULL,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',NULL,NULL,'end',0,1,0,'','',NULL,0.50,NULL,0,0,'[]',NULL,NULL,NULL,0,NULL,'both',NULL,NULL,NULL,0,NULL,1,'en',12,'2025-01-14 09:55:55.219670',NULL,'+',6,NULL,NULL,'/asset-v1:Trainficient+TF_CF_001+2025_T1+type@asset+block@images_course_image.jpg',0,0,0,NULL,'null',0,'',0.65,NULL,0),('2025-01
