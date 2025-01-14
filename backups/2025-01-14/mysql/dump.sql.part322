@@ -1,0 +1,147 @@
+ ends.emission_time\n                    )\n            ),\n            enriched_segments as (\n                select\n                    segments.org as org,\n                    segments.course_key as course_key,\n                    blocks.course_name as course_name,\n                    blocks.course_run as course_run,\n                    blocks.section_with_name as section_with_name,\n                    blocks.subsection_with_name as subsection_with_name,\n                    blocks.block_name as video_name,\n                    blocks.display_name_with_location as video_name_with_location,\n                    segments.actor_id as actor_id,\n                    segments.object_id as object_id,\n                    segments.started_at as started_at,\n                    segments.start_position\n                    - (segments.start_position % 5) as start_position,\n                    segments.end_position - (segments.end_position % 5) as end_position,\n                    segments.video_duration as video_duration,\n                    segments.video_id as video_id\n                from segments\n                join\n                    reporting.dim_course_blocks_extended blocks\n                    on (\n                        segments.course_key = blocks.course_key\n                        and segments.video_id = blocks.block_id\n                    )\n                where\n                    1 = 1\n                    {% if filter_values(\"org\") != [] %}\n                        and org in {{ filter_values(\"org\") | where_in }}\n                    {% endif %}\n\n                    {% if filter_values(\"course_name\") != [] %}\n                        and course_key in (\n                            select course_key\n                            from event_sink.course_names\n                            where\n                                course_name\n                                in {{ filter_values(\"course_name\") | where_in }}\n                        )\n                    {% endif %}\n\n                    {% if filter_values(\"tag\") != [] %}\n                        and course_key in (\n                            select course_key\n                            from reporting.most_recent_course_tags\n                            where\n                                tag in (\n                                    select\n                                        replaceAll(\n                                            arrayJoin({{ filter_values(\"tag\") }}),\n                                            \'- \',\n                                            \'\'\n                                        )\n                                )\n                        )\n                    {% endif %}\n            )\n\n        select\n            org,\n            course_key,\n            course_name,\n            course_run,\n            section_with_name,\n            subsection_with_name,\n            video_name,\n            video_name_with_location,\n            video_id,\n            concat(\n                \'<a href=\"\',\n                object_id,\n                \'\" target=\"_blank\">\',\n                video_name_with_location,\n                \'</a>\'\n            ) as video_link,\n            actor_id,\n            started_at,\n            arrayJoin(range(start_position, end_position, 5)) as segment_start,\n            video_duration,\n            CONCAT(\n                toString(segment_start), \'-\', toString(segment_start + 4)\n            ) as segment_range,\n            start_position,\n            username,\n            name,\n            email\n        from enriched_segments\n        left outer join\n            reporting.dim_user_pii users\n            on (actor_id like \'mailto:%\' and SUBSTRING(actor_id, 8) = users.email)\n            or actor_id = toString(users.external_user_id)\n        order by segment_start\n    )\n\nselect watches.*\nfrom watches\njoin\n    (\n        with\n            page_visits as (\n                select org, course_key, actor_id, max(emission_time) as last_visited\n                from xapi.fact_learner_last_course_visit\n                where\n                    1 = 1\n                    {% if filter_values(\"org\") != [] %}\n                        and org in {{ filter_values(\"org\") | where_in }}\n                    {% endif %}\n\n                    {% if filter_values(\"course_name\") != [] %}\n                        and course_key in (\n                            select course_key\n                            from event_sink.course_names\n                            where\n                                course_name\n                                in {{ filter_values(\"course_name\") | where_in }}\n                        )\n                    {% endif %}\n\n                    {% if filter_values(\"tag\") != [] %}\n                        and course_key in (\n                            select course_key\n                            from reporting.most_recent_course_tags\n                            where\n                                tag in (\n                                    select\n                                        replaceAll(\n                                            arrayJoin({{ filter_values(\"tag\") }}),\n                                            \'- \',\n                                            \'\'\n                                        )\n                                )\n                        )\n                    {% endif %}\n                    and emission_time < subtractDays(now(), 7)\n                group by org, course_key, actor_id\n            )\n\n        select org, course_key, learners.actor_id as actor_id\n        from reporting.fact_student_status learners\n        join page_visits using (org, course_key, actor_id)\n        where\n            approving_state = \'failed\' and enrollment_status = \'registered\'\n            {% if filter_values(\"org\") != [] %}\n                and org in {{ filter_values(\"org\") | where_in }}\n            {% endif %}\n\n            {% if filter_values(\"course_name\") != [] %}\n                and course_key in (\n                    select course_key\n                    from event_sink.course_names\n                    where course_name in {{ filter_values(\"course_name\") | where_in }}\n                )\n            {% endif %}\n\n            {% if filter_values(\"tag\") != [] %}\n                and course_key in (\n                    select course_key\n                    from reporting.most_recent_course_tags\n                    where\n                        tag in (\n                            select\n                                replaceAll(\n                                    arrayJoin({{ filter_values(\"tag\") }}), \'- \', \'\'\n                                )\n                        )\n                )\n            {% endif %}\n    ) as at_risk_learners using (org, course_key, actor_id)\nwhere\n    1 = 1\n    {% if filter_values(\"org\") != [] %}\n        and org in {{ filter_values(\"org\") | where_in }}\n    {% endif %}\n\n    {% if filter_values(\"course_name\") != [] %}\n        and course_key in (\n            select course_key\n            from event_sink.course_names\n            where course_name in {{ filter_values(\"course_name\") | where_in }}\n        )\n    {% endif %}\n\n    {% if filter_values(\"tag\") != [] %}\n        and course_key in (\n            select course_key\n            from reporting.most_recent_course_tags\n            where\n                tag\n                in (select replaceAll(arrayJoin({{ filter_values(\"tag\") }}), \'- \', \'\'))\n        )\n    {% endif %}\n',NULL,'[OpenedX Clickhouse].[fact_at_risk_watched_video_segments_ru](id:783)',0,NULL,0,NULL,'[OpenedX Clickhouse].[reporting]','{}',_binary '—ø~‹ƒQ‚®…uPwˆÂ©',0,NULL,1,0),('2025-01-10 06:46:00','2025-01-14 07:53:24',784,'fact_student_status_plus_7_days_de_DE','enrolled_at',NULL,1,1,1,0,NULL,0,NULL,NULL,'with\n    recent_activity as (\n        select course_key, COUNT(DISTINCT actor_id) as active_last_7_days\n        from xapi.navigation_events\n        where\n            emission_time >= NOW() - INTERVAL 7 DAY\n            {% if filter_values(\"org\") != [] %}\n                and org in {{ filter_values(\"org\") | where_in }}\n            {% endif %}\n\n            {% if filter_values(\"course_name\") != [] %}\n                and course_key in (\n                    select course_key\n                    from event_sink.course_names\n                    where course_name in {{ filter_values(\"course_name\") | where_in }}\n                )\n            {% endif %}\n\n            {% if filter_values(\"tag\") != [] %}\n                and course_key in (\n                    select course_key\n                    from reporting.most_recent_course_tags\n                    where\n                        tag in (\n                            select\n                                replaceAll(\n                                    arrayJoin({{ filter_values(\"tag\") }}), \'- \', \'\'\n                                )\n                        )\n                )\n            {% endif %}\n        group by course_key\n    )\n\nselect fss.*, COALESCE(ra.active_last_7_days, 0) as active_within_last_7_days\nfrom reporting.fact_student_status fss\nleft join recent_activity ra on fss.course_key = ra.course_key\nwhere\n    1 = 1\n    {% if filter_values(\"org\") != [] %}\n        and org in {{ filter_values(\"org\") | where_in }}\n    {% endif %}\n\n    {% if filter_values(\"course_name\") != [] %}\n        and course_key in (\n            select course_key\n            from event_sink.course_names\n            where course_name in {{ filter_values(\"course_name\") | where_in }}\n        )\n    {% endif %}\n\n    {% if filter_values(\"tag\") != [] %}\n        and course_key in (\n            select course_key\n            from reporting.most_recent_course_tags\n            where\n                tag\n                in (select replaceAll(arrayJoin({{ filter_values(\"tag\") }}), \'- \', \'\'))\n        )\n    {% endif %}\n',NULL,'[OpenedX Clickhouse].[fact_student_status_plus_7_days_de_DE](id:784)',1,NULL,0,NULL,NULL,NULL,_binary '·”A½¿[T,® \èŸ9¾	',0,NULL,0,0);
+/*!40000 ALTER TABLE `tables` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tag`
+--
+
+DROP TABLE IF EXISTS `tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tag` (
+  `created_on` datetime DEFAULT NULL,
+  `changed_on` datetime DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(250) DEFAULT NULL,
+  `type` enum('custom','type','owner','favorited_by') DEFAULT NULL,
+  `created_by_fk` int DEFAULT NULL,
+  `changed_by_fk` int DEFAULT NULL,
+  `description` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `created_by_fk` (`created_by_fk`),
+  KEY `changed_by_fk` (`changed_by_fk`),
+  CONSTRAINT `tag_ibfk_1` FOREIGN KEY (`created_by_fk`) REFERENCES `ab_user` (`id`),
+  CONSTRAINT `tag_ibfk_2` FOREIGN KEY (`changed_by_fk`) REFERENCES `ab_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tag`
+--
+
+LOCK TABLES `tag` WRITE;
+/*!40000 ALTER TABLE `tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tagged_object`
+--
+
+DROP TABLE IF EXISTS `tagged_object`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `tagged_object` (
+  `created_on` datetime DEFAULT NULL,
+  `changed_on` datetime DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `tag_id` int DEFAULT NULL,
+  `object_id` int DEFAULT NULL,
+  `object_type` enum('query','chart','dashboard','dataset') DEFAULT NULL,
+  `created_by_fk` int DEFAULT NULL,
+  `changed_by_fk` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uix_tagged_object` (`tag_id`,`object_id`,`object_type`),
+  KEY `created_by_fk` (`created_by_fk`),
+  KEY `changed_by_fk` (`changed_by_fk`),
+  KEY `ix_tagged_object_object_id` (`object_id`),
+  CONSTRAINT `tagged_object_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`),
+  CONSTRAINT `tagged_object_ibfk_2` FOREIGN KEY (`created_by_fk`) REFERENCES `ab_user` (`id`),
+  CONSTRAINT `tagged_object_ibfk_3` FOREIGN KEY (`changed_by_fk`) REFERENCES `ab_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tagged_object`
+--
+
+LOCK TABLES `tagged_object` WRITE;
+/*!40000 ALTER TABLE `tagged_object` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tagged_object` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_attribute`
+--
+
+DROP TABLE IF EXISTS `user_attribute`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_attribute` (
+  `created_on` datetime DEFAULT NULL,
+  `changed_on` datetime DEFAULT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `welcome_dashboard_id` int DEFAULT NULL,
+  `created_by_fk` int DEFAULT NULL,
+  `changed_by_fk` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `changed_by_fk` (`changed_by_fk`),
+  KEY `created_by_fk` (`created_by_fk`),
+  KEY `user_id` (`user_id`),
+  KEY `welcome_dashboard_id` (`welcome_dashboard_id`),
+  CONSTRAINT `user_attribute_ibfk_1` FOREIGN KEY (`changed_by_fk`) REFERENCES `ab_user` (`id`),
+  CONSTRAINT `user_attribute_ibfk_2` FOREIGN KEY (`created_by_fk`) REFERENCES `ab_user` (`id`),
+  CONSTRAINT `user_attribute_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `ab_user` (`id`),
+  CONSTRAINT `user_attribute_ibfk_4` FOREIGN KEY (`welcome_dashboard_id`) REFERENCES `dashboards` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_attribute`
+--
+
+LOCK TABLES `user_attribute` WRITE;
+/*!40000 ALTER TABLE `user_attribute` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_attribute` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_favorite_tag`
+--
+
+DROP TABLE IF EXISTS `user_favorite_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_favorite_tag` (
+  `user_id` int NOT NULL,
+  `tag_id` int NOT NULL,
+  KEY `tag_id` (`tag_id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `user_favorite_tag_ibfk_1` FOREIGN KEY (`tag_id`) REFERENCES `tag` (`id`),
+  CONSTRAINT `user_favorite_tag_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `ab_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_favorite_tag`
+--
+
+LOCK TABLES `user_favorite_tag` WRITE;
+/*!40000 ALTER TABLE `user_favorite_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_favorite_tag` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+/*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=@OLD_INNODB_STATS_AUTO_RECALC */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-01-14 11:20:24
