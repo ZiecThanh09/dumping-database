@@ -1,0 +1,862 @@
+er_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agreements_ltipiisignature`
+--
+
+LOCK TABLES `agreements_ltipiisignature` WRITE;
+/*!40000 ALTER TABLE `agreements_ltipiisignature` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agreements_ltipiisignature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agreements_ltipiitool`
+--
+
+DROP TABLE IF EXISTS `agreements_ltipiitool`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agreements_ltipiitool` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lti_tools` json NOT NULL,
+  `lti_tools_hash` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_key` (`course_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agreements_ltipiitool`
+--
+
+LOCK TABLES `agreements_ltipiitool` WRITE;
+/*!40000 ALTER TABLE `agreements_ltipiitool` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agreements_ltipiitool` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `agreements_proctoringpiisignature`
+--
+
+DROP TABLE IF EXISTS `agreements_proctoringpiisignature`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `agreements_proctoringpiisignature` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proctoring_provider` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `agreements_proctorin_user_id_a0ce76ac_fk_auth_user` (`user_id`),
+  KEY `agreements_proctoringpiisignature_course_key_455a3c6e` (`course_key`),
+  CONSTRAINT `agreements_proctorin_user_id_a0ce76ac_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `agreements_proctoringpiisignature`
+--
+
+LOCK TABLES `agreements_proctoringpiisignature` WRITE;
+/*!40000 ALTER TABLE `agreements_proctoringpiisignature` DISABLE KEYS */;
+/*!40000 ALTER TABLE `agreements_proctoringpiisignature` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `announcements_announcement`
+--
+
+DROP TABLE IF EXISTS `announcements_announcement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `announcements_announcement` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `content` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `announcements_announcement`
+--
+
+LOCK TABLES `announcements_announcement` WRITE;
+/*!40000 ALTER TABLE `announcements_announcement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `announcements_announcement` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `api_admin_apiaccessconfig`
+--
+
+DROP TABLE IF EXISTS `api_admin_apiaccessconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `api_admin_apiaccessconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `api_admin_apiaccessconfig_changed_by_id_d2f4cd88_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `api_admin_apiaccessconfig_changed_by_id_d2f4cd88_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `api_admin_apiaccessconfig`
+--
+
+LOCK TABLES `api_admin_apiaccessconfig` WRITE;
+/*!40000 ALTER TABLE `api_admin_apiaccessconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `api_admin_apiaccessconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `api_admin_apiaccessrequest`
+--
+
+DROP TABLE IF EXISTS `api_admin_apiaccessrequest`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `api_admin_apiaccessrequest` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `website` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `company_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `company_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contacted` tinyint(1) NOT NULL,
+  `site_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_admin_apiaccessrequest_user_id_eb0cc217_uniq` (`user_id`),
+  KEY `api_admin_apiaccessrequest_status_f8039aea` (`status`),
+  KEY `api_admin_apiaccessrequest_site_id_b78f5161_fk_django_site_id` (`site_id`),
+  CONSTRAINT `api_admin_apiaccessrequest_site_id_b78f5161_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
+  CONSTRAINT `api_admin_apiaccessrequest_user_id_eb0cc217_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `api_admin_apiaccessrequest`
+--
+
+LOCK TABLES `api_admin_apiaccessrequest` WRITE;
+/*!40000 ALTER TABLE `api_admin_apiaccessrequest` DISABLE KEYS */;
+/*!40000 ALTER TABLE `api_admin_apiaccessrequest` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessment`
+--
+
+DROP TABLE IF EXISTS `assessment_assessment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `scored_at` datetime(6) NOT NULL,
+  `scorer_id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `score_type` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `feedback` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rubric_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assessment_assessment_rubric_id_2ed0d5db_fk_assessment_rubric_id` (`rubric_id`),
+  KEY `assessment_assessment_submission_uuid_cf5817c5` (`submission_uuid`),
+  KEY `assessment_assessment_scored_at_a1a213d6` (`scored_at`),
+  KEY `assessment_assessment_scorer_id_ad1a38cb` (`scorer_id`),
+  CONSTRAINT `assessment_assessment_rubric_id_2ed0d5db_fk_assessment_rubric_id` FOREIGN KEY (`rubric_id`) REFERENCES `assessment_rubric` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessment`
+--
+
+LOCK TABLES `assessment_assessment` WRITE;
+/*!40000 ALTER TABLE `assessment_assessment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessmentfeedback`
+--
+
+DROP TABLE IF EXISTS `assessment_assessmentfeedback`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessmentfeedback` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `feedback_text` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submission_uuid` (`submission_uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessmentfeedback`
+--
+
+LOCK TABLES `assessment_assessmentfeedback` WRITE;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessmentfeedback_assessments`
+--
+
+DROP TABLE IF EXISTS `assessment_assessmentfeedback_assessments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessmentfeedback_assessments` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `assessmentfeedback_id` int NOT NULL,
+  `assessment_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `assessment_assessmentfee_assessmentfeedback_id_as_f8246578_uniq` (`assessmentfeedback_id`,`assessment_id`),
+  KEY `assessment_assessmen_assessment_id_033f1121_fk_assessmen` (`assessment_id`),
+  CONSTRAINT `assessment_assessmen_assessment_id_033f1121_fk_assessmen` FOREIGN KEY (`assessment_id`) REFERENCES `assessment_assessment` (`id`),
+  CONSTRAINT `assessment_assessmen_assessmentfeedback_i_6634a3b4_fk_assessmen` FOREIGN KEY (`assessmentfeedback_id`) REFERENCES `assessment_assessmentfeedback` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessmentfeedback_assessments`
+--
+
+LOCK TABLES `assessment_assessmentfeedback_assessments` WRITE;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback_assessments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback_assessments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessmentfeedback_options`
+--
+
+DROP TABLE IF EXISTS `assessment_assessmentfeedback_options`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessmentfeedback_options` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `assessmentfeedback_id` int NOT NULL,
+  `assessmentfeedbackoption_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `assessment_assessmentfee_assessmentfeedback_id_as_4e554cc7_uniq` (`assessmentfeedback_id`,`assessmentfeedbackoption_id`),
+  KEY `assessment_assessmen_assessmentfeedbackop_a9af45f6_fk_assessmen` (`assessmentfeedbackoption_id`),
+  CONSTRAINT `assessment_assessmen_assessmentfeedback_i_004e1bf0_fk_assessmen` FOREIGN KEY (`assessmentfeedback_id`) REFERENCES `assessment_assessmentfeedback` (`id`),
+  CONSTRAINT `assessment_assessmen_assessmentfeedbackop_a9af45f6_fk_assessmen` FOREIGN KEY (`assessmentfeedbackoption_id`) REFERENCES `assessment_assessmentfeedbackoption` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessmentfeedback_options`
+--
+
+LOCK TABLES `assessment_assessmentfeedback_options` WRITE;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback_options` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessmentfeedback_options` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessmentfeedbackoption`
+--
+
+DROP TABLE IF EXISTS `assessment_assessmentfeedbackoption`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessmentfeedbackoption` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `text` (`text`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessmentfeedbackoption`
+--
+
+LOCK TABLES `assessment_assessmentfeedbackoption` WRITE;
+/*!40000 ALTER TABLE `assessment_assessmentfeedbackoption` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessmentfeedbackoption` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_assessmentpart`
+--
+
+DROP TABLE IF EXISTS `assessment_assessmentpart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_assessmentpart` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `feedback` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `assessment_id` int NOT NULL,
+  `criterion_id` int NOT NULL,
+  `option_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assessment_assessmen_criterion_id_5bc40925_fk_assessmen` (`criterion_id`),
+  KEY `assessment_assessmen_option_id_dd35c2c5_fk_assessmen` (`option_id`),
+  KEY `assessment_assessmen_assessment_id_de1999cd_fk_assessmen` (`assessment_id`),
+  CONSTRAINT `assessment_assessmen_assessment_id_de1999cd_fk_assessmen` FOREIGN KEY (`assessment_id`) REFERENCES `assessment_assessment` (`id`),
+  CONSTRAINT `assessment_assessmen_criterion_id_5bc40925_fk_assessmen` FOREIGN KEY (`criterion_id`) REFERENCES `assessment_criterion` (`id`),
+  CONSTRAINT `assessment_assessmen_option_id_dd35c2c5_fk_assessmen` FOREIGN KEY (`option_id`) REFERENCES `assessment_criterionoption` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_assessmentpart`
+--
+
+LOCK TABLES `assessment_assessmentpart` WRITE;
+/*!40000 ALTER TABLE `assessment_assessmentpart` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_assessmentpart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_criterion`
+--
+
+DROP TABLE IF EXISTS `assessment_criterion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_criterion` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `label` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_num` int unsigned NOT NULL,
+  `prompt` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rubric_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assessment_criterion_rubric_id_fe236962_fk_assessment_rubric_id` (`rubric_id`),
+  CONSTRAINT `assessment_criterion_rubric_id_fe236962_fk_assessment_rubric_id` FOREIGN KEY (`rubric_id`) REFERENCES `assessment_rubric` (`id`),
+  CONSTRAINT `assessment_criterion_chk_1` CHECK ((`order_num` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_criterion`
+--
+
+LOCK TABLES `assessment_criterion` WRITE;
+/*!40000 ALTER TABLE `assessment_criterion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_criterion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_criterionoption`
+--
+
+DROP TABLE IF EXISTS `assessment_criterionoption`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_criterionoption` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_num` int unsigned NOT NULL,
+  `points` int unsigned NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `label` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `explanation` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `criterion_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assessment_criterion_criterion_id_53928be7_fk_assessmen` (`criterion_id`),
+  CONSTRAINT `assessment_criterion_criterion_id_53928be7_fk_assessmen` FOREIGN KEY (`criterion_id`) REFERENCES `assessment_criterion` (`id`),
+  CONSTRAINT `assessment_criterionoption_chk_1` CHECK ((`order_num` >= 0)),
+  CONSTRAINT `assessment_criterionoption_chk_2` CHECK ((`points` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_criterionoption`
+--
+
+LOCK TABLES `assessment_criterionoption` WRITE;
+/*!40000 ALTER TABLE `assessment_criterionoption` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_criterionoption` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_historicalsharedfileupload`
+--
+
+DROP TABLE IF EXISTS `assessment_historicalsharedfileupload`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_historicalsharedfileupload` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `team_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` bigint NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `assessment_historica_history_user_id_28fa87d9_fk_auth_user` (`history_user_id`),
+  KEY `assessment_historicalsharedfileupload_id_34052991` (`id`),
+  KEY `assessment_historicalsharedfileupload_team_id_e32268e1` (`team_id`),
+  KEY `assessment_historicalsharedfileupload_course_id_7fd70b9d` (`course_id`),
+  KEY `assessment_historicalsharedfileupload_item_id_b7bca199` (`item_id`),
+  KEY `assessment_historicalsharedfileupload_owner_id_09b09e30` (`owner_id`),
+  KEY `assessment_historicalsharedfileupload_file_key_03fbd3e7` (`file_key`),
+  CONSTRAINT `assessment_historica_history_user_id_28fa87d9_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_historicalsharedfileupload`
+--
+
+LOCK TABLES `assessment_historicalsharedfileupload` WRITE;
+/*!40000 ALTER TABLE `assessment_historicalsharedfileupload` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_historicalsharedfileupload` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_peerworkflow`
+--
+
+DROP TABLE IF EXISTS `assessment_peerworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_peerworkflow` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `student_id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `completed_at` datetime(6) DEFAULT NULL,
+  `grading_completed_at` datetime(6) DEFAULT NULL,
+  `cancelled_at` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submission_uuid` (`submission_uuid`),
+  KEY `assessment_peerworkflow_student_id_9382ae54` (`student_id`),
+  KEY `assessment_peerworkflow_item_id_c17d799e` (`item_id`),
+  KEY `assessment_peerworkflow_course_id_875599e3` (`course_id`),
+  KEY `assessment_peerworkflow_created_at_b8aaf4a5` (`created_at`),
+  KEY `assessment_peerworkflow_completed_at_681f19e1` (`completed_at`),
+  KEY `assessment_peerworkflow_grading_completed_at_33e2560c` (`grading_completed_at`),
+  KEY `assessment_peerworkflow_cancelled_at_0e258929` (`cancelled_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_peerworkflow`
+--
+
+LOCK TABLES `assessment_peerworkflow` WRITE;
+/*!40000 ALTER TABLE `assessment_peerworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_peerworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_peerworkflowitem`
+--
+
+DROP TABLE IF EXISTS `assessment_peerworkflowitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_peerworkflowitem` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `started_at` datetime(6) NOT NULL,
+  `scored` tinyint(1) NOT NULL,
+  `assessment_id` int DEFAULT NULL,
+  `author_id` int NOT NULL,
+  `scorer_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `assessment_peerworkf_assessment_id_27f9ef1f_fk_assessmen` (`assessment_id`),
+  KEY `assessment_peerworkf_author_id_0e3ed804_fk_assessmen` (`author_id`),
+  KEY `assessment_peerworkf_scorer_id_27e47cd4_fk_assessmen` (`scorer_id`),
+  KEY `assessment_peerworkflowitem_submission_uuid_edd446aa` (`submission_uuid`),
+  KEY `assessment_peerworkflowitem_started_at_8644e7a0` (`started_at`),
+  CONSTRAINT `assessment_peerworkf_assessment_id_27f9ef1f_fk_assessmen` FOREIGN KEY (`assessment_id`) REFERENCES `assessment_assessment` (`id`),
+  CONSTRAINT `assessment_peerworkf_author_id_0e3ed804_fk_assessmen` FOREIGN KEY (`author_id`) REFERENCES `assessment_peerworkflow` (`id`),
+  CONSTRAINT `assessment_peerworkf_scorer_id_27e47cd4_fk_assessmen` FOREIGN KEY (`scorer_id`) REFERENCES `assessment_peerworkflow` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_peerworkflowitem`
+--
+
+LOCK TABLES `assessment_peerworkflowitem` WRITE;
+/*!40000 ALTER TABLE `assessment_peerworkflowitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_peerworkflowitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_rubric`
+--
+
+DROP TABLE IF EXISTS `assessment_rubric`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_rubric` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `content_hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `structure_hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_hash` (`content_hash`),
+  KEY `assessment_rubric_structure_hash_fb456373` (`structure_hash`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_rubric`
+--
+
+LOCK TABLES `assessment_rubric` WRITE;
+/*!40000 ALTER TABLE `assessment_rubric` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_rubric` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_sharedfileupload`
+--
+
+DROP TABLE IF EXISTS `assessment_sharedfileupload`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_sharedfileupload` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `team_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `owner_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `size` bigint NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `file_key` (`file_key`),
+  KEY `assessment_sharedfileupload_team_id_dbdd3cb7` (`team_id`),
+  KEY `assessment_sharedfileupload_course_id_73edb775` (`course_id`),
+  KEY `assessment_sharedfileupload_item_id_b471d0c9` (`item_id`),
+  KEY `assessment_sharedfileupload_owner_id_f4d7fe4f` (`owner_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_sharedfileupload`
+--
+
+LOCK TABLES `assessment_sharedfileupload` WRITE;
+/*!40000 ALTER TABLE `assessment_sharedfileupload` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_sharedfileupload` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_staffworkflow`
+--
+
+DROP TABLE IF EXISTS `assessment_staffworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_staffworkflow` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `scorer_id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `grading_completed_at` datetime(6) DEFAULT NULL,
+  `grading_started_at` datetime(6) DEFAULT NULL,
+  `cancelled_at` datetime(6) DEFAULT NULL,
+  `assessment` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submission_uuid` (`submission_uuid`),
+  KEY `assessment_staffworkflow_scorer_id_ae799ebc` (`scorer_id`),
+  KEY `assessment_staffworkflow_course_id_3f18693d` (`course_id`),
+  KEY `assessment_staffworkflow_item_id_4fa3697b` (`item_id`),
+  KEY `assessment_staffworkflow_created_at_a253bc02` (`created_at`),
+  KEY `assessment_staffworkflow_grading_completed_at_acd0199f` (`grading_completed_at`),
+  KEY `assessment_staffworkflow_grading_started_at_90f99005` (`grading_started_at`),
+  KEY `assessment_staffworkflow_cancelled_at_bc8f93d5` (`cancelled_at`),
+  KEY `assessment_staffworkflow_assessment_7c1dcc5d` (`assessment`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_staffworkflow`
+--
+
+LOCK TABLES `assessment_staffworkflow` WRITE;
+/*!40000 ALTER TABLE `assessment_staffworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_staffworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_studenttrainingworkflow`
+--
+
+DROP TABLE IF EXISTS `assessment_studenttrainingworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_studenttrainingworkflow` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `student_id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submission_uuid` (`submission_uuid`),
+  KEY `assessment_studenttrainingworkflow_student_id_ea8fdfa8` (`student_id`),
+  KEY `assessment_studenttrainingworkflow_item_id_f5812a25` (`item_id`),
+  KEY `assessment_studenttrainingworkflow_course_id_a14d6cde` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_studenttrainingworkflow`
+--
+
+LOCK TABLES `assessment_studenttrainingworkflow` WRITE;
+/*!40000 ALTER TABLE `assessment_studenttrainingworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_studenttrainingworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_studenttrainingworkflowitem`
+--
+
+DROP TABLE IF EXISTS `assessment_studenttrainingworkflowitem`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_studenttrainingworkflowitem` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_num` int unsigned NOT NULL,
+  `started_at` datetime(6) NOT NULL,
+  `completed_at` datetime(6) DEFAULT NULL,
+  `training_example_id` int NOT NULL,
+  `workflow_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `assessment_studenttraini_workflow_id_order_num_1ab60238_uniq` (`workflow_id`,`order_num`),
+  KEY `assessment_studenttr_training_example_id_881dddbd_fk_assessmen` (`training_example_id`),
+  CONSTRAINT `assessment_studenttr_training_example_id_881dddbd_fk_assessmen` FOREIGN KEY (`training_example_id`) REFERENCES `assessment_trainingexample` (`id`),
+  CONSTRAINT `assessment_studenttr_workflow_id_a75a9a2e_fk_assessmen` FOREIGN KEY (`workflow_id`) REFERENCES `assessment_studenttrainingworkflow` (`id`),
+  CONSTRAINT `assessment_studenttrainingworkflowitem_chk_1` CHECK ((`order_num` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_studenttrainingworkflowitem`
+--
+
+LOCK TABLES `assessment_studenttrainingworkflowitem` WRITE;
+/*!40000 ALTER TABLE `assessment_studenttrainingworkflowitem` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_studenttrainingworkflowitem` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_teamstaffworkflow`
+--
+
+DROP TABLE IF EXISTS `assessment_teamstaffworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_teamstaffworkflow` (
+  `staffworkflow_ptr_id` int NOT NULL,
+  `team_submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`staffworkflow_ptr_id`),
+  UNIQUE KEY `team_submission_uuid` (`team_submission_uuid`),
+  CONSTRAINT `assessment_teamstaff_staffworkflow_ptr_id_e55a780c_fk_assessmen` FOREIGN KEY (`staffworkflow_ptr_id`) REFERENCES `assessment_staffworkflow` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_teamstaffworkflow`
+--
+
+LOCK TABLES `assessment_teamstaffworkflow` WRITE;
+/*!40000 ALTER TABLE `assessment_teamstaffworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_teamstaffworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_trainingexample`
+--
+
+DROP TABLE IF EXISTS `assessment_trainingexample`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_trainingexample` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `raw_answer` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_hash` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rubric_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_hash` (`content_hash`),
+  KEY `assessment_traininge_rubric_id_cfb4afc3_fk_assessmen` (`rubric_id`),
+  CONSTRAINT `assessment_traininge_rubric_id_cfb4afc3_fk_assessmen` FOREIGN KEY (`rubric_id`) REFERENCES `assessment_rubric` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_trainingexample`
+--
+
+LOCK TABLES `assessment_trainingexample` WRITE;
+/*!40000 ALTER TABLE `assessment_trainingexample` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_trainingexample` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `assessment_trainingexample_options_selected`
+--
+
+DROP TABLE IF EXISTS `assessment_trainingexample_options_selected`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `assessment_trainingexample_options_selected` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `trainingexample_id` int NOT NULL,
+  `criterionoption_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `assessment_trainingexamp_trainingexample_id_crite_4b6b8b90_uniq` (`trainingexample_id`,`criterionoption_id`),
+  KEY `assessment_traininge_criterionoption_id_de6716f1_fk_assessmen` (`criterionoption_id`),
+  CONSTRAINT `assessment_traininge_criterionoption_id_de6716f1_fk_assessmen` FOREIGN KEY (`criterionoption_id`) REFERENCES `assessment_criterionoption` (`id`),
+  CONSTRAINT `assessment_traininge_trainingexample_id_7a04b572_fk_assessmen` FOREIGN KEY (`trainingexample_id`) REFERENCES `assessment_trainingexample` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `assessment_trainingexample_options_selected`
+--
+
+LOCK TABLES `assessment_trainingexample_options_selected` WRITE;
+/*!40000 ALTER TABLE `assessment_trainingexample_options_selected` DISABLE KEYS */;
+/*!40000 ALTER TABLE `assessment_trainingexample_options_selected` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_accountrecovery`
+--
+
+DROP TABLE IF EXISTS `auth_accountrecovery`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_accountrecovery` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `secondary_email` varchar(254) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `secondary_email` (`secondary_email`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `auth_accountrecovery_user_id_0c61e73c_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_accountrecovery`
+--
+
+LOCK TABLES `auth_accountrecovery` WRITE;
+/*!40000 ALTER TABLE `auth_accountrecovery` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_accountrecovery` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group`
+--
+
+DROP TABLE IF EXISTS `auth_group`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group`
+--
+
+LOCK TABLES `auth_group` WRITE;
+/*!40000 ALTER TABLE `auth_group` DISABLE KEYS */;
+INSERT INTO `auth_group` VALUES (1,'API Access Request Approvers');
+/*!40000 ALTER TABLE `auth_group` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_group_permissions`
+--
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_group_permissions` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `group_id` int NOT NULL,
+  `permission_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_group_permissions_group_id_permission_id_0cd325b0_uniq` (`group_id`,`permission_id`),
+  KEY `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` (`permission_id`),
+  CONSTRAINT `auth_group_permissio_permission_id_84c5c92e_fk_auth_perm` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_group_permissions`
+--
+
+LOCK TABLES `auth_group_permissions` WRITE;
+/*!40000 ALTER TABLE `auth_group_permissions` DISABLE KEYS */;
+/*!40000 ALTER TABLE `auth_group_permissions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `auth_permission`
+--
+
+DROP TABLE IF EXISTS `auth_permission`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `auth_permission` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_type_id` int NOT NULL,
+  `codename` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`),
+  CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2045 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `auth_permission`
+--
+
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` VALUES (1,'Can add permission',2,'add_permission'),(2,'Can change permission',2,'change_permission'),(3,'Can delete permission',2,'delete_permission'),(4,'Can view permission',2,'view_permission'),(5,'Can add group',3,'add_group'),(6,'Can change group',3,'change_group'),(7,'Can delete group',3,'delete_group'),(8,'Can view group',3,'view_group'),(9,'Can add user',4,'add_user'),(10,'Can change user',4,'change_user'),(11,'Can delete user',4,'delete_user'),(12,'Can view user',4,'view_user'),(13,'Can add content type',5,'add_contenttype'),(14,'Can change content type',5,'change_contenttype'),(15,'Can delete content type',5,'delete_contenttype'),(16,'Can view content type',5,'view_contenttype'),(17,'Can add redirect',6,'add_redirect'),(18,'Can change redirect',6,'change_redirect'),(19,'Can delete redirect',6,'delete_redirect'),(20,'Can view redirect',6,'view_redirect'),(21,'Can add session',7,'add_session'),(22,'Can change session',7,'change_session'),(23,'Can delete session',7,'delete_session'),(24,'Can view session',7,'view_session'),(25,'Can add site',8,'add_site'),(26,'Can change site',8,'change_site'),(27,'Can delete site',8,'delete_site'),(28,'Can view site',8,'view_site'),(29,'Can add task result',9,'add_taskresult'),(30,'Can change task result',9,'change_taskresult'),(31,'Can delete task result',9,'delete_taskresult'),(32,'Can view task result',9,'view_taskresult'),(33,'Can add chord counter',10,'add_chordcounter'),(34,'Can change chord counter',10,'change_chordcounter'),(35,'Can delete chord counter',10,'delete_chordcounter'),(36,'Can view chord counter',10,'view_chordcounter'),(37,'Can add group result',11,'add_groupresult'),(38,'Can change group result',11,'change_groupresult'),(39,'Can delete group result',11,'delete_groupresult'),(40,'Can view group result',11,'view_groupresult'),(41,'Can add Flag',12,'add_flag'),(42,'Can change Flag',12,'change_flag'),(43,'Can delete Flag',12,'delete_flag'),(44,'Can view Flag',12,'view_flag'),(45,'Can add Sample',13,'add_sample'),(46,'Can change Sample',13,'change_sample'),(47,'Can delete Sample',13,'delete_sample'),(48,'Can view Sample',13,'view_sample'),(49,'Can add Switch',14,'add_switch'),(50,'Can change Switch',14,'change_switch'),(51,'Can delete Switch',14,'delete_switch'),(52,'Can view Switch',14,'view_switch'),(53,'Can add course message',15,'add_coursemessage'),(54,'Can change course message',15,'change_coursemessage'),(55,'Can delete course message',15,'delete_coursemessage'),(56,'Can view course message',15,'view_coursemessage'),(57,'Can add global status message',16,'add_globalstatusmessage'),(58,'Can change global status message',16,'change_globalstatusmessage'),(59,'Can delete global status message',16,'delete_globalstatusmessage'),(60,'Can view global status message',16,'view_globalstatusmessage'),(61,'Can add asset base url config',17,'add_assetbaseurlconfig'),(62,'Can change asset base url config',17,'change_assetbaseurlconfig'),(63,'Can delete asset base url config',17,'delete_assetbaseurlconfig'),(64,'Can view asset base url config',17,'view_assetbaseurlconfig'),(65,'Can add asset excluded extensions config',18,'add_assetexcludedextensionsconfig'),(66,'Can change asset excluded extensions config',18,'change_assetexcludedextensionsconfig'),(67,'Can delete asset excluded extensions config',18,'delete_assetexcludedextensionsconfig'),(68,'Can view asset excluded extensions config',18,'view_assetexcludedextensionsconfig'),(69,'Can add course asset cache ttl config',19,'add_courseassetcachettlconfig'),(70,'Can change course asset cache ttl config',19,'change_courseassetcachettlconfig'),(71,'Can delete course asset cache ttl config',19,'delete_courseassetcachettlconfig'),(72,'Can view course asset cache ttl config',19,'view_courseassetcachettlconfig'),(73,'Can add cdn user agents config',20,'add_cdnuseragentsconfig'),(74,'Can change cdn user agents config',20,'change_cdnuseragentsconfig'),(75,'Can delete cdn user agents config',20,'delete_cdnuseragentsconfig'),(76,'Can view cdn user agents config',20,'view_cdnuseragentsconfig'),(77,'Can add site configuration',21,'add_siteconfiguration'),(78,'Can change site configuration',21,'change_siteconfiguration'),(79,'Can delete site configuration',21,'delete_siteconfiguration'),(80,'Can view site configuration',21,'view_siteconfiguration'),(81,'Can add site configuration history',22,'add_siteconfigurationhistory'),(82,'Can change site configuration history',22,'change_siteconfigurationhistory'),(83,'Can delete site configuration history',22,'delete_siteconfigurationhistory'),(84,'Can view site configuration history',22,'view_siteconfigurationhistory'),(85,'Can add course hls playback enabled flag',23,'add_coursehlsplaybackenabledflag'),(86,'Can change course hls playback enabled flag',23,'change_coursehlsplaybackenabledflag'),(87,'Can delete course hls playback enabled flag',23,'delete_coursehlsplaybackenabledflag'),(88,'Can view course hls playback enabled flag',23,'view_coursehlsplaybackenabledflag'),(89,'Can add hls playback enabled flag',24,'add_hlsplaybackenabledflag'),(90,'Can change hls playback enabled flag',24,'change_hlsplaybackenabledflag'),(91,'Can delete hls playback enabled flag',24,'delete_hlsplaybackenabledflag'),(92,'Can view hls playback enabled flag',24,'view_hlsplaybackenabledflag'),(93,'Can add course video transcript enabled flag',25,'add_coursevideotranscriptenabledflag'),(94,'Can change course video transcript enabled flag',25,'change_coursevideotranscriptenabledflag'),(95,'Can delete course video transcript enabled flag',25,'delete_coursevideotranscriptenabledflag'),(96,'Can view course video transcript enabled flag',25,'view_coursevideotranscriptenabledflag'),(97,'Can add video transcript enabled flag',26,'add_videotranscriptenabledflag'),(98,'Can change video transcript enabled flag',26,'change_videotranscriptenabledflag'),(99,'Can delete video transcript enabled flag',26,'delete_videotranscriptenabledflag'),(100,'Can view video transcript enabled flag',26,'view_videotranscriptenabledflag'),(101,'Can add transcript migration setting',27,'add_transcriptmigrationsetting'),(102,'Can change transcript migration setting',27,'change_transcriptmigrationsetting'),(103,'Can delete transcript migration setting',27,'delete_transcriptmigrationsetting'),(104,'Can view transcript migration setting',27,'view_transcriptmigrationsetting'),(105,'Can add migration enqueued course',28,'add_migrationenqueuedcourse'),(106,'Can change migration enqueued course',28,'change_migrationenqueuedcourse'),(107,'Can delete migration enqueued course',28,'delete_migrationenqueuedcourse'),(108,'Can view migration enqueued course',28,'view_migrationenqueuedcourse'),(109,'Can add updated course videos',29,'add_updatedcoursevideos'),(110,'Can change updated course videos',29,'change_updatedcoursevideos'),(111,'Can delete updated course videos',29,'delete_updatedcoursevideos'),(112,'Can view updated course videos',29,'view_updatedcoursevideos'),(113,'Can add video thumbnail setting',30,'add_videothumbnailsetting'),(114,'Can change video thumbnail setting',30,'change_videothumbnailsetting'),(115,'Can delete video thumbnail setting',30,'delete_videothumbnailsetting'),(116,'Can view video thumbnail setting',30,'view_videothumbnailsetting'),(117,'Can add course youtube blocked flag',31,'add_courseyoutubeblockedflag'),(118,'Can change course youtube blocked flag',31,'change_courseyoutubeblockedflag'),(119,'Can delete course youtube blocked flag',31,'delete_courseyoutubeblockedflag'),(120,'Can view course youtube blocked flag',31,'view_courseyoutubeblockedflag'),(121,'Can add course video uploads enabled by default',32,'add_coursevideouploadsenabledbydefault'),(122,'Can change course video uploads enabled by default',32,'change_coursevideouploadsenabledbydefault'),(123,'Can delete course video uploads enabled by default',32,'delete_coursevideouploadsenabledbydefault'),(124,'Can view course video uploads enabled by default',32,'view_coursevideouploadsenabledbydefault'),(125,'Can add video uploads enabled by default',33,'add_videouploadsenabledbydefault'),(126,'Can change video uploads enabled by default',33,'change_videouploadsenabledbydefault'),(127,'Can delete video uploads enabled by default',33,'delete_videouploadsenabledbydefault'),(128,'Can view video uploads enabled by default',33,'view_videouploadsenabledbydefault'),(129,'Can add vem pipeline integration',34,'add_vempipelineintegration'),(130,'Can change vem pipeline integration',34,'change_vempipelineintegration'),(131,'Can delete vem pipeline integration',34,'delete_vempipelineintegration'),(132,'Can view vem pipeline integration',34,'view_vempipelineintegration'),(133,'Can add offline computed grade',35,'add_offlinecomputedgrade'),(134,'Can change offline computed grade',35,'change_offlinecomputedgrade'),(135,'Can delete offline computed grade',35,'delete_offlinecomputedgrade'),(136,'Can view offline computed grade',35,'view_offlinecomputedgrade'),(137,'Can add offline computed grade log',36,'add_offlinecomputedgradelog'),(138,'Can change offline computed grade log',36,'change_offlinecomputedgradelog'),(139,'Can delete offline computed grade log',36,'delete_offlinecomputedgradelog'),(140,'Can view offline computed grade log',36,'view_offlinecomputedgradelog'),(141,'Can add student field override',37,'add_studentfieldoverride'),(142,'Can change student field override',37,'change_studentfieldoverride'),(143,'Can delete student field override',37,'delete_studentfieldoverride'),(144,'Can view student field override',37,'view_studentfieldoverride'),(145,'Can add student module',38,'add_studentmodule'),(146,'Can change student module',38,'change_studentmodule'),(147,'Can delete student module',38,'delete_studentmodule'),(148,'Can view student module',38,'view_studentmodule'),(149,'Can add student module history',39,'add_studentmodulehistory'),(150,'Can change student module history',39,'change_studentmodulehistory'),(151,'Can delete student module history',39,'delete_studentmodulehistory'),(152,'Can view student module history',39,'view_studentmodulehistory'),(153,'Can add x module student info field',40,'add_xmodulestudentinfofield'),(154,'Can change x module student info field',40,'change_xmodulestudentinfofield'),(155,'Can delete x module student info field',40,'delete_xmodulestudentinfofield'),(156,'Can view x module student info field',40,'view_xmodulestudentinfofield'),(157,'Can add x module student prefs field',41,'add_xmodulestudentprefsfield'),(158,'Can change x module student prefs field',41,'change_xmodulestudentprefsfield'),(159,'Can delete x module student prefs field',41,'delete_xmodulestudentprefsfield'),(160,'Can view x module student prefs field',41,'view_xmodulestudentprefsfield'),(161,'Can add x module user state summary field',42,'add_xmoduleuserstatesummaryfield'),(162,'Can change x module user state summary field',42,'change_xmoduleuserstatesummaryfield'),(163,'Can delete x module user state summary field',42,'delete_xmoduleuserstatesummaryfield'),(164,'Can view x module user state summary field',42,'view_xmoduleuserstatesummaryfield'),(165,'Can add course dynamic upgrade deadline configuration',43,'add_coursedynamicupgradedeadlineconfiguration'),(166,'Can change course dynamic upgrade deadline configuration',43,'change_coursedynamicupgradedeadlineconfiguration'),(167,'Can delete course dynamic upgrade deadline configuration',43,'delete_coursedynamicupgradedeadlineconfiguration'),(168,'Can view course dynamic upgrade deadline configuration',43,'view_coursedynamicupgradedeadlineconfiguration'),(169,'Can add dynamic upgrade deadline configuration',44,'add_dynamicupgradedeadlineconfiguration'),(170,'Can change dynamic upgrade deadline configuration',44,'change_dynamicupgradedeadlineconfiguration'),(171,'Can delete dynamic upgrade deadline configuration',44,'delete_dynamicupgradedeadlineconfiguration'),(172,'Can view dynamic upgrade deadline configuration',44,'view_dynamicupgradedeadlineconfiguration'),(173,'Can add org dynamic upgrade deadline configuration',45,'add_orgdynamicupgradedeadlineconfiguration'),(174,'Can change org dynamic upgrade deadline configuration',45,'change_orgdynamicupgradedeadlineconfiguration'),(175,'Can delete org dynamic upgrade deadline configuration',45,'delete_orgdynamicupgradedeadlineconfiguration'),(176,'Can view org dynamic upgrade deadline configuration',45,'view_orgdynamicupgradedeadlineconfiguration'),(177,'Can add last seen courseware timezone',46,'add_lastseencoursewaretimezone'),(178,'Can change last seen courseware timezone',46,'change_lastseencoursewaretimezone'),(179,'Can delete last seen courseware timezone',46,'delete_lastseencoursewaretimezone'),(180,'Can view last seen courseware timezone',46,'view_lastseencoursewaretimezone'),(181,'Can add financial assistance configuration',47,'add_financialassistanceconfiguration'),(182,'Can change financial assistance configuration',47,'change_financialassistanceconfiguration'),(183,'Can delete financial assistance configuration',47,'delete_financialassistanceconfiguration'),(184,'Can view financial assistance configuration',47,'view_financialassistanceconfiguration'),(185,'Can add anonymous user id',48,'add_anonymoususerid'),(186,'Can change anonymous user id',48,'change_anonymoususerid'),(187,'Can delete anonymous user id',48,'delete_anonymoususerid'),(188,'Can view anonymous user id',48,'view_anonymoususerid'),(189,'Can add course access role',49,'add_courseaccessrole'),(190,'Can change course access role',49,'change_courseaccessrole'),(191,'Can delete course access role',49,'delete_courseaccessrole'),(192,'Can view course access role',49,'view_courseaccessrole'),(193,'Can add course enrollment',50,'add_courseenrollment'),(194,'Can change course enrollment',50,'change_courseenrollment'),(195,'Can delete course enrollment',50,'delete_courseenrollment'),(196,'Can view course enrollment',50,'view_courseenrollment'),(197,'Can add course enrollment allowed',51,'add_courseenrollmentallowed'),(198,'Can change course enrollment allowed',51,'change_courseenrollmentallowed'),(199,'Can delete course enrollment allowed',51,'delete_courseenrollmentallowed'),(200,'Can view course enrollment allowed',51,'view_courseenrollmentallowed'),(201,'Can add course enrollment attribute',52,'add_courseenrollmentattribute'),(202,'Can change course enrollment attribut
