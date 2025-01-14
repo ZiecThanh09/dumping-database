@@ -1,0 +1,991 @@
+e(6) NOT NULL,
+  `application_id` bigint DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `jti` (`jti`),
+  KEY `oauth2_provider_idto_application_id_08c5ff4f_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_idtoken_user_id_dd512b59_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_idto_application_id_08c5ff4f_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_idtoken_user_id_dd512b59_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_idtoken`
+--
+
+LOCK TABLES `oauth2_provider_idtoken` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_idtoken` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth2_provider_idtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth2_provider_refreshtoken`
+--
+
+DROP TABLE IF EXISTS `oauth2_provider_refreshtoken`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth2_provider_refreshtoken` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_token_id` bigint DEFAULT NULL,
+  `application_id` bigint NOT NULL,
+  `user_id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  `revoked` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `access_token_id` (`access_token_id`),
+  UNIQUE KEY `oauth2_provider_refreshtoken_token_revoked_af8a5134_uniq` (`token`,`revoked`),
+  KEY `oauth2_provider_refr_application_id_2d1c311b_fk_oauth2_pr` (`application_id`),
+  KEY `oauth2_provider_refreshtoken_user_id_da837fce_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `oauth2_provider_refr_access_token_id_775e84e8_fk_oauth2_pr` FOREIGN KEY (`access_token_id`) REFERENCES `oauth2_provider_accesstoken` (`id`),
+  CONSTRAINT `oauth2_provider_refr_application_id_2d1c311b_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth2_provider_refreshtoken_user_id_da837fce_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth2_provider_refreshtoken`
+--
+
+LOCK TABLES `oauth2_provider_refreshtoken` WRITE;
+/*!40000 ALTER TABLE `oauth2_provider_refreshtoken` DISABLE KEYS */;
+INSERT INTO `oauth2_provider_refreshtoken` VALUES (1,'eAIqHZ6gxfrDr59b1GU4itIGDwhgoK',1,1,6,'2025-01-10 07:42:34.254774','2025-01-10 07:42:34.254802',NULL),(2,'zX0SV4aKmLtM1MK0jkF6yMKziKtxvt',2,1,6,'2025-01-10 07:45:03.605570','2025-01-10 07:45:03.605589',NULL),(3,'8eYkJIQ9MuWqHAzPHpYZhHbHnC9Lsf',3,1,6,'2025-01-10 07:48:36.816905','2025-01-10 07:48:36.816935',NULL),(4,'aZwZhmiEIu25xkQyjVE4ZYXKODhIJS',4,1,6,'2025-01-10 07:51:05.561383','2025-01-10 07:51:05.561403',NULL),(5,'jr4N5ya2RNT2nxEZV0ur4lzKnhYenr',5,1,6,'2025-01-10 07:51:36.261771','2025-01-10 07:51:36.261790',NULL),(6,'Bj29S5bCBbUzc35HSy0Duguzkuzblm',6,2,6,'2025-01-10 07:53:23.303789','2025-01-10 07:53:23.303820',NULL),(7,'dmWe7BeAQg8pgbIoGuBzSCtgX1ugbi',7,2,6,'2025-01-10 07:59:02.780231','2025-01-10 07:59:02.780256',NULL),(8,'07gpjEoDbzVjdGOm6m5wjsWJI7OFWx',8,1,6,'2025-01-10 08:57:08.876951','2025-01-10 08:57:08.876985',NULL),(9,'CJM9Fy2dIeExNXlOz2nayi9er0VBEh',9,1,6,'2025-01-10 09:40:04.909567','2025-01-10 09:40:04.909599',NULL),(10,'SrkoTg5NGIOpbDtnmmUBAAdTjFUHML',10,2,6,'2025-01-10 09:40:18.708039','2025-01-10 09:40:18.708065',NULL),(11,'pJfCoxL9sNVeaSXdLwj6DA8jQYHmG7',11,1,6,'2025-01-12 02:48:26.420431','2025-01-12 02:48:26.420462',NULL),(12,'5ek0aHXgLSgOERCRo7UcAgVeatLLpX',12,2,6,'2025-01-12 02:48:37.668873','2025-01-12 02:48:37.668897',NULL),(13,'rq1DHTgXSgsztoimQhl8QfMArd1r3p',13,1,6,'2025-01-12 09:41:48.586580','2025-01-12 09:41:48.586608',NULL),(14,'O7ndQbpICVzPXMRAS4lC7lzOJ2pBHu',14,1,6,'2025-01-12 09:42:36.959005','2025-01-12 09:42:36.959025',NULL),(15,'XzeEJfEEJq1Vrb6uCRdFHdeHfhHvKp',15,1,6,'2025-01-13 02:00:09.384974','2025-01-13 02:00:09.385001',NULL),(16,'wDlRSOBQW7F5b2fwJYQgw9lKp6YRWj',16,1,6,'2025-01-13 02:11:06.271713','2025-01-13 02:11:06.271747',NULL),(17,'Nk3HEbPAU07zaa6TE5E90Uk1gzuZB5',17,1,6,'2025-01-13 04:21:43.942749','2025-01-13 04:21:43.942784',NULL),(18,'geAgGWxrODjBHtBgZuOYrLExaWgyfq',18,1,6,'2025-01-13 06:43:42.142945','2025-01-13 06:43:42.142994',NULL),(19,'j1DN6T9TxrtHy8jw6d403bDIQ1tGp0',19,2,6,'2025-01-13 06:43:59.072239','2025-01-13 06:43:59.072267',NULL),(20,'t2TYybF1y5fmFvaJxqGxCk2qJc0nhi',20,1,6,'2025-01-13 07:54:24.972988','2025-01-13 07:54:24.973022',NULL),(21,'pCQOzN6nHoTI24K4y9qhoOZwySrlNa',21,1,6,'2025-01-13 09:05:45.490991','2025-01-13 09:05:45.491031',NULL),(22,'x3uDXOSTYuznhL4zu0K8oBX8L82Zzm',22,1,6,'2025-01-14 02:07:30.640818','2025-01-14 02:07:30.640841',NULL),(23,'ydU21rwV2sQUOGzMix8GKReiGAOCGf',23,1,6,'2025-01-14 03:11:59.673060','2025-01-14 03:11:59.673100',NULL),(24,'8yil7FIL6Fh9DpDyrTh6OGygh6FQPd',24,1,6,'2025-01-14 04:37:02.034213','2025-01-14 04:37:02.034254',NULL),(25,'inq5uYBJJmwhOd87O3gRhx6jdxJReg',25,1,6,'2025-01-14 06:05:52.151986','2025-01-14 06:05:52.152021',NULL),(26,'K0P3bkCnasyl2cjeYPIi41CwR5ZSY1',26,1,6,'2025-01-14 07:45:33.613862','2025-01-14 07:45:33.613896',NULL),(27,'OtwUkhqu3b8N07xtb6855blWdVkQeO',27,1,6,'2025-01-14 09:47:47.085918','2025-01-14 09:47:47.085951',NULL),(28,'5ptBdbR1ll5h3DVjein9fqXTb4JEox',28,1,6,'2025-01-14 09:51:41.911193','2025-01-14 09:51:41.911227',NULL),(29,'wCtsaSLtSvb1XVoxCZlY4YZS89ACXW',29,1,6,'2025-01-14 09:57:34.594952','2025-01-14 09:57:34.594973',NULL),(30,'cAKeawLc7oQJoEgug3xxWZR6zTKvpW',30,2,6,'2025-01-14 09:57:42.346718','2025-01-14 09:57:42.346738',NULL),(31,'6gfxb50E39vIQ1zrmonYl6hoSQhrQX',31,1,6,'2025-01-14 10:01:07.431948','2025-01-14 10:01:07.431981',NULL);
+/*!40000 ALTER TABLE `oauth2_provider_refreshtoken` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth_dispatch_applicationaccess`
+--
+
+DROP TABLE IF EXISTS `oauth_dispatch_applicationaccess`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth_dispatch_applicationaccess` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `scopes` varchar(825) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `application_id` bigint NOT NULL,
+  `filters` varchar(825) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `application_id` (`application_id`),
+  CONSTRAINT `oauth_dispatch_appli_application_id_dcddee6e_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth_dispatch_applicationaccess`
+--
+
+LOCK TABLES `oauth_dispatch_applicationaccess` WRITE;
+/*!40000 ALTER TABLE `oauth_dispatch_applicationaccess` DISABLE KEYS */;
+INSERT INTO `oauth_dispatch_applicationaccess` VALUES (1,'user_id',2,NULL),(2,'user_id',3,NULL),(3,'user_id',4,NULL),(4,'user_id',5,NULL);
+/*!40000 ALTER TABLE `oauth_dispatch_applicationaccess` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth_dispatch_applicationorganization`
+--
+
+DROP TABLE IF EXISTS `oauth_dispatch_applicationorganization`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth_dispatch_applicationorganization` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `relation_type` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `application_id` bigint NOT NULL,
+  `organization_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oauth_dispatch_applicati_application_id_relation__1b4017f2_uniq` (`application_id`,`relation_type`,`organization_id`),
+  KEY `oauth_dispatch_appli_organization_id_fe63a7f2_fk_organizat` (`organization_id`),
+  CONSTRAINT `oauth_dispatch_appli_application_id_dea619c6_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`),
+  CONSTRAINT `oauth_dispatch_appli_organization_id_fe63a7f2_fk_organizat` FOREIGN KEY (`organization_id`) REFERENCES `organizations_organization` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth_dispatch_applicationorganization`
+--
+
+LOCK TABLES `oauth_dispatch_applicationorganization` WRITE;
+/*!40000 ALTER TABLE `oauth_dispatch_applicationorganization` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth_dispatch_applicationorganization` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oauth_dispatch_restrictedapplication`
+--
+
+DROP TABLE IF EXISTS `oauth_dispatch_restrictedapplication`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oauth_dispatch_restrictedapplication` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `application_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oauth_dispatch_restr_application_id_6b8d0930_fk_oauth2_pr` (`application_id`),
+  CONSTRAINT `oauth_dispatch_restr_application_id_6b8d0930_fk_oauth2_pr` FOREIGN KEY (`application_id`) REFERENCES `oauth2_provider_application` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oauth_dispatch_restrictedapplication`
+--
+
+LOCK TABLES `oauth_dispatch_restrictedapplication` WRITE;
+/*!40000 ALTER TABLE `oauth_dispatch_restrictedapplication` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oauth_dispatch_restrictedapplication` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_components_component`
+--
+
+DROP TABLE IF EXISTS `oel_components_component`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_components_component` (
+  `publishable_entity_id` bigint NOT NULL,
+  `local_key` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `component_type_id` int NOT NULL,
+  `learning_package_id` int NOT NULL,
+  PRIMARY KEY (`publishable_entity_id`),
+  UNIQUE KEY `oel_component_uniq_lc_ct_lk` (`learning_package_id`,`component_type_id`,`local_key`),
+  KEY `oel_component_idx_ct_lk` (`component_type_id`,`local_key`),
+  CONSTRAINT `oel_components_compo_component_type_id_7e09be95_fk_oel_compo` FOREIGN KEY (`component_type_id`) REFERENCES `oel_components_componenttype` (`id`),
+  CONSTRAINT `oel_components_compo_learning_package_id_cd22ca9e_fk_oel_publi` FOREIGN KEY (`learning_package_id`) REFERENCES `oel_publishing_learningpackage` (`id`),
+  CONSTRAINT `oel_components_compo_publishable_entity_i_e656e6db_fk_oel_publi` FOREIGN KEY (`publishable_entity_id`) REFERENCES `oel_publishing_publishableentity` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_components_component`
+--
+
+LOCK TABLES `oel_components_component` WRITE;
+/*!40000 ALTER TABLE `oel_components_component` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_components_component` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_components_componenttype`
+--
+
+DROP TABLE IF EXISTS `oel_components_componenttype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_components_componenttype` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `namespace` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_components_componenttype`
+--
+
+LOCK TABLES `oel_components_componenttype` WRITE;
+/*!40000 ALTER TABLE `oel_components_componenttype` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_components_componenttype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_components_componentversion`
+--
+
+DROP TABLE IF EXISTS `oel_components_componentversion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_components_componentversion` (
+  `publishable_entity_version_id` bigint NOT NULL,
+  `component_id` bigint NOT NULL,
+  PRIMARY KEY (`publishable_entity_version_id`),
+  KEY `oel_components_compo_component_id_b7baf4ae_fk_oel_compo` (`component_id`),
+  CONSTRAINT `oel_components_compo_component_id_b7baf4ae_fk_oel_compo` FOREIGN KEY (`component_id`) REFERENCES `oel_components_component` (`publishable_entity_id`),
+  CONSTRAINT `oel_components_compo_publishable_entity_v_f974c384_fk_oel_publi` FOREIGN KEY (`publishable_entity_version_id`) REFERENCES `oel_publishing_publishableentityversion` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_components_componentversion`
+--
+
+LOCK TABLES `oel_components_componentversion` WRITE;
+/*!40000 ALTER TABLE `oel_components_componentversion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_components_componentversion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_components_componentversioncontent`
+--
+
+DROP TABLE IF EXISTS `oel_components_componentversioncontent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_components_componentversioncontent` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_key` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `learner_downloadable` tinyint(1) NOT NULL,
+  `component_version_id` bigint NOT NULL,
+  `content_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `oel_cvcontent_uniq_cv_key` (`component_version_id`,`_key`),
+  KEY `oel_cvcontent_c_cv` (`content_id`,`component_version_id`),
+  KEY `oel_cvcontent_cv_d` (`component_version_id`,`content_id`),
+  CONSTRAINT `oel_components_compo_component_version_id_503a3481_fk_oel_compo` FOREIGN KEY (`component_version_id`) REFERENCES `oel_components_componentversion` (`publishable_entity_version_id`),
+  CONSTRAINT `oel_components_compo_content_id_83665e85_fk_oel_conte` FOREIGN KEY (`content_id`) REFERENCES `oel_contents_content` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_components_componentversioncontent`
+--
+
+LOCK TABLES `oel_components_componentversioncontent` WRITE;
+/*!40000 ALTER TABLE `oel_components_componentversioncontent` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_components_componentversioncontent` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_contents_content`
+--
+
+DROP TABLE IF EXISTS `oel_contents_content`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_contents_content` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `size` bigint unsigned NOT NULL,
+  `hash_digest` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `has_file` tinyint(1) NOT NULL,
+  `text` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created` datetime(6) NOT NULL,
+  `learning_package_id` int NOT NULL,
+  `media_type_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oel_content_uniq_lc_media_type_hash_digest` (`learning_package_id`,`media_type_id`,`hash_digest`),
+  KEY `oel_contents_content_media_type_id_fec0309d_fk_oel_conte` (`media_type_id`),
+  KEY `oel_content_idx_lp_rsize` (`learning_package_id`,`size` DESC),
+  CONSTRAINT `oel_contents_content_learning_package_id_de76b3c9_fk_oel_publi` FOREIGN KEY (`learning_package_id`) REFERENCES `oel_publishing_learningpackage` (`id`),
+  CONSTRAINT `oel_contents_content_media_type_id_fec0309d_fk_oel_conte` FOREIGN KEY (`media_type_id`) REFERENCES `oel_contents_mediatype` (`id`),
+  CONSTRAINT `oel_contents_content_chk_1` CHECK ((`size` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_contents_content`
+--
+
+LOCK TABLES `oel_contents_content` WRITE;
+/*!40000 ALTER TABLE `oel_contents_content` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_contents_content` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_contents_mediatype`
+--
+
+DROP TABLE IF EXISTS `oel_contents_mediatype`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_contents_mediatype` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `type` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_type` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `suffix` varchar(127) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oel_contents_uniq_t_st_sfx` (`type`,`sub_type`,`suffix`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_contents_mediatype`
+--
+
+LOCK TABLES `oel_contents_mediatype` WRITE;
+/*!40000 ALTER TABLE `oel_contents_mediatype` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_contents_mediatype` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_draft`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_draft`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_draft` (
+  `entity_id` bigint NOT NULL,
+  `version_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`entity_id`),
+  UNIQUE KEY `version_id` (`version_id`),
+  CONSTRAINT `oel_publishing_draft_entity_id_17ccfc00_fk_oel_publi` FOREIGN KEY (`entity_id`) REFERENCES `oel_publishing_publishableentity` (`id`),
+  CONSTRAINT `oel_publishing_draft_version_id_89935b2f_fk_oel_publi` FOREIGN KEY (`version_id`) REFERENCES `oel_publishing_publishableentityversion` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_draft`
+--
+
+LOCK TABLES `oel_publishing_draft` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_draft` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_draft` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_learningpackage`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_learningpackage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_learningpackage` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_key` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `updated` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `oel_publishing_lp_uniq_key` (`_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_learningpackage`
+--
+
+LOCK TABLES `oel_publishing_learningpackage` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_learningpackage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_learningpackage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_publishableentity`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_publishableentity`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_publishableentity` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_key` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `created_by_id` int DEFAULT NULL,
+  `learning_package_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `oel_pub_ent_uniq_lp_key` (`learning_package_id`,`_key`),
+  KEY `oel_pub_ent_idx_key` (`_key`),
+  KEY `oel_pub_ent_idx_lp_rcreated` (`learning_package_id`,`created` DESC),
+  KEY `oel_publishing_publi_created_by_id_c46d4242_fk_auth_user` (`created_by_id`),
+  CONSTRAINT `oel_publishing_publi_created_by_id_c46d4242_fk_auth_user` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `oel_publishing_publi_learning_package_id_51d48af1_fk_oel_publi` FOREIGN KEY (`learning_package_id`) REFERENCES `oel_publishing_learningpackage` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_publishableentity`
+--
+
+LOCK TABLES `oel_publishing_publishableentity` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_publishableentity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_publishableentity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_publishableentityversion`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_publishableentityversion`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_publishableentityversion` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `version_num` int unsigned NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `created_by_id` int DEFAULT NULL,
+  `entity_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `oel_pv_uniq_entity_version_num` (`entity_id`,`version_num`),
+  KEY `oel_pv_idx_entity_rcreated` (`entity_id`,`created` DESC),
+  KEY `oel_pv_idx_title` (`title`),
+  KEY `oel_publishing_publi_created_by_id_0f121f50_fk_auth_user` (`created_by_id`),
+  CONSTRAINT `oel_publishing_publi_created_by_id_0f121f50_fk_auth_user` FOREIGN KEY (`created_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `oel_publishing_publi_entity_id_84a535cd_fk_oel_publi` FOREIGN KEY (`entity_id`) REFERENCES `oel_publishing_publishableentity` (`id`),
+  CONSTRAINT `oel_publishing_publishableentityversion_chk_1` CHECK ((`version_num` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_publishableentityversion`
+--
+
+LOCK TABLES `oel_publishing_publishableentityversion` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_publishableentityversion` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_publishableentityversion` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_published`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_published`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_published` (
+  `entity_id` bigint NOT NULL,
+  `publish_log_record_id` bigint NOT NULL,
+  `version_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`entity_id`),
+  UNIQUE KEY `version_id` (`version_id`),
+  KEY `oel_publishing_publi_publish_log_record_i_711e1ba5_fk_oel_publi` (`publish_log_record_id`),
+  CONSTRAINT `oel_publishing_publi_entity_id_d65b12d8_fk_oel_publi` FOREIGN KEY (`entity_id`) REFERENCES `oel_publishing_publishableentity` (`id`),
+  CONSTRAINT `oel_publishing_publi_publish_log_record_i_711e1ba5_fk_oel_publi` FOREIGN KEY (`publish_log_record_id`) REFERENCES `oel_publishing_publishlogrecord` (`id`),
+  CONSTRAINT `oel_publishing_publi_version_id_afb5d9f4_fk_oel_publi` FOREIGN KEY (`version_id`) REFERENCES `oel_publishing_publishableentityversion` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_published`
+--
+
+LOCK TABLES `oel_publishing_published` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_published` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_published` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_publishlog`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_publishlog`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_publishlog` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `published_at` datetime(6) NOT NULL,
+  `learning_package_id` int NOT NULL,
+  `published_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  KEY `oel_publishing_publi_learning_package_id_56c07e78_fk_oel_publi` (`learning_package_id`),
+  KEY `oel_publishing_publi_published_by_id_6081c50d_fk_auth_user` (`published_by_id`),
+  CONSTRAINT `oel_publishing_publi_learning_package_id_56c07e78_fk_oel_publi` FOREIGN KEY (`learning_package_id`) REFERENCES `oel_publishing_learningpackage` (`id`),
+  CONSTRAINT `oel_publishing_publi_published_by_id_6081c50d_fk_auth_user` FOREIGN KEY (`published_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_publishlog`
+--
+
+LOCK TABLES `oel_publishing_publishlog` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_publishlog` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_publishlog` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_publishing_publishlogrecord`
+--
+
+DROP TABLE IF EXISTS `oel_publishing_publishlogrecord`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_publishing_publishlogrecord` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `entity_id` bigint NOT NULL,
+  `new_version_id` bigint DEFAULT NULL,
+  `old_version_id` bigint DEFAULT NULL,
+  `publish_log_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oel_plr_uniq_pl_publishable` (`publish_log_id`,`entity_id`),
+  KEY `oel_plr_idx_entity_rplr` (`entity_id`,`publish_log_id` DESC),
+  KEY `oel_publishing_publi_new_version_id_e57980cb_fk_oel_publi` (`new_version_id`),
+  KEY `oel_publishing_publi_old_version_id_f5ff483d_fk_oel_publi` (`old_version_id`),
+  CONSTRAINT `oel_publishing_publi_entity_id_d41af9b5_fk_oel_publi` FOREIGN KEY (`entity_id`) REFERENCES `oel_publishing_publishableentity` (`id`),
+  CONSTRAINT `oel_publishing_publi_new_version_id_e57980cb_fk_oel_publi` FOREIGN KEY (`new_version_id`) REFERENCES `oel_publishing_publishableentityversion` (`id`),
+  CONSTRAINT `oel_publishing_publi_old_version_id_f5ff483d_fk_oel_publi` FOREIGN KEY (`old_version_id`) REFERENCES `oel_publishing_publishableentityversion` (`id`),
+  CONSTRAINT `oel_publishing_publi_publish_log_id_f7008cec_fk_oel_publi` FOREIGN KEY (`publish_log_id`) REFERENCES `oel_publishing_publishlog` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_publishing_publishlogrecord`
+--
+
+LOCK TABLES `oel_publishing_publishlogrecord` WRITE;
+/*!40000 ALTER TABLE `oel_publishing_publishlogrecord` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_publishing_publishlogrecord` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_tagging_objecttag`
+--
+
+DROP TABLE IF EXISTS `oel_tagging_objecttag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_tagging_objecttag` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `object_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `_export_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `_value` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tag_id` bigint DEFAULT NULL,
+  `taxonomy_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oel_tagging_objecttag_object_id_taxonomy_id_tag_id_900a25fb_uniq` (`object_id`,`taxonomy_id`,`tag_id`),
+  UNIQUE KEY `oel_tagging_objecttag_object_id_taxonomy_id__value_6243e6d6_uniq` (`object_id`,`taxonomy_id`,`_value`),
+  KEY `oel_tagging_taxonom_aa24e6_idx` (`taxonomy_id`,`object_id`),
+  KEY `oel_tagging_taxonom_3668ec_idx` (`taxonomy_id`,`_value`),
+  KEY `oel_tagging_objecttag_tag_id_6c23e4f0_fk_oel_tagging_tag_id` (`tag_id`),
+  KEY `oel_tagging_objecttag_object_id_c810f770` (`object_id`),
+  CONSTRAINT `oel_tagging_objectta_taxonomy_id_48a985b4_fk_oel_taggi` FOREIGN KEY (`taxonomy_id`) REFERENCES `oel_tagging_taxonomy` (`id`),
+  CONSTRAINT `oel_tagging_objecttag_tag_id_6c23e4f0_fk_oel_tagging_tag_id` FOREIGN KEY (`tag_id`) REFERENCES `oel_tagging_tag` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_tagging_objecttag`
+--
+
+LOCK TABLES `oel_tagging_objecttag` WRITE;
+/*!40000 ALTER TABLE `oel_tagging_objecttag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_tagging_objecttag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_tagging_tag`
+--
+
+DROP TABLE IF EXISTS `oel_tagging_tag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_tagging_tag` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `value` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `parent_id` bigint DEFAULT NULL,
+  `taxonomy_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `oel_tagging_tag_taxonomy_id_value_f0e6dab9_uniq` (`taxonomy_id`,`value`),
+  UNIQUE KEY `oel_tagging_tag_taxonomy_id_external_id_f308f968_uniq` (`taxonomy_id`,`external_id`),
+  KEY `oel_tagging_taxonom_89e779_idx` (`taxonomy_id`,`value`),
+  KEY `oel_tagging_taxonom_44e355_idx` (`taxonomy_id`,`external_id`),
+  KEY `oel_tagging_tag_parent_id_2d99b9b4_fk_oel_tagging_tag_id` (`parent_id`),
+  CONSTRAINT `oel_tagging_tag_parent_id_2d99b9b4_fk_oel_tagging_tag_id` FOREIGN KEY (`parent_id`) REFERENCES `oel_tagging_tag` (`id`),
+  CONSTRAINT `oel_tagging_tag_taxonomy_id_5ffdeb8b_fk_oel_tagging_taxonomy_id` FOREIGN KEY (`taxonomy_id`) REFERENCES `oel_tagging_taxonomy` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_tagging_tag`
+--
+
+LOCK TABLES `oel_tagging_tag` WRITE;
+/*!40000 ALTER TABLE `oel_tagging_tag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_tagging_tag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_tagging_tagimporttask`
+--
+
+DROP TABLE IF EXISTS `oel_tagging_tagimporttask`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_tagging_tagimporttask` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `creation_date` datetime(6) NOT NULL,
+  `taxonomy_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `oel_tagging_taxonom_5e948c_idx` (`taxonomy_id`,`creation_date` DESC),
+  CONSTRAINT `oel_tagging_tagimpor_taxonomy_id_955bb3a3_fk_oel_taggi` FOREIGN KEY (`taxonomy_id`) REFERENCES `oel_tagging_taxonomy` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_tagging_tagimporttask`
+--
+
+LOCK TABLES `oel_tagging_tagimporttask` WRITE;
+/*!40000 ALTER TABLE `oel_tagging_tagimporttask` DISABLE KEYS */;
+/*!40000 ALTER TABLE `oel_tagging_tagimporttask` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oel_tagging_taxonomy`
+--
+
+DROP TABLE IF EXISTS `oel_tagging_taxonomy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oel_tagging_taxonomy` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `allow_multiple` tinyint(1) NOT NULL,
+  `allow_free_text` tinyint(1) NOT NULL,
+  `visible_to_authors` tinyint(1) NOT NULL,
+  `_taxonomy_class` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `export_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `export_id` (`export_id`),
+  KEY `oel_tagging_taxonomy_name_41aebebd` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oel_tagging_taxonomy`
+--
+
+LOCK TABLES `oel_tagging_taxonomy` WRITE;
+/*!40000 ALTER TABLE `oel_tagging_taxonomy` DISABLE KEYS */;
+INSERT INTO `oel_tagging_taxonomy` VALUES (-1,'Languages','Languages that are enabled on this system.',1,0,0,1,'openedx_tagging.core.tagging.models.system_defined.LanguageTaxonomy','languages-v1');
+/*!40000 ALTER TABLE `oel_tagging_taxonomy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organizations_historicalorganization`
+--
+
+DROP TABLE IF EXISTS `organizations_historicalorganization`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_historicalorganization` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `logo` longtext COLLATE utf8mb4_unicode_ci,
+  `active` tinyint(1) NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `organizations_histor_history_user_id_bb516493_fk_auth_user` (`history_user_id`),
+  KEY `organizations_historicalorganization_id_4327d8f9` (`id`),
+  KEY `organizations_historicalorganization_name_5f4e354b` (`name`),
+  KEY `organizations_historicalorganization_short_name_07087b46` (`short_name`),
+  CONSTRAINT `organizations_histor_history_user_id_bb516493_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_historicalorganization`
+--
+
+LOCK TABLES `organizations_historicalorganization` WRITE;
+/*!40000 ALTER TABLE `organizations_historicalorganization` DISABLE KEYS */;
+INSERT INTO `organizations_historicalorganization` VALUES (1,'2025-01-10 07:53:40.784589','2025-01-10 07:53:40.784589','Trainficient','Trainficient','','',1,1,'2025-01-10 07:53:40.785698',NULL,'+',6);
+/*!40000 ALTER TABLE `organizations_historicalorganization` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organizations_historicalorganizationcourse`
+--
+
+DROP TABLE IF EXISTS `organizations_historicalorganizationcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_historicalorganizationcourse` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `organization_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `organizations_histor_history_user_id_0f165c1b_fk_auth_user` (`history_user_id`),
+  KEY `organizations_historicalorganizationcourse_id_9a1564c8` (`id`),
+  KEY `organizations_historicalorganizationcourse_course_id_4c93708c` (`course_id`),
+  KEY `organizations_historicalorg_organization_id_7cc0ed83` (`organization_id`),
+  CONSTRAINT `organizations_histor_history_user_id_0f165c1b_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_historicalorganizationcourse`
+--
+
+LOCK TABLES `organizations_historicalorganizationcourse` WRITE;
+/*!40000 ALTER TABLE `organizations_historicalorganizationcourse` DISABLE KEYS */;
+INSERT INTO `organizations_historicalorganizationcourse` VALUES (1,'2025-01-10 07:53:41.917228','2025-01-10 07:53:41.917228','course-v1:Trainficient+TF_RM_001+2025_T1',1,1,'2025-01-10 07:53:41.918632',NULL,'+',6,1),(2,'2025-01-14 09:53:19.164161','2025-01-14 09:53:19.164161','course-v1:Trainficient+TF_ABAC_004+2025_T2',1,2,'2025-01-14 09:53:19.166314',NULL,'+',6,1),(3,'2025-01-14 09:55:55.434961','2025-01-14 09:55:55.434961','course-v1:Trainficient+TF_CF_001+2025_T1',1,3,'2025-01-14 09:55:55.435580',NULL,'+',6,1),(4,'2025-01-14 09:56:50.688614','2025-01-14 09:56:50.688614','course-v1:Trainficient+TF_COI_005+2025_T2',1,4,'2025-01-14 09:56:50.689319',NULL,'+',6,1),(5,'2025-01-14 09:57:35.069832','2025-01-14 09:57:35.069832','course-v1:Trainficient+TF_COMP_003+2025_T2',1,5,'2025-01-14 09:57:35.070725',NULL,'+',6,1),(6,'2025-01-14 09:58:48.782691','2025-01-14 09:58:48.782691','course-v1:Trainficient+TF_ESG_006+2025_T2',1,6,'2025-01-14 09:58:48.783300',NULL,'+',6,1),(7,'2025-01-14 09:59:25.753184','2025-01-14 09:59:25.753184','course-v1:Trainficient+TF_PDPD_002+2025_T1',1,7,'2025-01-14 09:59:25.753798',NULL,'+',6,1);
+/*!40000 ALTER TABLE `organizations_historicalorganizationcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organizations_organization`
+--
+
+DROP TABLE IF EXISTS `organizations_organization`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_organization` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `active` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `organizations_organization_short_name_ef338963_uniq` (`short_name`),
+  KEY `organizations_organization_name_71edc74b` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_organization`
+--
+
+LOCK TABLES `organizations_organization` WRITE;
+/*!40000 ALTER TABLE `organizations_organization` DISABLE KEYS */;
+INSERT INTO `organizations_organization` VALUES (1,'2025-01-10 07:53:40.784589','2025-01-10 07:53:40.784589','Trainficient','Trainficient','','',1);
+/*!40000 ALTER TABLE `organizations_organization` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `organizations_organizationcourse`
+--
+
+DROP TABLE IF EXISTS `organizations_organizationcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `organizations_organizationcourse` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `organization_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `organizations_organizati_course_id_organization_i_06b1db31_uniq` (`course_id`,`organization_id`),
+  KEY `organizations_organi_organization_id_99e77fe0_fk_organizat` (`organization_id`),
+  KEY `organizations_organizationcourse_course_id_227b73bc` (`course_id`),
+  CONSTRAINT `organizations_organi_organization_id_99e77fe0_fk_organizat` FOREIGN KEY (`organization_id`) REFERENCES `organizations_organization` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `organizations_organizationcourse`
+--
+
+LOCK TABLES `organizations_organizationcourse` WRITE;
+/*!40000 ALTER TABLE `organizations_organizationcourse` DISABLE KEYS */;
+INSERT INTO `organizations_organizationcourse` VALUES (1,'2025-01-10 07:53:41.917228','2025-01-10 07:53:41.917228','course-v1:Trainficient+TF_RM_001+2025_T1',1,1),(2,'2025-01-14 09:53:19.164161','2025-01-14 09:53:19.164161','course-v1:Trainficient+TF_ABAC_004+2025_T2',1,1),(3,'2025-01-14 09:55:55.434961','2025-01-14 09:55:55.434961','course-v1:Trainficient+TF_CF_001+2025_T1',1,1),(4,'2025-01-14 09:56:50.688614','2025-01-14 09:56:50.688614','course-v1:Trainficient+TF_COI_005+2025_T2',1,1),(5,'2025-01-14 09:57:35.069832','2025-01-14 09:57:35.069832','course-v1:Trainficient+TF_COMP_003+2025_T2',1,1),(6,'2025-01-14 09:58:48.782691','2025-01-14 09:58:48.782691','course-v1:Trainficient+TF_ESG_006+2025_T2',1,1),(7,'2025-01-14 09:59:25.753184','2025-01-14 09:59:25.753184','course-v1:Trainficient+TF_PDPD_002+2025_T1',1,1);
+/*!40000 ALTER TABLE `organizations_organizationcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexam`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexam`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexam` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `exam_name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_limit_mins` int NOT NULL,
+  `due_date` datetime(6) DEFAULT NULL,
+  `is_proctored` tinyint(1) NOT NULL,
+  `is_practice_exam` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `hide_after_due` tinyint(1) NOT NULL,
+  `backend` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `proctoring_proctoredexam_course_id_content_id_1d8358cc_uniq` (`course_id`,`content_id`),
+  KEY `proctoring_proctoredexam_course_id_8787b34f` (`course_id`),
+  KEY `proctoring_proctoredexam_content_id_13d3bec4` (`content_id`),
+  KEY `proctoring_proctoredexam_external_id_0181c110` (`external_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexam`
+--
+
+LOCK TABLES `proctoring_proctoredexam` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexam` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamhistory`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamhistory` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `exam_name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `time_limit_mins` int NOT NULL,
+  `due_date` datetime(6) DEFAULT NULL,
+  `is_proctored` tinyint(1) NOT NULL,
+  `is_practice_exam` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `hide_after_due` tinyint(1) NOT NULL,
+  `backend` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `proctoring_proctored_history_user_id_f11ddc53_fk_auth_user` (`history_user_id`),
+  KEY `proctoring_proctoredexamhistory_id_bcb725e3` (`id`),
+  KEY `proctoring_proctoredexamhistory_course_id_66a57818` (`course_id`),
+  KEY `proctoring_proctoredexamhistory_content_id_ac9543fc` (`content_id`),
+  KEY `proctoring_proctoredexamhistory_external_id_711a44cd` (`external_id`),
+  CONSTRAINT `proctoring_proctored_history_user_id_f11ddc53_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamhistory`
+--
+
+LOCK TABLES `proctoring_proctoredexamhistory` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamhistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamreviewpolicy`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamreviewpolicy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamreviewpolicy` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `review_policy` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proctored_exam_id` int NOT NULL,
+  `set_by_user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_proctored_exam_id_57f9ce30_fk_proctorin` (`proctored_exam_id`),
+  KEY `proctoring_proctored_set_by_user_id_7c101300_fk_auth_user` (`set_by_user_id`),
+  CONSTRAINT `proctoring_proctored_proctored_exam_id_57f9ce30_fk_proctorin` FOREIGN KEY (`proctored_exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_set_by_user_id_7c101300_fk_auth_user` FOREIGN KEY (`set_by_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamreviewpolicy`
+--
+
+LOCK TABLES `proctoring_proctoredexamreviewpolicy` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamreviewpolicy` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamreviewpolicy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamreviewpolicyhistory`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamreviewpolicyhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamreviewpolicyhistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `original_id` int NOT NULL,
+  `review_policy` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proctored_exam_id` int NOT NULL,
+  `set_by_user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_proctored_exam_id_8126b616_fk_proctorin` (`proctored_exam_id`),
+  KEY `proctoring_proctored_set_by_user_id_42ce126e_fk_auth_user` (`set_by_user_id`),
+  KEY `proctoring_proctoredexamreviewpolicyhistory_original_id_ca04913d` (`original_id`),
+  CONSTRAINT `proctoring_proctored_proctored_exam_id_8126b616_fk_proctorin` FOREIGN KEY (`proctored_exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_set_by_user_id_42ce126e_fk_auth_user` FOREIGN KEY (`set_by_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamreviewpolicyhistory`
+--
+
+LOCK TABLES `proctoring_proctoredexamreviewpolicyhistory` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamreviewpolicyhistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamreviewpolicyhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamsoftwaresecurereview`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamsoftwaresecurereview`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamsoftwaresecurereview` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `attempt_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `raw_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exam_id` int DEFAULT NULL,
+  `reviewed_by_id` int DEFAULT NULL,
+  `student_id` int DEFAULT NULL,
+  `is_attempt_active` tinyint(1) NOT NULL,
+  `encrypted_video_url` longblob,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `proctoring_proctoredexam_attempt_code_706d3717_uniq` (`attempt_code`),
+  KEY `proctoring_proctored_exam_id_ea6095a3_fk_proctorin` (`exam_id`),
+  KEY `proctoring_proctored_reviewed_by_id_546b4204_fk_auth_user` (`reviewed_by_id`),
+  KEY `proctoring_proctored_student_id_7e197288_fk_auth_user` (`student_id`),
+  CONSTRAINT `proctoring_proctored_exam_id_ea6095a3_fk_proctorin` FOREIGN KEY (`exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_reviewed_by_id_546b4204_fk_auth_user` FOREIGN KEY (`reviewed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `proctoring_proctored_student_id_7e197288_fk_auth_user` FOREIGN KEY (`student_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamsoftwaresecurereview`
+--
+
+LOCK TABLES `proctoring_proctoredexamsoftwaresecurereview` WRITE;
+/*!40000 ALTER TABLE `pro
