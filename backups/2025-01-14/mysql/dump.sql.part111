@@ -1,0 +1,643 @@
+ `edxval_thirdpartytranscriptcredentialsstate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `org` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `has_creds` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `edxval_thirdpartytranscr_org_provider_188f7ddf_uniq` (`org`,`provider`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_thirdpartytranscriptcredentialsstate`
+--
+
+LOCK TABLES `edxval_thirdpartytranscriptcredentialsstate` WRITE;
+/*!40000 ALTER TABLE `edxval_thirdpartytranscriptcredentialsstate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_thirdpartytranscriptcredentialsstate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_transcriptpreference`
+--
+
+DROP TABLE IF EXISTS `edxval_transcriptpreference`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_transcriptpreference` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cielo24_fidelity` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cielo24_turnaround` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `three_play_turnaround` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `preferred_languages` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_source_language` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_id` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_transcriptpreference`
+--
+
+LOCK TABLES `edxval_transcriptpreference` WRITE;
+/*!40000 ALTER TABLE `edxval_transcriptpreference` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_transcriptpreference` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_video`
+--
+
+DROP TABLE IF EXISTS `edxval_video`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_video` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `edx_video_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_video_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `duration` double NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `error_description` longtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `edx_video_id` (`edx_video_id`),
+  KEY `edxval_video_client_video_id_2b668312` (`client_video_id`),
+  KEY `edxval_video_status_5f33a104` (`status`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_video`
+--
+
+LOCK TABLES `edxval_video` WRITE;
+/*!40000 ALTER TABLE `edxval_video` DISABLE KEYS */;
+INSERT INTO `edxval_video` VALUES (1,'2025-01-10 07:55:18.037947','44045fea-21f4-4fab-87e2-634638a5244d','External Video',0,'external',NULL),(2,'2025-01-10 07:55:18.075724','7b2642a2-78e9-40a1-a31e-bb572dc49708','External Video',0,'external',NULL),(3,'2025-01-10 07:55:18.100881','02050fe6-6b55-479c-b704-a95f009ee27a','External Video',0,'external',NULL),(4,'2025-01-10 07:55:18.125347','3ad5bdad-d3f8-4b30-a5f1-4db10b41e778','External Video',0,'external',NULL),(5,'2025-01-10 07:55:18.150013','56d490ea-3042-4849-9941-5ceba0450de0','External Video',0,'external',NULL),(6,'2025-01-10 07:55:18.174241','d70a44a8-d916-47e1-bc9a-512a5362a247','External Video',0,'external',NULL),(7,'2025-01-10 07:55:18.199109','3a685d79-c18a-4590-af20-82f3e8a2f178','External Video',0,'external',NULL),(8,'2025-01-10 07:57:53.512945','3c15a56c-8fc4-4bac-86f4-328e88a856fa','External Video',0,'external',NULL),(9,'2025-01-10 07:57:53.577104','18bdddc3-fe99-471b-b01c-67b9f334853f','External Video',0,'external',NULL),(10,'2025-01-10 07:57:53.608745','1aa11fad-aac9-4973-a3a7-d44cc68b21d7','External Video',0,'external',NULL),(11,'2025-01-10 07:57:53.649804','679a2ca6-e456-4fab-93dd-bd061e953f96','External Video',0,'external',NULL),(12,'2025-01-10 07:57:53.676731','da8de902-4d4b-445b-9fe4-66b165d9bf6e','External Video',0,'external',NULL),(13,'2025-01-10 07:57:53.702820','729ad882-2e93-47d0-97c9-15b28a7e83a5','External Video',0,'external',NULL),(14,'2025-01-10 07:57:53.728284','2ebc0051-e39f-47cb-8edf-d96fa178d90b','External Video',0,'external',NULL),(15,'2025-01-14 09:56:15.636069','7bcded5b-e596-42ed-a17d-16b57f0275d8','External Video',0,'external',NULL);
+/*!40000 ALTER TABLE `edxval_video` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_videoimage`
+--
+
+DROP TABLE IF EXISTS `edxval_videoimage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_videoimage` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `image` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `generated_images` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_video_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_video_id` (`course_video_id`),
+  CONSTRAINT `edxval_videoimage_course_video_id_06855d34_fk_edxval_co` FOREIGN KEY (`course_video_id`) REFERENCES `edxval_coursevideo` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_videoimage`
+--
+
+LOCK TABLES `edxval_videoimage` WRITE;
+/*!40000 ALTER TABLE `edxval_videoimage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_videoimage` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_videotranscript`
+--
+
+DROP TABLE IF EXISTS `edxval_videotranscript`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_videotranscript` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `transcript` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `language_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_format` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `edxval_videotranscript_video_id_language_code_37532906_uniq` (`video_id`,`language_code`),
+  KEY `edxval_videotranscript_language_code_d78ce3d1` (`language_code`),
+  KEY `edxval_videotranscript_file_format_3adddaf7` (`file_format`),
+  CONSTRAINT `edxval_videotranscript_video_id_6ffdfb56_fk_edxval_video_id` FOREIGN KEY (`video_id`) REFERENCES `edxval_video` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_videotranscript`
+--
+
+LOCK TABLES `edxval_videotranscript` WRITE;
+/*!40000 ALTER TABLE `edxval_videotranscript` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_videotranscript` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_country`
+--
+
+DROP TABLE IF EXISTS `embargo_country`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_country` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `country` varchar(2) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `country` (`country`)
+) ENGINE=InnoDB AUTO_INCREMENT=251 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_country`
+--
+
+LOCK TABLES `embargo_country` WRITE;
+/*!40000 ALTER TABLE `embargo_country` DISABLE KEYS */;
+INSERT INTO `embargo_country` VALUES (6,'AD'),(235,'AE'),(1,'AF'),(10,'AG'),(8,'AI'),(3,'AL'),(12,'AM'),(7,'AO'),(9,'AQ'),(11,'AR'),(5,'AS'),(15,'AT'),(14,'AU'),(13,'AW'),(2,'AX'),(16,'AZ'),(29,'BA'),(20,'BB'),(19,'BD'),(22,'BE'),(36,'BF'),(35,'BG'),(18,'BH'),(37,'BI'),(24,'BJ'),(186,'BL'),(25,'BM'),(34,'BN'),(27,'BO'),(28,'BQ'),(32,'BR'),(17,'BS'),(26,'BT'),(31,'BV'),(30,'BW'),(21,'BY'),(23,'BZ'),(41,'CA'),(48,'CC'),(52,'CD'),(43,'CF'),(51,'CG'),(217,'CH'),(55,'CI'),(53,'CK'),(45,'CL'),(40,'CM'),(46,'CN'),(49,'CO'),(54,'CR'),(57,'CU'),(38,'CV'),(58,'CW'),(47,'CX'),(59,'CY'),(60,'CZ'),(84,'DE'),(62,'DJ'),(61,'DK'),(63,'DM'),(64,'DO'),(4,'DZ'),(65,'EC'),(70,'EE'),(66,'EG'),(247,'EH'),(69,'ER'),(211,'ES'),(72,'ET'),(76,'FI'),(75,'FJ'),(73,'FK'),(144,'FM'),(74,'FO'),(77,'FR'),(81,'GA'),(236,'GB'),(89,'GD'),(83,'GE'),(78,'GF'),(93,'GG'),(85,'GH'),(86,'GI'),(88,'GL'),(82,'GM'),(94,'GN'),(90,'GP'),(68,'GQ'),(87,'GR'),(208,'GS'),(92,'GT'),(91,'GU'),(95,'GW'),(96,'GY'),(101,'HK'),(98,'HM'),(100,'HN'),(56,'HR'),(97,'HT'),(102,'HU'),(105,'ID'),(108,'IE'),(110,'IL'),(109,'IM'),(104,'IN'),(33,'IO'),(107,'IQ'),(106,'IR'),(103,'IS'),(111,'IT'),(114,'JE'),(112,'JM'),(115,'JO'),(113,'JP'),(117,'KE'),(121,'KG'),(39,'KH'),(118,'KI'),(50,'KM'),(188,'KN'),(164,'KP'),(209,'KR'),(120,'KW'),(42,'KY'),(116,'KZ'),(122,'LA'),(124,'LB'),(189,'LC'),(128,'LI'),(212,'LK'),(126,'LR'),(125,'LS'),(129,'LT'),(130,'LU'),(123,'LV'),(127,'LY'),(150,'MA'),(146,'MC'),(145,'MD'),(148,'ME'),(190,'MF'),(132,'MG'),(138,'MH'),(165,'MK'),(136,'ML'),(152,'MM'),(147,'MN'),(131,'MO'),(166,'MP'),(139,'MQ'),(140,'MR'),(149,'MS'),(137,'MT'),(141,'MU'),(135,'MV'),(133,'MW'),(143,'MX'),(134,'MY'),(151,'MZ'),(153,'NA'),(157,'NC'),(160,'NE'),(163,'NF'),(161,'NG'),(159,'NI'),(156,'NL'),(167,'NO'),(155,'NP'),(154,'NR'),(162,'NU'),(158,'NZ'),(168,'OM'),(172,'PA'),(175,'PE'),(79,'PF'),(173,'PG'),(176,'PH'),(169,'PK'),(178,'PL'),(191,'PM'),(177,'PN'),(180,'PR'),(171,'PS'),(179,'PT'),(170,'PW'),(174,'PY'),(181,'QA'),(182,'RE'),(183,'RO'),(198,'RS'),(184,'RU'),(185,'RW'),(196,'SA'),(205,'SB'),(199,'SC'),(213,'SD'),(216,'SE'),(201,'SG'),(187,'SH'),(204,'SI'),(215,'SJ'),(203,'SK'),(200,'SL'),(194,'SM'),(197,'SN'),(206,'SO'),(214,'SR'),(210,'SS'),(195,'ST'),(67,'SV'),(202,'SX'),(218,'SY'),(71,'SZ'),(231,'TC'),(44,'TD'),(80,'TF'),(224,'TG'),(222,'TH'),(220,'TJ'),(225,'TK'),(223,'TL'),(230,'TM'),(228,'TN'),(226,'TO'),(229,'TR'),(227,'TT'),(232,'TV'),(219,'TW'),(221,'TZ'),(234,'UA'),(233,'UG'),(237,'UM'),(238,'US'),(239,'UY'),(240,'UZ'),(99,'VA'),(192,'VC'),(242,'VE'),(244,'VG'),(245,'VI'),(243,'VN'),(241,'VU'),(246,'WF'),(193,'WS'),(119,'XK'),(248,'YE'),(142,'YT'),(207,'ZA'),(249,'ZM'),(250,'ZW');
+/*!40000 ALTER TABLE `embargo_country` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_countryaccessrule`
+--
+
+DROP TABLE IF EXISTS `embargo_countryaccessrule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_countryaccessrule` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rule_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_id` int NOT NULL,
+  `restricted_course_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `embargo_countryaccessrul_restricted_course_id_cou_477b6bb1_uniq` (`restricted_course_id`,`country_id`),
+  KEY `embargo_countryacces_country_id_6af33e89_fk_embargo_c` (`country_id`),
+  CONSTRAINT `embargo_countryacces_country_id_6af33e89_fk_embargo_c` FOREIGN KEY (`country_id`) REFERENCES `embargo_country` (`id`),
+  CONSTRAINT `embargo_countryacces_restricted_course_id_eedb3d21_fk_embargo_r` FOREIGN KEY (`restricted_course_id`) REFERENCES `embargo_restrictedcourse` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_countryaccessrule`
+--
+
+LOCK TABLES `embargo_countryaccessrule` WRITE;
+/*!40000 ALTER TABLE `embargo_countryaccessrule` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_countryaccessrule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_courseaccessrulehistory`
+--
+
+DROP TABLE IF EXISTS `embargo_courseaccessrulehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_courseaccessrulehistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `timestamp` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `snapshot` longtext COLLATE utf8mb4_unicode_ci,
+  PRIMARY KEY (`id`),
+  KEY `embargo_courseaccessrulehistory_timestamp_0267f0e6` (`timestamp`),
+  KEY `embargo_courseaccessrulehistory_course_key_6f7a7a06` (`course_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_courseaccessrulehistory`
+--
+
+LOCK TABLES `embargo_courseaccessrulehistory` WRITE;
+/*!40000 ALTER TABLE `embargo_courseaccessrulehistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_courseaccessrulehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_embargoedcourse`
+--
+
+DROP TABLE IF EXISTS `embargo_embargoedcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_embargoedcourse` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `embargoed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_id` (`course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_embargoedcourse`
+--
+
+LOCK TABLES `embargo_embargoedcourse` WRITE;
+/*!40000 ALTER TABLE `embargo_embargoedcourse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_embargoedcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_embargoedstate`
+--
+
+DROP TABLE IF EXISTS `embargo_embargoedstate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_embargoedstate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `embargoed_countries` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `embargo_embargoedstate_changed_by_id_f7763260_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `embargo_embargoedstate_changed_by_id_f7763260_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_embargoedstate`
+--
+
+LOCK TABLES `embargo_embargoedstate` WRITE;
+/*!40000 ALTER TABLE `embargo_embargoedstate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_embargoedstate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_ipfilter`
+--
+
+DROP TABLE IF EXISTS `embargo_ipfilter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_ipfilter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `whitelist` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `blacklist` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `embargo_ipfilter_changed_by_id_39e4eed2_fk_auth_user_id` (`changed_by_id`),
+  CONSTRAINT `embargo_ipfilter_changed_by_id_39e4eed2_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_ipfilter`
+--
+
+LOCK TABLES `embargo_ipfilter` WRITE;
+/*!40000 ALTER TABLE `embargo_ipfilter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_ipfilter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `embargo_restrictedcourse`
+--
+
+DROP TABLE IF EXISTS `embargo_restrictedcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `embargo_restrictedcourse` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enroll_msg_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `access_msg_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_access_check` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_key` (`course_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `embargo_restrictedcourse`
+--
+
+LOCK TABLES `embargo_restrictedcourse` WRITE;
+/*!40000 ALTER TABLE `embargo_restrictedcourse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `embargo_restrictedcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_adminnotification`
+--
+
+DROP TABLE IF EXISTS `enterprise_adminnotification`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_adminnotification` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `text` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `start_date` date NOT NULL,
+  `expiration_date` date NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_adminnotification`
+--
+
+LOCK TABLES `enterprise_adminnotification` WRITE;
+/*!40000 ALTER TABLE `enterprise_adminnotification` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_adminnotification` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_adminnotification_admin_notification_filter`
+--
+
+DROP TABLE IF EXISTS `enterprise_adminnotification_admin_notification_filter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_adminnotification_admin_notification_filter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `adminnotification_id` int NOT NULL,
+  `adminnotificationfilter_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_adminnotifica_adminnotification_id_adm_d4f4da63_uniq` (`adminnotification_id`,`adminnotificationfilter_id`),
+  KEY `enterprise_adminnoti_adminnotificationfil_276acc56_fk_enterpris` (`adminnotificationfilter_id`),
+  CONSTRAINT `enterprise_adminnoti_adminnotification_id_6ab95bff_fk_enterpris` FOREIGN KEY (`adminnotification_id`) REFERENCES `enterprise_adminnotification` (`id`),
+  CONSTRAINT `enterprise_adminnoti_adminnotificationfil_276acc56_fk_enterpris` FOREIGN KEY (`adminnotificationfilter_id`) REFERENCES `enterprise_adminnotificationfilter` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_adminnotification_admin_notification_filter`
+--
+
+LOCK TABLES `enterprise_adminnotification_admin_notification_filter` WRITE;
+/*!40000 ALTER TABLE `enterprise_adminnotification_admin_notification_filter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_adminnotification_admin_notification_filter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_adminnotificationfilter`
+--
+
+DROP TABLE IF EXISTS `enterprise_adminnotificationfilter`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_adminnotificationfilter` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `filter` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `filter` (`filter`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_adminnotificationfilter`
+--
+
+LOCK TABLES `enterprise_adminnotificationfilter` WRITE;
+/*!40000 ALTER TABLE `enterprise_adminnotificationfilter` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_adminnotificationfilter` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_adminnotificationread`
+--
+
+DROP TABLE IF EXISTS `enterprise_adminnotificationread`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_adminnotificationread` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `is_read` tinyint(1) NOT NULL,
+  `admin_notification_id` int NOT NULL,
+  `enterprise_customer_user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_adminnotifica_enterprise_customer_user_767d1bcc_uniq` (`enterprise_customer_user_id`,`admin_notification_id`),
+  KEY `enterprise_adminnoti_admin_notification_i_77267771_fk_enterpris` (`admin_notification_id`),
+  CONSTRAINT `enterprise_adminnoti_admin_notification_i_77267771_fk_enterpris` FOREIGN KEY (`admin_notification_id`) REFERENCES `enterprise_adminnotification` (`id`),
+  CONSTRAINT `enterprise_adminnoti_enterprise_customer__4a67a03f_fk_enterpris` FOREIGN KEY (`enterprise_customer_user_id`) REFERENCES `enterprise_enterprisecustomeruser` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_adminnotificationread`
+--
+
+LOCK TABLES `enterprise_adminnotificationread` WRITE;
+/*!40000 ALTER TABLE `enterprise_adminnotificationread` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_adminnotificationread` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_bulkcatalogqueryupdatecommandconfiguration`
+--
+
+DROP TABLE IF EXISTS `enterprise_bulkcatalogqueryupdatecommandconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_bulkcatalogqueryupdatecommandconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `arguments` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `enterprise_bulkcatal_changed_by_id_accb978f_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `enterprise_bulkcatal_changed_by_id_accb978f_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_bulkcatalogqueryupdatecommandconfiguration`
+--
+
+LOCK TABLES `enterprise_bulkcatalogqueryupdatecommandconfiguration` WRITE;
+/*!40000 ALTER TABLE `enterprise_bulkcatalogqueryupdatecommandconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_bulkcatalogqueryupdatecommandconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_chatgptresponse`
+--
+
+DROP TABLE IF EXISTS `enterprise_chatgptresponse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_chatgptresponse` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prompt` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prompt_hash` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `response` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prompt_type` varchar(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`uuid`),
+  KEY `enterprise_chatgptre_enterprise_customer__e07a7628_fk_enterpris` (`enterprise_customer_id`),
+  CONSTRAINT `enterprise_chatgptre_enterprise_customer__e07a7628_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_chatgptresponse`
+--
+
+LOCK TABLES `enterprise_chatgptresponse` WRITE;
+/*!40000 ALTER TABLE `enterprise_chatgptresponse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_chatgptresponse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_enrollmentnotificationemailtemplate`
+--
+
+DROP TABLE IF EXISTS `enterprise_enrollmentnotificationemailtemplate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_enrollmentnotificationemailtemplate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `plaintext_template` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `html_template` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subject_line` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `template_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_customer_id` (`enterprise_customer_id`),
+  CONSTRAINT `enterprise_enrollmen_enterprise_customer__df17d9ff_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_enrollmentnotificationemailtemplate`
+--
+
+LOCK TABLES `enterprise_enrollmentnotificationemailtemplate` WRITE;
+/*!40000 ALTER TABLE `enterprise_enrollmentnotificationemailtemplate` DISABLE KEYS */;
+INSERT INTO `enterprise_enrollmentnotificationemailtemplate` VALUES (1,'2025-01-10 06:22:27.488881','2025-01-10 06:22:27.488881','\n        {% load i18n %}{% if user_name %}{% blocktrans %}Dear {{ user_name }},{% endblocktrans %}{% else %}{% blocktrans %}Hi!{% endblocktrans %}{% endif %}\n        {% if enrolled_in.type == \"program\" %}\n        {% blocktrans with program_url=enrolled_in.url program_name=enrolled_in.name program_branding=enrolled_in.branding start_date=enrolled_in.start|date:\"DATE_FORMAT\" %}You have been enrolled in {{ program_name }}, a {{ program_branding }} program offered by {{ organization_name }}. This program begins {{ start_date }}. For more information, see the following link:\n\n        {{ program_url }}{% endblocktrans %}{% else %}\n        {% blocktrans with course_url=enrolled_in.url course_name=enrolled_in.name start_date=enrolled_in.start|date:\"DATE_FORMAT\" %}You have been enrolled in {{ course_name }}, a course offered by {{ organization_name }}. This course begins {{ start_date }}. For more information, see the following link:\n\n        {{ course_url }}{% endblocktrans %}{% endif %}\n        {% blocktrans with enrolled_in_name=enrolled_in.name %}\n        Thanks,\n\n        The {{enrolled_in_name}} team{% endblocktrans %}\n        ','\n        {% load i18n %}<html>\n        <body>\n        <p>{% if user_name %}{% blocktrans %}Dear {{ user_name }},{% endblocktrans %}{% else %}{% blocktrans %}Hi!{% endblocktrans %}{% endif %}</p>\n        <p>{% if enrolled_in.type == \"program\" %}\n        {% blocktrans with program_url=enrolled_in.url program_name=enrolled_in.name program_branding=enrolled_in.branding start_date=enrolled_in.start|date:\"DATE_FORMAT\" %}You have been enrolled in <a href=\"{{ program_url }}\">{{ program_name }}</a>, a {{ program_branding }} program offered by {{ organization_name }}. This program begins {{ start_date }}. For more information, see <a href=\"{{ program_url }}\">{{ program_name }}</a>.{% endblocktrans %}{% else %}\n        {% blocktrans with course_url=enrolled_in.url course_name=enrolled_in.name start_date=enrolled_in.start|date:\"DATE_FORMAT\" %}You have been enrolled in <a href=\"{{ course_url }}\">{{ course_name }}</a>, a course offered by {{ organization_name }}. This course begins {{ start_date }}. For more information, see <a href=\"{{ course_url }}\">{{ course_name }}</a>.{% endblocktrans %}{% endif %}\n        </p>\n        {% blocktrans with enrolled_in_name=enrolled_in.name %}<p>\n        Thanks,\n        </p>\n        <p>\n        The {{enrolled_in_name}} team\n        </p>{% endblocktrans %}\n        </body>\n        </html>','',NULL,'SELF_ENROLL'),(2,'2025-01-10 06:22:27.493391','2025-01-10 06:22:30.153710','\n        Great News! You\'ve been enrolled in {{enrolled_in.name}} by {{organization_name}}\n\n        This course is a free benefit offered especially for you, and we are excited for you to meet your learning community on edX.\n\n        Visit this link to see and enroll in your course, {{enrolled_in.url}}\n\n        The {{enrolled_in.name}} team\n        ','\n<html>\n<head>\n    <style type=\"text/css\">\n        a, a:visited, a:hover, a:active {\n            text-decoration: none;\n            color: #00262b;\n        }\n    </style>\n</head>\n<body>\n    <table style=\"max-width: 650;\" align=\"center\">\n        <tbody>\n            <tr>\n            <td>\n                <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"left\" valign=\"top\" style=\"padding:8px;Margin:0;width:560px\">\n                            <img src=\"https://ci3.googleusercontent.com/proxy/ZAml-YgIIJEht-OBl6GqLNIUeVKLyPvs_ldFo9FShp-andj1YQxvliJXv_s_Tmh6cg1-5avJJmvXmzxbQp06sB_WUeYYkN9kzV6jtVUvYKPPjUX_8_iFJAZqsNqYakl4nQyHnl0dClFzxiaLuULSPoqGPLBfJmNOEXIBYkvKYa95640xvHwDiQ22bZ16=s0-d-e1-ft#https://appboy-images.com/appboy/communication/assets/image_assets/images/5fc568622213594dcbda2623/original.png?1606772834\" width=\"110\" height=\"57\" border=\"0\" style=\"display:block\" alt=\"edX\" id=\"m_-37988256656304111logo\" class=\"CToWUd\">\n                        </td>\n                        <td align=\"right\" valign=\"top\" style=\"white-space:nowrap;text-decoration:none;color:#00262b;font-family:\'inter\',Arial,sans-serif;font-size:18px;line-height:21px\">\n                            <a href=\"{{dashboard_url}}\">My Dashboard</a> \n                        </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n            <tr>\n            <td align=\"left\" bgcolor=\"#002b2b\" style=\"Margin:0;padding-left:20px;padding-right:20px;padding-top:40px;padding-bottom:40px;background-color:#002b2b;background-image:url(https://ci3.googleusercontent.com/proxy/2CLnc9QL2u1L0MsUErVcQVBOz6OlDew2A5O8umOI9v7PGI3ip8YnJqYPRcexkjGsbNvNa6kUFyuHAMp7LlVBKKa7bxaKUjEO566AyX4M_6PhDtwz-QpLXLg9eQZQ93LIwP-5SbUtfxd203xXFTVBatJrN9P2hsuJSWFwd9k2pooiea6Qsg=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/53481614126118338.png);background-repeat:no-repeat;background-position:left top\" background=\"https://ci3.googleusercontent.com/proxy/2CLnc9QL2u1L0MsUErVcQVBOz6OlDew2A5O8umOI9v7PGI3ip8YnJqYPRcexkjGsbNvNa6kUFyuHAMp7LlVBKKa7bxaKUjEO566AyX4M_6PhDtwz-QpLXLg9eQZQ93LIwP-5SbUtfxd203xXFTVBatJrN9P2hsuJSWFwd9k2pooiea6Qsg=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/53481614126118338.png\">\n                <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" valign=\"top\" style=\"padding:0;Margin:0;width:560px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0\">\n                                        <p style=\"Margin:0;font-size:32px;font-family:helvetica,\'helvetica neue\',arial,verdana,sans-serif;line-height:48px;color:#ffffff\"><strong><span class=\"il\">Congratulations</span>, Restless Learner</strong></p>\n                                    </td>\n                                    </tr>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0\">\n                                        <p style=\"Margin:0;font-size:20px;font-family:arial,\'helvetica neue\',helvetica,sans-serif;line-height:30px;color:#ffffff\">Great News! You\'ve been <span class=\"il\">Enrolled</span> in {{enrolled_in.name}} by {{organization_name}}</p>\n                                    </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n            <tr>\n            <td align=\"left\" style=\"padding:0;Margin:0;padding-top:20px;padding-left:20px;padding-right:20px\">\n                <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" style=\"border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" valign=\"top\" style=\"padding:0;Margin:0;width:560px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0\">\n                                        <p style=\"Margin:0;font-size:14px;font-family:arial,\'helvetica neue\',helvetica,sans-serif;line-height:21px;color:#333333\">\n                                            This course is a free benefit offered especially for you, and we are excited for you to meet your learning community on edX.\n                                        </p>\n                                    </td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n            <tr>\n            <td>\n                <table width=\"100%\" cellspacing=\"0\" cellpadding=\"0\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" bgcolor=\"#ffffff\" style=\"padding:0;Margin:0;padding-top:10px;padding-left:10px;padding-bottom:15px\"><span class=\"m_-37988256656304111es-button-border\" style=\"border-style:solid;border-color:#d03529;background:#d03529;border-width:0px 0px 2px 0px;display:inline-block;border-radius:0px;width:auto\"><a href=\"{{enrolled_in.url}}\" class=\"m_-37988256656304111es-button\" style=\"text-decoration:none;font-family:helvetica,\'helvetica neue\',arial,verdana,sans-serif;font-size:18px;color:#ffffff;border-style:solid;border-color:#d03529;border-width:10px 15px;display:inline-block;background:#d03529;border-radius:0px;font-weight:normal;font-style:normal;line-height:22px;width:auto;text-align:center\" target=\"_blank\">Start my course</a></span></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n            <tr>\n            <td align=\"center\" bgcolor=\"#ffffff\" style=\"padding:20px;Margin:0;background-color:#ffffff\">\n                <table cellpadding=\"0\" cellspacing=\"0\" class=\"m_-37988256656304111es-left\" align=\"center\" style=\"display:inline-block;border-collapse:collapse;border-spacing:0px;\">\n                    <tbody>\n                        <tr>\n                        <td class=\"m_-37988256656304111es-m-p0r\" align=\"center\" style=\"padding:0;Margin:0;width:50px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><a href=\"https://www.facebook.com/edX\"><img src=\"https://ci3.googleusercontent.com/proxy/2EBI4EepyVUk0cIRxzfMGmsBqU6TKjJsw7CqB8hSM0zRlLb0-BL0Y_JXhu-E6b1DiMGQ-4NHHem0qkjDgG_0xHNTYSsmJ0Rv9qBXCj2SJyT-yFlrkA7SYr4YkGg8CdkRYlkwZsQzU0DiZIDWZopRyOkPvcHWVTLwzCdJMKZcFc57HfR-eQ=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/71001614127047298.png\" alt=\"facebook logo hyperlink\" style=\"display:block;border:0;outline:none;text-decoration:none\" width=\"35\" height=\"35\" class=\"CToWUd\"></a></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        <td class=\"m_-37988256656304111es-hidden\" style=\"padding:0;Margin:0;width:15px\"></td>\n                        </tr>\n                    </tbody>\n                </table>\n                <table cellpadding=\"0\" cellspacing=\"0\" class=\"m_-37988256656304111es-left\" align=\"center\" style=\"display:inline-block;border-collapse:collapse;border-spacing:0px;\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" style=\"padding:0;Margin:0;width:50px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><a href=\"https://twitter.com/edXOnline\"><img src=\"https://ci4.googleusercontent.com/proxy/yPnmVX7UE9sXw9LbZmrtTLvkrZVy9NJurDVqU6aByY871Dj0GMzEmJZOQm5kTImdMT_qNIIvpVpTpTpboYZB6wPyZuOUKwd49j6Q7yTB9IM0DWSMdldQ4XiOHReWms7Mw7HL9rRGk1iRLwmx0IT5frUGIcmc4ulwvQcjBFSHUBcMBDrAvQ=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/19131614127052508.png\" alt=\"twitter logo hyperlink\" style=\"display:block;border:0;outline:none;text-decoration:none\" width=\"35\" height=\"35\" class=\"CToWUd\"></a></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        <td class=\"m_-37988256656304111es-hidden\" style=\"padding:0;Margin:0;width:15px\"></td>\n                        </tr>\n                    </tbody>\n                </table>\n                <table cellpadding=\"0\" cellspacing=\"0\" class=\"m_-37988256656304111es-left\" align=\"center\" style=\"display:inline-block;border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" style=\"padding:0;Margin:0;width:50px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><a href=\"https://www.linkedin.com/school/edx/\"><img src=\"https://ci6.googleusercontent.com/proxy/GT773Vs37lIPuUvoTpVMvtQ8sSuiC9sGLGtWGNti6nwmrZGrcewvoO_zFG4XJadUV-xPRYqf9zbLEshuVcSQMZiI1yUuM5VKxTF9lLfuzDWV1ZbMPEpk2cAWEZcDAW8mD3VFxY5l0y1Gxvcc_2bB4L-ApvPHnnIw7rXB_XDe1o37B4xPaA=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/42721614127058646.png\" alt=\"linkedin logo hyperlink\" style=\"display:block;border:0;outline:none;text-decoration:none\" width=\"35\" height=\"35\" class=\"CToWUd\"></a></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        <td class=\"m_-37988256656304111es-hidden\" style=\"padding:0;Margin:0;width:15px\"></td>\n                        </tr>\n                    </tbody>\n                </table>\n                <table cellpadding=\"0\" cellspacing=\"0\" class=\"m_-37988256656304111es-left\" align=\"center\" style=\"display:inline-block;border-collapse:collapse;border-spacing:0px\">\n                    <tbody>\n                        <tr>\n                        <td align=\"center\" style=\"padding:0;Margin:0;width:50px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><a href=\"https://www.reddit.com/r/edX/\"><img src=\"https://ci6.googleusercontent.com/proxy/hVT_30jYZguhmOyUAcTTZhCNDjjlivo3GAljGnyt_nNnjp0A0zcheoKw-XgM2NSD7M-CemzJEui6RIte_cH0YyJXUwCJWFpZ6j96QCB3T2UeQddtN1_VrVyQoDnAR1G82cHdJnq6Ysc-KQPvBKngjYaaPYSvcvMuHR0QS7dcnlGK35dUlA=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/23371614127063365.png\" alt=\"reddit logo hyperlink\" style=\"display:block;border:0;outline:none;text-decoration:none\" width=\"35\" height=\"35\" class=\"CToWUd\"></a></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        <td class=\"m_-37988256656304111es-hidden\" style=\"padding:0;Margin:0;width:15px\"></td>\n                        </tr>\n                    </tbody>\n                </table>\n                <table cellpadding=\"0\" cellspacing=\"0\" class=\"m_-37988256656304111es-left\" align=\"center\" style=\"display:inline-block;border-collapse:collapse;border-spacing:0px;\">\n                    <tbody>\n                        <tr>\n                        <td align=\"left\" style=\"padding:0;Margin:0;width:50px\">\n                            <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\" role=\"presentation\" style=\"border-collapse:collapse;border-spacing:0px\">\n                                <tbody>\n                                    <tr>\n                                    <td align=\"center\" style=\"padding:0;Margin:0;font-size:0px\"><a href=\"https://api.whatsapp.com/send?text=edX\"><img src=\"https://ci4.googleusercontent.com/proxy/9UmWL708u3GDWbf_b3dzLoavIieL1kLHnipq6vGF06ZpMlLEQe9WkHJZsNVHfBwYZhpp71tbA8EJgf2_mhGV2RwDBIiUox83T4sP6uZKF3rw6QGEtQY2Ou16eR6v39Quf2AHsnh78t6JK6PMqlxGVSVKB2WkmUX37_2jtgfIqVtOLlV1bw=s0-d-e1-ft#https://fzvpwi.stripocdn.email/content/guids/CABINET_4d3c6887b8ac137f656a3dd54bb5f6c8/images/18781614127069989.png\" alt=\"whatsapp logo hyperlink\" style=\"display:block;border:0;outline:none;text-decoration:none\" width=\"35\" height=\"35\" class=\"CToWUd\"></a></td>\n                                    </tr>\n                                </tbody>\n                            </table>\n                        </td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n            <tr>\n            <td>\n                <table cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n                    <tbody>\n                        <tr>\n                        <td height=\"20\" style=\"line-height:1px;font-size:1px\"></td>\n                        </tr>\n                        <tr>\n                        <td align=\"left\" valign=\"top\"><a href=\"https://business.edx.org\" style=\"font-family:\'Open Sans\',Arial,sans-serif;font-size:14px;line-height:17px;text-decoration:none;color:#707070\" target=\"_blank\"><span style=\"color:#00262b\">edX for Business</span><span style=\"color:#707070\"> — eLearning Solutions for Your Company</span></a></td>\n                        </tr>\n                        <tr>\n                        <td height=\"20\" style=\"line-height:1px;font-size:1px\"></td>\n                        </tr>\n                        <tr>\n                        <td align=\"left\" style=\"font-family:\'Open Sans\',Arial,sans-serif;color:#707070;font-size:14px;line-height:17px\" valign=\"top\">© 2021 edX Inc. All rights reserved.</td>\n                        </tr>\n                        <tr>\n                        <td height=\"20\" style=\"line-height:1px;font-size:1px\"></td>\n                        </tr>\n                        <tr>\n                        <td height=\"20\" style=\"line-height:1px;font-size:1px\"></td>\n                        </tr>\n                        <tr>\n                        <td align=\"left\" style=\"font-family:\'Open Sans\',Arial,sans-serif;color:#707070;font-size:14px;line-height:17px\" valign=\"top\">141 Portland St. 9th Floor, Cambridge, MA 02139</td>\n                        </tr>\n                        <tr>\n                        <td height=\"30\" style=\"line-height:1px;font-size:1px\"></td>\n                        </tr>\n                    </tbody>\n                </table>\n            </td>\n            </tr>\n        </tbody>\n    </table>\n</body>\n</html>\n         ','',NULL,'ADMIN_ENROLL');
+/*!40000 ALTER TABLE `enterprise_enrollmentnotificationemailtemplate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_enterprisecatalogquery`
+--
+
+DROP TABLE IF EXISTS `enterprise_enterprisecatalogquery`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_enterprisecatalogquery` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content_filter` longtext COLLATE utf8mb4_unicode_ci,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `include_exec_ed_2u_courses` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_enterprisecatalogquery_uuid_4fdf5c5a_uniq` (`uuid`),
+  UNIQUE KEY `enterprise_enterprisecatalogquery_title_7a5a0a9d_uniq` (`title`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_enterprisecatalogquery`
+--
+
+LOCK TABLES `enterprise_enterprisecatalogquery` WRITE;
+/*!40000 ALTER TABLE `enterprise_enterprisecatalogquery` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_enterprisecatalogquery` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_enterprisecourseenrollment`
+--
+
+DROP TABLE IF EXISTS `enterprise_enterprisecourseenrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_enterprisecourseenrollment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_user_id` int NOT NULL,
+  `source_id` int DEFAULT NULL,
+  `saved_for_later` tinyint(1) NOT NULL,
+  `unenrolled` tinyint(1) DEFAULT NULL,
+  `unenrolled_at` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_enterprisecou_enterprise_customer_user_71fe301a_uniq` (`enterprise_customer_user_id`,`course_id`),
+  KEY `enterprise_enterpris_source_id_c347bfa6_fk_enterpris` (`source_id`),
+  KEY `enterprise_enterprisecourseenrollment_unenrolled_aaa913f3` (`unenrolled`),
+  KEY `enterprise_enterprisecourseenrollment_unenrolled_at_c3349ed2` (`unenrolled_at`),
+  CONSTRAINT `enterprise_enterpris_enterprise_customer__cf423e59_fk_enterpris` FOREIGN KEY (`enterprise_customer_user_id`) REFERENCES `enterprise_enterprisecustomeruser` (`id`),
+  CONSTRAINT `enterprise_enterpris_source_id_c347bfa6_fk_enterpris` FOREIGN KEY (`source_id`) REFERENCES `enterprise_enterpriseenrollmentsource` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_enterprisecourseenrollment`
+--
+
+LOCK TABLES `enterprise_enterprisecourseenrollment` WRITE;
+/*!40000 ALTER TABLE `enterprise_enterprisecourseenrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_enterprisecourseenrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_enterprisecourseentitlement`
+--
+
+DROP TABLE IF EXISTS `enterprise_enterprisecourseentitlement`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `enterprise_enterprisecourseentitlement` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uuid` (`uuid`),
+  UNIQUE KEY `enterprise_enterprisecou_enterprise_customer_user_284c9130_uniq` (`enterprise_customer_user_id`,`course_uuid`),
+  CONSTRAINT `enterprise_enterpris_enterprise_customer__0eded65b_fk_enterpris` FOREIGN KEY (`enterprise_customer_user_id`) REFERENCES `enterprise_enterprisecustomeruser` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enterprise_enterprisecourseentitlement`
+--
+
+LOCK TABLES `enterprise_enterprisecourseentitlement` WRITE;
+/*!40000 ALTER TABLE `enterprise_enterprisecourseentitlement` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enterprise_enterprisecourseentitlement` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enterprise_enterprisecustomer`
+--
+
+DROP TABLE IF EXISTS `enterprise_enterprisecustome
