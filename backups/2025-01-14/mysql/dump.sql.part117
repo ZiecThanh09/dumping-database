@@ -1,0 +1,950 @@
+ctoring_proctoredexamsoftwaresecurereview` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamsoftwaresecurereview` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamsoftwaresecurereviewhistory`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamsoftwaresecurereviewhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamsoftwaresecurereviewhistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `attempt_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `raw_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exam_id` int DEFAULT NULL,
+  `reviewed_by_id` int DEFAULT NULL,
+  `student_id` int DEFAULT NULL,
+  `is_attempt_active` tinyint(1) NOT NULL,
+  `encrypted_video_url` longblob,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_exam_id_380d8588_fk_proctorin` (`exam_id`),
+  KEY `proctoring_proctored_reviewed_by_id_bb993b3a_fk_auth_user` (`reviewed_by_id`),
+  KEY `proctoring_proctored_student_id_97a63653_fk_auth_user` (`student_id`),
+  KEY `proctoring_proctoredexamsof_attempt_code_695faa63` (`attempt_code`),
+  CONSTRAINT `proctoring_proctored_exam_id_380d8588_fk_proctorin` FOREIGN KEY (`exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_reviewed_by_id_bb993b3a_fk_auth_user` FOREIGN KEY (`reviewed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `proctoring_proctored_student_id_97a63653_fk_auth_user` FOREIGN KEY (`student_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamsoftwaresecurereviewhistory`
+--
+
+LOCK TABLES `proctoring_proctoredexamsoftwaresecurereviewhistory` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamsoftwaresecurereviewhistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamsoftwaresecurereviewhistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamstudentallowance`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamstudentallowance`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamstudentallowance` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proctored_exam_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `proctoring_proctoredexam_user_id_proctored_exam_i_56de5b8f_uniq` (`user_id`,`proctored_exam_id`,`key`),
+  KEY `proctoring_proctored_proctored_exam_id_9baf5a64_fk_proctorin` (`proctored_exam_id`),
+  CONSTRAINT `proctoring_proctored_proctored_exam_id_9baf5a64_fk_proctorin` FOREIGN KEY (`proctored_exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_user_id_f21ce9b6_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamstudentallowance`
+--
+
+LOCK TABLES `proctoring_proctoredexamstudentallowance` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentallowance` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentallowance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamstudentallowancehistory`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamstudentallowancehistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamstudentallowancehistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `allowance_id` int NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `proctored_exam_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_proctored_exam_id_a4c8237c_fk_proctorin` (`proctored_exam_id`),
+  KEY `proctoring_proctored_user_id_29b863c1_fk_auth_user` (`user_id`),
+  CONSTRAINT `proctoring_proctored_proctored_exam_id_a4c8237c_fk_proctorin` FOREIGN KEY (`proctored_exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_user_id_29b863c1_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamstudentallowancehistory`
+--
+
+LOCK TABLES `proctoring_proctoredexamstudentallowancehistory` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentallowancehistory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentallowancehistory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamstudentattempt`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamstudentattempt`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamstudentattempt` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `started_at` datetime(6) DEFAULT NULL,
+  `completed_at` datetime(6) DEFAULT NULL,
+  `attempt_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `external_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allowed_time_limit_mins` int DEFAULT NULL,
+  `status` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `taking_as_proctored` tinyint(1) NOT NULL,
+  `is_sample_attempt` tinyint(1) NOT NULL,
+  `review_policy_id` int DEFAULT NULL,
+  `proctored_exam_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `is_status_acknowledged` tinyint(1) NOT NULL,
+  `time_remaining_seconds` int DEFAULT NULL,
+  `is_resumable` tinyint(1) NOT NULL,
+  `ready_to_resume` tinyint(1) NOT NULL,
+  `resumed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_proctored_exam_id_0732c688_fk_proctorin` (`proctored_exam_id`),
+  KEY `proctoring_proctoredexamstudentattempt_attempt_code_b10ad854` (`attempt_code`),
+  KEY `proctoring_proctoredexamstudentattempt_external_id_9c302af3` (`external_id`),
+  KEY `proctoring_proctoredexamstudentattempt_user_id_2b58b7ed` (`user_id`),
+  CONSTRAINT `proctoring_proctored_proctored_exam_id_0732c688_fk_proctorin` FOREIGN KEY (`proctored_exam_id`) REFERENCES `proctoring_proctoredexam` (`id`),
+  CONSTRAINT `proctoring_proctored_user_id_2b58b7ed_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamstudentattempt`
+--
+
+LOCK TABLES `proctoring_proctoredexamstudentattempt` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattempt` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattempt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamstudentattempt_history`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamstudentattempt_history`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamstudentattempt_history` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `started_at` datetime(6) DEFAULT NULL,
+  `completed_at` datetime(6) DEFAULT NULL,
+  `attempt_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `external_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `allowed_time_limit_mins` int DEFAULT NULL,
+  `status` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `taking_as_proctored` tinyint(1) NOT NULL,
+  `is_sample_attempt` tinyint(1) NOT NULL,
+  `review_policy_id` int DEFAULT NULL,
+  `is_status_acknowledged` tinyint(1) NOT NULL,
+  `time_remaining_seconds` int DEFAULT NULL,
+  `is_resumable` tinyint(1) NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `proctored_exam_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `ready_to_resume` tinyint(1) NOT NULL,
+  `resumed` tinyint(1) NOT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `proctoring_proctored_history_user_id_8594589b_fk_auth_user` (`history_user_id`),
+  KEY `proctoring_proctoredexamstudentattempt_history_id_849280b0` (`id`),
+  KEY `proctoring_proctoredexamstu_attempt_code_2719f85f` (`attempt_code`),
+  KEY `proctoring_proctoredexamstu_external_id_210c6def` (`external_id`),
+  KEY `proctoring_proctoredexamstu_proctored_exam_id_446aaba3` (`proctored_exam_id`),
+  KEY `proctoring_proctoredexamstudentattempt_history_user_id_ea9fa127` (`user_id`),
+  CONSTRAINT `proctoring_proctored_history_user_id_8594589b_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamstudentattempt_history`
+--
+
+LOCK TABLES `proctoring_proctoredexamstudentattempt_history` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattempt_history` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattempt_history` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `proctoring_proctoredexamstudentattemptcomment`
+--
+
+DROP TABLE IF EXISTS `proctoring_proctoredexamstudentattemptcomment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `proctoring_proctoredexamstudentattemptcomment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `start_time` int NOT NULL,
+  `stop_time` int NOT NULL,
+  `duration` int NOT NULL,
+  `comment` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `review_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `proctoring_proctored_review_id_7f4eec67_fk_proctorin` (`review_id`),
+  CONSTRAINT `proctoring_proctored_review_id_7f4eec67_fk_proctorin` FOREIGN KEY (`review_id`) REFERENCES `proctoring_proctoredexamsoftwaresecurereview` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `proctoring_proctoredexamstudentattemptcomment`
+--
+
+LOCK TABLES `proctoring_proctoredexamstudentattemptcomment` WRITE;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattemptcomment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proctoring_proctoredexamstudentattemptcomment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `program_enrollments_courseaccessroleassignment`
+--
+
+DROP TABLE IF EXISTS `program_enrollments_courseaccessroleassignment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_enrollments_courseaccessroleassignment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `role` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enrollment_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `program_enrollments_cour_role_enrollment_id_5a7bfa63_uniq` (`role`,`enrollment_id`),
+  KEY `program_enrollments__enrollment_id_4e0853f0_fk_program_e` (`enrollment_id`),
+  CONSTRAINT `program_enrollments__enrollment_id_4e0853f0_fk_program_e` FOREIGN KEY (`enrollment_id`) REFERENCES `program_enrollments_programcourseenrollment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_enrollments_courseaccessroleassignment`
+--
+
+LOCK TABLES `program_enrollments_courseaccessroleassignment` WRITE;
+/*!40000 ALTER TABLE `program_enrollments_courseaccessroleassignment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `program_enrollments_courseaccessroleassignment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `program_enrollments_historicalprogramcourseenrollment`
+--
+
+DROP TABLE IF EXISTS `program_enrollments_historicalprogramcourseenrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_enrollments_historicalprogramcourseenrollment` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_enrollment_id` int DEFAULT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `program_enrollment_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `program_enrollments__history_user_id_428d002e_fk_auth_user` (`history_user_id`),
+  KEY `program_enrollments_histori_id_fe3a72a7` (`id`),
+  KEY `program_enrollments_histori_course_enrollment_id_4014ff73` (`course_enrollment_id`),
+  KEY `program_enrollments_histori_program_enrollment_id_ebb94d42` (`program_enrollment_id`),
+  CONSTRAINT `program_enrollments__history_user_id_428d002e_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_enrollments_historicalprogramcourseenrollment`
+--
+
+LOCK TABLES `program_enrollments_historicalprogramcourseenrollment` WRITE;
+/*!40000 ALTER TABLE `program_enrollments_historicalprogramcourseenrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `program_enrollments_historicalprogramcourseenrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `program_enrollments_historicalprogramenrollment`
+--
+
+DROP TABLE IF EXISTS `program_enrollments_historicalprogramenrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_enrollments_historicalprogramenrollment` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `external_user_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `program_uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `curriculum_uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `program_enrollments__history_user_id_abf2d584_fk_auth_user` (`history_user_id`),
+  KEY `program_enrollments_historicalprogramenrollment_id_947c385f` (`id`),
+  KEY `program_enrollments_histori_external_user_key_5cd8d804` (`external_user_key`),
+  KEY `program_enrollments_histori_program_uuid_4c520e40` (`program_uuid`),
+  KEY `program_enrollments_histori_curriculum_uuid_a8325208` (`curriculum_uuid`),
+  KEY `program_enrollments_historicalprogramenrollment_user_id_e205ccdf` (`user_id`),
+  CONSTRAINT `program_enrollments__history_user_id_abf2d584_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_enrollments_historicalprogramenrollment`
+--
+
+LOCK TABLES `program_enrollments_historicalprogramenrollment` WRITE;
+/*!40000 ALTER TABLE `program_enrollments_historicalprogramenrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `program_enrollments_historicalprogramenrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `program_enrollments_programcourseenrollment`
+--
+
+DROP TABLE IF EXISTS `program_enrollments_programcourseenrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_enrollments_programcourseenrollment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_enrollment_id` int DEFAULT NULL,
+  `program_enrollment_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `program_enrollments_prog_program_enrollment_id_co_7d2701fb_uniq` (`program_enrollment_id`,`course_key`),
+  KEY `program_enrollments_program_course_enrollment_id_d7890690` (`course_enrollment_id`),
+  CONSTRAINT `program_enrollments__course_enrollment_id_d7890690_fk_student_c` FOREIGN KEY (`course_enrollment_id`) REFERENCES `student_courseenrollment` (`id`),
+  CONSTRAINT `program_enrollments__program_enrollment_i_02ce2c32_fk_program_e` FOREIGN KEY (`program_enrollment_id`) REFERENCES `program_enrollments_programenrollment` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_enrollments_programcourseenrollment`
+--
+
+LOCK TABLES `program_enrollments_programcourseenrollment` WRITE;
+/*!40000 ALTER TABLE `program_enrollments_programcourseenrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `program_enrollments_programcourseenrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `program_enrollments_programenrollment`
+--
+
+DROP TABLE IF EXISTS `program_enrollments_programenrollment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `program_enrollments_programenrollment` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `external_user_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `program_uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `curriculum_uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` varchar(9) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `program_enrollments_prog_user_id_program_uuid_cur_ecf769fd_uniq` (`user_id`,`program_uuid`,`curriculum_uuid`),
+  UNIQUE KEY `program_enrollments_prog_external_user_key_progra_ec52a567_uniq` (`external_user_key`,`program_uuid`,`curriculum_uuid`),
+  KEY `program_enrollments_programenrollment_external_user_key_c27b83c5` (`external_user_key`),
+  KEY `program_enrollments_programenrollment_program_uuid_131378e0` (`program_uuid`),
+  KEY `program_enrollments_programenrollment_curriculum_uuid_da64e123` (`curriculum_uuid`),
+  KEY `program_enrollments_programenrollment_user_id_dcfde442` (`user_id`),
+  CONSTRAINT `program_enrollments__user_id_dcfde442_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `program_enrollments_programenrollment`
+--
+
+LOCK TABLES `program_enrollments_programenrollment` WRITE;
+/*!40000 ALTER TABLE `program_enrollments_programenrollment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `program_enrollments_programenrollment` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programs_historicalprogramdiscussionsconfiguration`
+--
+
+DROP TABLE IF EXISTS `programs_historicalprogramdiscussionsconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_historicalprogramdiscussionsconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `program_uuid` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `programs_historicalp_history_user_id_f7f2a83d_fk_auth_user` (`history_user_id`),
+  KEY `programs_historicalprogramd_program_uuid_688a7a3b` (`program_uuid`),
+  KEY `programs_historicalprogramd_lti_configuration_id_d06284f6` (`lti_configuration_id`),
+  CONSTRAINT `programs_historicalp_history_user_id_f7f2a83d_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programs_historicalprogramdiscussionsconfiguration`
+--
+
+LOCK TABLES `programs_historicalprogramdiscussionsconfiguration` WRITE;
+/*!40000 ALTER TABLE `programs_historicalprogramdiscussionsconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `programs_historicalprogramdiscussionsconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programs_historicalprogramliveconfiguration`
+--
+
+DROP TABLE IF EXISTS `programs_historicalprogramliveconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_historicalprogramliveconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `program_uuid` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `programs_historicalp_history_user_id_80056ec3_fk_auth_user` (`history_user_id`),
+  KEY `programs_historicalprograml_program_uuid_61256da7` (`program_uuid`),
+  KEY `programs_historicalprograml_lti_configuration_id_db7b44b9` (`lti_configuration_id`),
+  CONSTRAINT `programs_historicalp_history_user_id_80056ec3_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programs_historicalprogramliveconfiguration`
+--
+
+LOCK TABLES `programs_historicalprogramliveconfiguration` WRITE;
+/*!40000 ALTER TABLE `programs_historicalprogramliveconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `programs_historicalprogramliveconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programs_programdiscussionsconfiguration`
+--
+
+DROP TABLE IF EXISTS `programs_programdiscussionsconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_programdiscussionsconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `program_uuid` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  PRIMARY KEY (`program_uuid`),
+  KEY `programs_programdisc_lti_configuration_id_822f71be_fk_lti_consu` (`lti_configuration_id`),
+  CONSTRAINT `programs_programdisc_lti_configuration_id_822f71be_fk_lti_consu` FOREIGN KEY (`lti_configuration_id`) REFERENCES `lti_consumer_lticonfiguration` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programs_programdiscussionsconfiguration`
+--
+
+LOCK TABLES `programs_programdiscussionsconfiguration` WRITE;
+/*!40000 ALTER TABLE `programs_programdiscussionsconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `programs_programdiscussionsconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programs_programliveconfiguration`
+--
+
+DROP TABLE IF EXISTS `programs_programliveconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_programliveconfiguration` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `program_uuid` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `provider_type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lti_configuration_id` int DEFAULT NULL,
+  PRIMARY KEY (`program_uuid`),
+  KEY `programs_programlive_lti_configuration_id_c72e8df4_fk_lti_consu` (`lti_configuration_id`),
+  CONSTRAINT `programs_programlive_lti_configuration_id_c72e8df4_fk_lti_consu` FOREIGN KEY (`lti_configuration_id`) REFERENCES `lti_consumer_lticonfiguration` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programs_programliveconfiguration`
+--
+
+LOCK TABLES `programs_programliveconfiguration` WRITE;
+/*!40000 ALTER TABLE `programs_programliveconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `programs_programliveconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `programs_programsapiconfig`
+--
+
+DROP TABLE IF EXISTS `programs_programsapiconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `programs_programsapiconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `marketing_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `programs_programsapi_changed_by_id_93e09d74_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `programs_programsapi_changed_by_id_93e09d74_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `programs_programsapiconfig`
+--
+
+LOCK TABLES `programs_programsapiconfig` WRITE;
+/*!40000 ALTER TABLE `programs_programsapiconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `programs_programsapiconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rss_proxy_whitelistedrssurl`
+--
+
+DROP TABLE IF EXISTS `rss_proxy_whitelistedrssurl`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `rss_proxy_whitelistedrssurl` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url` (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rss_proxy_whitelistedrssurl`
+--
+
+LOCK TABLES `rss_proxy_whitelistedrssurl` WRITE;
+/*!40000 ALTER TABLE `rss_proxy_whitelistedrssurl` DISABLE KEYS */;
+/*!40000 ALTER TABLE `rss_proxy_whitelistedrssurl` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a`
+--
+
+DROP TABLE IF EXISTS `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `transmission_chunk_size` int NOT NULL,
+  `channel_worker_username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catalogs_to_transmit` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sapsf_base_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sapsf_company_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sapsf_user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_type` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `additional_locales` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `show_course_price` tinyint(1) NOT NULL,
+  `transmit_total_hours` tinyint(1) NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `prevent_self_submit_grades` tinyint(1) NOT NULL,
+  `idp_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_learner_data_transmissions` tinyint(1) NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dry_run_mode_enabled` tinyint(1) NOT NULL,
+  `deleted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_modified_at` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sap_success_factors__enterprise_customer__4819a28c_fk_enterpris` (`enterprise_customer_id`),
+  CONSTRAINT `sap_success_factors__enterprise_customer__4819a28c_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a`
+--
+
+LOCK TABLES `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a` WRITE;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorsenterprisecustomerconfidb8a` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sap_success_factors_sapsuccessfactorsglobalconfiguration`
+--
+
+DROP TABLE IF EXISTS `sap_success_factors_sapsuccessfactorsglobalconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sap_success_factors_sapsuccessfactorsglobalconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `completion_status_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `oauth_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `search_student_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `provider_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `sap_success_factors__changed_by_id_e3241cc9_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `sap_success_factors__changed_by_id_e3241cc9_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sap_success_factors_sapsuccessfactorsglobalconfiguration`
+--
+
+LOCK TABLES `sap_success_factors_sapsuccessfactorsglobalconfiguration` WRITE;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorsglobalconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorsglobalconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5`
+--
+
+DROP TABLE IF EXISTS `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `sapsf_user_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `grade` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `total_hours` double DEFAULT NULL,
+  `sap_completed_timestamp` bigint DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `created` datetime(6) NOT NULL,
+  `credit_hours` double DEFAULT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `modified` datetime(6) NOT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  UNIQUE KEY `sap_unique_enrollment_course_id` (`enterprise_course_enrollment_id`,`course_id`),
+  KEY `sap_success_factors_sapsucc_enterprise_course_enrollmen_99be77d5` (`enterprise_course_enrollment_id`),
+  KEY `sap_success_factors_sapsucc_subsection_id_16d4fa9f` (`subsection_id`),
+  KEY `sapsf_sldta_85936b55_idx` (`enterprise_customer_uuid`,`plugin_configuration_id`),
+  CONSTRAINT `sap_success_factors__api_record_id_17e80380_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5`
+--
+
+LOCK TABLES `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5` WRITE;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5` DISABLE KEYS */;
+/*!40000 ALTER TABLE `sap_success_factors_sapsuccessfactorslearnerdatatransmission3ce5` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules_historicalschedule`
+--
+
+DROP TABLE IF EXISTS `schedules_historicalschedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules_historicalschedule` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `start_date` datetime(6) DEFAULT NULL,
+  `upgrade_deadline` datetime(6) DEFAULT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enrollment_id` int DEFAULT NULL,
+  `history_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `schedules_historicalschedule_id_f1648c81` (`id`),
+  KEY `schedules_historicalschedule_start_date_8c02ff20` (`start_date`),
+  KEY `schedules_historicalschedule_upgrade_deadline_ba67bbd9` (`upgrade_deadline`),
+  KEY `schedules_historicalschedule_enrollment_id_cd620413` (`enrollment_id`),
+  KEY `schedules_historical_history_user_id_6f5d6d7b_fk_auth_user` (`history_user_id`),
+  CONSTRAINT `schedules_historical_history_user_id_6f5d6d7b_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules_historicalschedule`
+--
+
+LOCK TABLES `schedules_historicalschedule` WRITE;
+/*!40000 ALTER TABLE `schedules_historicalschedule` DISABLE KEYS */;
+INSERT INTO `schedules_historicalschedule` VALUES (1,'2025-01-10 07:53:41.780234','2025-01-10 07:53:41.780234',1,'2030-01-01 00:00:00.000000',NULL,1,'2025-01-10 07:53:41.795288',NULL,'+',1,6),(2,'2025-01-14 09:53:17.784911','2025-01-14 09:53:17.784911',1,'2030-01-01 00:00:00.000000',NULL,2,'2025-01-14 09:53:18.003285',NULL,'+',2,6),(3,'2025-01-14 09:55:55.389138','2025-01-14 09:55:55.389138',1,'2030-01-01 00:00:00.000000',NULL,3,'2025-01-14 09:55:55.390178',NULL,'+',3,6),(4,'2025-01-14 09:56:50.644411','2025-01-14 09:56:50.644411',1,'2030-01-01 00:00:00.000000',NULL,4,'2025-01-14 09:56:50.645647',NULL,'+',4,6),(5,'2025-01-14 09:57:35.036775','2025-01-14 09:57:35.036775',1,'2030-01-01 00:00:00.000000',NULL,5,'2025-01-14 09:57:35.037684',NULL,'+',5,6),(6,'2025-01-14 09:58:48.747532','2025-01-14 09:58:48.747532',1,'2030-01-01 00:00:00.000000',NULL,6,'2025-01-14 09:58:48.748559',NULL,'+',6,6),(7,'2025-01-14 09:59:25.718530','2025-01-14 09:59:25.718530',1,'2030-01-01 00:00:00.000000',NULL,7,'2025-01-14 09:59:25.719451',NULL,'+',7,6);
+/*!40000 ALTER TABLE `schedules_historicalschedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules_schedule`
+--
+
+DROP TABLE IF EXISTS `schedules_schedule`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules_schedule` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `upgrade_deadline` datetime(6) DEFAULT NULL,
+  `enrollment_id` int NOT NULL,
+  `start_date` datetime(6) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enrollment_id` (`enrollment_id`),
+  KEY `schedules_schedule_upgrade_deadline_0079081d` (`upgrade_deadline`),
+  KEY `schedules_schedule_start_date_3a1c341e` (`start_date`),
+  CONSTRAINT `schedules_schedule_enrollment_id_91bf8152_fk_student_c` FOREIGN KEY (`enrollment_id`) REFERENCES `student_courseenrollment` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules_schedule`
+--
+
+LOCK TABLES `schedules_schedule` WRITE;
+/*!40000 ALTER TABLE `schedules_schedule` DISABLE KEYS */;
+INSERT INTO `schedules_schedule` VALUES (1,'2025-01-10 07:53:41.780234','2025-01-10 07:53:41.780234',1,NULL,1,'2024-12-20 00:00:00.000000'),(2,'2025-01-14 09:53:17.784911','2025-01-14 09:53:17.784911',1,NULL,2,'2025-02-01 00:00:00.000000'),(3,'2025-01-14 09:55:55.389138','2025-01-14 09:55:55.389138',1,NULL,3,'2025-01-01 00:00:00.000000'),(4,'2025-01-14 09:56:50.644411','2025-01-14 09:56:50.644411',1,NULL,4,'2025-02-01 00:00:00.000000'),(5,'2025-01-14 09:57:35.036775','2025-01-14 09:57:35.036775',1,NULL,5,'2025-02-01 00:00:00.000000'),(6,'2025-01-14 09:58:48.747532','2025-01-14 09:58:48.747532',1,NULL,6,'2025-02-01 00:00:00.000000'),(7,'2025-01-14 09:59:25.718530','2025-01-14 09:59:25.718530',1,NULL,7,'2030-01-01 00:00:00.000000');
+/*!40000 ALTER TABLE `schedules_schedule` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules_scheduleconfig`
+--
+
+DROP TABLE IF EXISTS `schedules_scheduleconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules_scheduleconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `enqueue_recurring_nudge` tinyint(1) NOT NULL,
+  `deliver_recurring_nudge` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `site_id` int NOT NULL,
+  `deliver_upgrade_reminder` tinyint(1) NOT NULL,
+  `enqueue_upgrade_reminder` tinyint(1) NOT NULL,
+  `deliver_course_update` tinyint(1) NOT NULL,
+  `enqueue_course_update` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `schedules_scheduleconfig_changed_by_id_38ef599b_fk_auth_user_id` (`changed_by_id`),
+  KEY `schedules_scheduleconfig_site_id_44296ee1_fk_django_site_id` (`site_id`),
+  CONSTRAINT `schedules_scheduleconfig_changed_by_id_38ef599b_fk_auth_user_id` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `schedules_scheduleconfig_site_id_44296ee1_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules_scheduleconfig`
+--
+
+LOCK TABLES `schedules_scheduleconfig` WRITE;
+/*!40000 ALTER TABLE `schedules_scheduleconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `schedules_scheduleconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `schedules_scheduleexperience`
+--
+
+DROP TABLE IF EXISTS `schedules_scheduleexperience`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `schedules_scheduleexperience` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `experience_type` smallint unsigned NOT NULL,
+  `schedule_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `schedule_id` (`schedule_id`),
+  CONSTRAINT `schedules_scheduleex_schedule_id_ed95c8e7_fk_schedules` FOREIGN KEY (`schedule_id`) REFERENCES `schedules_schedule` (`id`),
+  CONSTRAINT `schedules_scheduleexperience_chk_1` CHECK ((`experience_type` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `schedules_scheduleexperience`
+--
+
+LOCK TABLES `schedules_scheduleexperience` WRITE;
+/*!40000 ALTER TABLE `schedules_scheduleexperience` DISABLE KEYS */;
+INSERT INTO `schedules_scheduleexperience` VALUES (1,0,1),(2,0,2),(3,0,3),(4,0,4),(5,0,5),(6,0,6),(7,0,7);
+/*!40000 ALTER TABLE `schedules_scheduleexperience` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `search_searchaccess`
+--
+
+DROP TABLE IF EXISTS `search_searchaccess`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `search_searchaccess` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `context_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `context_key` (`context_key`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `search_searchaccess`
+--
+
+LOCK TABLES `search_searchaccess` WRITE;
+/*!40000 ALTER TABLE `search_searchaccess` DISABLE KEYS */;
+/*!40000 ALTER TABLE `search_searchaccess` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_configuration_siteconfiguration`
+--
+
+DROP TABLE IF EXISTS `site_configuration_siteconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `site_configuration_siteconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `site_id` int NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `site_values` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4'{}'),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `site_id` (`site_id`),
+  CONSTRAINT `site_configuration_s_site_id_84302d1f_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_configuration_siteconfiguration`
+--
+
+LOCK TABLES `site_configuration_siteconfiguration` WRITE;
+/*!40000 ALTER TABLE `site_configuration_siteconfiguration` DISABLE KEYS */;
+INSERT INTO `site_configuration_siteconfiguration` VALUES (1,3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(2,4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}');
+/*!40000 ALTER TABLE `site_configuration_siteconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `site_configuration_siteconfigurationhistory`
+--
+
+DROP TABLE IF EXISTS `site_configuration_siteconfigurationhistory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `site_configuration_siteconfigurationhistory` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `site_id` int NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `site_values` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4'""'),
+  PRIMARY KEY (`id`),
+  KEY `site_configuration_s_site_id_272f5c1a_fk_django_si` (`site_id`),
+  CONSTRAINT `site_configuration_s_site_id_272f5c1a_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `site_configuration_siteconfigurationhistory`
+--
+
+LOCK TABLES `site_configuration_siteconfigurationhistory` WRITE;
+/*!40000 ALTER TABLE `site_configuration_siteconfigurationhistory` DISABLE KEYS */;
+INSERT INTO `site_configuration_siteconfigurationhistory` VALUES (1,'2025-01-10 06:32:33.700457','2025-01-10 06:32:33.700457',3,0,'{}'),(2,'2025-01-10 06:32:33.720326','2025-01-10 06:32:33.720326',3,1,'{}'),(3,'2025-01-10 06:32:33.724459','2025-01-10 06:32:33.724459',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\"\n}'),(4,'2025-01-10 06:32:38.283860','2025-01-10 06:32:38.283860',4,0,'{}'),(5,'2025-01-10 06:32:38.296302','2025-01-10 06:32:38.296302',4,1,'{}'),(6,'2025-01-10 06:32:38.300370','2025-01-10 06:32:38.300370',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\"\n}'),(7,'2025-01-10 07:35:37.454079','2025-01-10 07:35:37.454079',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\"\n}'),(8,'2025-01-10 07:35:42.013496','2025-01-10 07:35:42.013496',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\"\n}'),(9,'2025-01-10 07:49:36.753920','2025-01-10 07:49:36.753920',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(10,'2025-01-10 07:49:41.819390','2025-01-10 07:49:41.819390',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(11,'2025-01-10 08:39:21.361456','2025-01-10 08:39:21.361456',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(12,'2025-01-10 08:39:27.620435','2025-01-10 08:39:27.620435',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(13,'2025-01-10 09:46:29.301146','2025-01-10 09:46:29.301146',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(14,'2025-01-10 09:46:33.848682','2025-01-10 09:46:33.848682',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(15,'2025-01-11 06:45:15.519069','2025-01-11 06:45:15.519069',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(16,'2025-01-11 06:45:19.986299','2025-01-11 06:45:19.986299',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(17,'2025-01-13 02:57:14.145132','2025-01-13 02:57:14.145132',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(18,'2025-01-13 02:57:18.672973','2025-01-13 02:57:18.672973',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(19,'2025-01-13 08:09:10.612398','2025-01-13 08:09:10.612398',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(20,'2025-01-13 08:09:15.146073','2025-01-13 08:09:15.146073',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(21,'2025-01-13 08:24:13.213096','2025-01-13 08:24:13.213096',3,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"CORS_ORIGIN_ALLOW_ALL\": true\n}'),(22,'2025-01-13 08:24:20.355216','2025-01-13 08:24:20.355216',4,1,'{\n    \"ENABLE_PROFILE_MICROFRONTEND\": \"true\",\n    \"SHOW_HEADER_LANGUAGE_SELECTOR\": true,\n    \"SHOW_FOOTER_LANGUAGE_SELECTOR\": true,\n    \"
