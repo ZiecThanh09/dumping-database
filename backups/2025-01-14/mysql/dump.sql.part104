@@ -1,0 +1,532 @@
+_by_id`),
+  CONSTRAINT `contentstore_videoup_changed_by_id_e7352cb2_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contentstore_videouploadconfig`
+--
+
+LOCK TABLES `contentstore_videouploadconfig` WRITE;
+/*!40000 ALTER TABLE `contentstore_videouploadconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contentstore_videouploadconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cornerstone_cornerstonecoursekey`
+--
+
+DROP TABLE IF EXISTS `cornerstone_cornerstonecoursekey`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cornerstone_cornerstonecoursekey` (
+  `internal_course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`internal_course_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cornerstone_cornerstonecoursekey`
+--
+
+LOCK TABLES `cornerstone_cornerstonecoursekey` WRITE;
+/*!40000 ALTER TABLE `cornerstone_cornerstonecoursekey` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cornerstone_cornerstonecoursekey` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cornerstone_cornerstoneenterprisecustomerconfiguration`
+--
+
+DROP TABLE IF EXISTS `cornerstone_cornerstoneenterprisecustomerconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cornerstone_cornerstoneenterprisecustomerconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `transmission_chunk_size` int NOT NULL,
+  `cornerstone_base_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `channel_worker_username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `catalogs_to_transmit` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `idp_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `disable_learner_data_transmissions` tinyint(1) NOT NULL,
+  `session_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_token_modified` datetime(6) DEFAULT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `dry_run_mode_enabled` tinyint(1) NOT NULL,
+  `deleted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_content_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_learner_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_sync_attempted_at` datetime(6) DEFAULT NULL,
+  `last_sync_errored_at` datetime(6) DEFAULT NULL,
+  `last_modified_at` datetime(6) DEFAULT NULL,
+  `show_course_price` tinyint(1) NOT NULL,
+  `disable_subject_metadata_transmission` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cornerstone_cornerstoneente_enterprise_customer_id_5b56887b` (`enterprise_customer_id`),
+  CONSTRAINT `cornerstone_cornerst_enterprise_customer__5b56887b_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cornerstone_cornerstoneenterprisecustomerconfiguration`
+--
+
+LOCK TABLES `cornerstone_cornerstoneenterprisecustomerconfiguration` WRITE;
+/*!40000 ALTER TABLE `cornerstone_cornerstoneenterprisecustomerconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cornerstone_cornerstoneenterprisecustomerconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cornerstone_cornerstoneglobalconfiguration`
+--
+
+DROP TABLE IF EXISTS `cornerstone_cornerstoneglobalconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cornerstone_cornerstoneglobalconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `completion_status_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `oauth_api_path` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `subject_mapping` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4'{}'),
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `languages` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4'{}'),
+  PRIMARY KEY (`id`),
+  KEY `cornerstone_cornerst_changed_by_id_117db502_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `cornerstone_cornerst_changed_by_id_117db502_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cornerstone_cornerstoneglobalconfiguration`
+--
+
+LOCK TABLES `cornerstone_cornerstoneglobalconfiguration` WRITE;
+/*!40000 ALTER TABLE `cornerstone_cornerstoneglobalconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cornerstone_cornerstoneglobalconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cornerstone_cornerstonelearnerdatatransmissionaudit`
+--
+
+DROP TABLE IF EXISTS `cornerstone_cornerstonelearnerdatatransmissionaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cornerstone_cornerstonelearnerdatatransmissionaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `user_guid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `callback_url` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `subdomain` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `user_id` int NOT NULL,
+  `grade` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `total_hours` double DEFAULT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `cornerstone_cornerstonel_user_id_course_id_c975cc5f_uniq` (`user_id`,`course_id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  KEY `cornerstone_cornerstonelear_enterprise_course_enrollmen_e3b05dac` (`enterprise_course_enrollment_id`),
+  KEY `cornerstone_cornerstonelear_subsection_id_7c3be322` (`subsection_id`),
+  KEY `cornerstone_cldta_85936b55_idx` (`enterprise_customer_uuid`,`plugin_configuration_id`),
+  CONSTRAINT `cornerstone_cornerst_api_record_id_a825c06d_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (`id`),
+  CONSTRAINT `cornerstone_cornerst_user_id_43bd15bf_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cornerstone_cornerstonelearnerdatatransmissionaudit`
+--
+
+LOCK TABLES `cornerstone_cornerstonelearnerdatatransmissionaudit` WRITE;
+/*!40000 ALTER TABLE `cornerstone_cornerstonelearnerdatatransmissionaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cornerstone_cornerstonelearnerdatatransmissionaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cors_csrf_xdomainproxyconfiguration`
+--
+
+DROP TABLE IF EXISTS `cors_csrf_xdomainproxyconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cors_csrf_xdomainproxyconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `whitelist` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cors_csrf_xdomainpro_changed_by_id_b8e97ec3_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `cors_csrf_xdomainpro_changed_by_id_b8e97ec3_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cors_csrf_xdomainproxyconfiguration`
+--
+
+LOCK TABLES `cors_csrf_xdomainproxyconfiguration` WRITE;
+/*!40000 ALTER TABLE `cors_csrf_xdomainproxyconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cors_csrf_xdomainproxyconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_action_state_coursererunstate`
+--
+
+DROP TABLE IF EXISTS `course_action_state_coursererunstate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_action_state_coursererunstate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created_time` datetime(6) NOT NULL,
+  `updated_time` datetime(6) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `action` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `state` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `should_display` tinyint(1) NOT NULL,
+  `message` varchar(1000) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `source_course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_user_id` int DEFAULT NULL,
+  `updated_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_action_state_cour_course_key_action_2a8434fb_uniq` (`course_key`,`action`),
+  KEY `course_action_state__created_user_id_5373c218_fk_auth_user` (`created_user_id`),
+  KEY `course_action_state__updated_user_id_3689fe4b_fk_auth_user` (`updated_user_id`),
+  KEY `course_action_state_coursererunstate_course_key_f87bef79` (`course_key`),
+  KEY `course_action_state_coursererunstate_action_149773f1` (`action`),
+  KEY `course_action_state_coursererunstate_source_course_key_b5037317` (`source_course_key`),
+  CONSTRAINT `course_action_state__created_user_id_5373c218_fk_auth_user` FOREIGN KEY (`created_user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_action_state__updated_user_id_3689fe4b_fk_auth_user` FOREIGN KEY (`updated_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_action_state_coursererunstate`
+--
+
+LOCK TABLES `course_action_state_coursererunstate` WRITE;
+/*!40000 ALTER TABLE `course_action_state_coursererunstate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_action_state_coursererunstate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_apps_courseappstatus`
+--
+
+DROP TABLE IF EXISTS `course_apps_courseappstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_apps_courseappstatus` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `app_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_app_config_for_course` (`app_id`,`course_key`),
+  KEY `course_apps_app_id_b3df8c_idx` (`app_id`,`course_key`),
+  KEY `course_apps_courseappstatus_app_id_f6c41464` (`app_id`),
+  KEY `course_apps_courseappstatus_course_key_5c04010e` (`course_key`)
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_apps_courseappstatus`
+--
+
+LOCK TABLES `course_apps_courseappstatus` WRITE;
+/*!40000 ALTER TABLE `course_apps_courseappstatus` DISABLE KEYS */;
+INSERT INTO `course_apps_courseappstatus` VALUES (1,'2025-01-10 07:53:43.828738','2025-01-10 07:57:57.842251','calculator',0,'course-v1:Trainficient+TF_RM_001+2025_T1'),(2,'2025-01-10 07:53:43.875174','2025-01-10 07:57:58.204277','custom_pages',0,'course-v1:Trainficient+TF_RM_001+2025_T1'),(3,'2025-01-10 07:53:43.886771','2025-01-10 07:57:58.241448','discussion',1,'course-v1:Trainficient+TF_RM_001+2025_T1'),(4,'2025-01-10 07:53:43.906076','2025-01-10 07:57:58.249967','live',0,'course-v1:Trainficient+TF_RM_001+2025_T1'),(5,'2025-01-10 07:53:43.911645','2025-01-10 07:57:58.257785','progress',1,'course-v1:Trainficient+TF_RM_001+2025_T1'),(6,'2025-01-10 07:53:43.918178','2025-01-10 07:57:58.264425','textbooks',0,'course-v1:Trainficient+TF_RM_001+2025_T1'),(7,'2025-01-10 07:53:43.925713','2025-01-10 07:57:58.270446','wiki',0,'course-v1:Trainficient+TF_RM_001+2025_T1'),(8,'2025-01-14 09:53:21.250257','2025-01-14 09:54:55.266427','calculator',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(9,'2025-01-14 09:53:21.420923','2025-01-14 09:54:55.273958','custom_pages',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(10,'2025-01-14 09:53:21.428460','2025-01-14 09:54:55.286295','discussion',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(11,'2025-01-14 09:53:21.435338','2025-01-14 09:54:55.293022','live',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(12,'2025-01-14 09:53:21.441137','2025-01-14 09:54:55.300426','progress',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(13,'2025-01-14 09:53:21.450408','2025-01-14 09:54:55.306615','textbooks',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(14,'2025-01-14 09:53:21.459345','2025-01-14 09:54:55.313599','wiki',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2'),(15,'2025-01-14 09:55:56.459146','2025-01-14 09:56:16.184706','calculator',0,'course-v1:Trainficient+TF_CF_001+2025_T1'),(16,'2025-01-14 09:55:56.472067','2025-01-14 09:56:16.192802','custom_pages',0,'course-v1:Trainficient+TF_CF_001+2025_T1'),(17,'2025-01-14 09:55:56.481896','2025-01-14 09:56:16.199088','discussion',1,'course-v1:Trainficient+TF_CF_001+2025_T1'),(18,'2025-01-14 09:55:56.495533','2025-01-14 09:56:16.205311','live',0,'course-v1:Trainficient+TF_CF_001+2025_T1'),(19,'2025-01-14 09:55:56.505719','2025-01-14 09:56:16.215133','progress',1,'course-v1:Trainficient+TF_CF_001+2025_T1'),(20,'2025-01-14 09:55:56.516979','2025-01-14 09:56:16.220913','textbooks',0,'course-v1:Trainficient+TF_CF_001+2025_T1'),(21,'2025-01-14 09:55:56.533587','2025-01-14 09:56:16.226324','wiki',0,'course-v1:Trainficient+TF_CF_001+2025_T1'),(22,'2025-01-14 09:56:51.710495','2025-01-14 09:57:00.774462','calculator',0,'course-v1:Trainficient+TF_COI_005+2025_T2'),(23,'2025-01-14 09:56:51.723047','2025-01-14 09:57:00.781058','custom_pages',0,'course-v1:Trainficient+TF_COI_005+2025_T2'),(24,'2025-01-14 09:56:51.748592','2025-01-14 09:57:00.788859','discussion',1,'course-v1:Trainficient+TF_COI_005+2025_T2'),(25,'2025-01-14 09:56:51.757553','2025-01-14 09:57:00.794335','live',0,'course-v1:Trainficient+TF_COI_005+2025_T2'),(26,'2025-01-14 09:56:51.765843','2025-01-14 09:57:00.799372','progress',1,'course-v1:Trainficient+TF_COI_005+2025_T2'),(27,'2025-01-14 09:56:51.778941','2025-01-14 09:57:00.805576','textbooks',0,'course-v1:Trainficient+TF_COI_005+2025_T2'),(28,'2025-01-14 09:56:51.790136','2025-01-14 09:57:00.812488','wiki',0,'course-v1:Trainficient+TF_COI_005+2025_T2'),(29,'2025-01-14 09:57:36.137175','2025-01-14 09:57:50.840913','calculator',0,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(30,'2025-01-14 09:57:36.146439','2025-01-14 09:57:50.855440','custom_pages',0,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(31,'2025-01-14 09:57:36.158664','2025-01-14 09:57:50.863391','discussion',1,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(32,'2025-01-14 09:57:36.176401','2025-01-14 09:57:50.869361','live',0,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(33,'2025-01-14 09:57:36.196098','2025-01-14 09:57:50.874857','progress',1,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(34,'2025-01-14 09:57:36.209653','2025-01-14 09:57:50.886420','textbooks',0,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(35,'2025-01-14 09:57:36.218151','2025-01-14 09:57:50.891588','wiki',0,'course-v1:Trainficient+TF_COMP_003+2025_T2'),(36,'2025-01-14 09:58:49.126411','2025-01-14 09:58:57.302056','calculator',0,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(37,'2025-01-14 09:58:49.132980','2025-01-14 09:58:57.308031','custom_pages',0,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(38,'2025-01-14 09:58:49.140875','2025-01-14 09:58:57.316315','discussion',1,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(39,'2025-01-14 09:58:49.149229','2025-01-14 09:58:57.323977','live',0,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(40,'2025-01-14 09:58:49.158828','2025-01-14 09:58:57.328974','progress',1,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(41,'2025-01-14 09:58:49.166574','2025-01-14 09:58:57.334594','textbooks',0,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(42,'2025-01-14 09:58:49.180853','2025-01-14 09:58:57.342057','wiki',0,'course-v1:Trainficient+TF_ESG_006+2025_T2'),(43,'2025-01-14 09:59:26.795345','2025-01-14 09:59:35.181181','calculator',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(44,'2025-01-14 09:59:26.803773','2025-01-14 09:59:35.187439','custom_pages',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(45,'2025-01-14 09:59:26.812159','2025-01-14 09:59:35.194896','discussion',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(46,'2025-01-14 09:59:26.820022','2025-01-14 09:59:35.203005','live',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(47,'2025-01-14 09:59:26.843527','2025-01-14 09:59:35.209225','progress',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(48,'2025-01-14 09:59:26.853592','2025-01-14 09:59:35.214332','textbooks',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1'),(49,'2025-01-14 09:59:26.867064','2025-01-14 09:59:35.224462','wiki',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1');
+/*!40000 ALTER TABLE `course_apps_courseappstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_apps_historicalcourseappstatus`
+--
+
+DROP TABLE IF EXISTS `course_apps_historicalcourseappstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_apps_historicalcourseappstatus` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `app_id` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `course_apps_historic_history_user_id_970c6a3a_fk_auth_user` (`history_user_id`),
+  KEY `course_apps_historicalcourseappstatus_id_7dab7ce1` (`id`),
+  KEY `course_apps_historicalcourseappstatus_app_id_42a9f580` (`app_id`),
+  KEY `course_apps_historicalcourseappstatus_course_key_9db183df` (`course_key`),
+  CONSTRAINT `course_apps_historic_history_user_id_970c6a3a_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_apps_historicalcourseappstatus`
+--
+
+LOCK TABLES `course_apps_historicalcourseappstatus` WRITE;
+/*!40000 ALTER TABLE `course_apps_historicalcourseappstatus` DISABLE KEYS */;
+INSERT INTO `course_apps_historicalcourseappstatus` VALUES (1,'2025-01-10 07:53:43.828738','2025-01-10 07:53:43.828738','calculator',0,'course-v1:Trainficient+TF_RM_001+2025_T1',1,'2025-01-10 07:53:43.833092',NULL,'+',NULL),(2,'2025-01-10 07:53:43.875174','2025-01-10 07:53:43.875174','custom_pages',0,'course-v1:Trainficient+TF_RM_001+2025_T1',2,'2025-01-10 07:53:43.877482',NULL,'+',NULL),(3,'2025-01-10 07:53:43.886771','2025-01-10 07:53:43.886771','discussion',1,'course-v1:Trainficient+TF_RM_001+2025_T1',3,'2025-01-10 07:53:43.887556',NULL,'+',NULL),(4,'2025-01-10 07:53:43.906076','2025-01-10 07:53:43.906076','live',0,'course-v1:Trainficient+TF_RM_001+2025_T1',4,'2025-01-10 07:53:43.906595',NULL,'+',NULL),(5,'2025-01-10 07:53:43.911645','2025-01-10 07:53:43.911645','progress',1,'course-v1:Trainficient+TF_RM_001+2025_T1',5,'2025-01-10 07:53:43.912285',NULL,'+',NULL),(6,'2025-01-10 07:53:43.918178','2025-01-10 07:53:43.918178','textbooks',0,'course-v1:Trainficient+TF_RM_001+2025_T1',6,'2025-01-10 07:53:43.918781',NULL,'+',NULL),(7,'2025-01-10 07:53:43.925713','2025-01-10 07:53:43.925713','wiki',0,'course-v1:Trainficient+TF_RM_001+2025_T1',7,'2025-01-10 07:53:43.926267',NULL,'+',NULL),(1,'2025-01-10 07:53:43.828738','2025-01-10 07:55:21.843390','calculator',0,'course-v1:Trainficient+TF_RM_001+2025_T1',8,'2025-01-10 07:55:21.844130',NULL,'~',NULL),(2,'2025-01-10 07:53:43.875174','2025-01-10 07:55:21.989652','custom_pages',0,'course-v1:Trainficient+TF_RM_001+2025_T1',9,'2025-01-10 07:55:21.990557',NULL,'~',NULL),(3,'2025-01-10 07:53:43.886771','2025-01-10 07:55:22.295329','discussion',1,'course-v1:Trainficient+TF_RM_001+2025_T1',10,'2025-01-10 07:55:22.296089',NULL,'~',NULL),(4,'2025-01-10 07:53:43.906076','2025-01-10 07:55:22.416364','live',0,'course-v1:Trainficient+TF_RM_001+2025_T1',11,'2025-01-10 07:55:22.417018',NULL,'~',NULL),(5,'2025-01-10 07:53:43.911645','2025-01-10 07:55:22.461303','progress',1,'course-v1:Trainficient+TF_RM_001+2025_T1',12,'2025-01-10 07:55:22.461945',NULL,'~',NULL),(6,'2025-01-10 07:53:43.918178','2025-01-10 07:55:22.614007','textbooks',0,'course-v1:Trainficient+TF_RM_001+2025_T1',13,'2025-01-10 07:55:22.614708',NULL,'~',NULL),(7,'2025-01-10 07:53:43.925713','2025-01-10 07:55:22.687966','wiki',0,'course-v1:Trainficient+TF_RM_001+2025_T1',14,'2025-01-10 07:55:22.688562',NULL,'~',NULL),(1,'2025-01-10 07:53:43.828738','2025-01-10 07:57:57.842251','calculator',0,'course-v1:Trainficient+TF_RM_001+2025_T1',15,'2025-01-10 07:57:57.843369',NULL,'~',NULL),(2,'2025-01-10 07:53:43.875174','2025-01-10 07:57:58.204277','custom_pages',0,'course-v1:Trainficient+TF_RM_001+2025_T1',16,'2025-01-10 07:57:58.205070',NULL,'~',NULL),(3,'2025-01-10 07:53:43.886771','2025-01-10 07:57:58.241448','discussion',1,'course-v1:Trainficient+TF_RM_001+2025_T1',17,'2025-01-10 07:57:58.242148',NULL,'~',NULL),(4,'2025-01-10 07:53:43.906076','2025-01-10 07:57:58.249967','live',0,'course-v1:Trainficient+TF_RM_001+2025_T1',18,'2025-01-10 07:57:58.250965',NULL,'~',NULL),(5,'2025-01-10 07:53:43.911645','2025-01-10 07:57:58.257785','progress',1,'course-v1:Trainficient+TF_RM_001+2025_T1',19,'2025-01-10 07:57:58.258417',NULL,'~',NULL),(6,'2025-01-10 07:53:43.918178','2025-01-10 07:57:58.264425','textbooks',0,'course-v1:Trainficient+TF_RM_001+2025_T1',20,'2025-01-10 07:57:58.265203',NULL,'~',NULL),(7,'2025-01-10 07:53:43.925713','2025-01-10 07:57:58.270446','wiki',0,'course-v1:Trainficient+TF_RM_001+2025_T1',21,'2025-01-10 07:57:58.271248',NULL,'~',NULL),(8,'2025-01-14 09:53:21.250257','2025-01-14 09:53:21.250257','calculator',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',22,'2025-01-14 09:53:21.374728',NULL,'+',NULL),(9,'2025-01-14 09:53:21.420923','2025-01-14 09:53:21.420923','custom_pages',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',23,'2025-01-14 09:53:21.421529',NULL,'+',NULL),(10,'2025-01-14 09:53:21.428460','2025-01-14 09:53:21.428460','discussion',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2',24,'2025-01-14 09:53:21.428985',NULL,'+',NULL),(11,'2025-01-14 09:53:21.435338','2025-01-14 09:53:21.435338','live',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',25,'2025-01-14 09:53:21.435888',NULL,'+',NULL),(12,'2025-01-14 09:53:21.441137','2025-01-14 09:53:21.441137','progress',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2',26,'2025-01-14 09:53:21.441657',NULL,'+',NULL),(13,'2025-01-14 09:53:21.450408','2025-01-14 09:53:21.450408','textbooks',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',27,'2025-01-14 09:53:21.451951',NULL,'+',NULL),(14,'2025-01-14 09:53:21.459345','2025-01-14 09:53:21.459345','wiki',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',28,'2025-01-14 09:53:21.460525',NULL,'+',NULL),(8,'2025-01-14 09:53:21.250257','2025-01-14 09:54:55.266427','calculator',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',29,'2025-01-14 09:54:55.268102',NULL,'~',NULL),(9,'2025-01-14 09:53:21.420923','2025-01-14 09:54:55.273958','custom_pages',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',30,'2025-01-14 09:54:55.276369',NULL,'~',NULL),(10,'2025-01-14 09:53:21.428460','2025-01-14 09:54:55.286295','discussion',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2',31,'2025-01-14 09:54:55.287139',NULL,'~',NULL),(11,'2025-01-14 09:53:21.435338','2025-01-14 09:54:55.293022','live',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',32,'2025-01-14 09:54:55.293750',NULL,'~',NULL),(12,'2025-01-14 09:53:21.441137','2025-01-14 09:54:55.300426','progress',1,'course-v1:Trainficient+TF_ABAC_004+2025_T2',33,'2025-01-14 09:54:55.301081',NULL,'~',NULL),(13,'2025-01-14 09:53:21.450408','2025-01-14 09:54:55.306615','textbooks',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',34,'2025-01-14 09:54:55.307374',NULL,'~',NULL),(14,'2025-01-14 09:53:21.459345','2025-01-14 09:54:55.313599','wiki',0,'course-v1:Trainficient+TF_ABAC_004+2025_T2',35,'2025-01-14 09:54:55.314202',NULL,'~',NULL),(15,'2025-01-14 09:55:56.459146','2025-01-14 09:55:56.459146','calculator',0,'course-v1:Trainficient+TF_CF_001+2025_T1',36,'2025-01-14 09:55:56.460408',NULL,'+',NULL),(16,'2025-01-14 09:55:56.472067','2025-01-14 09:55:56.472067','custom_pages',0,'course-v1:Trainficient+TF_CF_001+2025_T1',37,'2025-01-14 09:55:56.472981',NULL,'+',NULL),(17,'2025-01-14 09:55:56.481896','2025-01-14 09:55:56.481896','discussion',1,'course-v1:Trainficient+TF_CF_001+2025_T1',38,'2025-01-14 09:55:56.482490',NULL,'+',NULL),(18,'2025-01-14 09:55:56.495533','2025-01-14 09:55:56.495533','live',0,'course-v1:Trainficient+TF_CF_001+2025_T1',39,'2025-01-14 09:55:56.496432',NULL,'+',NULL),(19,'2025-01-14 09:55:56.505719','2025-01-14 09:55:56.505719','progress',1,'course-v1:Trainficient+TF_CF_001+2025_T1',40,'2025-01-14 09:55:56.506993',NULL,'+',NULL),(20,'2025-01-14 09:55:56.516979','2025-01-14 09:55:56.516979','textbooks',0,'course-v1:Trainficient+TF_CF_001+2025_T1',41,'2025-01-14 09:55:56.517708',NULL,'+',NULL),(21,'2025-01-14 09:55:56.533587','2025-01-14 09:55:56.533587','wiki',0,'course-v1:Trainficient+TF_CF_001+2025_T1',42,'2025-01-14 09:55:56.534165',NULL,'+',NULL),(15,'2025-01-14 09:55:56.459146','2025-01-14 09:56:16.184706','calculator',0,'course-v1:Trainficient+TF_CF_001+2025_T1',43,'2025-01-14 09:56:16.185553',NULL,'~',NULL),(16,'2025-01-14 09:55:56.472067','2025-01-14 09:56:16.192802','custom_pages',0,'course-v1:Trainficient+TF_CF_001+2025_T1',44,'2025-01-14 09:56:16.193486',NULL,'~',NULL),(17,'2025-01-14 09:55:56.481896','2025-01-14 09:56:16.199088','discussion',1,'course-v1:Trainficient+TF_CF_001+2025_T1',45,'2025-01-14 09:56:16.199823',NULL,'~',NULL),(18,'2025-01-14 09:55:56.495533','2025-01-14 09:56:16.205311','live',0,'course-v1:Trainficient+TF_CF_001+2025_T1',46,'2025-01-14 09:56:16.206473',NULL,'~',NULL),(19,'2025-01-14 09:55:56.505719','2025-01-14 09:56:16.215133','progress',1,'course-v1:Trainficient+TF_CF_001+2025_T1',47,'2025-01-14 09:56:16.215803',NULL,'~',NULL),(20,'2025-01-14 09:55:56.516979','2025-01-14 09:56:16.220913','textbooks',0,'course-v1:Trainficient+TF_CF_001+2025_T1',48,'2025-01-14 09:56:16.221555',NULL,'~',NULL),(21,'2025-01-14 09:55:56.533587','2025-01-14 09:56:16.226324','wiki',0,'course-v1:Trainficient+TF_CF_001+2025_T1',49,'2025-01-14 09:56:16.226938',NULL,'~',NULL),(22,'2025-01-14 09:56:51.710495','2025-01-14 09:56:51.710495','calculator',0,'course-v1:Trainficient+TF_COI_005+2025_T2',50,'2025-01-14 09:56:51.711463',NULL,'+',NULL),(23,'2025-01-14 09:56:51.723047','2025-01-14 09:56:51.723047','custom_pages',0,'course-v1:Trainficient+TF_COI_005+2025_T2',51,'2025-01-14 09:56:51.727979',NULL,'+',NULL),(24,'2025-01-14 09:56:51.748592','2025-01-14 09:56:51.748592','discussion',1,'course-v1:Trainficient+TF_COI_005+2025_T2',52,'2025-01-14 09:56:51.749517',NULL,'+',NULL),(25,'2025-01-14 09:56:51.757553','2025-01-14 09:56:51.757553','live',0,'course-v1:Trainficient+TF_COI_005+2025_T2',53,'2025-01-14 09:56:51.758143',NULL,'+',NULL),(26,'2025-01-14 09:56:51.765843','2025-01-14 09:56:51.765843','progress',1,'course-v1:Trainficient+TF_COI_005+2025_T2',54,'2025-01-14 09:56:51.766444',NULL,'+',NULL),(27,'2025-01-14 09:56:51.778941','2025-01-14 09:56:51.778941','textbooks',0,'course-v1:Trainficient+TF_COI_005+2025_T2',55,'2025-01-14 09:56:51.782513',NULL,'+',NULL),(28,'2025-01-14 09:56:51.790136','2025-01-14 09:56:51.790136','wiki',0,'course-v1:Trainficient+TF_COI_005+2025_T2',56,'2025-01-14 09:56:51.790705',NULL,'+',NULL),(22,'2025-01-14 09:56:51.710495','2025-01-14 09:57:00.774462','calculator',0,'course-v1:Trainficient+TF_COI_005+2025_T2',57,'2025-01-14 09:57:00.775186',NULL,'~',NULL),(23,'2025-01-14 09:56:51.723047','2025-01-14 09:57:00.781058','custom_pages',0,'course-v1:Trainficient+TF_COI_005+2025_T2',58,'2025-01-14 09:57:00.781830',NULL,'~',NULL),(24,'2025-01-14 09:56:51.748592','2025-01-14 09:57:00.788859','discussion',1,'course-v1:Trainficient+TF_COI_005+2025_T2',59,'2025-01-14 09:57:00.789466',NULL,'~',NULL),(25,'2025-01-14 09:56:51.757553','2025-01-14 09:57:00.794335','live',0,'course-v1:Trainficient+TF_COI_005+2025_T2',60,'2025-01-14 09:57:00.795059',NULL,'~',NULL),(26,'2025-01-14 09:56:51.765843','2025-01-14 09:57:00.799372','progress',1,'course-v1:Trainficient+TF_COI_005+2025_T2',61,'2025-01-14 09:57:00.800042',NULL,'~',NULL),(27,'2025-01-14 09:56:51.778941','2025-01-14 09:57:00.805576','textbooks',0,'course-v1:Trainficient+TF_COI_005+2025_T2',62,'2025-01-14 09:57:00.806211',NULL,'~',NULL),(28,'2025-01-14 09:56:51.790136','2025-01-14 09:57:00.812488','wiki',0,'course-v1:Trainficient+TF_COI_005+2025_T2',63,'2025-01-14 09:57:00.813160',NULL,'~',NULL),(29,'2025-01-14 09:57:36.137175','2025-01-14 09:57:36.137175','calculator',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',64,'2025-01-14 09:57:36.137738',NULL,'+',NULL),(30,'2025-01-14 09:57:36.146439','2025-01-14 09:57:36.146439','custom_pages',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',65,'2025-01-14 09:57:36.148107',NULL,'+',NULL),(31,'2025-01-14 09:57:36.158664','2025-01-14 09:57:36.158664','discussion',1,'course-v1:Trainficient+TF_COMP_003+2025_T2',66,'2025-01-14 09:57:36.159297',NULL,'+',NULL),(32,'2025-01-14 09:57:36.176401','2025-01-14 09:57:36.176401','live',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',67,'2025-01-14 09:57:36.179173',NULL,'+',NULL),(33,'2025-01-14 09:57:36.196098','2025-01-14 09:57:36.196098','progress',1,'course-v1:Trainficient+TF_COMP_003+2025_T2',68,'2025-01-14 09:57:36.197499',NULL,'+',NULL),(34,'2025-01-14 09:57:36.209653','2025-01-14 09:57:36.209653','textbooks',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',69,'2025-01-14 09:57:36.210283',NULL,'+',NULL),(35,'2025-01-14 09:57:36.218151','2025-01-14 09:57:36.218151','wiki',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',70,'2025-01-14 09:57:36.221083',NULL,'+',NULL),(29,'2025-01-14 09:57:36.137175','2025-01-14 09:57:50.840913','calculator',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',71,'2025-01-14 09:57:50.842054',NULL,'~',NULL),(30,'2025-01-14 09:57:36.146439','2025-01-14 09:57:50.855440','custom_pages',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',72,'2025-01-14 09:57:50.856189',NULL,'~',NULL),(31,'2025-01-14 09:57:36.158664','2025-01-14 09:57:50.863391','discussion',1,'course-v1:Trainficient+TF_COMP_003+2025_T2',73,'2025-01-14 09:57:50.864201',NULL,'~',NULL),(32,'2025-01-14 09:57:36.176401','2025-01-14 09:57:50.869361','live',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',74,'2025-01-14 09:57:50.870020',NULL,'~',NULL),(33,'2025-01-14 09:57:36.196098','2025-01-14 09:57:50.874857','progress',1,'course-v1:Trainficient+TF_COMP_003+2025_T2',75,'2025-01-14 09:57:50.875774',NULL,'~',NULL),(34,'2025-01-14 09:57:36.209653','2025-01-14 09:57:50.886420','textbooks',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',76,'2025-01-14 09:57:50.887041',NULL,'~',NULL),(35,'2025-01-14 09:57:36.218151','2025-01-14 09:57:50.891588','wiki',0,'course-v1:Trainficient+TF_COMP_003+2025_T2',77,'2025-01-14 09:57:50.892155',NULL,'~',NULL),(36,'2025-01-14 09:58:49.126411','2025-01-14 09:58:49.126411','calculator',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',78,'2025-01-14 09:58:49.127039',NULL,'+',NULL),(37,'2025-01-14 09:58:49.132980','2025-01-14 09:58:49.132980','custom_pages',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',79,'2025-01-14 09:58:49.133574',NULL,'+',NULL),(38,'2025-01-14 09:58:49.140875','2025-01-14 09:58:49.140875','discussion',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',80,'2025-01-14 09:58:49.141493',NULL,'+',NULL),(39,'2025-01-14 09:58:49.149229','2025-01-14 09:58:49.149229','live',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',81,'2025-01-14 09:58:49.149790',NULL,'+',NULL),(40,'2025-01-14 09:58:49.158828','2025-01-14 09:58:49.158828','progress',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',82,'2025-01-14 09:58:49.159469',NULL,'+',NULL),(41,'2025-01-14 09:58:49.166574','2025-01-14 09:58:49.166574','textbooks',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',83,'2025-01-14 09:58:49.167452',NULL,'+',NULL),(42,'2025-01-14 09:58:49.180853','2025-01-14 09:58:49.180853','wiki',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',84,'2025-01-14 09:58:49.181430',NULL,'+',NULL),(36,'2025-01-14 09:58:49.126411','2025-01-14 09:58:49.277419','calculator',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',85,'2025-01-14 09:58:49.279585',NULL,'~',NULL),(37,'2025-01-14 09:58:49.132980','2025-01-14 09:58:49.289143','custom_pages',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',86,'2025-01-14 09:58:49.290544',NULL,'~',NULL),(38,'2025-01-14 09:58:49.140875','2025-01-14 09:58:49.299654','discussion',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',87,'2025-01-14 09:58:49.300396',NULL,'~',NULL),(39,'2025-01-14 09:58:49.149229','2025-01-14 09:58:49.306947','live',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',88,'2025-01-14 09:58:49.308065',NULL,'~',NULL),(40,'2025-01-14 09:58:49.158828','2025-01-14 09:58:49.313360','progress',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',89,'2025-01-14 09:58:49.314080',NULL,'~',NULL),(41,'2025-01-14 09:58:49.166574','2025-01-14 09:58:49.318753','textbooks',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',90,'2025-01-14 09:58:49.319332',NULL,'~',NULL),(42,'2025-01-14 09:58:49.180853','2025-01-14 09:58:49.328496','wiki',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',91,'2025-01-14 09:58:49.329161',NULL,'~',NULL),(36,'2025-01-14 09:58:49.126411','2025-01-14 09:58:49.793896','calculator',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',92,'2025-01-14 09:58:49.794619',NULL,'~',NULL),(37,'2025-01-14 09:58:49.132980','2025-01-14 09:58:49.799381','custom_pages',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',93,'2025-01-14 09:58:49.800563',NULL,'~',NULL),(38,'2025-01-14 09:58:49.140875','2025-01-14 09:58:49.806766','discussion',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',94,'2025-01-14 09:58:49.807449',NULL,'~',NULL),(39,'2025-01-14 09:58:49.149229','2025-01-14 09:58:49.813064','live',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',95,'2025-01-14 09:58:49.813821',NULL,'~',NULL),(40,'2025-01-14 09:58:49.158828','2025-01-14 09:58:49.818758','progress',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',96,'2025-01-14 09:58:49.819670',NULL,'~',NULL),(41,'2025-01-14 09:58:49.166574','2025-01-14 09:58:49.826582','textbooks',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',97,'2025-01-14 09:58:49.827257',NULL,'~',NULL),(42,'2025-01-14 09:58:49.180853','2025-01-14 09:58:49.837419','wiki',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',98,'2025-01-14 09:58:49.838065',NULL,'~',NULL),(36,'2025-01-14 09:58:49.126411','2025-01-14 09:58:57.302056','calculator',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',99,'2025-01-14 09:58:57.302914',NULL,'~',NULL),(37,'2025-01-14 09:58:49.132980','2025-01-14 09:58:57.308031','custom_pages',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',100,'2025-01-14 09:58:57.308630',NULL,'~',NULL),(38,'2025-01-14 09:58:49.140875','2025-01-14 09:58:57.316315','discussion',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',101,'2025-01-14 09:58:57.317113',NULL,'~',NULL),(39,'2025-01-14 09:58:49.149229','2025-01-14 09:58:57.323977','live',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',102,'2025-01-14 09:58:57.324619',NULL,'~',NULL),(40,'2025-01-14 09:58:49.158828','2025-01-14 09:58:57.328974','progress',1,'course-v1:Trainficient+TF_ESG_006+2025_T2',103,'2025-01-14 09:58:57.329566',NULL,'~',NULL),(41,'2025-01-14 09:58:49.166574','2025-01-14 09:58:57.334594','textbooks',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',104,'2025-01-14 09:58:57.335378',NULL,'~',NULL),(42,'2025-01-14 09:58:49.180853','2025-01-14 09:58:57.342057','wiki',0,'course-v1:Trainficient+TF_ESG_006+2025_T2',105,'2025-01-14 09:58:57.342689',NULL,'~',NULL),(43,'2025-01-14 09:59:26.795345','2025-01-14 09:59:26.795345','calculator',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',106,'2025-01-14 09:59:26.796291',NULL,'+',NULL),(44,'2025-01-14 09:59:26.803773','2025-01-14 09:59:26.803773','custom_pages',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',107,'2025-01-14 09:59:26.804430',NULL,'+',NULL),(45,'2025-01-14 09:59:26.812159','2025-01-14 09:59:26.812159','discussion',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1',108,'2025-01-14 09:59:26.812874',NULL,'+',NULL),(46,'2025-01-14 09:59:26.820022','2025-01-14 09:59:26.820022','live',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',109,'2025-01-14 09:59:26.821708',NULL,'+',NULL),(47,'2025-01-14 09:59:26.843527','2025-01-14 09:59:26.843527','progress',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1',110,'2025-01-14 09:59:26.844330',NULL,'+',NULL),(48,'2025-01-14 09:59:26.853592','2025-01-14 09:59:26.853592','textbooks',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',111,'2025-01-14 09:59:26.860779',NULL,'+',NULL),(49,'2025-01-14 09:59:26.867064','2025-01-14 09:59:26.867064','wiki',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',112,'2025-01-14 09:59:26.867795',NULL,'+',NULL),(43,'2025-01-14 09:59:26.795345','2025-01-14 09:59:35.181181','calculator',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',113,'2025-01-14 09:59:35.181856',NULL,'~',NULL),(44,'2025-01-14 09:59:26.803773','2025-01-14 09:59:35.187439','custom_pages',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',114,'2025-01-14 09:59:35.188196',NULL,'~',NULL),(45,'2025-01-14 09:59:26.812159','2025-01-14 09:59:35.194896','discussion',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1',115,'2025-01-14 09:59:35.195512',NULL,'~',NULL),(46,'2025-01-14 09:59:26.820022','2025-01-14 09:59:35.203005','live',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',116,'2025-01-14 09:59:35.204318',NULL,'~',NULL),(47,'2025-01-14 09:59:26.843527','2025-01-14 09:59:35.209225','progress',1,'course-v1:Trainficient+TF_PDPD_002+2025_T1',117,'2025-01-14 09:59:35.209965',NULL,'~',NULL),(48,'2025-01-14 09:59:26.853592','2025-01-14 09:59:35.214332','textbooks',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',118,'2025-01-14 09:59:35.215030',NULL,'~',NULL),(49,'2025-01-14 09:59:26.867064','2025-01-14 09:59:35.224462','wiki',0,'course-v1:Trainficient+TF_PDPD_002+2025_T1',119,'2025-01-14 09:59:35.225062',NULL,'~',NULL);
+/*!40000 ALTER TABLE `course_apps_historicalcourseappstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_creators_coursecreator`
+--
+
+DROP TABLE IF EXISTS `course_creators_coursecreator`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_creators_coursecreator` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `state_changed` datetime(6) NOT NULL,
+  `state` varchar(24) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `all_organizations` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`),
+  CONSTRAINT `course_creators_coursecreator_user_id_e4da548d_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_creators_coursecreator`
+--
+
+LOCK TABLES `course_creators_coursecreator` WRITE;
+/*!40000 ALTER TABLE `course_creators_coursecreator` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_creators_coursecreator` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_creators_coursecreator_organizations`
+--
+
+DROP TABLE IF EXISTS `course_creators_coursecreator_organizations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_creators_coursecreator_organizations` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `coursecreator_id` int NOT NULL,
+  `organization_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_creators_coursecr_coursecreator_id_organiz_4c4765a1_uniq` (`coursecreator_id`,`organization_id`),
+  KEY `course_creators_cour_organization_id_f561fb6c_fk_organizat` (`organization_id`),
+  CONSTRAINT `course_creators_cour_coursecreator_id_cd9dbd7f_fk_course_cr` FOREIGN KEY (`coursecreator_id`) REFERENCES `course_creators_coursecreator` (`id`),
+  CONSTRAINT `course_creators_cour_organization_id_f561fb6c_fk_organizat` FOREIGN KEY (`organization_id`) REFERENCES `organizations_organization` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_creators_coursecreator_organizations`
+--
+
+LOCK TABLES `course_creators_coursecreator_organizations` WRITE;
+/*!40000 ALTER TABLE `course_creators_coursecreator_organizations` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_creators_coursecreator_organizations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_date_signals_selfpacedrelativedatesconfig`
+--
+
+DROP TABLE IF EXISTS `course_date_signals_selfpacedrelativedatesconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_date_signals_selfpacedrelativedatesconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_date_site_id_a44836_idx` (`site_id`,`org`,`course_id`),
+  KEY `course_date_site_id_c0164a_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `course_date_signals__changed_by_id_5f8228f2_fk_auth_user` (`changed_by_id`),
+  KEY `course_date_signals__course_id_361d8ca8_fk_course_ov` (`course_id`),
+  KEY `course_date_signals_selfpacedrelativedatesconfig_org_9c13e820` (`org`),
+  KEY `course_date_signals_selfpac_org_course_b7041c4f` (`org_course`),
+  CONSTRAINT `course_date_signals__changed_by_id_5f8228f2_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_date_signals__course_id_361d8ca8_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `course_date_signals__site_id_29483878_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_date_signals_selfpacedrelativedatesconfig`
+--
+
+LOCK TABLES `course_date_signals_selfpacedrelativedatesconfig` WRITE;
+/*!40000 ALTER TABLE `course_date_signals_selfpacedrelativedatesconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_date_signals_selfpacedrelativedatesconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_duration_limits_coursedurationlimitconfig`
+--
+
+DROP TABLE IF EXISTS `course_duration_limits_coursedurationlimitconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_duration_limits_coursedurationlimitconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) DEFAULT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `enabled_as_of` datetime(6) DEFAULT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `site_id` int DEFAULT NULL,
+  `org_course` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `course_duration_limi_changed_by_id_f320fd76_fk_auth_user` (`changed_by_id`),
+  KEY `course_duration_limi_course_id_97b7a8e9_fk_course_ov` (`course_id`),
+  KEY `course_duration_limits_coursedurationlimitconfig_org_c2cc0091` (`org`),
+  KEY `course_dura_site_id_424016_idx` (`site_id`,`org`,`course_id`),
+  KEY `course_dura_site_id_b5bbcd_idx` (`site_id`,`org`,`org_course`,`course_id`),
+  KEY `course_duration_limits_cour_org_course_bcd05764` (`org_course`),
+  CONSTRAINT `course_duration_limi_changed_by_id_f320fd76_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_duration_limi_course_id_97b7a8e9_fk_course_ov` FOREIGN KEY (`course_id`) REFERENCES `course_overviews_courseoverview` (`id`),
+  CONSTRAINT `course_duration_limi_site_id_cb492296_fk_django_si` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_duration_limits_coursedurationlimitconfig`
+--
+
+LOCK TABLES `course_duration_limits_coursedurationlimitconfig` WRITE;
+/*!40000 ALTER TABLE `course_duration_limits_coursedurationlimitconfig` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_duration_limits_coursedurationlimitconfig` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_goals_coursegoal`
+--
+
+DROP TABLE IF EXISTS `course_goals_coursegoal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_goals_coursegoal` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `goal_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int NOT NULL,
+  `days_per_week` int unsigned NOT NULL,
+  `subscribed_to_reminders` tinyint(1) NOT NULL,
+  `unsubscribe_token` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `course_goals_coursegoal_user_id_course_key_052bc0d3_uniq` (`user_id`,`course_key`),
+  UNIQUE KEY `unsubscribe_token` (`unsubscribe_token`),
+  KEY `course_goals_coursegoal_course_key_5585ca51` (`course_key`),
+  CONSTRAINT `course_goals_coursegoal_user_id_0a07e3db_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `course_goals_coursegoal_chk_1` CHECK ((`days_per_week` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_goals_coursegoal`
+--
+
+LOCK TABLES `course_goals_coursegoal` WRITE;
+/*!40000 ALTER TABLE `course_goals_coursegoal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_goals_coursegoal` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_goals_coursegoalreminderstatus`
+--
+
+DROP TABLE IF EXISTS `course_goals_coursegoalreminderstatus`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_goals_coursegoalreminderstatus` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `email_reminder_sent` tinyint(1) NOT NULL,
+  `goal_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `goal_id` (`goal_id`),
+  CONSTRAINT `course_goals_courseg_goal_id_8a7932cf_fk_course_go` FOREIGN KEY (`goal_id`) REFERENCES `course_goals_coursegoal` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course_goals_coursegoalreminderstatus`
+--
+
+LOCK TABLES `course_goals_coursegoalreminderstatus` WRITE;
+/*!40000 ALTER TABLE `course_goals_coursegoalreminderstatus` DISABLE KEYS */;
+/*!40000 ALTER TABLE `course_goals_coursegoalreminderstatus` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course_goals_historicalcoursegoal`
+--
+
+DROP TABLE IF EXISTS `course_goals_historicalcoursegoal`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `course_goals_historicalcoursegoal` (
+  `id` int NOT NULL,
+  `course_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `goal_key` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  `days_per_week` int unsigned NOT NULL,
+  `subscribed_to_reminders` tinyint(1) NOT NULL,
+  `unsubscribe_token` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `course_goals_histori_history_user_id_b20abbc7_fk_auth_user` (`history_user_id`),
+  KEY `course_goals_historicalcoursegoal_id_ae96ee01` (`id`),
+  KEY `course_goals_historicalcoursegoal_course_key_a8e29f00` (`course_key`),
+  KEY `course_goals_historicalcoursegoal_user_id_3aef8b4b` (`user_id`),
+  KEY `course_goals_historicalcoursegoal_unsubscribe_token_9
