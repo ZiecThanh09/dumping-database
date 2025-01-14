@@ -1,0 +1,1077 @@
+  `enabled` tinyint(1) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_config_coursey_changed_by_id_3496713f_fk_auth_user` (`changed_by_id`),
+  KEY `video_config_courseyoutubeblockedflag_course_id_4c9395c6` (`course_id`),
+  CONSTRAINT `video_config_coursey_changed_by_id_3496713f_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_courseyoutubeblockedflag`
+--
+
+LOCK TABLES `video_config_courseyoutubeblockedflag` WRITE;
+/*!40000 ALTER TABLE `video_config_courseyoutubeblockedflag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_courseyoutubeblockedflag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_hlsplaybackenabledflag`
+--
+
+DROP TABLE IF EXISTS `video_config_hlsplaybackenabledflag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_hlsplaybackenabledflag` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `enabled_for_all_courses` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_config_hlsplay_changed_by_id_d93f2234_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_config_hlsplay_changed_by_id_d93f2234_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_hlsplaybackenabledflag`
+--
+
+LOCK TABLES `video_config_hlsplaybackenabledflag` WRITE;
+/*!40000 ALTER TABLE `video_config_hlsplaybackenabledflag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_hlsplaybackenabledflag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_migrationenqueuedcourse`
+--
+
+DROP TABLE IF EXISTS `video_config_migrationenqueuedcourse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_migrationenqueuedcourse` (
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `command_run` int unsigned NOT NULL,
+  PRIMARY KEY (`course_id`),
+  CONSTRAINT `video_config_migrationenqueuedcourse_chk_1` CHECK ((`command_run` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_migrationenqueuedcourse`
+--
+
+LOCK TABLES `video_config_migrationenqueuedcourse` WRITE;
+/*!40000 ALTER TABLE `video_config_migrationenqueuedcourse` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_migrationenqueuedcourse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_transcriptmigrationsetting`
+--
+
+DROP TABLE IF EXISTS `video_config_transcriptmigrationsetting`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_transcriptmigrationsetting` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `force_update` tinyint(1) NOT NULL,
+  `commit` tinyint(1) NOT NULL,
+  `all_courses` tinyint(1) NOT NULL,
+  `course_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `command_run` int unsigned NOT NULL,
+  `batch_size` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_config_transcr_changed_by_id_4c7817bd_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_config_transcr_changed_by_id_4c7817bd_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `video_config_transcriptmigrationsetting_chk_1` CHECK ((`command_run` >= 0)),
+  CONSTRAINT `video_config_transcriptmigrationsetting_chk_2` CHECK ((`batch_size` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_transcriptmigrationsetting`
+--
+
+LOCK TABLES `video_config_transcriptmigrationsetting` WRITE;
+/*!40000 ALTER TABLE `video_config_transcriptmigrationsetting` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_transcriptmigrationsetting` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_updatedcoursevideos`
+--
+
+DROP TABLE IF EXISTS `video_config_updatedcoursevideos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_updatedcoursevideos` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `edx_video_id` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `command_run` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `video_config_updatedcour_course_id_edx_video_id_455a73ff_uniq` (`course_id`,`edx_video_id`),
+  KEY `video_config_updatedcoursevideos_course_id_e72703a3` (`course_id`),
+  CONSTRAINT `video_config_updatedcoursevideos_chk_1` CHECK ((`command_run` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_updatedcoursevideos`
+--
+
+LOCK TABLES `video_config_updatedcoursevideos` WRITE;
+/*!40000 ALTER TABLE `video_config_updatedcoursevideos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_updatedcoursevideos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_videothumbnailsetting`
+--
+
+DROP TABLE IF EXISTS `video_config_videothumbnailsetting`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_videothumbnailsetting` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `command_run` int unsigned NOT NULL,
+  `batch_size` int unsigned NOT NULL,
+  `videos_per_task` int unsigned NOT NULL,
+  `commit` tinyint(1) NOT NULL,
+  `all_course_videos` tinyint(1) NOT NULL,
+  `course_ids` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `offset` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_config_videoth_changed_by_id_9385a0b2_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_config_videoth_changed_by_id_9385a0b2_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `video_config_videothumbnailsetting_chk_1` CHECK ((`command_run` >= 0)),
+  CONSTRAINT `video_config_videothumbnailsetting_chk_2` CHECK ((`batch_size` >= 0)),
+  CONSTRAINT `video_config_videothumbnailsetting_chk_3` CHECK ((`videos_per_task` >= 0)),
+  CONSTRAINT `video_config_videothumbnailsetting_chk_4` CHECK ((`offset` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_videothumbnailsetting`
+--
+
+LOCK TABLES `video_config_videothumbnailsetting` WRITE;
+/*!40000 ALTER TABLE `video_config_videothumbnailsetting` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_videothumbnailsetting` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_config_videotranscriptenabledflag`
+--
+
+DROP TABLE IF EXISTS `video_config_videotranscriptenabledflag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_config_videotranscriptenabledflag` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `enabled_for_all_courses` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_config_videotr_changed_by_id_9f0afd7f_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_config_videotr_changed_by_id_9f0afd7f_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_config_videotranscriptenabledflag`
+--
+
+LOCK TABLES `video_config_videotranscriptenabledflag` WRITE;
+/*!40000 ALTER TABLE `video_config_videotranscriptenabledflag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_config_videotranscriptenabledflag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_pipeline_coursevideouploadsenabledbydefault`
+--
+
+DROP TABLE IF EXISTS `video_pipeline_coursevideouploadsenabledbydefault`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_pipeline_coursevideouploadsenabledbydefault` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_pipeline_cours_changed_by_id_84ec1a58_fk_auth_user` (`changed_by_id`),
+  KEY `video_pipeline_coursevideou_course_id_9fd1b18b` (`course_id`),
+  CONSTRAINT `video_pipeline_cours_changed_by_id_84ec1a58_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_pipeline_coursevideouploadsenabledbydefault`
+--
+
+LOCK TABLES `video_pipeline_coursevideouploadsenabledbydefault` WRITE;
+/*!40000 ALTER TABLE `video_pipeline_coursevideouploadsenabledbydefault` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_pipeline_coursevideouploadsenabledbydefault` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_pipeline_vempipelineintegration`
+--
+
+DROP TABLE IF EXISTS `video_pipeline_vempipelineintegration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_pipeline_vempipelineintegration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `client_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `api_url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_pipeline_vempi_changed_by_id_cadc1895_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_pipeline_vempi_changed_by_id_cadc1895_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_pipeline_vempipelineintegration`
+--
+
+LOCK TABLES `video_pipeline_vempipelineintegration` WRITE;
+/*!40000 ALTER TABLE `video_pipeline_vempipelineintegration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_pipeline_vempipelineintegration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `video_pipeline_videouploadsenabledbydefault`
+--
+
+DROP TABLE IF EXISTS `video_pipeline_videouploadsenabledbydefault`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `video_pipeline_videouploadsenabledbydefault` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `enabled_for_all_courses` tinyint(1) NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `video_pipeline_video_changed_by_id_3d066822_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `video_pipeline_video_changed_by_id_3d066822_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `video_pipeline_videouploadsenabledbydefault`
+--
+
+LOCK TABLES `video_pipeline_videouploadsenabledbydefault` WRITE;
+/*!40000 ALTER TABLE `video_pipeline_videouploadsenabledbydefault` DISABLE KEYS */;
+/*!40000 ALTER TABLE `video_pipeline_videouploadsenabledbydefault` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_flag`
+--
+
+DROP TABLE IF EXISTS `waffle_flag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_flag` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `everyone` tinyint(1) DEFAULT NULL,
+  `percent` decimal(3,1) DEFAULT NULL,
+  `testing` tinyint(1) NOT NULL,
+  `superusers` tinyint(1) NOT NULL,
+  `staff` tinyint(1) NOT NULL,
+  `authenticated` tinyint(1) NOT NULL,
+  `languages` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rollout` tinyint(1) NOT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `waffle_flag_created_4a6e8cef` (`created`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_flag`
+--
+
+LOCK TABLES `waffle_flag` WRITE;
+/*!40000 ALTER TABLE `waffle_flag` DISABLE KEYS */;
+INSERT INTO `waffle_flag` VALUES (2,'grades.rejected_exam_overrides_grade',1,NULL,0,1,0,0,'',0,'','2025-01-10 06:26:40.532130','2025-01-10 06:26:40.532137'),(3,'grades.enforce_freeze_grade_after_course_end',1,NULL,0,1,0,0,'',0,'','2025-01-10 06:26:40.534017','2025-01-10 06:26:40.534021'),(4,'grades.writable_gradebook',1,NULL,0,1,0,0,'',0,'','2025-01-10 06:26:40.535493','2025-01-10 06:26:40.535497'),(5,'studio.enable_checklists_quality',1,NULL,0,1,0,0,'',0,'','2025-01-10 06:31:17.869910','2025-01-10 06:31:17.869916'),(6,'contentstore.enable_copy_paste_units',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:31:36.053432','2025-01-10 06:31:36.066981'),(7,'account.redirect_to_microfrontend',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:32:13.537361','2025-01-10 06:32:13.551302'),(8,'learner_profile.redirect_to_microfrontend',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:32:27.528048','2025-01-10 06:32:27.541701'),(9,'learner_home_mfe.enabled',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:32:45.064792','2025-01-10 06:32:46.330674'),(10,'course_home.course_home_mfe_progress_tab',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:32:53.285939','2025-01-10 06:32:53.305934'),(11,'courseware.enable_navigation_sidebar',0,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:02.128616','2025-01-10 06:33:02.140992'),(12,'courseware.always_open_auxiliary_sidebar',0,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:08.792794','2025-01-10 06:33:08.805337'),(13,'contentstore.new_studio_mfe.use_new_advanced_settings_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:17.657564','2025-01-10 06:33:17.671253'),(14,'contentstore.new_studio_mfe.use_new_certificates_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:24.575092','2025-01-10 06:33:24.587324'),(15,'contentstore.new_studio_mfe.use_new_course_outline_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:31.578208','2025-01-10 06:33:31.591020'),(16,'contentstore.new_studio_mfe.use_new_course_team_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:39.993898','2025-01-10 06:33:40.011052'),(17,'contentstore.new_studio_mfe.use_new_custom_pages',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:46.749223','2025-01-10 06:33:46.761267'),(18,'contentstore.new_studio_mfe.use_new_export_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:33:54.986356','2025-01-10 06:33:54.999250'),(19,'contentstore.new_studio_mfe.use_new_files_uploads_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:01.643755','2025-01-10 06:34:01.657095'),(20,'contentstore.new_studio_mfe.use_new_grading_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:08.669518','2025-01-10 06:34:08.682899'),(21,'contentstore.new_studio_mfe.use_new_group_configurations_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:15.270136','2025-01-10 06:34:17.484396'),(22,'contentstore.new_studio_mfe.use_new_import_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:23.934593','2025-01-10 06:34:23.946534'),(23,'contentstore.new_studio_mfe.use_new_schedule_details_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:32.009493','2025-01-10 06:34:32.044817'),(24,'contentstore.new_studio_mfe.use_new_textbooks_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:38.483528','2025-01-10 06:34:38.497681'),(25,'contentstore.new_studio_mfe.use_new_updates_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:46.420612','2025-01-10 06:34:46.433081'),(26,'discussions.pages_and_resources_mfe',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:34:52.903690','2025-01-10 06:34:52.915846'),(27,'new_core_editors.use_new_problem_editor',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:00.813475','2025-01-10 06:35:00.825543'),(28,'new_core_editors.use_new_text_editor',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:10.482272','2025-01-10 06:35:10.494889'),(29,'new_core_editors.use_new_video_editor',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:17.238804','2025-01-10 06:35:17.251484'),(30,'new_studio_mfe.use_new_home_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:25.213287','2025-01-10 06:35:25.225006'),(31,'new_studio_mfe.use_tagging_taxonomy_list_page',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:31.703869','2025-01-10 06:35:31.715583'),(32,'discussions.enable_discussions_mfe',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:39.435784','2025-01-10 06:35:39.448390'),(33,'discussions.enable_learners_tab_in_discussions_mfe',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:45.900119','2025-01-10 06:35:45.912300'),(34,'discussions.enable_moderation_reason_codes',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:35:53.502331','2025-01-10 06:35:53.514231'),(35,'discussions.enable_reported_content_email_notifications',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:36:00.608165','2025-01-10 06:36:00.621840'),(36,'discussions.enable_learners_stats',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:36:07.154156','2025-01-10 06:36:07.167291'),(37,'discussions.enable_new_structure_discussions',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:36:16.730268','2025-01-10 06:36:16.742467'),(38,'openresponseassessment.enhanced_staff_grader',1,NULL,0,0,0,0,'',0,'','2025-01-10 06:36:23.461357','2025-01-10 06:36:23.500057');
+/*!40000 ALTER TABLE `waffle_flag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_flag_groups`
+--
+
+DROP TABLE IF EXISTS `waffle_flag_groups`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_flag_groups` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `flag_id` int NOT NULL,
+  `group_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `waffle_flag_groups_flag_id_group_id_8ba0c71b_uniq` (`flag_id`,`group_id`),
+  KEY `waffle_flag_groups_group_id_a97c4f66_fk_auth_group_id` (`group_id`),
+  CONSTRAINT `waffle_flag_groups_flag_id_c11c0c05_fk_waffle_flag_id` FOREIGN KEY (`flag_id`) REFERENCES `waffle_flag` (`id`),
+  CONSTRAINT `waffle_flag_groups_group_id_a97c4f66_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_flag_groups`
+--
+
+LOCK TABLES `waffle_flag_groups` WRITE;
+/*!40000 ALTER TABLE `waffle_flag_groups` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waffle_flag_groups` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_flag_users`
+--
+
+DROP TABLE IF EXISTS `waffle_flag_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_flag_users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `flag_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `waffle_flag_users_flag_id_user_id_b46f76b0_uniq` (`flag_id`,`user_id`),
+  KEY `waffle_flag_users_user_id_8026df9b_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `waffle_flag_users_flag_id_833c37b0_fk_waffle_flag_id` FOREIGN KEY (`flag_id`) REFERENCES `waffle_flag` (`id`),
+  CONSTRAINT `waffle_flag_users_user_id_8026df9b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_flag_users`
+--
+
+LOCK TABLES `waffle_flag_users` WRITE;
+/*!40000 ALTER TABLE `waffle_flag_users` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waffle_flag_users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_sample`
+--
+
+DROP TABLE IF EXISTS `waffle_sample`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_sample` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `percent` decimal(4,1) NOT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `waffle_sample_created_76198bd5` (`created`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_sample`
+--
+
+LOCK TABLES `waffle_sample` WRITE;
+/*!40000 ALTER TABLE `waffle_sample` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waffle_sample` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_switch`
+--
+
+DROP TABLE IF EXISTS `waffle_switch`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_switch` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`),
+  KEY `waffle_switch_created_c004e77e` (`created`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_switch`
+--
+
+LOCK TABLES `waffle_switch` WRITE;
+/*!40000 ALTER TABLE `waffle_switch` DISABLE KEYS */;
+INSERT INTO `waffle_switch` VALUES (1,'completion.enable_completion_tracking',1,'','2025-01-10 06:30:58.309673','2025-01-10 06:30:58.368309');
+/*!40000 ALTER TABLE `waffle_switch` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_utils_waffleflagcourseoverridemodel`
+--
+
+DROP TABLE IF EXISTS `waffle_utils_waffleflagcourseoverridemodel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_utils_waffleflagcourseoverridemodel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `waffle_flag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `override_choice` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT (_utf8mb4''),
+  PRIMARY KEY (`id`),
+  KEY `waffle_utils_wafflef_changed_by_id_28429bf5_fk_auth_user` (`changed_by_id`),
+  KEY `waffle_utils_waffleflagcourseoverridemodel_waffle_flag_d261aad1` (`waffle_flag`),
+  KEY `waffle_utils_waffleflagcourseoverridemodel_course_id_e94a9fc3` (`course_id`),
+  CONSTRAINT `waffle_utils_wafflef_changed_by_id_28429bf5_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_utils_waffleflagcourseoverridemodel`
+--
+
+LOCK TABLES `waffle_utils_waffleflagcourseoverridemodel` WRITE;
+/*!40000 ALTER TABLE `waffle_utils_waffleflagcourseoverridemodel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waffle_utils_waffleflagcourseoverridemodel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `waffle_utils_waffleflagorgoverridemodel`
+--
+
+DROP TABLE IF EXISTS `waffle_utils_waffleflagorgoverridemodel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `waffle_utils_waffleflagorgoverridemodel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `waffle_flag` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `org` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `override_choice` varchar(3) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `waffle_org_and_waffle_flag` (`org`,`waffle_flag`),
+  KEY `waffle_utils_wafflef_changed_by_id_01495c88_fk_auth_user` (`changed_by_id`),
+  KEY `waffle_utils_waffleflagorgoverridemodel_waffle_flag_1569d94e` (`waffle_flag`),
+  KEY `waffle_utils_waffleflagorgoverridemodel_org_8ffe16cd` (`org`),
+  CONSTRAINT `waffle_utils_wafflef_changed_by_id_01495c88_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `waffle_utils_waffleflagorgoverridemodel`
+--
+
+LOCK TABLES `waffle_utils_waffleflagorgoverridemodel` WRITE;
+/*!40000 ALTER TABLE `waffle_utils_waffleflagorgoverridemodel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `waffle_utils_waffleflagorgoverridemodel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_article`
+--
+
+DROP TABLE IF EXISTS `wiki_article`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_article` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `group_read` tinyint(1) NOT NULL,
+  `group_write` tinyint(1) NOT NULL,
+  `other_read` tinyint(1) NOT NULL,
+  `other_write` tinyint(1) NOT NULL,
+  `current_revision_id` int DEFAULT NULL,
+  `group_id` int DEFAULT NULL,
+  `owner_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `current_revision_id` (`current_revision_id`),
+  KEY `wiki_article_group_id_bf035c83_fk_auth_group_id` (`group_id`),
+  KEY `wiki_article_owner_id_956bc94a_fk_auth_user_id` (`owner_id`),
+  CONSTRAINT `wiki_article_current_revision_id_fc83ea0a_fk_wiki_arti` FOREIGN KEY (`current_revision_id`) REFERENCES `wiki_articlerevision` (`id`),
+  CONSTRAINT `wiki_article_group_id_bf035c83_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `wiki_article_owner_id_956bc94a_fk_auth_user_id` FOREIGN KEY (`owner_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_article`
+--
+
+LOCK TABLES `wiki_article` WRITE;
+/*!40000 ALTER TABLE `wiki_article` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_article` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_articleforobject`
+--
+
+DROP TABLE IF EXISTS `wiki_articleforobject`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_articleforobject` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `object_id` int unsigned NOT NULL,
+  `is_mptt` tinyint(1) NOT NULL,
+  `article_id` int NOT NULL,
+  `content_type_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `wiki_articleforobject_content_type_id_object_id_046be756_uniq` (`content_type_id`,`object_id`),
+  KEY `wiki_articleforobject_article_id_7d67d809_fk_wiki_article_id` (`article_id`),
+  CONSTRAINT `wiki_articleforobjec_content_type_id_ba569059_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `wiki_articleforobject_article_id_7d67d809_fk_wiki_article_id` FOREIGN KEY (`article_id`) REFERENCES `wiki_article` (`id`),
+  CONSTRAINT `wiki_articleforobject_chk_1` CHECK ((`object_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_articleforobject`
+--
+
+LOCK TABLES `wiki_articleforobject` WRITE;
+/*!40000 ALTER TABLE `wiki_articleforobject` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_articleforobject` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_articleplugin`
+--
+
+DROP TABLE IF EXISTS `wiki_articleplugin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_articleplugin` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `deleted` tinyint(1) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `article_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `wiki_articleplugin_article_id_9ab0e854_fk_wiki_article_id` (`article_id`),
+  CONSTRAINT `wiki_articleplugin_article_id_9ab0e854_fk_wiki_article_id` FOREIGN KEY (`article_id`) REFERENCES `wiki_article` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_articleplugin`
+--
+
+LOCK TABLES `wiki_articleplugin` WRITE;
+/*!40000 ALTER TABLE `wiki_articleplugin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_articleplugin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_articlerevision`
+--
+
+DROP TABLE IF EXISTS `wiki_articlerevision`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_articlerevision` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `revision_number` int NOT NULL,
+  `user_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `automatic_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` char(39) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `modified` datetime(6) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `deleted` tinyint(1) NOT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `content` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `article_id` int NOT NULL,
+  `previous_revision_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `wiki_articlerevision_article_id_revision_number_5bcd5334_uniq` (`article_id`,`revision_number`),
+  KEY `wiki_articlerevision_previous_revision_id_bcfaf4c9_fk_wiki_arti` (`previous_revision_id`),
+  KEY `wiki_articlerevision_user_id_c687e4de_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `wiki_articlerevision_article_id_e0fb2474_fk_wiki_article_id` FOREIGN KEY (`article_id`) REFERENCES `wiki_article` (`id`),
+  CONSTRAINT `wiki_articlerevision_previous_revision_id_bcfaf4c9_fk_wiki_arti` FOREIGN KEY (`previous_revision_id`) REFERENCES `wiki_articlerevision` (`id`),
+  CONSTRAINT `wiki_articlerevision_user_id_c687e4de_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_articlerevision`
+--
+
+LOCK TABLES `wiki_articlerevision` WRITE;
+/*!40000 ALTER TABLE `wiki_articlerevision` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_articlerevision` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_reusableplugin`
+--
+
+DROP TABLE IF EXISTS `wiki_reusableplugin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_reusableplugin` (
+  `articleplugin_ptr_id` int NOT NULL,
+  PRIMARY KEY (`articleplugin_ptr_id`),
+  CONSTRAINT `wiki_reusableplugin_articleplugin_ptr_id_c1737239_fk_wiki_arti` FOREIGN KEY (`articleplugin_ptr_id`) REFERENCES `wiki_articleplugin` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_reusableplugin`
+--
+
+LOCK TABLES `wiki_reusableplugin` WRITE;
+/*!40000 ALTER TABLE `wiki_reusableplugin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_reusableplugin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_reusableplugin_articles`
+--
+
+DROP TABLE IF EXISTS `wiki_reusableplugin_articles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_reusableplugin_articles` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `reusableplugin_id` int NOT NULL,
+  `article_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `wiki_reusableplugin_arti_reusableplugin_id_articl_302a7a01_uniq` (`reusableplugin_id`,`article_id`),
+  KEY `wiki_reusableplugin__article_id_8a09d39e_fk_wiki_arti` (`article_id`),
+  CONSTRAINT `wiki_reusableplugin__article_id_8a09d39e_fk_wiki_arti` FOREIGN KEY (`article_id`) REFERENCES `wiki_article` (`id`),
+  CONSTRAINT `wiki_reusableplugin__reusableplugin_id_52618a1c_fk_wiki_reus` FOREIGN KEY (`reusableplugin_id`) REFERENCES `wiki_reusableplugin` (`articleplugin_ptr_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_reusableplugin_articles`
+--
+
+LOCK TABLES `wiki_reusableplugin_articles` WRITE;
+/*!40000 ALTER TABLE `wiki_reusableplugin_articles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_reusableplugin_articles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_revisionplugin`
+--
+
+DROP TABLE IF EXISTS `wiki_revisionplugin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_revisionplugin` (
+  `articleplugin_ptr_id` int NOT NULL,
+  `current_revision_id` int DEFAULT NULL,
+  PRIMARY KEY (`articleplugin_ptr_id`),
+  UNIQUE KEY `current_revision_id` (`current_revision_id`),
+  CONSTRAINT `wiki_revisionplugin_articleplugin_ptr_id_95c295f2_fk_wiki_arti` FOREIGN KEY (`articleplugin_ptr_id`) REFERENCES `wiki_articleplugin` (`id`),
+  CONSTRAINT `wiki_revisionplugin_current_revision_id_46514536_fk_wiki_revi` FOREIGN KEY (`current_revision_id`) REFERENCES `wiki_revisionpluginrevision` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_revisionplugin`
+--
+
+LOCK TABLES `wiki_revisionplugin` WRITE;
+/*!40000 ALTER TABLE `wiki_revisionplugin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_revisionplugin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_revisionpluginrevision`
+--
+
+DROP TABLE IF EXISTS `wiki_revisionpluginrevision`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_revisionpluginrevision` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `revision_number` int NOT NULL,
+  `user_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `automatic_log` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` char(39) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `modified` datetime(6) NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `deleted` tinyint(1) NOT NULL,
+  `locked` tinyint(1) NOT NULL,
+  `plugin_id` int NOT NULL,
+  `previous_revision_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `wiki_revisionpluginr_plugin_id_c8f4475b_fk_wiki_revi` (`plugin_id`),
+  KEY `wiki_revisionpluginr_previous_revision_id_38c877c0_fk_wiki_revi` (`previous_revision_id`),
+  KEY `wiki_revisionpluginrevision_user_id_ee40f729_fk_auth_user_id` (`user_id`),
+  CONSTRAINT `wiki_revisionpluginr_plugin_id_c8f4475b_fk_wiki_revi` FOREIGN KEY (`plugin_id`) REFERENCES `wiki_revisionplugin` (`articleplugin_ptr_id`),
+  CONSTRAINT `wiki_revisionpluginr_previous_revision_id_38c877c0_fk_wiki_revi` FOREIGN KEY (`previous_revision_id`) REFERENCES `wiki_revisionpluginrevision` (`id`),
+  CONSTRAINT `wiki_revisionpluginrevision_user_id_ee40f729_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_revisionpluginrevision`
+--
+
+LOCK TABLES `wiki_revisionpluginrevision` WRITE;
+/*!40000 ALTER TABLE `wiki_revisionpluginrevision` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_revisionpluginrevision` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_simpleplugin`
+--
+
+DROP TABLE IF EXISTS `wiki_simpleplugin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_simpleplugin` (
+  `articleplugin_ptr_id` int NOT NULL,
+  `article_revision_id` int NOT NULL,
+  PRIMARY KEY (`articleplugin_ptr_id`),
+  KEY `wiki_simpleplugin_article_revision_id_cff7df92_fk_wiki_arti` (`article_revision_id`),
+  CONSTRAINT `wiki_simpleplugin_article_revision_id_cff7df92_fk_wiki_arti` FOREIGN KEY (`article_revision_id`) REFERENCES `wiki_articlerevision` (`id`),
+  CONSTRAINT `wiki_simpleplugin_articleplugin_ptr_id_2b99b828_fk_wiki_arti` FOREIGN KEY (`articleplugin_ptr_id`) REFERENCES `wiki_articleplugin` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_simpleplugin`
+--
+
+LOCK TABLES `wiki_simpleplugin` WRITE;
+/*!40000 ALTER TABLE `wiki_simpleplugin` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_simpleplugin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `wiki_urlpath`
+--
+
+DROP TABLE IF EXISTS `wiki_urlpath`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wiki_urlpath` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `lft` int unsigned NOT NULL,
+  `rght` int unsigned NOT NULL,
+  `tree_id` int unsigned NOT NULL,
+  `level` int unsigned NOT NULL,
+  `article_id` int NOT NULL,
+  `parent_id` int DEFAULT NULL,
+  `site_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `wiki_urlpath_site_id_parent_id_slug_e4942e5d_uniq` (`site_id`,`parent_id`,`slug`),
+  KEY `wiki_urlpath_article_id_9ef0c0fb_fk_wiki_article_id` (`article_id`),
+  KEY `wiki_urlpath_slug_39d212eb` (`slug`),
+  KEY `wiki_urlpath_tree_id_090b475d` (`tree_id`),
+  KEY `wiki_urlpath_parent_id_a6e675ac` (`parent_id`),
+  CONSTRAINT `wiki_urlpath_article_id_9ef0c0fb_fk_wiki_article_id` FOREIGN KEY (`article_id`) REFERENCES `wiki_article` (`id`),
+  CONSTRAINT `wiki_urlpath_parent_id_a6e675ac_fk_wiki_urlpath_id` FOREIGN KEY (`parent_id`) REFERENCES `wiki_urlpath` (`id`),
+  CONSTRAINT `wiki_urlpath_site_id_319be912_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`),
+  CONSTRAINT `wiki_urlpath_chk_1` CHECK ((`lft` >= 0)),
+  CONSTRAINT `wiki_urlpath_chk_2` CHECK ((`rght` >= 0)),
+  CONSTRAINT `wiki_urlpath_chk_3` CHECK ((`tree_id` >= 0)),
+  CONSTRAINT `wiki_urlpath_chk_4` CHECK ((`level` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wiki_urlpath`
+--
+
+LOCK TABLES `wiki_urlpath` WRITE;
+/*!40000 ALTER TABLE `wiki_urlpath` DISABLE KEYS */;
+/*!40000 ALTER TABLE `wiki_urlpath` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflow_assessmentworkflow`
+--
+
+DROP TABLE IF EXISTS `workflow_assessmentworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workflow_assessmentworkflow` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status_changed` datetime(6) NOT NULL,
+  `submission_uuid` varchar(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `item_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `submission_uuid` (`submission_uuid`),
+  UNIQUE KEY `uuid` (`uuid`),
+  KEY `workflow_assessmentworkflow_course_id_8c2d171b` (`course_id`),
+  KEY `workflow_assessmentworkflow_item_id_3ad0d291` (`item_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflow_assessmentworkflow`
+--
+
+LOCK TABLES `workflow_assessmentworkflow` WRITE;
+/*!40000 ALTER TABLE `workflow_assessmentworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `workflow_assessmentworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflow_assessmentworkflowcancellation`
+--
+
+DROP TABLE IF EXISTS `workflow_assessmentworkflowcancellation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workflow_assessmentworkflowcancellation` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `comments` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cancelled_by_id` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime(6) NOT NULL,
+  `workflow_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `workflow_assessmentw_workflow_id_5e534711_fk_workflow_` (`workflow_id`),
+  KEY `workflow_assessmentworkflowcancellation_cancelled_by_id_8467736a` (`cancelled_by_id`),
+  KEY `workflow_assessmentworkflowcancellation_created_at_9da54d83` (`created_at`),
+  CONSTRAINT `workflow_assessmentw_workflow_id_5e534711_fk_workflow_` FOREIGN KEY (`workflow_id`) REFERENCES `workflow_assessmentworkflow` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflow_assessmentworkflowcancellation`
+--
+
+LOCK TABLES `workflow_assessmentworkflowcancellation` WRITE;
+/*!40000 ALTER TABLE `workflow_assessmentworkflowcancellation` DISABLE KEYS */;
+/*!40000 ALTER TABLE `workflow_assessmentworkflowcancellation` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflow_assessmentworkflowstep`
+--
+
+DROP TABLE IF EXISTS `workflow_assessmentworkflowstep`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workflow_assessmentworkflowstep` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `submitter_completed_at` datetime(6) DEFAULT NULL,
+  `assessment_completed_at` datetime(6) DEFAULT NULL,
+  `order_num` int unsigned NOT NULL,
+  `workflow_id` int NOT NULL,
+  `skipped` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `workflow_assessmentw_workflow_id_fe52b4aa_fk_workflow_` (`workflow_id`),
+  CONSTRAINT `workflow_assessmentw_workflow_id_fe52b4aa_fk_workflow_` FOREIGN KEY (`workflow_id`) REFERENCES `workflow_assessmentworkflow` (`id`),
+  CONSTRAINT `workflow_assessmentworkflowstep_chk_1` CHECK ((`order_num` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflow_assessmentworkflowstep`
+--
+
+LOCK TABLES `workflow_assessmentworkflowstep` WRITE;
+/*!40000 ALTER TABLE `workflow_assessmentworkflowstep` DISABLE KEYS */;
+/*!40000 ALTER TABLE `workflow_assessmentworkflowstep` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `workflow_teamassessmentworkflow`
+--
+
+DROP TABLE IF EXISTS `workflow_teamassessmentworkflow`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `workflow_teamassessmentworkflow` (
+  `assessmentworkflow_ptr_id` int NOT NULL,
+  `team_submission_uuid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`assessmentworkflow_ptr_id`),
+  UNIQUE KEY `team_submission_uuid` (`team_submission_uuid`),
+  CONSTRAINT `workflow_teamassessm_assessmentworkflow_p_53110fc3_fk_workflow_` FOREIGN KEY (`assessmentworkflow_ptr_id`) REFERENCES `workflow_assessmentworkflow` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workflow_teamassessmentworkflow`
+--
+
+LOCK TABLES `workflow_teamassessmentworkflow` WRITE;
+/*!40000 ALTER TABLE `workflow_teamassessmentworkflow` DISABLE KEYS */;
+/*!40000 ALTER TABLE `workflow_teamassessmentworkflow` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `xapi_xapilearnerdatatransmissionaudit`
+--
+
+DROP TABLE IF EXISTS `xapi_xapilearnerdatatransmissionaudit`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `xapi_xapilearnerdatatransmissionaudit` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `enterprise_course_enrollment_id` int DEFAULT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `course_completed` tinyint(1) NOT NULL,
+  `completed_timestamp` datetime(6) DEFAULT NULL,
+  `grade` double DEFAULT NULL,
+  `status` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `error_message` longtext COLLATE utf8mb4_unicode_ci,
+  `user_id` int NOT NULL,
+  `enterprise_customer_uuid` char(32) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `instructor_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `plugin_configuration_id` int DEFAULT NULL,
+  `total_hours` double DEFAULT NULL,
+  `subsection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subsection_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `friendly_status_message` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `api_record_id` int DEFAULT NULL,
+  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `progress_status` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `xapi_xapilearnerdatatran_user_id_course_id_557488b4_uniq` (`user_id`,`course_id`),
+  UNIQUE KEY `api_record_id` (`api_record_id`),
+  KEY `xapi_xapilearnerdatatransmi_enterprise_course_enrollmen_0a180d75` (`enterprise_course_enrollment_id`),
+  KEY `xapi_xapilearnerdatatransmissionaudit_subsection_id_3dec030e` (`subsection_id`),
+  KEY `xapi_xldta_85936b55_idx` (`enterprise_customer_uuid`,`plugin_configuration_id`),
+  CONSTRAINT `xapi_xapilearnerdata_api_record_id_7a66c373_fk_integrate` FOREIGN KEY (`api_record_id`) REFERENCES `integrated_channel_apiresponserecord` (`id`),
+  CONSTRAINT `xapi_xapilearnerdata_user_id_6a49eb25_fk_auth_user` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xapi_xapilearnerdatatransmissionaudit`
+--
+
+LOCK TABLES `xapi_xapilearnerdatatransmissionaudit` WRITE;
+/*!40000 ALTER TABLE `xapi_xapilearnerdatatransmissionaudit` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xapi_xapilearnerdatatransmissionaudit` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `xapi_xapilrsconfiguration`
+--
+
+DROP TABLE IF EXISTS `xapi_xapilrsconfiguration`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `xapi_xapilrsconfiguration` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `version` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endpoint` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `enterprise_customer_id` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `enterprise_customer_id` (`enterprise_customer_id`),
+  CONSTRAINT `xapi_xapilrsconfigur_enterprise_customer__90c03ad5_fk_enterpris` FOREIGN KEY (`enterprise_customer_id`) REFERENCES `enterprise_enterprisecustomer` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xapi_xapilrsconfiguration`
+--
+
+LOCK TABLES `xapi_xapilrsconfiguration` WRITE;
+/*!40000 ALTER TABLE `xapi_xapilrsconfiguration` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xapi_xapilrsconfiguration` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `xblock_config_courseeditltifieldsenabledflag`
+--
+
+DROP TABLE IF EXISTS `xblock_config_courseeditltifieldsenabledflag`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `xblock_config_courseeditltifieldsenabledflag` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `xblock_config_course_changed_by_id_09761e15_fk_auth_user` (`changed_by_id`),
+  KEY `xblock_config_courseeditltifieldsenabledflag_course_id_4f2393b4` (`course_id`),
+  CONSTRAINT `xblock_config_course_changed_by_id_09761e15_fk_auth_user` FOREIGN KEY (`changed_by_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `xblock_config_courseeditltifieldsenabledflag`
+--
+
+LOCK TABLES `xblock_config_courseeditltifieldsenabledflag` WRITE;
+/*!40000 ALTER TABLE `xblock_config_courseeditltifieldsenabledflag` DISABLE KEYS */;
+/*!40000 ALTER TABLE `xblock_config_courseeditltifieldsenabledflag` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `xblock_config_studioconfig`
+--
+
+DROP TABLE IF EXISTS `xblock_config_studioconfig`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `xblock_config_studioconfig` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `change_date` datetime(6) NOT NULL,
+  `enabled` tinyint(1) NOT NULL,
+  `disabled_blocks` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `changed_by_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `xblock_config_studio_changed_by_id_8e87ad07_fk_auth_user` (`changed_by_id`),
+  CONSTRAINT `xblock_config_studio_changed_by_id_8e87ad07_fk_auth_user` FOREIGN KEY (`changed_by_i
