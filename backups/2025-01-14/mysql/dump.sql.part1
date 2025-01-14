@@ -1,0 +1,317 @@
+-- MySQL dump 10.13  Distrib 8.4.0, for Linux (x86_64)
+--
+-- Host: localhost    Database: 
+-- ------------------------------------------------------
+-- Server version	8.4.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8mb4 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!50606 SET @OLD_INNODB_STATS_AUTO_RECALC=@@INNODB_STATS_AUTO_RECALC */;
+/*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=OFF */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Current Database: `mysql`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `mysql` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `mysql`;
+
+--
+-- Table structure for table `columns_priv`
+--
+
+DROP TABLE IF EXISTS `columns_priv`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `columns_priv` (
+  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+  `Db` char(64) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `User` char(32) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `Table_name` char(64) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `Column_name` char(64) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `Column_priv` set('Select','Insert','Update','References') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`Host`,`User`,`Db`,`Table_name`,`Column_name`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Column privileges';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `columns_priv`
+--
+
+LOCK TABLES `columns_priv` WRITE;
+/*!40000 ALTER TABLE `columns_priv` DISABLE KEYS */;
+/*!40000 ALTER TABLE `columns_priv` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `component`
+--
+
+DROP TABLE IF EXISTS `component`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `component` (
+  `component_id` int unsigned NOT NULL AUTO_INCREMENT,
+  `component_group_id` int unsigned NOT NULL,
+  `component_urn` text NOT NULL,
+  PRIMARY KEY (`component_id`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC COMMENT='Components';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `component`
+--
+
+LOCK TABLES `component` WRITE;
+/*!40000 ALTER TABLE `component` DISABLE KEYS */;
+/*!40000 ALTER TABLE `component` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `db`
+--
+
+DROP TABLE IF EXISTS `db`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `db` (
+  `Host` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+  `Db` char(64) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `User` char(32) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `Select_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Insert_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Update_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Delete_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Create_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Drop_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Grant_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `References_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Index_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Alter_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Create_tmp_table_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Lock_tables_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Create_view_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Show_view_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Create_routine_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Alter_routine_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Execute_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Event_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  `Trigger_priv` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`Host`,`User`,`Db`),
+  KEY `User` (`User`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Database privileges';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `db`
+--
+
+LOCK TABLES `db` WRITE;
+/*!40000 ALTER TABLE `db` DISABLE KEYS */;
+INSERT INTO `db` VALUES ('%','openedx','openedx','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'),('%','superset','superset','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'),('localhost','performance_schema','mysql.session','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N'),('localhost','sys','mysql.sys','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','Y');
+/*!40000 ALTER TABLE `db` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `default_roles`
+--
+
+DROP TABLE IF EXISTS `default_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `default_roles` (
+  `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+  `USER` char(32) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `DEFAULT_ROLE_HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '%',
+  `DEFAULT_ROLE_USER` char(32) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`HOST`,`USER`,`DEFAULT_ROLE_HOST`,`DEFAULT_ROLE_USER`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Default roles';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `default_roles`
+--
+
+LOCK TABLES `default_roles` WRITE;
+/*!40000 ALTER TABLE `default_roles` DISABLE KEYS */;
+/*!40000 ALTER TABLE `default_roles` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `engine_cost`
+--
+
+DROP TABLE IF EXISTS `engine_cost`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `engine_cost` (
+  `engine_name` varchar(64) NOT NULL,
+  `device_type` int NOT NULL,
+  `cost_name` varchar(64) NOT NULL,
+  `cost_value` float DEFAULT NULL,
+  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `comment` varchar(1024) DEFAULT NULL,
+  `default_value` float GENERATED ALWAYS AS ((case `cost_name` when _utf8mb3'io_block_read_cost' then 1.0 when _utf8mb3'memory_block_read_cost' then 0.25 else NULL end)) VIRTUAL,
+  PRIMARY KEY (`cost_name`,`engine_name`,`device_type`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `engine_cost`
+--
+
+LOCK TABLES `engine_cost` WRITE;
+/*!40000 ALTER TABLE `engine_cost` DISABLE KEYS */;
+INSERT INTO `engine_cost` (`engine_name`, `device_type`, `cost_name`, `cost_value`, `last_update`, `comment`) VALUES ('default',0,'io_block_read_cost',NULL,'2025-01-10 06:15:50',NULL),('default',0,'memory_block_read_cost',NULL,'2025-01-10 06:15:50',NULL);
+/*!40000 ALTER TABLE `engine_cost` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `func`
+--
+
+DROP TABLE IF EXISTS `func`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `func` (
+  `name` char(64) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `ret` tinyint NOT NULL DEFAULT '0',
+  `dl` char(128) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `type` enum('function','aggregate') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  PRIMARY KEY (`name`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='User defined functions';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `func`
+--
+
+LOCK TABLES `func` WRITE;
+/*!40000 ALTER TABLE `func` DISABLE KEYS */;
+/*!40000 ALTER TABLE `func` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `global_grants`
+--
+
+DROP TABLE IF EXISTS `global_grants`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `global_grants` (
+  `USER` char(32) COLLATE utf8mb3_bin NOT NULL DEFAULT '',
+  `HOST` char(255) CHARACTER SET ascii COLLATE ascii_general_ci NOT NULL DEFAULT '',
+  `PRIV` char(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT '',
+  `WITH_GRANT_OPTION` enum('N','Y') CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL DEFAULT 'N',
+  PRIMARY KEY (`USER`,`HOST`,`PRIV`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='Extended global grants';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `global_grants`
+--
+
+LOCK TABLES `global_grants` WRITE;
+/*!40000 ALTER TABLE `global_grants` DISABLE KEYS */;
+INSERT INTO `global_grants` VALUES ('mysql.infoschema','localhost','AUDIT_ABORT_EXEMPT','N'),('mysql.infoschema','localhost','FIREWALL_EXEMPT','N'),('mysql.infoschema','localhost','SYSTEM_USER','N'),('mysql.session','localhost','AUDIT_ABORT_EXEMPT','N'),('mysql.session','localhost','AUTHENTICATION_POLICY_ADMIN','N'),('mysql.session','localhost','BACKUP_ADMIN','N'),('mysql.session','localhost','CLONE_ADMIN','N'),('mysql.session','localhost','CONNECTION_ADMIN','N'),('mysql.session','localhost','FIREWALL_EXEMPT','N'),('mysql.session','localhost','PERSIST_RO_VARIABLES_ADMIN','N'),('mysql.session','localhost','SESSION_VARIABLES_ADMIN','N'),('mysql.session','localhost','SYSTEM_USER','N'),('mysql.session','localhost','SYSTEM_VARIABLES_ADMIN','N'),('mysql.sys','localhost','AUDIT_ABORT_EXEMPT','N'),('mysql.sys','localhost','FIREWALL_EXEMPT','N'),('mysql.sys','localhost','SYSTEM_USER','N'),('root','%','ALLOW_NONEXISTENT_DEFINER','Y'),('root','%','APPLICATION_PASSWORD_ADMIN','Y'),('root','%','AUDIT_ABORT_EXEMPT','Y'),('root','%','AUDIT_ADMIN','Y'),('root','%','AUTHENTICATION_POLICY_ADMIN','Y'),('root','%','BACKUP_ADMIN','Y'),('root','%','BINLOG_ADMIN','Y'),('root','%','BINLOG_ENCRYPTION_ADMIN','Y'),('root','%','CLONE_ADMIN','Y'),('root','%','CONNECTION_ADMIN','Y'),('root','%','ENCRYPTION_KEY_ADMIN','Y'),('root','%','FIREWALL_EXEMPT','Y'),('root','%','FLUSH_OPTIMIZER_COSTS','Y'),('root','%','FLUSH_PRIVILEGES','Y'),('root','%','FLUSH_STATUS','Y'),('root','%','FLUSH_TABLES','Y'),('root','%','FLUSH_USER_RESOURCES','Y'),('root','%','GROUP_REPLICATION_ADMIN','Y'),('root','%','GROUP_REPLICATION_STREAM','Y'),('root','%','INNODB_REDO_LOG_ARCHIVE','Y'),('root','%','INNODB_REDO_LOG_ENABLE','Y'),('root','%','OPTIMIZE_LOCAL_TABLE','Y'),('root','%','PASSWORDLESS_USER_ADMIN','Y'),('root','%','PERSIST_RO_VARIABLES_ADMIN','Y'),('root','%','REPLICATION_APPLIER','Y'),('root','%','REPLICATION_SLAVE_ADMIN','Y'),('root','%','RESOURCE_GROUP_ADMIN','Y'),('root','%','RESOURCE_GROUP_USER','Y'),('root','%','ROLE_ADMIN','Y'),('root','%','SENSITIVE_VARIABLES_OBSERVER','Y'),('root','%','SERVICE_CONNECTION_ADMIN','Y'),('root','%','SESSION_VARIABLES_ADMIN','Y'),('root','%','SET_ANY_DEFINER','Y'),('root','%','SHOW_ROUTINE','Y'),('root','%','SYSTEM_USER','Y'),('root','%','SYSTEM_VARIABLES_ADMIN','Y'),('root','%','TABLE_ENCRYPTION_ADMIN','Y'),('root','%','TELEMETRY_LOG_ADMIN','Y'),('root','%','TRANSACTION_GTID_TAG','Y'),('root','%','XA_RECOVER_ADMIN','Y'),('root','localhost','ALLOW_NONEXISTENT_DEFINER','Y'),('root','localhost','APPLICATION_PASSWORD_ADMIN','Y'),('root','localhost','AUDIT_ABORT_EXEMPT','Y'),('root','localhost','AUDIT_ADMIN','Y'),('root','localhost','AUTHENTICATION_POLICY_ADMIN','Y'),('root','localhost','BACKUP_ADMIN','Y'),('root','localhost','BINLOG_ADMIN','Y'),('root','localhost','BINLOG_ENCRYPTION_ADMIN','Y'),('root','localhost','CLONE_ADMIN','Y'),('root','localhost','CONNECTION_ADMIN','Y'),('root','localhost','ENCRYPTION_KEY_ADMIN','Y'),('root','localhost','FIREWALL_EXEMPT','Y'),('root','localhost','FLUSH_OPTIMIZER_COSTS','Y'),('root','localhost','FLUSH_PRIVILEGES','Y'),('root','localhost','FLUSH_STATUS','Y'),('root','localhost','FLUSH_TABLES','Y'),('root','localhost','FLUSH_USER_RESOURCES','Y'),('root','localhost','GROUP_REPLICATION_ADMIN','Y'),('root','localhost','GROUP_REPLICATION_STREAM','Y'),('root','localhost','INNODB_REDO_LOG_ARCHIVE','Y'),('root','localhost','INNODB_REDO_LOG_ENABLE','Y'),('root','localhost','OPTIMIZE_LOCAL_TABLE','Y'),('root','localhost','PASSWORDLESS_USER_ADMIN','Y'),('root','localhost','PERSIST_RO_VARIABLES_ADMIN','Y'),('root','localhost','REPLICATION_APPLIER','Y'),('root','localhost','REPLICATION_SLAVE_ADMIN','Y'),('root','localhost','RESOURCE_GROUP_ADMIN','Y'),('root','localhost','RESOURCE_GROUP_USER','Y'),('root','localhost','ROLE_ADMIN','Y'),('root','localhost','SENSITIVE_VARIABLES_OBSERVER','Y'),('root','localhost','SERVICE_CONNECTION_ADMIN','Y'),('root','localhost','SESSION_VARIABLES_ADMIN','Y'),('root','localhost','SET_ANY_DEFINER','Y'),('root','localhost','SHOW_ROUTINE','Y'),('root','localhost','SYSTEM_USER','Y'),('root','localhost','SYSTEM_VARIABLES_ADMIN','Y'),('root','localhost','TABLE_ENCRYPTION_ADMIN','Y'),('root','localhost','TELEMETRY_LOG_ADMIN','Y'),('root','localhost','TRANSACTION_GTID_TAG','Y'),('root','localhost','XA_RECOVER_ADMIN','Y');
+/*!40000 ALTER TABLE `global_grants` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `gtid_executed`
+--
+
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE IF NOT EXISTS `gtid_executed` (
+  `source_uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'uuid of the source where the transaction was originally executed.',
+  `interval_start` bigint NOT NULL COMMENT 'First number of interval.',
+  `interval_end` bigint NOT NULL COMMENT 'Last number of interval.',
+  `gtid_tag` char(32) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'GTID Tag.',
+  PRIMARY KEY (`source_uuid`,`gtid_tag`,`interval_start`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `help_category`
+--
+
+DROP TABLE IF EXISTS `help_category`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `help_category` (
+  `help_category_id` smallint unsigned NOT NULL,
+  `name` char(64) NOT NULL,
+  `parent_category_id` smallint unsigned DEFAULT NULL,
+  `url` text NOT NULL,
+  PRIMARY KEY (`help_category_id`),
+  UNIQUE KEY `name` (`name`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='help categories';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `help_category`
+--
+
+LOCK TABLES `help_category` WRITE;
+/*!40000 ALTER TABLE `help_category` DISABLE KEYS */;
+INSERT INTO `help_category` VALUES (0,'Contents',0,''),(1,'Help Metadata',0,''),(2,'Data Types',0,''),(3,'Administration',0,''),(4,'Functions',0,''),(5,'Enterprise Encryption Functions',4,''),(6,'Language Structure',0,''),(7,'Geographic Features',0,''),(8,'MBR',7,''),(9,'WKT',7,''),(10,'Comparison Operators',4,''),(11,'Logical Operators',4,''),(12,'Flow Control Functions',4,''),(13,'Numeric Functions',4,''),(14,'Date and Time Functions',4,''),(15,'String Functions',4,''),(16,'Cast Functions and Operators',4,''),(17,'XML',4,''),(18,'Bit Functions',4,''),(19,'Encryption Functions',4,''),(20,'Locking Functions',4,''),(21,'Information Functions',4,''),(22,'Spatial Functions',4,''),(23,'WKT Functions',22,''),(24,'WKB Functions',22,''),(25,'Geometry Constructors',22,''),(26,'Geometry Property Functions',22,''),(27,'Point Property Functions',22,''),(28,'LineString Property Functions',22,''),(29,'Polygon Property Functions',22,''),(30,'GeometryCollection Property Functions',22,''),(31,'Geometry Relation Functions',22,''),(32,'MBR Functions',22,''),(33,'GTID',4,''),(34,'Aggregate Functions and Modifiers',4,''),(35,'GROUP BY Functions and Modifiers',4,''),(36,'Window Functions',4,''),(37,'Performance Schema Functions',4,''),(38,'Internal Functions',4,''),(39,'Miscellaneous Functions',4,''),(40,'Data Definition',0,''),(41,'Data Manipulation',0,''),(42,'Transactions',0,''),(43,'Replication Statements',0,''),(44,'Prepared Statements',0,''),(45,'Compound Statements',0,''),(46,'Account Management',0,''),(47,'Table Maintenance',0,''),(48,'Loadable Functions',0,''),(49,'Components',0,''),(50,'Plugins',0,''),(51,'Utility',0,''),(52,'Storage Engines',0,'');
+/*!40000 ALTER TABLE `help_category` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `help_keyword`
+--
+
+DROP TABLE IF EXISTS `help_keyword`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `help_keyword` (
+  `help_keyword_id` int unsigned NOT NULL,
+  `name` char(64) NOT NULL,
+  PRIMARY KEY (`help_keyword_id`),
+  UNIQUE KEY `name` (`name`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='help keywords';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `help_keyword`
+--
+
+LOCK TABLES `help_keyword` WRITE;
+/*!40000 ALTER TABLE `help_keyword` DISABLE KEYS */;
+INSERT INTO `help_keyword` VALUES (108,'%'),(264,'&'),(422,'(JSON'),(86,'*'),(84,'+'),(85,'-'),(423,'->'),(425,'->>'),(87,'/'),(75,':='),(59,'<'),(266,'<<'),(58,'<='),(56,'<=>'),(57,'<>'),(55,'='),(61,'>'),(60,'>='),(267,'>>'),(90,'ABS'),(858,'ACCOUNT'),(91,'ACOS'),(659,'ACTION'),(49,'ADD'),(120,'ADDDATE'),(121,'ADDTIME'),(892,'ADMIN'),(270,'AES_DECRYPT'),(271,'AES_ENCRYPT'),(581,'AFTER'),(247,'AGAINST'),(913,'AGGREGATE'),(582,'ALGORITHM'),(695,'ALL'),(50,'ALTER'),(583,'ANALYZE'),(62,'AND'),(527,'ANY_VALUE'),(660,'ARCHIVE'),(254,'ARRAY'),(724,'AS'),(465,'ASC'),(185,'ASCII'),(92,'ASIN'),(786,'ASSIGN_GTIDS_TO_ANONYMOUS_TRANSACTIONS'),(6,'ASYMMETRIC_DECRYPT'),(13,'ASYMMETRIC_DERIVE'),(7,'ASYMMETRIC_ENCRYPT'),(8,'ASYMMETRIC_SIGN'),(9,'ASYMMETRIC_VERIFY'),(643,'AT'),(93,'ATAN'),(94,'ATAN2'),(859,'ATTRIBUTE'),(890,'AUTHENTICATION'),(745,'AUTOCOMMIT'),(584,'AUTOEXTEND_SIZE'),(585,'AUTO_INCREMENT'),(459,'AVG'),(586,'AVG_ROW_LENGTH'),(757,'BACKUP'),(771,'BEFORE'),(746,'BEGIN'),(288,'BENCHMARK'),(63,'BETWEEN'),(186,'BIN'),(253,'BINARY'),(563,'BINLOG'),(528,'BIN_TO_UUID'),(461,'BIT_AND'),(269,'BIT_COUNT'),(187,'BIT_LENGTH'),(462,'BIT_OR'),(463,'BIT_XOR'),(17,'BOOL'),(18,'BOOLEAN'),(230,'BOTH'),(647,'BTREE'),(466,'BY'),(42,'BYTE'),(949,'CACHE'),(689,'CALL'),(498,'CAN_ACCESS_COLUMN'),(499,'CAN_ACCESS_DATABASE'),(500,'CAN_ACCESS_TABLE'),(501,'CAN_ACCESS_USER'),(502,'CAN_ACCESS_VIEW'),(661,'CASCADE'),(76,'CASE'),(255,'CAST'),(839,'CATALOG_NAME'),(95,'CEIL'),(96,'CEILING'),(747,'CHAIN'),(860,'CHALLENGE_RESPONSE'),(587,'CHANGE'),(564,'CHANNEL'),(43,'CHAR'),(39,'CHARACTER'),(189,'CHARACTER_LENGTH'),(289,'CHARSET'),(188,'CHAR_LENGTH'),(588,'CHECK'),(589,'CHECKSUM'),(861,'CIPHER'),(840,'CLASS_ORIGIN'),(893,'CLIENT'),(921,'CLONE'),(697,'CLOSE'),(65,'COALESCE'),(942,'CODE'),(290,'COERCIBILITY'),(545,'COLLATE'),(291,'COLLATION'),(590,'COLUMN'),(591,'COLUMNS'),(841,'COLUMN_NAME'),(550,'COMMENT'),(748,'COMMIT'),(760,'COMMITTED'),(662,'COMPACT'),(551,'COMPLETION'),(917,'COMPONENT'),(272,'COMPRESS'),(663,'COMPRESSED'),(592,'COMPRESSION'),(190,'CONCAT'),(191,'CONCAT_WS'),(711,'CONCURRENT'),(836,'CONDITION'),(593,'CONNECTION'),(292,'CONNECTION_ID'),(749,'CONSISTENT'),(594,'CONSTRAINT'),(842,'CONSTRAINT_CATALOG'),(843,'CONSTRAINT_NAME'),(844,'CONSTRAINT_SCHEMA'),(837,'CONTINUE'),(97,'CONV'),(260,'CONVERT'),(122,'CONVERT_TZ'),(98,'COS'),(99,'COT'),(464,'COUNT'),(100,'CRC32'),(51,'CREATE'),(10,'CREATE_ASYMMETRIC_PRIV_KEY'),(11,'CREATE_ASYMMETRIC_PUB_KEY'),(14,'CREATE_DH_PARAMETERS'),(12,'CREATE_DIGEST'),(740,'CROSS'),(664,'CSV'),(483,'CUME_DIST'),(123,'CURDATE'),(862,'CURRENT'),(124,'CURRENT_DATE'),(293,'CURRENT_ROLE'),(125,'CURRENT_TIME'),(126,'CURRENT_TIMESTAMP'),(294,'CURRENT_USER'),(834,'CURSOR'),(845,'CURSOR_NAME'),(127,'CURTIME'),(595,'DATA'),(295,'DATABASE'),(926,'DATABASES'),(636,'DATAFILE'),(36,'DATE'),(128,'DATEDIFF'),(256,'DATETIME'),(129,'DATE_ADD'),(144,'DATE_FORMAT'),(130,'DATE_SUB'),(131,'DAY'),(145,'DAYNAME'),(146,'DAYOFMONTH'),(147,'DAYOFWEEK'),(148,'DAYOFYEAR'),(132,'DAY_HOUR'),(133,'DAY_MINUTE'),(134,'DAY_SECOND'),(825,'DEALLOCATE'),(28,'DEC'),(31,'DECIMAL'),(826,'DECLARE'),(2,'DEFAULT'),(816,'DEFAULT_AUTH'),(552,'DEFINER'),(653,'DEFINITION'),(101,'DEGREES'),(703,'DELAYED'),(596,'DELAY_KEY_WRITE'),(665,'DELETE'),(484,'DENSE_RANK'),(467,'DESC'),(960,'DESCRIBE'),(654,'DESCRIPTION'),(846,'DIAGNOSTICS'),(597,'DIRECTORY'),(553,'DISABLE'),(598,'DISCARD'),(460,'DISTINCT'),(725,'DISTINCTROW'),(88,'DIV'),(554,'DO'),(599,'DROP'),(739,'DUAL'),(726,'DUMPFILE'),(704,'DUPLICATE'),(666,'DYNAMIC'),(77,'ELSE'),(827,'ELSEIF'),(192,'ELT'),(555,'ENABLE'),(712,'ENCLOSED'),(546,'ENCRYPTION'),(78,'END'),(644,'ENDS'),(600,'ENGINE'),(927,'ENGINES'),(565,'ERROR'),(928,'ERRORS'),(239,'ESCAPE'),(713,'ESCAPED'),(556,'EVENT'),(940,'EVENTS'),(645,'EVERY'),(696,'EXCEPT'),(601,'EXCHANGE'),(824,'EXECUTE'),(642,'EXISTS'),(838,'EXIT'),(102,'EXP'),(248,'EXPANSION'),(863,'EXPIRE'),(961,'EXPLAIN'),(950,'EXPORT'),(193,'EXPORT_SET'),(911,'EXTENDED'),(682,'EXTENT_SIZE'),(149,'EXTRACT'),(424,'EXTRACTION)'),(261,'EXTRACTVALUE'),(864,'FACTOR'),(865,'FAILED_LOGIN_ATTEMPTS'),(15,'FALSE'),(909,'FAST'),(667,'FEDERATED'),(835,'FETCH'),(194,'FIELD'),(714,'FIELDS'),(894,'FILE'),(683,'FILE_BLOCK_SIZE'),(777,'FILTER'),(195,'FIND_IN_SET'),(866,'FINISH'),(602,'FIRST'),(485,'FIRST_VALUE'),(29,'FIXED'),(32,'FLOAT4'),(33,'FLOAT8'),(103,'FLOOR'),(951,'FLUSH'),(566,'FOR'),(741,'FORCE'),(603,'FOREIGN'),(196,'FORMAT'),(494,'FORMAT_BYTES'),(495,'FORMAT_PICO_TIME'),(296,'FOUND_ROWS'),(231,'FROM'),(197,'FROM_BASE64'),(150,'FROM_DAYS'),(151,'FROM_UNIXTIME'),(668,'FULL'),(604,'FULLTEXT'),(169,'FUNCTION'),(952,'GENERAL'),(336,'GEOMCOLLECTION'),(337,'GEOMETRYCOLLECTION'),(847,'GET'),(503,'GET_DD_COLUMN_PRIVILEGES'),(504,'GET_DD_CREATE_OPTIONS'),(505,'GET_DD_INDEX_SUB_PART_LENGTH'),(152,'GET_FORMAT'),(283,'GET_LOCK'),(761,'GLOBAL'),(895,'GRANT'),(929,'GRANTS'),(66,'GREATEST'),(576,'GROUP'),(529,'GROUPING'),(468,'GROUP_CONCAT'),(774,'GTIDS'),(454,'GTID_SUBSET'),(455,'GTID_SUBTRACT'),(698,'HANDLER'),(727,'HAVING'),(669,'HEAP'),(5,'HELP'),(0,'HELP_DATE'),(1,'HELP_VERSION'),(198,'HEX'),(705,'HIGH_PRIORITY'),(867,'HISTORY'),(648,'HOST'),(930,'HOSTS'),(135,'HOUR'),(136,'HOUR_MINUTE'),(137,'HOUR_SECOND'),(297,'ICU_VERSION'),(722,'IDENTIFIED'),(81,'IF'),(82,'IFNULL'),(706,'IGNORE'),(787,'IGNORE_SERVER_IDS'),(605,'IMPORT'),(67,'IN'),(52,'INDEX'),(931,'INDEXES'),(532,'INET6_ATON'),(533,'INET6_NTOA'),(530,'INET_ATON'),(531,'INET_NTOA'),(715,'INFILE'),(891,'INITIAL'),(637,'INITIAL_SIZE'),(868,'INITIATE'),(426,'INLINE'),(742,'INNER'),(567,'INNODB'),(199,'INSERT'),(606,'INSERT_METHOD'),(918,'INSTALL'),(568,'INSTANCE'),(200,'INSTR'),(19,'INT1'),(22,'INT2'),(23,'INT3'),(25,'INT4'),(27,'INT8'),(26,'INTEGER'),(506,'INTERNAL_AUTO_INCREMENT'),(507,'INTERNAL_AVG_ROW_LENGTH'),(509,'INTERNAL_CHECKSUM'),(508,'INTERNAL_CHECK_TIME'),(510,'INTERNAL_DATA_FREE'),(511,'INTERNAL_DATA_LENGTH'),(512,'INTERNAL_DD_CHAR_LENGTH'),(513,'INTERNAL_GET_COMMENT_OR_ERROR'),(514,'INTERNAL_GET_ENABLED_ROLE_JSON'),(515,'INTERNAL_GET_HOSTNAME'),(516,'INTERNAL_GET_USERNAME'),(517,'INTERNAL_GET_VIEW_WARNING_OR_ERROR'),(518,'INTERNAL_INDEX_COLUMN_CARDINALITY'),(519,'INTERNAL_INDEX_LENGTH'),(520,'INTERNAL_IS_ENABLED_ROLE'),(521,'INTERNAL_IS_MANDATORY_ROLE'),(522,'INTERNAL_KEYS_DISABLED'),(523,'INTERNAL_MAX_DATA_LENGTH'),(524,'INTERNAL_TABLE_ROWS'),(525,'INTERNAL_UPDATE_TIME'),(710,'INTERSECT'),(68,'INTERVAL'),(707,'INTO'),(607,'INVISIBLE'),(817,'IO_THREAD'),(69,'IS'),(71,'ISNULL'),(762,'ISOLATION'),(869,'ISSUER'),(284,'IS_FREE_LOCK'),(534,'IS_IPV4'),(535,'IS_IPV4_COMPAT'),(536,'IS_IPV4_MAPPED'),(537,'IS_IPV6'),(285,'IS_USED_LOCK'),(538,'IS_UUID'),(526,'IS_VISIBLE_DD_OBJECT'),(828,'ITERATE'),(728,'JOIN'),(257,'JSON'),(416,'JSON_ARRAY'),(471,'JSON_ARRAYAGG'),(434,'JSON_ARRAY_APPEND'),(435,'JSON_ARRAY_INSERT'),(419,'JSON_CONTAINS'),(420,'JSON_CONTAINS_PATH'),(444,'JSON_DEPTH'),(421,'JSON_EXTRACT'),(436,'JSON_INSERT'),(428,'JSON_KEYS'),(445,'JSON_LENGTH'),(437,'JSON_MERGE'),(438,'JSON_MERGE_PATCH'),(439,'JSON_MERGE_PRESERVE'),(417,'JSON_OBJECT'),(472,'JSON_OBJECTAGG'),(429,'JSON_OVERLAPS'),(451,'JSON_PRETTY'),(418,'JSON_QUOTE'),(440,'JSON_REMOVE'),(441,'JSON_REPLACE'),(449,'JSON_SCHEMA_VALID'),(450,'JSON_SCHEMA_VALIDATION_REPORT'),(430,'JSON_SEARCH'),(442,'JSON_SET'),(452,'JSON_STORAGE_FREE'),(453,'JSON_STORAGE_SIZE'),(448,'JSON_TABLE'),(446,'JSON_TYPE'),(443,'JSON_UNQUOTE'),(447,'JSON_VALID'),(431,'JSON_VALUE'),(53,'KEY'),(569,'KEYRING'),(608,'KEYS'),(609,'KEY_BLOCK_SIZE'),(957,'KILL'),(486,'LAG'),(699,'LAST'),(153,'LAST_DAY'),(298,'LAST_INSERT_ID'),(487,'LAST_VALUE'),(201,'LCASE'),(488,'LEAD'),(232,'LEADING'),(72,'LEAST'),(829,'LEAVE'),(958,'LEAVES'),(202,'LEFT'),(203,'LENGTH'),(763,'LEVEL'),(223,'LIKE'),(690,'LIMIT'),(716,'LINES'),(338,'LINESTRING'),(104,'LN'),(717,'LOAD'),(204,'LOAD_FILE'),(718,'LOCAL'),(154,'LOCALTIME'),(155,'LOCALTIMESTAMP'),(205,'LOCATE'),(610,'LOCK'),(105,'LOG'),(107,'LOG10'),(106,'LOG2'),(577,'LOGFILE'),(772,'LOGS'),(47,'LONG'),(48,'LONGBINARY'),(830,'LOOP'),(206,'LOWER'),(691,'LOW_PRIORITY'),(207,'LPAD'),(208,'LTRIM'),(156,'MAKEDATE'),(157,'MAKETIME'),(209,'MAKE_SET'),(570,'MASTER'),(457,'MASTER_POS_WAIT'),(249,'MATCH'),(473,'MAX'),(870,'MAX_CONNECTIONS_PER_HOUR'),(871,'MAX_QUERIES_PER_HOUR'),(611,'MAX_ROWS'),(684,'MAX_SIZE'),(872,'MAX_UPDATES_PER_HOUR'),(873,'MAX_USER_CONNECTIONS'),(395,'MBRCONTAINS'),(396,'MBRCOVEREDBY'),(397,'MBRCOVERS'),(398,'MBRDISJOINT'),(399,'MBREQUALS'),(400,'MBRINTERSECTS'),(401,'MBROVERLAPS'),(402,'MBRTOUCHES'),(403,'MBRWITHIN'),(273,'MD5'),(910,'MEDIUM'),(432,'MEMBER'),(729,'MEMORY'),(670,'MERGE'),(848,'MESSAGE_TEXT'),(158,'MICROSECOND'),(210,'MID'),(24,'MIDDLEINT'),(474,'MIN'),(138,'MINUTE'),(139,'MINUTE_SECOND'),(612,'MIN_ROWS'),(89,'MOD'),(250,'MODE'),(613,'MODIFY'),(140,'MONTH'),(159,'MONTHNAME'),(671,'MRG_MYISAM'),(339,'MULTILINESTRING'),(340,'MULTIPOINT'),(341,'MULTIPOLYGON'),(932,'MUTEX'),(672,'MYISAM'),(849,'MYSQL_ERRNO'),(655,'NAME'),(925,'NAMES'),(539,'NAME_CONST'),(40,'NATIONAL'),(743,'NATURAL'),(41,'NCHAR'),(673,'NDB'),(674,'NDBCLUSTER'),(788,'NETWORK_NAMESPACE'),(874,'NEVER'),(700,'NEXT'),(571,'NO'),(685,'NODEGROUP'),(875,'NONE'),(64,'NOT'),(160,'NOW'),(908,'NO_WRITE_TO_BINLOG'),(489,'NTH_VALUE'),(490,'NTILE'),(70,'NULL'),(83,'NULLIF'),(850,'NUMBER'),(30,'NUMERIC'),(44,'NVARCHAR'),(211,'OCT'),(212,'OCTET_LENGTH'),(433,'OF'),(730,'OFFSET'),(876,'OLD'),(557,'ON'),(547,'ONLY'),(701,'OPEN'),(614,'OPTIMIZE'),(953,'OPTIMIZER_COSTS'),(896,'OPTION'),(877,'OPTIONAL'),(719,'OPTIONALLY'),(579,'OPTIONS'),(73,'OR'),(213,'ORD'),(469,'ORDER'),(656,'ORGANIZATION'),(744,'OUTER'),(731,'OUTFILE'),(649,'OWNER'),(615,'PACK_KEYS'),(616,'PARSER'),(943,'PARSE_TREE'),(675,'PARTIAL'),(617,'PARTITION'),(618,'PARTITIONING'),(619,'PASSWORD'),(878,'PASSWORD_LOCK_TIME'),(427,'PATH)'),(491,'PERCENT_RANK'),(161,'PERIOD_ADD'),(162,'PERIOD_DIFF'),(922,'PERSIST'),(923,'PERSIST_ONLY'),(109,'PI'),(919,'PLUGIN'),(944,'PLUGINS'),(818,'PLUGIN_DIR'),(342,'POINT'),(343,'POLYGON'),(650,'PORT'),(214,'POSITION'),(110,'POW'),(111,'POWER'),(34,'PRECISION'),(768,'PREPARE'),(558,'PRESERVE'),(702,'PREV'),(620,'PRIMARY'),(897,'PRIVILEGES'),(789,'PRIVILEGE_CHECKS_USER'),(578,'PROCEDURE'),(898,'PROCESS'),(933,'PROCESSLIST'),(945,'PROFILE'),(946,'PROFILES'),(902,'PROXY'),(496,'PS_CURRENT_THREAD_ID'),(497,'PS_THREAD_ID'),(773,'PURGE'),(163,'QUARTER'),(251,'QUERY'),(692,'QUICK'),(215,'QUOTE'),(112,'RADIANS'),(113,'RAND'),(879,'RANDOM'),(274,'RANDOM_BYTES'),(492,'RANK'),(548,'READ'),(35,'REAL'),(621,'REBUILD'),(769,'RECOVER'),(572,'REDO_LOG'),(676,'REDUNDANT'),(657,'REFERENCE'),(677,'REFERENCES'),(241,'REGEXP'),(243,'REGEXP_INSTR'),(244,'REGEXP_LIKE'),(245,'REGEXP_REPLACE'),(246,'REGEXP_SUBSTR'),(880,'REGISTRATION'),(954,'RELAY'),(947,'RELAYLOG'),(790,'RELAY_LOG_FILE'),(791,'RELAY_LOG_POS'),(750,'RELEASE'),(286,'RELEASE_ALL_LOCKS'),(287,'RELEASE_LOCK'),(573,'RELOAD'),(622,'REMOVE'),(559,'RENAME'),(623,'REORGANIZE'),(624,'REPAIR'),(216,'REPEAT'),(764,'REPEATABLE'),(217,'REPLACE'),(560,'REPLICA'),(948,'REPLICAS'),(778,'REPLICATE_DO_DB'),(779,'REPLICATE_DO_TABLE'),(780,'REPLICATE_IGNORE_DB'),(781,'REPLICATE_IGNORE_TABLE'),(782,'REPLICATE_REWRITE_DB'),(783,'REPLICATE_WILD_DO_TABLE'),(784,'REPLICATE_WILD_IGNORE_TABLE'),(785,'REPLICATION'),(881,'REQUIRE'),(775,'RESET'),(855,'RESIGNAL'),(905,'RESOURCE'),(959,'RESTART'),(680,'RESTRICT'),(882,'RETAIN'),(832,'RETURN'),(851,'RETURNED_SQLSTATE'),(914,'RETURNS'),(883,'REUSE'),(218,'REVERSE'),(903,'REVOKE'),(219,'RIGHT'),(242,'RLIKE'),(884,'ROLE'),(299,'ROLES_GRAPHML'),(574,'ROLLBACK'),(114,'ROUND'),(708,'ROW'),(723,'ROWS'),(300,'ROW_COUNT'),(625,'ROW_FORMAT'),(493,'ROW_NUMBER'),(220,'RPAD'),(221,'RTRIM'),(756,'SAVEPOINT'),(561,'SCHEDULE'),(301,'SCHEMA'),(934,'SCHEMAS'),(852,'SCHEMA_NAME'),(141,'SECOND'),(164,'SEC_TO_TIME'),(709,'SELECT'),(470,'SEPARATOR'),(3,'SERIAL'),(765,'SERIALIZABLE'),(580,'SERVER'),(766,'SESSION'),(302,'SESSION_USER'),(549,'SET'),(275,'SHA'),(276,'SHA1'),(277,'SHA2'),(732,'SHARE'),(935,'SHOW'),(899,'SHUTDOWN'),(115,'SIGN'),(857,'SIGNAL'),(258,'SIGNED'),(116,'SIN'),(562,'SLAVE'),(540,'SLEEP'),(955,'SLOW'),(751,'SNAPSHOT'),(651,'SOCKET'),(915,'SONAME'),(222,'SOUNDEX'),(224,'SOUNDS'),(792,'SOURCE'),(793,'SOURCE_AUTO_POSITION'),(794,'SOURCE_BIND'),(795,'SOURCE_COMPRESSION_ALGORITHMS'),(796,'SOURCE_CONNECT_RETRY'),(797,'SOURCE_HEARTBEAT_PERIOD'),(798,'SOURCE_HOST'),(799,'SOURCE_LOG_FILE'),(800,'SOURCE_LOG_POS'),(801,'SOURCE_PASSWORD'),(802,'SOURCE_PORT'),(458,'SOURCE_POS_WAIT'),(803,'SOURCE_RETRY_COUNT'),(804,'SOURCE_SSL'),(805,'SOURCE_SSL_CA'),(806,'SOURCE_SSL_CERT'),(807,'SOURCE_SSL_CIPHER'),(808,'SOURCE_SSL_CRL'),(809,'SOURCE_SSL_CRLPATH'),(810,'SOURCE_SSL_KEY'),(811,'SOURCE_SSL_VERIFY_SERVER_CERT'),(812,'SOURCE_TLS_CIPHERSUITES'),(813,'SOURCE_TLS_VERSION'),(814,'SOURCE_USER'),(815,'SOURCE_ZSTD_COMPRESSION_LEVEL'),(225,'SPACE'),(626,'SPATIAL'),(856,'SQLSTATE'),(819,'SQL_AFTER_GTIDS'),(820,'SQL_AFTER_MTS_GAPS'),(821,'SQL_BEFORE_GTIDS'),(733,'SQL_BIG_RESULT'),(734,'SQL_BUFFER_RESULT'),(735,'SQL_CALC_FOUND_ROWS'),(776,'SQL_LOG_BIN'),(736,'SQL_NO_CACHE'),(737,'SQL_SMALL_RESULT'),(822,'SQL_THREAD'),(117,'SQRT'),(885,'SSL'),(752,'START'),(720,'STARTING'),(646,'STARTS'),(278,'STATEMENT_DIGEST'),(279,'STATEMENT_DIGEST_TEXT'),(627,'STATS_AUTO_RECALC'),(628,'STATS_PERSISTENT'),(629,'STATS_SAMPLE_PAGES'),(936,'STATUS'),(475,'STD'),(476,'STDDEV'),(477,'STDDEV_POP'),(478,'STDDEV_SAMP'),(823,'STOP'),(941,'STORAGE'),(678,'STORED'),(738,'STRAIGHT_JOIN'),(240,'STRCMP'),(916,'STRING'),(165,'STR_TO_DATE'),(365,'ST_AREA'),(344,'ST_ASBINARY'),(408,'ST_ASGEOJSON'),(346,'ST_ASTEXT'),(345,'ST_ASWKB'),(347,'ST_ASWKT'),(373,'ST_BUFFER'),(374,'ST_BUFFER_STRATEGY'),(366,'ST_CENTROID'),(410,'ST_COLLECT'),(384,'ST_CONTAINS'),(375,'ST_CONVEXHULL'),(385,'ST_CROSSES'),(376,'ST_DIFFERENCE'),(349,'ST_DIMENSION'),(386,'ST_DISJOINT'),(387,'ST_DISTANCE'),(411,'ST_DISTANCE_SPHERE'),(359,'ST_ENDPOINT'),(350,'ST_ENVELOPE'),(388,'ST_EQUALS'),(367,'ST_EXTERIORRING'),(389,'ST_FRECHETDISTANCE'),(404,'ST_GEOHASH'),(306,'ST_GEOMCOLLFROMTEXT'),(321,'ST_GEOMCOLLFROMWKB'),(307,'ST_GEOMETRYCOLLECTIONFROMTEXT'),(322,'ST_GEOMETRYCOLLECTIONFROMWKB'),(308,'ST_GEOMETRYFROMTEXT'),(323,'ST_GEOMETRYFROMWKB'),(371,'ST_GEOMETRYN'),(351,'ST_GEOMETRYTYPE'),(409,'ST_GEOMFROMGEOJSON'),(309,'ST_GEOMFROMTEXT'),(324,'ST_GEOMFROMWKB'),(390,'ST_HAUSDORFFDISTANCE'),(368,'ST_INTERIORRINGN'),(377,'ST_INTERSECTION'),(391,'ST_INTERSECTS'),(360,'ST_ISCLOSED'),(352,'ST_ISEMPTY'),(353,'ST_ISSIMPLE'),(412,'ST_ISVALID'),(405,'ST_LATFROMGEOHASH'),(355,'ST_LATITUDE'),(361,'ST_LENGTH'),(310,'ST_LINEFROMTEXT'),(325,'ST_LINEFROMWKB'),(378,'ST_LINEINTERPOLATEPOINT'),(379,'ST_LINEINTERPOLATEPOINTS'),(311,'ST_LINESTRINGFROMTEXT'),(326,'ST_LINESTRINGFROMWKB'),(406,'ST_LONGFROMGEOHASH'),(356,'ST_LONGITUDE'),(413,'ST_MAKEENVELOPE'),(312,'ST_MLINEFROMTEXT'),(327,'ST_MLINEFROMWKB'),(314,'ST_MPOINTFROMTEXT'),(329,'ST_MPOINTFROMWKB'),(316,'ST_MPOLYFROMTEXT'),(331,'ST_MPOLYFROMWKB'),(313,'ST_MULTILINESTRINGFROMTEXT'),(328,'ST_MULTILINESTRINGFROMWKB'),(315,'ST_MULTIPOINTFROMTEXT'),(330,'ST_MULTIPOINTFROMWKB'),(317,'ST_MULTIPOLYGONFROMTEXT'),(332,'ST_MULTIPOLYGONFROMWKB'),(372,'ST_NUMGEOMETRIES'),(369,'ST_NUMINTERIORRING'),(370,'ST_NUMINTERIORRINGS'),(362,'ST_NUMPOINTS'),(392,'ST_OVERLAPS'),(380,'ST_POINTATDISTANCE'),(407,'ST_POINTFROMGEOHASH'),(318,'ST_POINTFROMTEXT'),(333,'ST_POINTFROMWKB'),(363,'ST_POINTN'),(319,'ST_POLYFROMTEXT'),(334,'ST_POLYFROMWKB'),(320,'ST_POLYGONFROMTEXT'),(335,'ST_POLYGONFROMWKB'),(414,'ST_SIMPLIFY'),(354,'ST_SRID'),(364,'ST_STARTPOINT'),(348,'ST_SWAPXY'),(381,'ST_SYMDIFFERENCE'),(393,'ST_TOUCHES'),(382,'ST_TRANSFORM'),(383,'ST_UNION'),(415,'ST_VALIDATE'),(394,'ST_WITHIN'),(357,'ST_X'),(358,'ST_Y'),(853,'SUBCLASS_ORIGIN'),(166,'SUBDATE'),(886,'SUBJECT'),(226,'SUBSTR'),(227,'SUBSTRING'),(228,'SUBSTRING_INDEX'),(167,'SUBTIME'),(479,'SUM'),(900,'SUPER'),(168,'SYSDATE'),(658,'SYSTEM'),(303,'SYSTEM_USER'),(54,'TABLE'),(759,'TABLES'),(630,'TABLESPACE'),(854,'TABLE_NAME'),(118,'TAN'),(688,'TEMPORARY'),(721,'TERMINATED'),(79,'THEN'),(906,'THREAD_PRIORITY'),(38,'TIME'),(170,'TIMEDIFF'),(37,'TIMESTAMP'),(171,'TIMESTAMPADD'),(172,'TIMESTAMPDIFF'),(259,'TIMEZONE'),(173,'TIME_FORMAT'),(174,'TIME_TO_SEC'),(575,'TLS'),(638,'TO'),(229,'TO_BASE64'),(175,'TO_DAYS'),(176,'TO_SECONDS'),(962,'TRADITIONAL'),(233,'TRAILING'),(753,'TRANSACTION'),(963,'TREE'),(687,'TRIGGER'),(937,'TRIGGERS'),(234,'TRIM'),(16,'TRUE'),(119,'TRUNCATE'),(631,'TYPE'),(235,'UCASE'),(887,'UNBOUNDED'),(767,'UNCOMMITTED'),(280,'UNCOMPRESS'),(281,'UNCOMPRESSED_LENGTH'),(639,'UNDO'),(236,'UNHEX'),(920,'UNINSTALL'),(632,'UNION'),(633,'UNIQUE'),(177,'UNIX_TIMESTAMP'),(904,'UNKNOWN'),(758,'UNLOCK'),(888,'UNREGISTER'),(20,'UNSIGNED'),(831,'UNTIL'),(681,'UPDATE'),(262,'UPDATEXML'),(634,'UPGRADE'),(237,'UPPER'),(901,'USAGE'),(686,'USE'),(304,'USER'),(956,'USER_RESOURCES'),(912,'USE_FRM'),(693,'USING'),(178,'UTC_DATE'),(179,'UTC_TIME'),(180,'UTC_TIMESTAMP'),(541,'UUID'),(542,'UUID_SHORT'),(543,'UUID_TO_BIN'),(282,'VALIDATE_PASSWORD_STRENGTH'),(4,'VALUE'),(544,'VALUES'),(45,'VARCHARACTER'),(924,'VARIABLE'),(938,'VARIABLES'),(482,'VARIANCE'),(46,'VARYING'),(480,'VAR_POP'),(481,'VAR_SAMP'),(907,'VCPU'),(305,'VERSION'),(641,'VIEW'),(679,'VIRTUAL'),(635,'VISIBLE'),(640,'WAIT'),(456,'WAIT_FOR_EXECUTED_GTID_SET'),(939,'WARNINGS'),(181,'WEEK'),(182,'WEEKDAY'),(183,'WEEKOFYEAR'),(238,'WEIGHT_STRING'),(80,'WHEN'),(694,'WHERE'),(833,'WHILE'),(252,'WITH'),(754,'WORK'),(652,'WRAPPER'),(755,'WRITE'),(889,'X509'),(770,'XA'),(74,'XOR'),(142,'YEAR'),(184,'YEARWEEK'),(143,'YEAR_MONTH'),(21,'ZEROFILL'),(265,'^'),(263,'|'),(268,'~');
+/*!40000 ALTER TABLE `help_keyword` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `help_relation`
+--
+
+DROP TABLE IF EXISTS `help_relation`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `help_relation` (
+  `help_topic_id` int unsigned NOT NULL,
+  `help_keyword_id` int unsigned NOT NULL,
+  PRIMARY KEY (`help_keyword_id`,`help_topic_id`)
+) /*!50100 TABLESPACE `mysql` */ ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 STATS_PERSISTENT=0 ROW_FORMAT=DYNAMIC COMMENT='keyword-topic relation';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `help_relation`
+--
+
+LOCK TABLES `help_relation` WRITE;
+/*!40000 ALTER TABLE `help_relation` DISABLE KEYS */;
+INSERT INTO `help_relation` VALUES (0,0),(1,1),(2,2),(484,2),(501,2),(502,2),(509,2),(512,2),(513,2),(521,2),(522,2),(546,2),(553,2),(586,2),(604,2),(606,2),(612,2),(614,2),(2,3),(521,3),(2,4),(546,4),(553,4),(602,4),(603,4),(3,5),(692,5),(4,6),(5,7),(6,8),(7,9),(8,10),(9,11),(10,12),(11,13),(12,14),(13,15),(14,15),(13,16),(14,16),(16,17),(17,17),(16,18),(240,18),(16,19),(16,20),(20,20),(22,20),(23,20),(25,20),(26,20),(242,20),(16,21),(20,21),(22,21),(23,21),(25,21),(26,21),(18,22),(19,23),(19,24),(20,25),(20,26),(242,26),(624,26),(22,27),(23,28),(23,29),(521,29),(23,30),(24,31),(242,31),(624,31),(25,32),(26,33),(26,34),(26,35),(624,35),(28,36),(129,36),(131,36),(242,36),(30,37),(165,37),(31,38),(163,38),(242,38),(33,39),(35,39),(501,39),(502,39),(509,39),(512,39),(513,39),(521,39),(550,39),(551,39),(554,39),(632,39),(633,39),(635,39),(639,39),(33,40),(35,40),(33,41),(34,42),(34,43),(184,43),(242,43),(35,44),(35,45),(35,46),(44,47),(44,48),(53,49),(509,49),(510,49),(523,49),(604,49),(53,50),(501,50),(502,50),(503,50),(504,50),(505,50),(506,50),(507,50),(508,50),(509,50),(510,50),(511,50),(604,50),(609,50),(615,50),(53,51),(512,51),(513,51),(514,51),(515,51),(516,51),(517,51),(518,51),(519,51),(520,51),(521,51),(523,51),(524,51),(525,51),(605,51),(606,51),(616,51),(624,51),(635,51),(643,51),(644,51),(645,51),(646,51),(647,51),(648,51),(650,51),(53,52),(509,52),(515,52),(521,52),(529,52),(556,52),(635,52),(661,52),(681,52),(684,52),(53,53),(509,53),(521,53),(522,53),(546,53),(53,54),(509,54),(521,54),(534,54),(538,54),(539,54),(545,54),(547,54),(557,54),(619,54),(620,54),(621,54),(622,54),(623,54),(635,54),(648,54),(675,54),(54,55),(79,55),(55,56),(56,57),(57,58),(58,59),(59,60),(60,61),(61,62),(75,62),(573,62),(61,63),(62,63),(62,64),(66,64),(69,64),(71,64),(74,64),(232,64),(234,64),(512,64),(513,64),(514,64),(520,64),(605,64),(606,64),(63,65),(509,65),(64,66),(65,67),(66,67),(240,67),(554,67),(638,67),(641,67),(642,67),(661,67),(671,67),(67,68),(131,68),(514,68),(604,68),(606,68),(68,69),(69,69),(70,69),(71,69),(70,70),(71,70),(522,70),(72,71),(73,72),(76,73),(520,73),(77,74),(78,75),(80,76),(587,76),(80,77),(587,77),(80,78),(571,78),(584,78),(587,78),(588,78),(591,78),(592,78),(594,78),(80,79),(587,79),(588,79),(80,80),(587,80),(81,81),(512,81),(513,81),(514,81),(520,81),(526,81),(527,81),(528,81),(532,81),(533,81),(534,81),(537,81),(588,81),(604,81),(605,81),(606,81),(607,81),(608,81),(611,81),(625,81),(686,81),(82,82),(83,83),(84,84),(85,85),(86,85),(87,86),(88,87),(89,88),(90,89),(109,89),(91,90),(92,91),(93,92),(94,93),(95,94),(96,95),(97,96),(98,97),(99,98),(100,99),(101,100),(102,101),(103,102),(104,103),(105,104),(106,105),(636,105),(107,106),(108,107),(109,108),(110,109),(111,110),(112,111),(113,112),(114,113),(115,114),(116,115),(117,116),(118,117),(119,118),(120,119),(509,119),(539,119),(121,120),(122,121),(123,122),(124,123),(125,124),(126,125),(127,126),(128,127),(130,128),(131,129),(131,130),(133,130),(131,131),(134,131),(604,131),(606,131),(131,132),(131,133),(131,134),(131,135),(143,135),(131,136),(131,137),(131,138),(150,138),(131,139),(131,140),(151,140),(131,141),(157,141),(131,142),(179,142),(242,142),(131,143),(132,144),(135,145),(136,146),(137,147),(138,148),(139,149),(140,150),(141,151),(142,152),(144,153),(145,154),(146,155),(147,156),(148,157),(149,158),(152,159),(153,160),(154,161),(155,162),(156,163),(158,164),(159,165),(160,166),(161,167),(162,168),(163,169),(165,169),(214,169),(504,169),(517,169),(518,169),(530,169),(531,169),(624,169),(625,169),(635,169),(646,169),(658,169),(659,169),(164,170),(166,171),(167,172),(168,173),(169,174),(170,175),(171,176),(172,177),(173,178),(174,179),(175,180),(176,181),(177,182),(178,183),(180,184),(181,185),(182,186),(183,187),(185,188),(186,189),(187,190),(188,191),(189,192),(190,193),(191,194),(192,195),(193,196),(689,196),(690,196),(691,196),(194,197),(195,198),(196,199),(546,199),(547,199),(548,199),(197,200),(198,201),(199,202),(556,202),(200,203),(201,204),(202,205),(203,206),(204,207),(205,208),(206,209),(207,210),(208,211),(209,212),(210,213),(211,214),(212,215),(213,216),(592,216),(214,217),(520,217),(550,217),(551,217),(553,217),(604,217),(613,217),(215,218),(216,219),(556,219),(217,220),(218,221),(219,222),(220,223),(232,223),(635,223),(641,223),(642,223),(220,224),(221,225),(222,226),(223,227),(224,228),(225,229),(226,230),(226,231),(541,231),(545,231),(554,231),(635,231),(638,231),(641,231),(642,231),(661,231),(671,231),(226,232),(226,233),(226,234),(227,235),(228,236),(229,237),(230,238),(231,239),(233,240),(234,241),(235,242),(236,243),(237,244),(238,245),(239,246),(240,247),(240,248),(240,249),(240,250),(554,250),(240,251),(683,251),(240,252),(509,252),(515,252),(521,252),(604,252),(606,252),(609,252),(682,252),(241,253),(242,253),(572,253),(573,253),(636,253),(637,253),(682,253),(685,253),(242,254),(242,255),(242,256),(242,257),(689,257),(690,257),(691,257),(242,258),(242,259),(243,260),(244,261),(245,262),(246,263),(247,264),(248,265),(249,266),(250,267),(251,268),(252,269),(253,270),(254,271),(255,272),(256,273),(257,274),(258,275),(258,276),(259,277),(260,278),(261,279),(262,280),(263,281),(264,282),(265,283),(266,284),(267,285),(268,286),(269,287),(270,288),(271,289),(632,289),(633,289),(272,290),(273,291),(635,291),(640,291),(274,292),(275,293),(276,294),(503,294),(514,294),(277,295),(501,295),(502,295),(512,295),(513,295),(519,295),(526,295),(527,295),(635,295),(643,295),(644,295),(278,296),(279,297),(280,298),(281,299),(282,300),(601,300),(283,301),(501,301),(502,301),(512,301),(513,301),(526,301),(527,301),(635,301),(643,301),(644,301),(689,301),(690,301),(691,301),(284,302),(285,303),(286,304),(519,304),(578,304),(604,304),(606,304),(608,304),(610,304),(611,304),(616,304),(650,304),(287,305),(288,306),(288,307),(289,308),(289,309),(290,310),(290,311),(291,312),(291,313),(292,314),(292,315),(293,316),(293,317),(294,318),(295,319),(295,320),(296,321),(296,322),(297,323),(297,324),(298,325),(298,326),(299,327),(299,328),(300,329),(300,330),(301,331),(301,332),(302,333),(303,334),(303,335),(304,336),(305,337),(306,338),(307,339),(308,340),(309,341),(310,342),(311,343),(312,344),(312,345),(313,346),(313,347),(314,348),(315,349),(316,350),(317,351),(318,352),(319,353),(320,354),(321,355),(322,356),(323,357),(324,358),(325,359),(326,360),(327,361),(328,362),(329,363),(330,364),(331,365),(332,366),(333,367),(334,368),(335,369),(335,370),(336,371),(337,372),(338,373),(339,374),(340,375),(341,376),(342,377),(343,378),(344,379),(345,380),(346,381),(347,382),(348,383),(349,384),(350,385),(351,386),(352,387),(353,388),(354,389),(355,390),(356,391),(357,392),(358,393),(359,394),(360,395),(361,396),(362,397),(363,398),(364,399),(365,400),(366,401),(367,402),(368,403),(369,404),(370,405),(371,406),(372,407),(373,408),(374,409),(375,410),(376,411),(377,412),(378,413),(379,414),(380,415),(381,416),(382,417),(383,418),(384,419),(385,420),(386,421),(387,422),(388,422),(387,423),(387,424),(388,425),(388,426),(388,427),(389,428),(390,429),(391,430),(392,431),(393,432),(393,433),(394,434),(395,435),(396,436),(397,437),(398,438),(399,439),(400,440),(401,441),(402,442),(403,443),(404,444),(405,445),(406,446),(407,447),(408,448),(409,449),(410,450),(411,451),(412,452),(413,453),(414,454),(415,455),(416,456),(417,457),(418,458),(419,459),(419,460),(424,460),(425,460),(428,460),(429,460),(434,460),(543,460),(549,460),(554,460),(559,460),(420,461),(421,462),(422,463),(423,464),(424,464),(656,464),(679,464),(425,465),(554,465),(425,466),(509,466),(521,466),(541,466),(550,466),(551,466),(552,466),(554,466),(558,466),(604,466),(606,466),(425,467),(554,467),(689,467),(690,467),(691,467),(425,468),(425,469),(509,469),(541,469),(552,469),(554,469),(557,469),(558,469),(560,469),(425,470),(426,471),(427,472),(428,473),(429,474),(430,475),(431,476),(432,477),(433,478),(434,479),(435,480),(436,481),(437,482),(438,483),(439,484),(440,485),(441,486),(442,487),(443,488),(444,489),(445,490),(446,491),(447,492),(448,493),(449,494),(450,495),(451,496),(452,497),(453,498),(454,499),(455,500),(456,501),(457,502),(458,503),(459,504),(460,505),(461,506),(462,507),(463,508),(464,509),(465,510),(466,511),(467,512),(468,513),(469,514),(470,515),(471,516),(472,517),(473,518),(474,519),(475,520),(476,521),(477,522),(478,523),(479,524),(480,525),(481,526),(482,527),(483,528),(485,529),(486,530),(487,531),(488,532),(489,533),(490,534),(491,535),(492,536),(493,537),(494,538),(495,539),(496,540),(497,541),(498,542),(499,543),(500,544),(546,544),(553,544),(560,544),(501,545),(502,545),(509,545),(512,545),(513,545),(521,545),(501,546),(502,546),(509,546),(512,546),(513,546),(521,546),(501,547),(502,547),(561,547),(562,547),(563,547),(564,547),(570,547),(571,547),(501,548),(502,548),(544,548),(561,548),(562,548),(563,548),(564,548),(569,548),(570,548),(571,548),(682,548),(501,549),(502,549),(509,549),(512,549),(513,549),(521,549),(522,549),(546,549),(550,549),(551,549),(553,549),(554,549),(558,549),(561,549),(562,549),(563,549),(564,549),(574,549),(602,549),(603,549),(604,549),(612,549),(613,549),(614,549),(618,549),(631,549),(632,549),(633,549),(634,549),(635,549),(639,549),(503,550),(509,550),(514,550),(515,550),(521,550),(523,550),(604,550),(606,550),(503,551),(514,551),(503,552),(514,552),(503,553),(509,553),(514,553),(615,553),(616,553),(503,554),(514,554),(542,554),(594,554),(503,555),(509,555),(514,555),(615,555),(616,555),(503,556),(514,556),(528,556),(645,556),(503,557),(505,557),(514,557),(522,557),(556,557),(503,558),(514,558),(503,559),(509,559),(510,559),(538,559),(610,559),(503,560),(514,560),(577,560),(578,560),(579,560),(672,560),(685,560),(503,561),(514,561),(503,562),(514,562),(505,563),(638,563),(680,563),(505,564),(576,564),(577,564),(578,564),(579,564),(671,564),(672,564),(682,564),(505,565),(682,565),(505,566),(554,566),(576,566),(577,566),(578,566),(579,566),(596,566),(599,566),(600,566),(613,566),(618,566),(635,566),(671,566),(672,566),(682,566),(689,566),(690,566),(691,566),(505,567),(521,567),(635,567),(505,568),(568,568),(505,569),(505,570),(505,571),(521,571),(522,571),(505,572),(505,573),(609,573),(505,574),(561,574),(562,574),(563,574),(564,574),(565,574),(566,574),(567,574),(571,574),(505,575),(506,576),(516,576),(523,576),(554,576),(615,576),(616,576),(617,576),(618,576),(506,577),(516,577),(523,577),(507,578),(517,578),(518,578),(530,578),(531,578),(635,578),(647,578),(666,578),(667,578),(508,579),(519,579),(508,580),(519,580),(532,580),(509,581),(509,582),(509,583),(619,583),(689,583),(690,583),(691,583),(509,584),(510,584),(521,584),(523,584),(509,585),(509,586),(521,586),(509,587),(575,587),(576,587),(509,588),(521,588),(620,588),(509,589),(521,589),(621,589),(509,590),(509,591),(521,591),(550,591),(635,591),(641,591),(642,591),(509,592),(521,592),(509,593),(521,593),(683,593),(689,593),(690,593),(691,593),(509,594),(521,594),(509,595),(519,595),(521,595),(550,595),(509,596),(521,596),(509,597),(521,597),(509,598),(604,598),(509,599),(510,599),(526,599),(527,599),(528,599),(529,599),(530,599),(531,599),(532,599),(533,599),(534,599),(535,599),(536,599),(537,599),(582,599),(583,599),(604,599),(607,599),(608,599),(617,599),(625,599),(509,600),(510,600),(521,600),(523,600),(635,600),(654,600),(682,600),(509,601),(509,602),(521,602),(544,602),(509,603),(519,603),(521,603),(522,603),(509,604),(515,604),(521,604),(509,605),(545,605),(550,605),(509,606),(521,606),(509,607),(515,607),(521,607),(509,608),(635,608),(661,608),(509,609),(521,609),(509,610),(554,610),(568,610),(569,610),(604,610),(606,610),(682,610),(509,611),(521,611),(509,612),(521,612),(509,613),(604,613),(509,614),(622,614),(509,615),(521,615),(509,616),(515,616),(521,616),(509,617),(521,617),(541,617),(546,617),(550,617),(553,617),(554,617),(556,617),(681,617),(684,617),(509,618),(509,619),(519,619),(578,619),(604,619),(606,619),(613,619),(509,620),(509,621),(509,622),(509,623),(509,624),(623,624),(509,625),(521,625),(509,626),(515,626),(520,626),(533,626),(509,627),(521,627),(509,628),(521,628),(509,629),(521,629),(509,630),(510,630),(523,630),(535,630),(509,631),(616,631),(509,632),(552,632),(559,632),(509,633),(509,634),(620,634),(509,635),(515,635),(521,635),(510,636),(523,636),(510,637),(523,637),(510,638),(565,638),(566,638),(567,638),(572,638),(576,638),(613,638),(510,639),(523,639),(535,639),(600,639),(510,640),(523,640),(511,641),(525,641),(537,641),(512,642),(513,642),(514,642),(520,642),(526,642),(527,642),(528,642),(532,642),(533,642),(534,642),(537,642),(604,642),(605,642),(606,642),(607,642),(608,642),(611,642),(625,642),(686,642),(514,643),(514,644),(514,645),(514,646),(515,647),(519,648),(519,649),(519,650),(519,651),(519,652),(520,653),(520,654),(520,655),(520,656),(520,657),(533,657),(520,658),(533,658),(616,658),(521,659),(522,659),(521,660),(521,661),(522,661),(534,661),(537,661),(521,662),(521,663),(521,664),(550,664),(521,665),(522,665),(541,665),(521,666),(521,667),(521,668),(635,668),(641,668),(642,668),(668,668),(676,668),(521,669),(521,670),(521,671),(521,672),(521,673),(521,674),(521,675),(521,676),(521,677),(522,677),(609,677),(521,678),(521,679),(522,680),(534,680),(537,680),(522,681),(546,681),(554,681),(558,681),(523,682),(523,683),(523,684),(523,685),(523,686),(556,686),(693,686),(524,687),(536,687),(635,687),(534,688),(540,689),(541,690),(544,690),(552,690),(554,690),(557,690),(558,690),(560,690),(638,690),(671,690),(541,691),(546,691),(550,691),(551,691),(553,691),(558,691),(541,692),(620,692),(623,692),(541,693),(556,693),(581,693),(660,693),(541,694),(544,694),(558,694),(641,694),(642,694),(661,694),(543,695),(549,695),(554,695),(559,695),(577,695),(604,695),(609,695),(611,695),(612,695),(614,695),(681,695),(684,695),(543,696),(552,696),(614,696),(544,697),(595,697),(544,698),(600,698),(544,699),(544,700),(544,
