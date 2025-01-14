@@ -1,0 +1,322 @@
+','2025-01-10 06:26:37.568404'),(767,'grades','0009_auto_20170111_1507','2025-01-10 06:26:37.623550'),(768,'grades','0010_auto_20170112_1156','2025-01-10 06:26:37.654411'),(769,'grades','0011_null_edited_time','2025-01-10 06:26:37.751764'),(770,'grades','0012_computegradessetting','2025-01-10 06:26:38.076736'),(771,'grades','0013_persistentsubsectiongradeoverride','2025-01-10 06:26:38.165258'),(772,'grades','0014_persistentsubsectiongradeoverridehistory','2025-01-10 06:26:38.504692'),(773,'grades','0015_historicalpersistentsubsectiongradeoverride','2025-01-10 06:26:38.876740'),(774,'grades','0016_auto_20190703_1446','2025-01-10 06:26:39.294920'),(775,'grades','0017_delete_manual_psgoverride_table','2025-01-10 06:26:40.160326'),(776,'grades','0018_add_waffle_flag_defaults','2025-01-10 06:26:40.541510'),(777,'grades','0019_auto_20220912_0855','2025-01-10 06:26:40.894711'),(778,'grades','0020_alter_historicalpersistentsubsectiongradeoverride_options','2025-01-10 06:26:41.074242'),(779,'instructor_task','0002_gradereportsetting','2025-01-10 06:26:41.399575'),(780,'instructor_task','0003_alter_task_input_field','2025-01-10 06:26:41.628468'),(781,'instructor_task','0004_historicalinstructortaskschedule_instructortaskschedule','2025-01-10 06:26:42.271128'),(782,'instructor_task','0005_alter_instructortaskschedule_task','2025-01-10 06:26:42.540973'),(783,'instructor_task','0006_alter_historicalinstructortaskschedule_options','2025-01-10 06:26:43.211288'),(784,'integrated_channel','0031_alter_integratedchannelapirequestlogs_options','2025-01-10 06:26:43.854234'),(785,'integrated_channel','0032_alter_integratedchannelapirequestlogs_endpoint','2025-01-10 06:26:43.942291'),(786,'integrated_channel','0033_integratedchannelapirequestlogs_channel_name','2025-01-10 06:26:44.038201'),(787,'integrated_channel','0034_contentmetadataitemtransmission_remote_errored_at','2025-01-10 06:26:46.058528'),(788,'learning_sequences','0001_initial','2025-01-10 06:26:47.167953'),(789,'learning_sequences','0002_coursesectionsequence_inaccessible_after_due','2025-01-10 06:26:47.206908'),(790,'learning_sequences','0003_create_course_context_for_course_specific_models','2025-01-10 06:26:47.892604'),(791,'learning_sequences','0004_coursecontext_self_paced','2025-01-10 06:26:47.936877'),(792,'learning_sequences','0005_coursecontext_days_early_for_beta','2025-01-10 06:26:47.969725'),(793,'learning_sequences','0006_coursecontext_entrance_exam_id','2025-01-10 06:26:48.008822'),(794,'learning_sequences','0007_coursesequenceexam','2025-01-10 06:26:48.135341'),(795,'learning_sequences','0008_add_learning_context_title_index','2025-01-10 06:26:48.170006'),(796,'learning_sequences','0009_contenterror_publishreport','2025-01-10 06:26:48.274590'),(797,'learning_sequences','0010_add_publishreport_indexes','2025-01-10 06:26:48.366534'),(798,'learning_sequences','0011_course_meta_names','2025-01-10 06:26:48.408360'),(799,'learning_sequences','0012_add_user_partition_group','2025-01-10 06:26:48.622399'),(800,'learning_sequences','0013_through_model_for_user_partition_groups_1','2025-01-10 06:26:48.845506'),(801,'learning_sequences','0014_remove_user_partition_group_duplicates','2025-01-10 06:26:49.184458'),(802,'learning_sequences','0015_add_user_partition_group_unique_constraint','2025-01-10 06:26:49.226544'),(803,'learning_sequences','0016_through_model_for_user_partition_groups_2','2025-01-10 06:26:49.289175'),(804,'lms_xblock','0001_initial','2025-01-10 06:26:49.607262'),(805,'lti_consumer','0014_adds_external_id','2025-01-10 06:26:49.669239'),(806,'lti_consumer','0015_add_additional_1p3_fields','2025-01-10 06:26:50.115619'),(807,'lti_consumer','0016_lticonfiguration_lti_1p3_proctoring_enabled','2025-01-10 06:26:50.174856'),(808,'lti_consumer','0017_lticonfiguration_lti_1p3_redirect_uris','2025-01-10 06:26:50.235424'),(809,'milestones','0001_initial','2025-01-10 06:26:50.649388'),(810,'milestones','0002_data__seed_relationship_types','2025-01-10 06:26:51.414444'),(811,'milestones','0003_coursecontentmilestone_requirements','2025-01-10 06:26:51.446337'),(812,'milestones','0004_auto_20151221_1445','2025-01-10 06:26:51.571544'),(813,'mobile_api','0001_initial','2025-01-10 06:26:51.892273'),(814,'mobile_api','0002_auto_20160406_0904','2025-01-10 06:26:51.937982'),(815,'mobile_api','0003_ignore_mobile_available_flag','2025-01-10 06:26:52.430027'),(816,'mobile_api','0004_mobileconfig','2025-01-10 06:26:52.453730'),(817,'mobile_api','0005_alter_mobileconfig_value','2025-01-10 06:26:52.479458'),(818,'moodle','0001_initial','2025-01-10 06:26:53.143520'),(819,'moodle','0002_moodlelearnerdatatransmissionaudit','2025-01-10 06:26:53.179737'),(820,'moodle','0003_auto_20201006_1706','2025-01-10 06:26:53.449506'),(821,'moodle','0004_auto_20201105_1921','2025-01-10 06:26:54.179106'),(822,'moodle','0005_auto_20210708_1446','2025-01-10 06:26:54.465749'),(823,'moodle','0006_auto_20210909_1536','2025-01-10 06:26:54.785271'),(824,'moodle','0007_auto_20210923_1727','2025-01-10 06:26:55.106420'),(825,'moodle','0008_alter_moodleenterprisecustomerconfiguration_enterprise_customer','2025-01-10 06:26:55.479728'),(826,'moodle','0009_auto_20220126_1837','2025-01-10 06:27:00.031354'),(827,'moodle','0010_auto_20220131_1539','2025-01-10 06:27:00.341718'),(828,'moodle','0011_auto_20220302_2231','2025-01-10 06:27:00.677075'),(829,'moodle','0012_alter_moodlelearnerdatatransmissionaudit_completed_timestamp','2025-01-10 06:27:00.711402'),(830,'moodle','0013_auto_20220324_1550','2025-01-10 06:27:00.989569'),(831,'moodle','0014_auto_20220325_1757','2025-01-10 06:27:01.137303'),(832,'moodle','0015_auto_20220405_2311','2025-01-10 06:27:01.264728'),(833,'moodle','0016_auto_20220523_1625','2025-01-10 06:27:01.758925'),(834,'moodle','0017_moodlelearnerdatatransmissionaudit_friendly_status_message','2025-01-10 06:27:01.787456'),(835,'moodle','0018_moodlelearnerdatatransmissionaudit_api_record','2025-01-10 06:27:02.567112'),(836,'moodle','0019_auto_20221021_0159','2025-01-10 06:27:02.710788'),(837,'moodle','0020_auto_20221031_1855','2025-01-10 06:27:03.032218'),(838,'moodle','0021_move_and_recrete_completed_timestamp','2025-01-10 06:27:03.115641'),(839,'moodle','0022_auto_20221220_1527','2025-01-10 06:27:03.730140'),(840,'moodle','0023_alter_moodlelearnerdatatransmissionaudit_index_together','2025-01-10 06:27:03.776871'),(841,'moodle','0024_auto_20230105_2122','2025-01-10 06:27:06.036985'),(842,'moodle','0025_auto_20230112_2002','2025-01-10 06:27:06.348425'),(843,'moodle','0026_auto_20230719_1621','2025-01-10 06:27:06.658411'),(844,'moodle','0027_alter_historicalmoodleenterprisecustomerconfiguration_options','2025-01-10 06:27:06.867633'),(845,'moodle','0028_auto_20230928_1530','2025-01-10 06:27:07.755261'),(846,'moodle','0029_auto_20231106_1233','2025-01-10 06:27:08.584989'),(847,'moodle','0028_auto_20231116_1826','2025-01-10 06:27:08.906189'),(848,'moodle','0030_merge_0028_auto_20231116_1826_0029_auto_20231106_1233','2025-01-10 06:27:08.912156'),(849,'moodle','0031_auto_20240117_1202','2025-01-10 06:27:09.795065'),(850,'moodle','0032_moodlelearnerdatatransmissionaudit_moodle_unique_enrollment_course_id','2025-01-10 06:27:09.836299'),(851,'moodle','0033_delete_historicalmoodleenterprisecustomerconfiguration','2025-01-10 06:27:10.113900'),(852,'notifications','0001_initial','2025-01-10 06:27:11.180735'),(853,'notifications','0002_notificationpreference','2025-01-10 06:27:11.759683'),(854,'notifications','0003_alter_notification_app_name','2025-01-10 06:27:11.969818'),(855,'notifications','0004_auto_20230607_0757','2025-01-10 06:27:14.252930'),(856,'notifications','0005_notification_email_notification_web','2025-01-10 06:27:14.650223'),(857,'oauth2_provider','0001_initial','2025-01-10 06:27:16.858353'),(858,'oauth2_provider','0002_auto_20190406_1805','2025-01-10 06:27:17.330131'),(859,'oauth2_provider','0003_auto_20201211_1314','2025-01-10 06:27:17.563543'),(860,'oauth2_provider','0004_auto_20200902_2022','2025-01-10 06:27:19.578972'),(861,'oauth2_provider','0005_auto_20211222_2352','2025-01-10 06:27:21.049001'),(862,'oauth_dispatch','0001_initial','2025-01-10 06:27:21.372689'),(863,'oauth_dispatch','0002_scopedapplication_scopedapplicationorganization','2025-01-10 06:27:22.570913'),(864,'oauth_dispatch','0003_application_data','2025-01-10 06:27:22.903408'),(865,'oauth_dispatch','0004_auto_20180626_1349','2025-01-10 06:27:25.913247'),(866,'oauth_dispatch','0005_applicationaccess_type','2025-01-10 06:27:26.726564'),(867,'oauth_dispatch','0006_drop_application_id_constraints','2025-01-10 06:27:27.746441'),(868,'oauth_dispatch','0007_restore_application_id_constraints','2025-01-10 06:27:28.741748'),(869,'oauth_dispatch','0008_applicationaccess_filters','2025-01-10 06:27:28.777692'),(870,'oauth_dispatch','0009_delete_enable_scopes_waffle_switch','2025-01-10 06:27:29.126976'),(871,'oauth_dispatch','0010_noop_migration_to_test_rollback','2025-01-10 06:27:29.137829'),(872,'oauth_dispatch','0011_noop_migration_to_test_rollback','2025-01-10 06:27:29.148687'),(873,'oauth_dispatch','0012_noop_migration_to_test_rollback','2025-01-10 06:27:29.160210'),(874,'oel_contents','0001_initial','2025-01-10 06:27:30.552197'),(875,'oel_components','0001_initial','2025-01-10 06:27:33.300042'),(876,'oel_components','0002_alter_componentversioncontent_key','2025-01-10 06:27:33.638312'),(877,'oel_publishing','0002_alter_learningpackage_key_and_more','2025-01-10 06:27:33.910695'),(878,'oel_tagging','0013_tag_parent_blank','2025-01-10 06:27:34.209979'),(879,'oel_tagging','0014_minor_fixes','2025-01-10 06:27:34.582929'),(880,'oel_tagging','0015_taxonomy_export_id','2025-01-10 06:27:35.077113'),(881,'oel_tagging','0016_object_tag_export_id','2025-01-10 06:27:37.318523'),(882,'oel_tagging','0017_alter_tagimporttask_status','2025-01-10 06:27:38.500597'),(883,'program_enrollments','0001_initial','2025-01-10 06:27:39.290479'),(884,'program_enrollments','0002_historicalprogramcourseenrollment_programcourseenrollment','2025-01-10 06:27:40.028481'),(885,'program_enrollments','0003_auto_20190424_1622','2025-01-10 06:27:40.228956'),(886,'program_enrollments','0004_add_programcourseenrollment_relatedname','2025-01-10 06:27:41.094614'),(887,'program_enrollments','0005_canceled_not_withdrawn','2025-01-10 06:27:41.494433'),(888,'program_enrollments','0006_add_the_correct_constraints','2025-01-10 06:27:41.827927'),(889,'program_enrollments','0007_waiting_programcourseenrollment_constraint','2025-01-10 06:27:41.877588'),(890,'program_enrollments','0008_add_ended_programenrollment_status','2025-01-10 06:27:42.326587'),(891,'program_enrollments','0009_update_course_enrollment_field_to_foreign_key','2025-01-10 06:27:42.782773'),(892,'program_enrollments','0010_add_courseaccessroleassignment','2025-01-10 06:27:43.149688'),(893,'program_enrollments','0011_auto_20230807_1905','2025-01-10 06:27:43.550888'),(894,'programs','0001_initial','2025-01-10 06:27:44.418798'),(895,'programs','0002_programsapiconfig_cache_ttl','2025-01-10 06:27:44.638074'),(896,'programs','0003_auto_20151120_1613','2025-01-10 06:27:45.548111'),(897,'programs','0004_programsapiconfig_enable_certification','2025-01-10 06:27:45.751412'),(898,'programs','0005_programsapiconfig_max_retries','2025-01-10 06:27:45.976515'),(899,'programs','0006_programsapiconfig_xseries_ad_enabled','2025-01-10 06:27:46.191280'),(900,'programs','0007_programsapiconfig_program_listing_enabled','2025-01-10 06:27:46.416937'),(901,'programs','0008_programsapiconfig_program_details_enabled','2025-01-10 06:27:46.632433'),(902,'programs','0009_programsapiconfig_marketing_path','2025-01-10 06:27:47.358709'),(903,'programs','0010_auto_20170204_2332','2025-01-10 06:27:47.749253'),(904,'programs','0011_auto_20170301_1844','2025-01-10 06:27:52.011573'),(905,'programs','0012_auto_20170419_0018','2025-01-10 06:27:52.227584'),(906,'programs','0013_customprogramsconfig','2025-01-10 06:27:52.591717'),(907,'programs','0014_delete_customprogramsconfig','2025-01-10 06:27:52.618435'),(908,'programs','0015_historicalprogramdiscussionsconfiguration_historicalprogramliveconfiguration_programdiscussionsconfi','2025-01-10 06:27:54.462363'),(909,'programs','0016_auto_20230808_0944','2025-01-10 06:27:54.852640'),(910,'redirects','0001_initial','2025-01-10 06:27:55.217919'),(911,'redirects','0002_alter_redirect_new_path_help_text','2025-01-10 06:27:55.270362'),(912,'rss_proxy','0001_initial','2025-01-10 06:27:55.292284'),(913,'sap_success_factors','0001_squashed_0022_auto_20200206_1046','2025-01-10 06:27:56.002181'),(914,'sap_success_factors','0002_sapsuccessfactorslearnerdatatransmissionaudit_credit_hours','2025-01-10 06:27:56.010209'),(915,'sap_success_factors','0003_auto_20210701_1556','2025-01-10 06:27:56.015825'),(916,'sap_success_factors','0004_auto_20210708_1639','2025-01-10 06:27:56.021008'),(917,'sap_success_factors','0005_sapsuccessfactorsenterprisecustomerconfiguration_prevent_learner_self_submit_grades','2025-01-10 06:27:56.025913'),(918,'sap_success_factors','0006_sapsuccessfactorsenterprisecustomerconfiguration_idp_id','2025-01-10 06:27:56.030936'),(919,'sap_success_factors','0007_sapsuccessfactorsenterprisecustomerconfiguration_disable_learner_data_transmissions','2025-01-10 06:27:56.036440'),(920,'sap_success_factors','0008_alter_sapsuccessfactorsenterprisecustomerconfiguration_enterprise_customer','2025-01-10 06:27:56.044306'),(921,'sap_success_factors','0009_auto_20220126_1837','2025-01-10 06:27:56.059062'),(922,'sap_success_factors','0010_sapsuccessfactorsenterprisecustomerconfiguration_display_name','2025-01-10 06:27:56.064507'),(923,'sap_success_factors','0011_alter_sapsuccessfactorslearnerdatatransmissionaudit_enterprise_course_enrollment_id','2025-01-10 06:27:56.069394'),(924,'sap_success_factors','0002_alter_sapsuccessfactorsenterprisecustomerconfiguration_display_name','2025-01-10 06:27:56.160463'),(925,'sap_success_factors','0003_alter_sapsuccessfactorslearnerdatatransmissionaudit_completed_timestamp','2025-01-10 06:27:56.201576'),(926,'sap_success_factors','0004_auto_20220324_1550','2025-01-10 06:27:56.447616'),(927,'sap_success_factors','0005_auto_20220325_1757','2025-01-10 06:27:56.452905'),(928,'sap_success_factors','0006_auto_20220330_1157','2025-01-10 06:27:56.458536'),(929,'sap_success_factors','0005_sapsuccessfactorsenterprisecustomerconfiguration_dry_run_mode_enabled','2025-01-10 06:27:56.548593'),(930,'sap_success_factors','0006_sapsuccessfactorslearnerdatatransmissionaudit_friendly_status_message','2025-01-10 06:27:56.625278'),(931,'sap_success_factors','0007_sapsuccessfactorslearnerdatatransmissionaudit_api_record','2025-01-10 06:27:57.623416'),(932,'sap_success_factors','0008_auto_20221021_0159','2025-01-10 06:27:57.761750'),(933,'sap_success_factors','0009_sapsuccessfactorsenterprisecustomerconfiguration_deleted_at','2025-01-10 06:27:57.842851'),(934,'sap_success_factors','0010_move_and_recrete_completed_timestamp','2025-01-10 06:27:57.928680'),(935,'sap_success_factors','0011_alter_sapsuccessfactorslearnerdatatransmissionaudit_index_together','2025-01-10 06:27:57.979088'),(936,'sap_success_factors','0012_auto_20230105_2122','2025-01-10 06:27:58.477950'),(937,'sap_success_factors','0013_sapsuccessfactorsenterprisecustomerconfiguration_last_modified_at','2025-01-10 06:27:58.570596'),(938,'sap_success_factors','0014_alter_sapsuccessfactorsenterprisecustomerconfiguration_show_course_price','2025-01-10 06:27:58.644314'),(939,'sap_success_factors','0015_sapsuccessfactorslearnerdatatransmissionaudit_sap_unique_enrollment_course_id','2025-01-10 06:27:58.689147'),(940,'schedules','0001_initial','2025-01-10 06:27:59.033446'),(941,'schedules','0002_auto_20170816_1532','2025-01-10 06:27:59.157536'),(942,'schedules','0003_scheduleconfig','2025-01-10 06:27:59.527764'),(943,'schedules','0004_auto_20170922_1428','2025-01-10 06:27:59.965430'),(944,'schedules','0005_auto_20171010_1722','2025-01-10 06:28:01.031384'),(945,'schedules','0006_scheduleexperience','2025-01-10 06:28:01.409245'),(946,'schedules','0007_scheduleconfig_hold_back_ratio','2025-01-10 06:28:01.667157'),(947,'schedules','0008_add_new_start_date_field','2025-01-10 06:28:01.922212'),(948,'schedules','0009_schedule_copy_column_values','2025-01-10 06:28:02.314218'),(949,'schedules','0010_remove_null_blank_from_schedules_date','2025-01-10 06:28:03.540633'),(950,'schedules','0011_auto_20200228_2018','2025-01-10 06:28:04.339995'),(951,'schedules','0012_auto_20200302_1914','2025-01-10 06:28:04.683950'),(952,'schedules','0013_historicalschedule','2025-01-10 06:28:05.110412'),(953,'schedules','0014_historicalschedule_drop_fk','2025-01-10 06:28:05.953162'),(954,'schedules','0015_schedules_start_nullable','2025-01-10 06:28:06.230268'),(955,'schedules','0016_remove_start_from_schedules','2025-01-10 06:28:06.282255'),(956,'schedules','0017_remove_start_from_historicalschedule','2025-01-10 06:28:06.515255'),(957,'schedules','0018_readd_historicalschedule_fks','2025-01-10 06:28:07.083842'),(958,'schedules','0019_auto_20200316_1935','2025-01-10 06:28:07.808616'),(959,'schedules','0020_remove_config_rollout_fields','2025-01-10 06:28:08.226966'),(960,'schedules','0021_alter_historicalschedule_options','2025-01-10 06:28:08.902249'),(961,'sessions','0001_initial','2025-01-10 06:28:08.935234'),(962,'site_configuration','0001_initial','2025-01-10 06:28:09.606364'),(963,'site_configuration','0002_auto_20160720_0231','2025-01-10 06:28:09.723092'),(964,'site_configuration','0003_auto_20200217_1058','2025-01-10 06:28:09.817888'),(965,'site_configuration','0004_add_site_values_field','2025-01-10 06:28:09.947323'),(966,'site_configuration','0005_populate_siteconfig_history_site_values','2025-01-10 06:28:09.958855'),(967,'site_configuration','0006_copy_values_to_site_values','2025-01-10 06:28:10.319102'),(968,'site_configuration','0007_remove_values_field','2025-01-10 06:28:10.433295'),(969,'site_configuration','0008_auto_20210910_0940','2025-01-10 06:28:10.539036'),(970,'default','0001_initial','2025-01-10 06:28:11.203074'),(971,'social_auth','0001_initial','2025-01-10 06:28:11.209986'),(972,'default','0002_add_related_name','2025-01-10 06:28:11.996970'),(973,'social_auth','0002_add_related_name','2025-01-10 06:28:12.006739'),(974,'default','0003_alter_email_max_length','2025-01-10 06:28:12.033832'),(975,'social_auth','0003_alter_email_max_length','2025-01-10 06:28:12.041622'),(976,'default','0004_auto_20160423_0400','2025-01-10 06:28:12.238963'),(977,'social_auth','0004_auto_20160423_0400','2025-01-10 06:28:12.244780'),(978,'social_auth','0005_auto_20160727_2333','2025-01-10 06:28:12.272846'),(979,'social_django','0006_partial','2025-01-10 06:28:12.302272'),(980,'social_django','0007_code_timestamp','2025-01-10 06:28:12.342478'),(981,'social_django','0008_partial_timestamp','2025-01-10 06:28:12.380650'),(982,'social_django','0009_auto_20191118_0520','2025-01-10 06:28:12.794902'),(983,'social_django','0010_uid_db_index','2025-01-10 06:28:13.005083'),(984,'social_django','0011_alter_id_fields','2025-01-10 06:28:13.385740'),(985,'social_django','0012_usersocialauth_extra_data_new','2025-01-10 06:28:13.645321'),(986,'social_django','0013_migrate_extra_data','2025-01-10 06:28:14.010465'),(987,'social_django','0014_remove_usersocialauth_extra_data','2025-01-10 06:28:14.230878'),(988,'social_django','0015_rename_extra_data_new_usersocialauth_extra_data','2025-01-10 06:28:16.440603'),(989,'split_modulestore_django','0001_initial','2025-01-10 06:28:18.153779'),(990,'split_modulestore_django','0002_data_migration','2025-01-10 06:28:18.708084'),(991,'split_modulestore_django','0003_alter_historicalsplitmodulestorecourseindex_options','2025-01-10 06:28:18.914430'),(992,'staffgrader','0001_initial','2025-01-10 06:28:18.938692'),(993,'static_replace','0001_initial','2025-01-10 06:28:19.282955'),(994,'static_replace','0002_assetexcludedextensionsconfig','2025-01-10 06:28:19.631323'),(995,'status','0001_initial','2025-01-10 06:28:20.353096'),(996,'status','0002_update_help_text','2025-01-10 06:28:21.072319'),(997,'status','0003_help_text_note_html','2025-01-10 06:28:21.268324'),(998,'student','0032_removed_logout_view_configuration','2025-01-10 06:28:21.658080'),(999,'student','0033_userprofile_state','2025-01-10 06:28:21.879614'),(1000,'student','0034_courseenrollmentcelebration','2025-01-10 06:28:22.236141'),(1001,'student','0035_bulkchangeenrollmentconfiguration','2025-01-10 06:28:22.663726'),(1002,'student','0036_userpasswordtogglehistory','2025-01-10 06:28:23.068311'),(1003,'student','0037_linkedinaddtoprofileconfiguration_updates','2025-01-10 06:28:24.168808'),(1004,'student','0038_auto_20201021_1256','2025-01-10 06:28:24.474647'),(1005,'student','0039_anon_id_context','2025-01-10 06:28:24.802117'),(1006,'student','0040_usercelebration','2025-01-10 06:28:25.176744'),(1007,'student','0041_registration_activation_timestamp','2025-01-10 06:28:25.392674'),(1008,'student','0042_allow_certificate_null_20210427_1519','2025-01-10 06:28:25.695526'),(1009,'student','0043_remove_userprofile_allow_certificate','2025-01-10 06:28:25.960815'),(1010,'student','0044_courseenrollmentcelebration_celebrate_weekly_goal','2025-01-10 06:28:26.021386'),(1011,'student','0045_auto_20230808_0944','2025-01-10 06:28:26.482953'),(1012,'submissions','0001_initial','2025-01-10 06:28:30.993998'),(1013,'submissions','0002_auto_20151119_0913','2025-01-10 06:28:30.999876'),(1014,'submissions','0003_submission_status','2025-01-10 06:28:31.018025'),(1015,'submissions','0004_remove_django_extensions','2025-01-10 06:28:31.029823'),(1016,'submissions','0005_CreateTeamModel','2025-01-10 06:28:31.035800'),(1017,'submissions','0002_team_submission_optional','2025-01-10 06:28:31.366539'),(1018,'submissions','0003_ensure_ascii','2025-01-10 06:28:31.394745'),(1019,'super_csv','0001_initial','2025-01-10 06:28:31.442235'),(1020,'super_csv','0002_csvoperation_user','2025-01-10 06:28:31.807577'),(1021,'super_csv','0003_csvoperation_original_filename','2025-01-10 06:28:32.042787'),(1022,'support','0001_initial','2025-01-10 06:28:32.430449'),(1023,'support','0002_alter_historicalusersocialauth_options','2025-01-10 06:28:32.632914'),(1024,'support','0003_course_reset','2025-01-10 06:28:33.669874'),(1025,'support','0004_add_comment_field','2025-01-10 06:28:33.909030'),(1026,'support','0005_unique_course_id','2025-01-10 06:28:33.948548'),(1027,'support','0006_alter_historicalusersocialauth_extra_data_and_more','2025-01-10 06:28:34.460579'),(1028,'survey','0001_initial','2025-01-10 06:28:34.969250'),(1029,'survey_report','0001_initial','2025-01-10 06:28:34.995971'),(1030,'survey_report','0002_auto_20221130_1533','2025-01-10 06:28:35.129547'),(1031,'survey_report','0003_add_state_field_and_add_default_values_to_fields','2025-01-10 06:28:35.251458'),(1032,'survey_report','0004_surveyreportupload','2025-01-10 06:28:35.309160'),(1033,'survey_report','0005_surveyreportanonymoussiteid','2025-01-10 06:28:35.333054'),(1034,'system_wide_roles','0001_SystemWideRole_SystemWideRoleAssignment','2025-01-10 06:28:35.759041'),(1035,'system_wide_roles','0002_add_system_wide_student_support_role','2025-01-10 06:28:36.180876'),(1036,'system_wide_roles','0003_systemwideroleassignment_applies_to_all_contexts','2025-01-10 06:28:36.430031'),(1037,'teams','0001_initial','2025-01-10 06:28:38.031096'),(1038,'teams','0002_slug_field_ids','2025-01-10 06:28:38.507206'),(1039,'teams','0003_courseteam_organization_protected','2025-01-10 06:28:38.741297'),(1040,'teams','0004_alter_defaults','2025-01-10 06:28:42.950499'),(1041,'theming','0001_initial','2025-01-10 06:28:43.335991'),(1042,'third_party_auth','0001_squashed_0026_auto_20200401_1932','2025-01-10 06:28:45.439147'),(1043,'third_party_auth','0002_samlproviderconfig_country','2025-01-10 06:28:45.710428'),(1044,'third_party_auth','0002_auto_20200721_1650','2025-01-10 06:28:47.189296'),(1045,'third_party_auth','0003_samlconfiguration_is_public','2025-01-10 06:28:47.470137'),(1046,'third_party_auth','0004_auto_20200919_0955','2025-01-10 06:28:48.466131'),(1047,'third_party_auth','0005_auto_20210723_1527','2025-01-10 06:28:49.709576'),(1048,'third_party_auth','0006_auto_20220314_1551','2025-01-10 06:28:52.399564'),(1049,'third_party_auth','0007_samlproviderconfig_was_valid_at','2025-01-10 06:28:52.656776'),(1050,'third_party_auth','0008_auto_20220324_1422','2025-01-10 06:28:53.215430'),(1051,'third_party_auth','0009_historicalusersocialauth','2025-01-10 06:28:53.659553'),(1052,'third_party_auth','0010_delete_historicalusersocialauth','2025-01-10 06:28:53.689558'),(1053,'third_party_auth','0011_applemigrationuseridinfo','2025-01-10 06:28:53.715677'),(1054,'third_party_auth','0012_alter_ltiproviderconfig_site_and_more','2025-01-10 06:28:56.330512'),(1055,'third_party_auth','0013_alter_ltiproviderconfig_site_and_more','2025-01-10 06:28:58.165903'),(1056,'thumbnail','0001_initial','2025-01-10 06:28:58.208316'),(1057,'track','0001_initial','2025-01-10 06:28:58.235671'),(1058,'track','0002_delete_trackinglog','2025-01-10 06:28:58.256063'),(1059,'user_api','0003_userretirementrequest','2025-01-10 06:28:59.114845'),(1060,'user_api','0004_userretirementpartnerreportingstatus','2025-01-10 06:28:59.551221'),(1061,'user_api','0005_bulkuserretirementconfig','2025-01-10 06:28:59.948682'),(1062,'user_authn','0001_data__add_login_service','2025-01-10 06:29:00.377475'),(1063,'user_tasks','0001_initial','2025-01-10 06:29:01.288533'),(1064,'user_tasks','0002_artifact_file_storage','2025-01-10 06:29:01.314562'),(1065,'user_tasks','0003_url_max_length','2025-01-10 06:29:01.349705'),(1066,'user_tasks','0004_url_textfield','2025-01-10 06:29:01.400922'),(1067,'user_tours','0001_initial','2025-01-10 06:29:02.354215'),(1068,'user_tours','0002_auto_20230110_0905','2025-01-10 06:29:02.988082'),(1069,'util','0001_initial','2025-01-10 06:29:03.396743'),(1070,'util','0002_data__default_rate_limit_config','2025-01-10 06:29:03.826450'),(1071,'verify_student','0001_initial','2025-01-10 06:29:10.762482'),(1072,'verify_student','0002_auto_20151124_1024','2025-01-10 06:29:11.046054'),(1073,'verify_student','0003_auto_20151113_1443','2025-01-10 06:29:11.300001'),(1074,'verify_student','0004_delete_historical_records','2025-01-10 06:29:11.733261'),(1075,'verify_student','0005_remove_deprecated_models','2025-01-10 06:29:15.413192'),(1076,'verify_student','0006_ssoverification','2025-01-10 06:29:15.832177'),(1077,'verify_student','0007_idverificationaggregate','2025-01-10 06:29:16.768656'),(1078,'verify_student','0008_populate_idverificationaggregate','2025-01-10 06:29:17.173977'),(1079,'verify_student','0009_remove_id_verification_aggregate','2025-01-10 06:29:18.008486'),(1080,'verify_student','0010_manualverification','2025-01-10 06:29:18.437296'),(1081,'verify_student','0011_add_fields_to_sspv','2025-01-10 06:29:21.090557'),(1082,'verify_student','0012_sspverificationretryconfig','2025-01-10 06:29:22.060779'),(1083,'verify_student','0013_add_expiration_date_field','2025-01-10 06:29:22.851426'),(1084,'verify_student','0014_remove_softwaresecurephotoverification_expiry_date','2025-01-10 06:29:23.125653'),(1085,'video_config','0001_initial','2025-01-10 06:29:23.903057'),(1086,'video_config','0002_coursevideotranscriptenabledflag_videotranscriptenabledflag','2025-01-10 06:29:25.188476'),(1087,'video_config','0003_transcriptmigrationsetting','2025-01-10 06:29:25.615254'),(1088,'video_config','0004_transcriptmigrationsetting_command_run','2025-01-10 06:29:25.879063'),(1089,'video_config','0005_auto_20180719_0752','2025-01-10 06:29:26.159423'),(1090,'video_config','0006_videothumbnailetting_updatedcoursevideos','2025-01-10 06:29:26.598191'),(1091,'video_config','0007_videothumbnailsetting_offset','2025-01-10 06:29:26.870624'),(1092,'video_config','0008_courseyoutubeblockedflag','2025-01-10 06:29:27.782488'),(1093,'video_pipeline','0001_initial','2025-01-10 06:29:28.223453'),(1094,'video_pipeline','0002_auto_20171114_0704','2025-01-10 06:29:28.711808'),(1095,'video_pipeline','0003_coursevideouploadsenabledbydefault_videouploadsenabledbydefault','2025-01-10 06:29:29.491847'),(1096,'video_pipeline','0004_vempipelineintegration','2025-01-10 06:29:29.913838'),(1097,'video_pipeline','0005_add_vem_course_percentage','2025-01-10 06:29:30.852044'),(1098,'video_pipeline','0006_remove_vempipelineintegration_vem_enabled_courses_percentage','2025-01-10 06:29:31.117837'),(1099,'video_pipeline','0007_delete_videopipelineintegration','2025-01-10 06:29:31.145874'),(1100,'waffle','0002_auto_20161201_0958','2025-01-10 06:29:31.171075'),(1101,'waffle','0003_update_strings_for_i18n','2025-01-10 06:29:38.587886'),(1102,'waffle','0004_update_everyone_nullbooleanfield','2025-01-10 06:29:39.370737'),(1103,'waffle_utils','0001_initial','2025-01-10 06:29:39.810344'),(1104,'waffle_utils','0002_waffleflagcourseoverridemodel_note','2025-01-10 06:29:40.095404'),(1105,'waffle_utils','0003_add_org_level_waffle_override','2025-01-10 06:29:40.797353'),(1106,'wiki','0001_initial','2025-01-10 06:29:55.531728'),(1107,'wiki','0002_remove_article_subscription','2025-01-10 06:29:55.557660'),(1108,'wiki','0003_ip_address_conv','2025-01-10 06:29:56.512788'),(1109,'wiki','0004_increase_slug_size','2025-01-10 06:29:56.649514'),(1110,'wiki','0005_remove_attachments_and_images','2025-01-10 06:30:01.636122'),(1111,'wiki','0006_auto_20200110_1003','2025-01-10 06:30:02.075117'),(1112,'wiki','0007_alter_articleforobject_content_type','2025-01-10 06:30:02.473031'),(1113,'workflow','0001_initial','2025-01-10 06:30:02.646320'),(1114,'workflow','0002_remove_django_extensions','2025-01-10 06:30:02.673162'),(1115,'workflow','0003_TeamWorkflows','2025-01-10 06:30:02.723806'),(1116,'workflow','0004_assessmentworkflowstep_skipped','2025-01-10 06:30:02.761585'),(1117,'workflow','0005_alter_assessmentworkflow_status','2025-01-10 06:30:02.790313'),(1118,'xapi','0001_initial','2025-01-10 06:30:03.740504'),(1119,'xapi','0002_auto_20180726_0142','2025-01-10 06:30:03.944835'),(1120,'xapi','0003_auto_20190807_1006','2025-01-10 06:30:04.640153'),(1121,'xapi','0004_auto_20190830_0710','2025-01-10 06:30:04.904714'),(1122,'xapi','0005_auto_20220324_1550','2025-01-10 06:30:07.467732'),(1123,'xapi','0006_auto_20220325_1757','2025-01-10 06:30:07.992687'),(1124,'xapi','0007_auto_20220405_2311','2025-01-10 06:30:08.634820'),(1125,'xapi','0008_xapilearnerdatatransmissionaudit_friendly_status_message','2025-01-10 06:30:09.379939'),(1126,'xapi','0009_xapilearnerdatatransmissionaudit_api_record','2025-01-10 06:30:09.789020'),(1127,'xapi','0010_auto_20221021_0159','2025-01-10 06:30:10.932958'),(1128,'xapi','0011_alter_xapilearnerdatatransmissionaudit_index_together','2025-01-10 06:30:11.249229'),(1129,'xblock_django','0001_initial','2025-01-10 06:30:11.667270'),(1130,'xblock_django','0002_auto_20160204_0809','2025-01-10 06:30:12.108633'),(1131,'xblock_django','0003_add_new_config_models','2025-01-10 06:30:14.344620'),(1132,'xblock_django','0004_delete_xblock_disable_config','2025-01-10 06:30:14.773183'),(1133,'social_django','0002_add_related_name','2025-01-10 06:30:14.798337'),(1134,'social_django','0005_auto_20160727_2333','2025-01-10 06:30:14.804247'),(1135,'social_django','0003_alter_email_max_length','2025-01-10 06:30:14.809773'),(1136,'social_django','0001_initial','2025-01-10 06:30:14.815761'),(1137,'social_django','0004_auto_20160423_0400','2025-01-10 06:30:14.821502'),(1138,'submissions','0001_squashed_0005_CreateTeamModel','2025-01-10 06:30:14.826878'),(1139,'oel_tagging','0001_squashed','2025-01-10 06:30:14.832574'),(1140,'content_tagging','0001_squashed','2025-01-10 06:30:14.837868'),(1141,'organizations','0001_squashed_0007_historicalorganization','2025-01-10 06:30:14.843434'),(1142,'sap_success_factors','0004_auto_20220324_1550_squashed_0006_auto_20220330_1157','2025-01-10 06:30:14.848720'),(1143,'sap_success_factors','0001_squashed_0022_auto_20200206_1046_squashed_0011_alter_sapsuccessfactorslearnerdatatransmissionaudit_enterprise_course_enrollment_id','2025-01-10 06:30:14.854266'),(1144,'blackboard','0001_initial_squashed_0014_alter_blackboardlearnerassessmentdatatransmissionaudit_enterprise_course_enrollment_id','2025-01-10 06:30:14.860436'),(1145,'content_staging','0001_initial','2025-01-10 06:31:11.210662'),(1146,'content_staging','0002_stagedcontentfile','2025-01-10 06:31:11.560611'),(1147,'content_staging','0003_olx_unicode','2025-01-10 06:31:12.212977'),(1148,'content_staging','0004_stagedcontent_tags','2025-01-10 06:31:12.411723'),(1149,'contentstore','0001_initial','2025-01-10 06:31:13.138148'),(1150,'contentstore','0002_add_assets_page_flag','2025-01-10 06:31:14.179423'),(1151,'contentstore','0003_remove_assets_page_flag','2025-01-10 06:31:15.618104'),(1152,'contentstore','0004_remove_push_notification_configmodel_table','2025-01-10 06:31:17.498379'),(1153,'contentstore','0005_add_enable_checklists_quality_waffle_flag','2025-01-10 06:31:17.878281'),(1154,'contentstore','0006_courseoutlineregenerate','2025-01-10 06:31:17.894252'),(1155,'contentstore','0007_backfillcoursetabsconfig','2025-01-10 06:31:18.562432'),(1156,'contentstore','0008_cleanstalecertificateavailabilitydatesconfig','2025-01-10 06:31:18.937959'),(1157,'course_creators','0001_initial','2025-01-10 06:31:19.293038'),(1158,'course_creators','0002_add_org_support_for_course_creators','2025-01-10 06:31:19.876368'),(1159,'search','0001_initial','2025-01-10 06:31:19.901102'),(1160,'tagging','0001_initial','2025-01-10 06:31:19.978240'),(1161,'tagging','0002_auto_20170116_1541','2025-01-10 06:31:20.009347'),(1162,'xblock_config','0001_initial','2025-01-10 06:31:20.705718'),(1163,'xblock_config','0002_courseeditltifieldsenabledflag','2025-01-10 06:31:20.711585'),(1164,'xblock_config','0003_move_course_edit_lti_fields_enabled_flag_model_to_lti_consumer','2025-01-10 06:31:20.717546'),(1165,'xblock_config','0001_squashed_0003_move_course_edit_lti_fields_enabled_flag_model_to_lti_consumer','2025-01-10 06:31:20.743124');
+/*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_redirect`
+--
+
+DROP TABLE IF EXISTS `django_redirect`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_redirect` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `site_id` int NOT NULL,
+  `old_path` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `new_path` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_redirect_site_id_old_path_ac5dd16b_uniq` (`site_id`,`old_path`),
+  KEY `django_redirect_old_path_c6cc94d3` (`old_path`),
+  CONSTRAINT `django_redirect_site_id_c3e37341_fk_django_site_id` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_redirect`
+--
+
+LOCK TABLES `django_redirect` WRITE;
+/*!40000 ALTER TABLE `django_redirect` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_redirect` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_session`
+--
+
+DROP TABLE IF EXISTS `django_session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `session_data` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `expire_date` datetime(6) NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_expire_date_a5c62663` (`expire_date`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_session`
+--
+
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `django_site`
+--
+
+DROP TABLE IF EXISTS `django_site`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `django_site` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `domain` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `django_site_domain_a2e37b91_uniq` (`domain`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `django_site`
+--
+
+LOCK TABLES `django_site` WRITE;
+/*!40000 ALTER TABLE `django_site` DISABLE KEYS */;
+INSERT INTO `django_site` VALUES (2,'example.com','example.com'),(3,'trainficient.aipower.vn',''),(4,'trainficient.aipower.vn:8000',''),(5,'studio.trainficient.aipower.vn',''),(6,'studio.trainficient.aipower.vn:8001',''),(7,'preview.trainficient.aipower.vn',''),(8,'preview.trainficient.aipower.vn:8000',''),(9,'apps.trainficient.aipower.vn','apps.trainficient.aipower.vn'),(10,'apps.trainficient.aipower.vn:2000','apps.trainficient.aipower.vn:2000');
+/*!40000 ALTER TABLE `django_site` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edx_name_affirmation_historicalverifiedname`
+--
+
+DROP TABLE IF EXISTS `edx_name_affirmation_historicalverifiedname`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edx_name_affirmation_historicalverifiedname` (
+  `id` int NOT NULL,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `verified_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `verification_attempt_id` int unsigned DEFAULT NULL,
+  `proctored_exam_attempt_id` int unsigned DEFAULT NULL,
+  `status` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_id` int NOT NULL AUTO_INCREMENT,
+  `history_date` datetime(6) NOT NULL,
+  `history_change_reason` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `history_type` varchar(1) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `history_user_id` int DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`history_id`),
+  KEY `edx_name_affirmation_history_user_id_00f2a1d8_fk_auth_user` (`history_user_id`),
+  KEY `edx_name_affirmation_historicalverifiedname_id_18379bb4` (`id`),
+  KEY `edx_name_affirmation_histor_verified_name_9a18834a` (`verified_name`),
+  KEY `edx_name_affirmation_historicalverifiedname_user_id_b0ad4bb5` (`user_id`),
+  CONSTRAINT `edx_name_affirmation_history_user_id_00f2a1d8_fk_auth_user` FOREIGN KEY (`history_user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `edx_name_affirmation_historicalverifiedname_chk_1` CHECK ((`verification_attempt_id` >= 0)),
+  CONSTRAINT `edx_name_affirmation_historicalverifiedname_chk_2` CHECK ((`proctored_exam_attempt_id` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edx_name_affirmation_historicalverifiedname`
+--
+
+LOCK TABLES `edx_name_affirmation_historicalverifiedname` WRITE;
+/*!40000 ALTER TABLE `edx_name_affirmation_historicalverifiedname` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edx_name_affirmation_historicalverifiedname` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edx_when_contentdate`
+--
+
+DROP TABLE IF EXISTS `edx_when_contentdate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edx_when_contentdate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `policy_id` int NOT NULL,
+  `active` tinyint(1) NOT NULL,
+  `field` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `block_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `edx_when_contentdate_policy_id_location_field_a26790ec_uniq` (`policy_id`,`location`,`field`),
+  KEY `edx_when_contentdate_course_id_e6c39fdc` (`course_id`),
+  KEY `edx_when_contentdate_location_485206ea` (`location`),
+  KEY `edx_when_contentdate_policy_id_af2bcaf4` (`policy_id`),
+  KEY `edx_when_course_block_type_idx` (`course_id`,`block_type`),
+  CONSTRAINT `edx_when_contentdate_policy_id_af2bcaf4_fk_edx_when_` FOREIGN KEY (`policy_id`) REFERENCES `edx_when_datepolicy` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edx_when_contentdate`
+--
+
+LOCK TABLES `edx_when_contentdate` WRITE;
+/*!40000 ALTER TABLE `edx_when_contentdate` DISABLE KEYS */;
+INSERT INTO `edx_when_contentdate` VALUES (1,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@course+block@course',2,1,'start','course'),(2,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@1fd825f0bc7649268aa9ac9091324135',2,1,'start','sequential'),(3,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@7cd4438948f5410a913c2fb3b9905480',3,1,'start','sequential'),(4,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@b6fe692170ed44cbb28589ff1f88193a',2,1,'start','sequential'),(5,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@ac3923d97eb940829c84c4fb76120091',3,1,'start','sequential'),(6,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@5e0ac57003df4627a2365b9ae8a68ed7',2,1,'start','sequential'),(7,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@b5a34e6d154f4418b6d91f1ac95b960d',3,1,'start','sequential'),(8,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@3d960f9ba4f4409e8f053b297c3f3f1a',2,1,'start','sequential'),(9,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@43523cd4914e493ba5527370ab71c7c2',3,1,'start','sequential'),(10,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@9207d45a4e2f4fcbba40da164331ad49',2,1,'start','sequential'),(11,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@34833c7660f7483595c596df16379fd9',3,1,'start','sequential'),(12,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@72d4c19f22cc4780ad54326a4364ed2d',2,1,'start','sequential'),(13,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@51e633ea0bf146af9c17e419be0018e9',3,1,'start','sequential'),(14,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@77aaa8b898e242c4946edf6733362d14',2,1,'start','sequential'),(15,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@a66fada9856b4732bf40894e81b3892a',3,1,'start','sequential'),(16,'course-v1:Trainficient+TF_RM_001+2025_T1','block-v1:Trainficient+TF_RM_001+2025_T1+type@sequential+block@e438a33fc13540d8935c84e8e10583f8',2,1,'start','sequential'),(17,'course-v1:Trainficient+TF_ABAC_004+2025_T2','block-v1:Trainficient+TF_ABAC_004+2025_T2+type@course+block@course',4,1,'start','course'),(18,'course-v1:Trainficient+TF_CF_001+2025_T1','block-v1:Trainficient+TF_CF_001+2025_T1+type@course+block@course',5,1,'start','course'),(19,'course-v1:Trainficient+TF_COI_005+2025_T2','block-v1:Trainficient+TF_COI_005+2025_T2+type@course+block@course',4,1,'start','course'),(20,'course-v1:Trainficient+TF_COMP_003+2025_T2','block-v1:Trainficient+TF_COMP_003+2025_T2+type@course+block@course',4,1,'start','course'),(21,'course-v1:Trainficient+TF_ESG_006+2025_T2','block-v1:Trainficient+TF_ESG_006+2025_T2+type@course+block@course',4,1,'start','course'),(22,'course-v1:Trainficient+TF_PDPD_002+2025_T1','block-v1:Trainficient+TF_PDPD_002+2025_T1+type@course+block@course',1,1,'start','course');
+/*!40000 ALTER TABLE `edx_when_contentdate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edx_when_datepolicy`
+--
+
+DROP TABLE IF EXISTS `edx_when_datepolicy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edx_when_datepolicy` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `abs_date` datetime(6) DEFAULT NULL,
+  `rel_date` bigint DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `edx_when_datepolicy_abs_date_1a510cd3` (`abs_date`),
+  KEY `edx_when_datepolicy_rel_date_836d6051` (`rel_date`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edx_when_datepolicy`
+--
+
+LOCK TABLES `edx_when_datepolicy` WRITE;
+/*!40000 ALTER TABLE `edx_when_datepolicy` DISABLE KEYS */;
+INSERT INTO `edx_when_datepolicy` VALUES (1,'2025-01-10 07:53:41.382486','2025-01-10 07:53:41.382486','2030-01-01 00:00:00.000000',NULL),(2,'2025-01-10 07:55:21.334832','2025-01-10 07:55:21.334832','2024-12-20 00:00:00.000000',NULL),(3,'2025-01-10 07:55:21.343021','2025-01-10 07:55:21.343021','2024-01-01 00:00:00.000000',NULL),(4,'2025-01-14 09:54:55.178993','2025-01-14 09:54:55.178993','2025-02-01 00:00:00.000000',NULL),(5,'2025-01-14 09:56:16.062540','2025-01-14 09:56:16.062540','2025-01-01 00:00:00.000000',NULL);
+/*!40000 ALTER TABLE `edx_when_datepolicy` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edx_when_userdate`
+--
+
+DROP TABLE IF EXISTS `edx_when_userdate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edx_when_userdate` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `abs_date` datetime(6) DEFAULT NULL,
+  `rel_date` bigint DEFAULT NULL,
+  `reason` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `actor_id` int DEFAULT NULL,
+  `user_id` int NOT NULL,
+  `content_date_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `edx_when_userdate_actor_id_cbef1cdc_fk_auth_user_id` (`actor_id`),
+  KEY `edx_when_userdate_user_id_46e8cc36_fk_auth_user_id` (`user_id`),
+  KEY `edx_when_userdate_content_date_id_35c5e2e2_fk_edx_when_` (`content_date_id`),
+  KEY `edx_when_userdate_rel_date_954ee5b4` (`rel_date`),
+  CONSTRAINT `edx_when_userdate_actor_id_cbef1cdc_fk_auth_user_id` FOREIGN KEY (`actor_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `edx_when_userdate_content_date_id_35c5e2e2_fk_edx_when_` FOREIGN KEY (`content_date_id`) REFERENCES `edx_when_contentdate` (`id`),
+  CONSTRAINT `edx_when_userdate_user_id_46e8cc36_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edx_when_userdate`
+--
+
+LOCK TABLES `edx_when_userdate` WRITE;
+/*!40000 ALTER TABLE `edx_when_userdate` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edx_when_userdate` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_coursevideo`
+--
+
+DROP TABLE IF EXISTS `edxval_coursevideo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_coursevideo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `course_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_id` int NOT NULL,
+  `is_hidden` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `edxval_coursevideo_course_id_video_id_ebd82f35_uniq` (`course_id`,`video_id`),
+  KEY `edxval_coursevideo_video_id_85dfcf76_fk_edxval_video_id` (`video_id`),
+  CONSTRAINT `edxval_coursevideo_video_id_85dfcf76_fk_edxval_video_id` FOREIGN KEY (`video_id`) REFERENCES `edxval_video` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_coursevideo`
+--
+
+LOCK TABLES `edxval_coursevideo` WRITE;
+/*!40000 ALTER TABLE `edxval_coursevideo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_coursevideo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_encodedvideo`
+--
+
+DROP TABLE IF EXISTS `edxval_encodedvideo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_encodedvideo` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `created` datetime(6) NOT NULL,
+  `modified` datetime(6) NOT NULL,
+  `url` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `file_size` int unsigned NOT NULL,
+  `bitrate` int unsigned NOT NULL,
+  `profile_id` int NOT NULL,
+  `video_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `edxval_encodedvideo_profile_id_d9f3e086_fk_edxval_profile_id` (`profile_id`),
+  KEY `edxval_encodedvideo_video_id_d8857acb_fk_edxval_video_id` (`video_id`),
+  CONSTRAINT `edxval_encodedvideo_profile_id_d9f3e086_fk_edxval_profile_id` FOREIGN KEY (`profile_id`) REFERENCES `edxval_profile` (`id`),
+  CONSTRAINT `edxval_encodedvideo_video_id_d8857acb_fk_edxval_video_id` FOREIGN KEY (`video_id`) REFERENCES `edxval_video` (`id`),
+  CONSTRAINT `edxval_encodedvideo_chk_1` CHECK ((`file_size` >= 0)),
+  CONSTRAINT `edxval_encodedvideo_chk_2` CHECK ((`bitrate` >= 0))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_encodedvideo`
+--
+
+LOCK TABLES `edxval_encodedvideo` WRITE;
+/*!40000 ALTER TABLE `edxval_encodedvideo` DISABLE KEYS */;
+/*!40000 ALTER TABLE `edxval_encodedvideo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_profile`
+--
+
+DROP TABLE IF EXISTS `edxval_profile`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `edxval_profile` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `profile_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `profile_name` (`profile_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `edxval_profile`
+--
+
+LOCK TABLES `edxval_profile` WRITE;
+/*!40000 ALTER TABLE `edxval_profile` DISABLE KEYS */;
+INSERT INTO `edxval_profile` VALUES (1,'audio_mp3'),(3,'desktop_mp4'),(4,'desktop_webm'),(2,'hls'),(5,'mobile_high'),(6,'mobile_low'),(7,'youtube');
+/*!40000 ALTER TABLE `edxval_profile` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `edxval_thirdpartytranscriptcredentialsstate`
+--
+
+DROP TABLE IF EXISTS `edxval_thirdpartytranscriptcredentialsstate`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE
