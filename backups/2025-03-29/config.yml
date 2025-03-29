@@ -79,6 +79,7 @@ MOUNTS:
 - /home/ubuntu/frontend-app-profile
 - /home/ubuntu/frontend-app-ora
 - /home/ubuntu/frontend-app-ora-grading
+- /home/ubuntu/frontend-app-gradebook
 MYSQL_ROOT_PASSWORD: RksP5YRH
 OPENEDX_EXTRA_PIP_REQUIREMENTS:
 - git+https://github.com/ZiecThanh09/xblock-in-video-quiz@master
