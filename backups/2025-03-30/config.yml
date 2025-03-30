@@ -1,0 +1,94 @@
+CADDY_HTTP_PORT: 81
+CMS_HOST: studio.trainficient.aipower.vn
+CMS_OAUTH2_SECRET: LZchD43ykqlVF7V1m8gYgjxf
+CODEJAIL_SECRET_KEY: 3JEcssfU2bJdvmb1xjzfc4Mf
+CONTACT_EMAIL: phucnhan0406@gmail.com
+ENABLE_COURSE_BLOCKS_API: true
+ENABLE_GRADEBOOK: true
+ENABLE_GRADE_API: true
+ENABLE_HTTPS: true
+ENABLE_PROBLEM_RESPONSE_API: true
+ENABLE_WEB_PROXY: false
+ID: EZ5kV9DQ2fhLCxYvLABlxzme
+JWT_RSA_PRIVATE_KEY: '-----BEGIN RSA PRIVATE KEY-----
+
+  MIIEogIBAAKCAQEAlzFaoKaY5TnBTWHmqRnGFCfbr5kTul6GB2FYqi8xjnJsmU23
+
+  XBuAkm3uTPqMEs4SId0W2gzmr22HdQmKKvifr1xktvEzEyBXHEeH/7Jjb1stadC7
+
+  L6rGk+Sz8sz7Okwfy7hAVvh/07EBi5Uvx+1SoFwgCefASo/qZnrCvIaiJ3Kw1zaK
+
+  dpI5XPioPNq5aTwfp11FOod2R4OYu5D6MPD+u0uV+z/s6XAWMKixssAqugxBj/o1
+
+  7E6Y1oz//aUWmF3OEsue1mrG0nmOwvSYFb2e5KZK8vcbU5hv15yf37qf//OKRxgm
+
+  FOSI819+1eqURP8M3uDXiWacxaQK4Fbq9n40wwIDAQABAoIBAAo0dxkD1asXMGBw
+
+  PLjqN+/xVsct7mJ0cdh6rhjikZY7S/A3CirJ4m4/xEdm2+CDDz9A5IN4PnPV0UBJ
+
+  kg1fdavI8TVV52whkS+j9l6AZGzGOzT6tT+856Vg2PKI+mYPcE/4UkNsh3g66M9K
+
+  lQyKDLstLK5ueZCu0RP0skM2VSiTXxS0Q3nAxttVnFm1d/+uxxDAE7pY/rY1tfmE
+
+  X3y8Ljr/HiGDwZ/IbyRpOM8qTy00re3roNqyoOBh9024WVYzq5ofSTdJlnXjyDnp
+
+  zsdR6ZulXKD5APvaB7AOX4IlI2e3pkFhrBWMetZ6h8TWgPIugTtU0ApwMf+HZQKD
+
+  pwU1vIUCgYEAt9QxoEbJCnqXqd3d4mQnIF2YNZktPykmGM02/xEeW9AeiD6WQ0QK
+
+  CE0UnZoCf6PFgKH1J/Z482tUC1gVg1y/Wt+owVJApEMA0aO5xwc27y2R/KaOgl/U
+
+  NFOIptDu9ES6WWQ545U5sAkKLCfKKmJQizJAkkG5KtVyuF5iDgmPdzUCgYEA0o0N
+
+  /YtMBuqvfL8f7X6gsAekVdWR09rj3pj/fyeY0tO3psYS1pxlZJ7Gj0kHYN1Hs2G7
+
+  oIh0w084oGb2cMuxU+56B+7HCuRMi9UBiluZ/bllXqDO60FuUXHYNy7gpZOFAXyV
+
+  FOlAoOWf0dz1dKOabgHP6EOVdeO6MGWeT/SdYxcCgYARuuyiadFgKlzQbG7HNCO1
+
+  8nEI0mJT0jMzdy+TwGHuNw+K0oaJrFlPXafcX4tYJkKZWoWbuiEGUVbE1VUV2281
+
+  Y5cSNk23yiKdFa6IbMC2pu2KscHS/00nUts+Q66YbryOfKU8txreSLDre1b7aYod
+
+  MtaZhK9IW1f6QlgwxGlK9QKBgBoHgiFEJUP9o3BCmIndy7O3XiOWYY7VUrJkK8Hm
+
+  fUgjEGM3vYB2mTpVPqrcFmNtN73/aRixhe3XT2LVF8ZeCDAeHUv5wvWfv67RyHz4
+
+  UhNB5jxKmQoQbrj24AoCa5dMo3bJlgydwXWirZ1eOaIPz7ml07QdFs8aNhxhk67C
+
+  yOpFAoGAP+DoK420qJz/O5OdI87C0sbJu9cAevu0Oft0P46YPxN65Gw+vmoWOXQe
+
+  04hbJuj+oSB8oig5i0Aq24QzQKtSMYaVMF2Oyvre4dSHaq3yKuL8SQ2ufEppro0y
+
+  gfhY8cL6xAb4SFItB2WMF0vMnxISD3fWa+0mJ76sn+MuL9Gzlas=
+
+  -----END RSA PRIVATE KEY-----'
+LANGUAGE_CODE: vi
+LMS_HOST: trainficient.aipower.vn
+MEILISEARCH_API_KEY: 93c0c826ac8a865b756f08febf15297dab34ef550b048f0674b838bd5c53b48e
+MEILISEARCH_API_KEY_UID: c8e24fd3-77aa-40e7-992a-7e0d1e6ed73f
+MEILISEARCH_MASTER_KEY: du5CcsdrQ6QBBDQ3GI5arzoJ
+MOUNTS:
+- /home/ubuntu/frontend-app-account
+- /home/ubuntu/frontend-app-course-authoring
+- /home/ubuntu/frontend-app-learner-dashboard
+- /home/ubuntu/edx-platform
+- /home/ubuntu/frontend-app-authn
+- /home/ubuntu/frontend-app-discussions
+- /home/ubuntu/frontend-app-learning
+- /home/ubuntu/frontend-app-profile
+- /home/ubuntu/frontend-app-ora
+- /home/ubuntu/frontend-app-ora-grading
+- /home/ubuntu/frontend-app-gradebook
+MYSQL_ROOT_PASSWORD: RksP5YRH
+OPENEDX_EXTRA_PIP_REQUIREMENTS:
+- git+https://github.com/ZiecThanh09/xblock-in-video-quiz@master
+OPENEDX_MYSQL_PASSWORD: BAklXfPt
+OPENEDX_SECRET_KEY: Jl7r0ERegNzVlFY1X7Qy03YU
+PLATFORM_NAME: Trainficient Dev
+PLUGINS:
+- indigo
+- mfe
+- myplugin
+PLUGIN_INDEXES:
+- https://overhang.io/tutor/main
