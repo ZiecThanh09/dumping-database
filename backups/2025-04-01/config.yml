@@ -89,6 +89,5 @@ PLATFORM_NAME: Trainficient Dev
 PLUGINS:
 - indigo
 - mfe
-- myplugin
 PLUGIN_INDEXES:
 - https://overhang.io/tutor/main
