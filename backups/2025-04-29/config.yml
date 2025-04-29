@@ -132,4 +132,4 @@ PLUGINS:
 - mfe
 PLUGIN_INDEXES:
 - https://overhang.io/tutor/main
-PREVIEW_LMS_HOST: preview.trainficient.aipower.vn,alastor.trainficient.aipower.vn
+PREVIEW_LMS_HOST: preview.trainficient.aipower.vn, alastor.trainficient.aipower.vn
