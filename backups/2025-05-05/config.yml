@@ -1,7 +1,6 @@
 CADDY_HTTP_PORT: 81
 CMS_ENV_EXTRA:
-  OPENEDX_EXTRA_HOSTS:
-  - studio.alastor.trainficient.aipower.vnCMS_HOST: studio.trainficient.aipower.vn
+  ADDITIONAL_ALLOWED_HOSTS: studio.alastor.trainficient.aipower.vn
 CMS_HOST: studio.trainficient.aipower.vn
 CMS_OAUTH2_SECRET: LZchD43ykqlVF7V1m8gYgjxf
 CODEJAIL_SECRET_KEY: 3JEcssfU2bJdvmb1xjzfc4Mf
@@ -103,9 +102,7 @@ JWT_RSA_PRIVATE_KEY: '-----BEGIN RSA PRIVATE KEY-----
   -----END RSA PRIVATE KEY-----'
 LANGUAGE_CODE: vi
 LMS_ENV_EXTRA:
-  OPENEDX_EXTRA_HOSTS:
-  - alastor.trainficient.aipower.vn
-  - studio.alastor.trainficient.aipower.vn
+  ADDITIONAL_ALLOWED_HOSTS: alastor.trainficient.aipower.vn,studio.alastor.trainficient.aipower.vn
 LMS_HOST: trainficient.aipower.vn
 MEILISEARCH_API_KEY: 93c0c826ac8a865b756f08febf15297dab34ef550b048f0674b838bd5c53b48e
 MEILISEARCH_API_KEY_UID: c8e24fd3-77aa-40e7-992a-7e0d1e6ed73f
